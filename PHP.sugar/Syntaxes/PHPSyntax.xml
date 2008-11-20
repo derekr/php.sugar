@@ -790,6 +790,7 @@
 			</ends-with>
 		</zone>
 		
+		<!-- Strings Double Quoted -->
 		<zone name="string.quoted.double.php">
 			<starts-with>
 				<expression>"</expression>
@@ -797,6 +798,21 @@
 			</starts-with>
 			<ends-with>
 				<expression>"</expression>
+				<capture number="0" name="punctuation.definition.string.end.php"/>
+			</ends-with>
+			<subzones name="meta.string-contents.quoted.double.php">
+				<include collection="interpolation"/>
+			</subzones>
+		</zone>
+		
+		<!-- Strings Single Quoted -->
+		<zone name="string.quoted.single.php">
+			<starts-with>
+				<expression>'</expression>
+				<capture number="0" name="punctuation.definition.string.begin.php"/>
+			</starts-with>
+			<ends-with>
+				<expression>'</expression>
 				<capture number="0" name="punctuation.definition.string.end.php"/>
 			</ends-with>
 			<subzones name="meta.string-contents.quoted.double.php">
