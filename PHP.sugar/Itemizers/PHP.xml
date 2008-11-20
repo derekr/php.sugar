@@ -14,8 +14,8 @@
 	<!-- Functions; function funName() { ... } -->
 	<recipe name="meta.function.php">
 		<class>ESBaseItem</class>
-		<start-selector>entity.name.function.php:capture(name) ~ open.function.php</start-selector>
-		<end-selector>close.function.php</end-selector>
+		<start-selector>meta.function.php:has-child(name:capture(name)):capture(itemizer-firstused) + meta.brace.curly.open.php</start-selector>
+		<end-selector>meta.brace.curly.close.php</end-selector>
 		<subrecipes>
 			<include-root-recipes/>
 		</subrecipes>
@@ -26,15 +26,14 @@
 		<class>ESBaseItem</class>
 		<selector>meta.name.variable.php:capture(name)</selector>
 		<subrecipes>
-			<include-root-recipes/>
-		</subrecipes>
-	</recipe>
-	
-	<!-- Arrays; array() -->
-	<recipe name="meta.array.php">
-		<class>ESBaseItem</class>
-		<selector>punctuation.definition.array.begin.php:capture(name)</selector>
-		<subrecipes>
+			<!-- Arrays; array() -->
+			<recipe name="meta.array.php">
+				<class>ESBaseItem</class>
+				<selector>meta.name.variable.php ~ support.array.construct.php</selector>
+				<subrecipes>
+					<include-root-recipes/>
+				</subrecipes>
+			</recipe>
 			<include-root-recipes/>
 		</subrecipes>
 	</recipe>

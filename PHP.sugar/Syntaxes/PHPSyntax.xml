@@ -18,27 +18,43 @@
 			<subzones>
 				<include collection="functions" />
 				<include collection="variables" />
-				<include collection="arrays" />
+				<include collection="meta" />
 			</subzones>
 		</zone>
 	</zones>
 	
 	<library>
+		<!-- Classes -->
+		<collection name="functions">
+			<!-- Class definition; class className { ... } -->
+			<zone name="meta.class.php">
+					<expression>\b(class)\s+([a-zA-Z_$]\w*)</expression>
+					<capture number="2" name="entity.name.function.php" />
+					<capture number="1" name="storage.type.function.php" />
+					<capture number="3" name="punctuation.definition.parameters.begin"/>
+					<capture number="4" name="variable.parameter.function.php"/>
+					<capture number="5" name="punctuation.definition.parameters.end"/>
+				<subzones>
+					<include collection="variables" />
+					<include collection="functions" />
+				</subzones>
+			</zone>
+			<!-- Custom Function Call; funName(); -->
+			<zone name="meta.function-call.php">
+                <expression>[A-Za-z_][A-Za-z_0-9]*(?=\s*\()</expression>
+           </zone>
+		</collection>
+		
 		<!-- Functions -->
 		<collection name="functions">
 			<!-- Function definition; function funName() { ... } -->
 			<zone name="meta.function.php">
-				<starts-with>
-					<expression>\b(function)\s+([a-zA-Z_$]\w*)?\s*\((.*?)\)\s*(\{)</expression>
-					<capture number="1" name="storage.type.function.php" />
+					<expression>\b(function)\s+([a-zA-Z_$]\w*)?\s*(\()(.*?)(\))</expression>
 					<capture number="2" name="entity.name.function.php" />
-					<capture number="3" name="parameters.function.php" />
-					<capture number="4" name="open.function.php" />
-				</starts-with>
-				<ends-with>
-					<expression>(\})</expression>
-					<capture number="1" name="close.function.php" />
-				</ends-with>
+					<capture number="1" name="storage.type.function.php" />
+					<capture number="3" name="punctuation.definition.parameters.begin"/>
+					<capture number="4" name="variable.parameter.function.php"/>
+					<capture number="5" name="punctuation.definition.parameters.end"/>
 				<subzones>
 					<include collection="variables" />
 					<include collection="functions" />
@@ -55,9 +71,10 @@
 			<!-- array(); -->
 			<zone name="meta.array.php">
                 <starts-with>
-                    <expression>(array)\s*(?=\s*\()</expression>
-                    <capture number="1" name="support.function.construct.php"/>
-                    <capture number="2" name="punctuation.definition.array.begin.php"/>
+                    <expression>(array)\s*(?=\s*)(\()(.*?)(\))</expression>
+                    <capture number="1" name="support.array.construct.php"/>
+                    <capture number="3" name="punctuation.definition.array.begin.php"/>
+                    <capture number="4" name="punctuation.definition.array.begin.php"/>
                 </starts-with>
                 <ends-with>
                     <expression>\)</expression>
@@ -74,8 +91,11 @@
 		<collection name="variables">
 			<!-- Variable Name; $variableName -->
 			<zone name="meta.name.variable.php">
-				<expression>\$+[A-Za-z_][A-Za-z_0-9]+</expression>
+				<expression>(?x)(\$+)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</expression>
 			</zone>
+			<subzones>
+				<include collection="arrays" />
+			</subzones>
 		</collection>
 		
 				
@@ -96,6 +116,20 @@
 				</subzones>
 			</zone>
 		</collection>
-
+		
+		<collection name="meta">
+			<!-- Open Curly Brace -->
+			<zone name="meta.brace.curly.open.php">
+	       	<expression>\{</expression>
+	       </zone>
+	       <!-- Close Curly Brace -->
+			<zone name="meta.brace.curly.close.php">
+	       	<expression>\}</expression>
+	       </zone>
+			<zone name="meta.brace.round.js">
+				<expression>\(|\)</expression>
+			</zone>
+		</collection>
+		
 	</library>
 </syntax>
