@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings>
+
+	<language id="net.lveik.default.php">
+		
+		<root-zone>sourcecode.php</root-zone>
+		<name>PHP</name>
+		<detectors>
+			<extension>php</extension>
+			<extension>inc</extension>
+		</detectors>
+		
+	</language>
+	
+</settings>

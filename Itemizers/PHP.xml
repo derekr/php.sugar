@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<itemizer>
+	<!-- PHP Source; <?php ... ?>, <?= =?> -->
+    <recipe name="source.block.php">
+		<class>ESBaseItem</class>
+		<start-selector>begin.php:capture(name)</start-selector>
+		<end-selector>end.php:capture(name)</end-selector>
+		
+		<subrecipes>
+			<include-root-recipes/>
+		</subrecipes>
+	</recipe>
+	
+	<!-- Functions; function funName() { ... } -->
+	<recipe name="meta.function.php">
+		<class>ESBaseItem</class>
+		<start-selector>meta.function.php:has-child(name:capture(name)):capture(itemizer-firstused) + meta.brace.curly.open.php</start-selector>
+		<end-selector>meta.brace.curly.close.php</end-selector>
+		<subrecipes>
+			<include-root-recipes/>
+		</subrecipes>
+	</recipe>
+	
+	<!-- Variables; $variableName -->
+	<recipe name="meta.name.variable.php">
+		<class>ESBaseItem</class>
+		<selector>meta.name.variable.php:capture(name)</selector>
+		<subrecipes>
+			<!-- Arrays; array() -->
+			<recipe name="meta.array.php">
+				<class>ESBaseItem</class>
+				<selector>meta.name.variable.php ~ support.array.construct.php</selector>
+				<subrecipes>
+					<include-root-recipes/>
+				</subrecipes>
+			</recipe>
+			<include-root-recipes/>
+		</subrecipes>
+	</recipe>
+	
+	<recipe name="control.php">
+		<class>ESBaseItem</class>
+		<start-selector>storage.type.control.php:capture(name) ~ open.control.php</start-selector>
+		<end-selector>close.control.php</end-selector>
+		<subrecipes>
+			<recipe name="condition.control.php">
+				<class>ESBaseItem</class>
+				<selector>condition.control.php:capture(name)</selector>
+			</recipe>
+			<include-root-recipes/>
+		</subrecipes>
+	</recipe>
+	
+</itemizer>
