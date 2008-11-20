@@ -6,130 +6,838 @@
 	<zones>
 		<!-- PHP Source Block; <?php ... ?> -->
 		<zone name="source.block.php">
+			<expression>(((&lt;=\?>)&lt;)|&lt;)\?(?i:php|=)?</expression>
+			<capture number="0" name="begin.php" />
+			<capture number="1" name="punctuation.begin.php" />
+		</zone>
+		
+		<!-- Constants; null, true, false... -->
+		<zone name="constant.language.php">
+			<expression>(?i)\b(TRUE|FALSE|NULL|__(FILE|FUNCTION|CLASS|METHOD|LINE)__|ON|OFF|YES|NO|NL|BR|TAB)\b</expression>
+		</zone>
+		
+		<!-- Keywords Controls; if, else, switch, for... -->
+		<zone name="keyword.control.php">
+			<expression>\b(break|c(ase|ontinue)|d(e(clare|fault)|ie|o)|e(lse(if)?|nd(declare|for(each)?|if|switch|while)|xit)|for(each)?|if|return|switch|use|while)\b</expression>
+		</zone>
+		
+		<!-- Global Variables; $_GET... -->
+		<zone name="variable.other.global.php">
+			<expression>(\$)(_(COOKIE|FILES|GET|POST|REQUEST))\b</expression>
+		</zone>
+		
+		<!-- Global Variables Safe; $_SESSION... -->
+		<zone name="variable.other.global.safer.php">
+		   <expression>((\$)(GLOBALS|_(ENV|SERVER|SESSION)))|\b(global)\b</expression>
+	   </zone>
+		
+		<!-- Variable Name; $variableName -->
+		<zone name="meta.name.variable.php">
+			<expression>(?x)(\$+)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</expression>
+		</zone>
+		
+		<!-- Class Definition; class className { ... } -->
+		<!-- 
+			TODO: Space prior to "class" is captured. Needs to be fixed.
+		 -->
+		<zone name="meta.class.php">
+			<expression>(?i)(abstract|final)?\s*(class)\s+([a-z0-9_]+)\s*</expression>
+			<capture number="1" name="storage.modifier.abstract.php" />
+		   <capture number="2" name="storage.type.class.php" />
+		   <capture number="3" name="entity.name.type.class.php" />
+		   <subzones>
+			<zone>
+				<expression>((extends))\s+([a-zA-Z0-9_]+)\s*</expression>
+				<capture number="1" name="storage.modifier.extends.php"/>
+				<capture number="2" name="entity.other.inherited-class.php"/>
+				</zone>
+			 <zone>
+				<starts-with>
+					<expression>((implements))\s+([a-zA-Z0-9_]+)\s*</expression>
+					<capture number="1" name="storage.modifier.implements.php"/>
+					<capture number="2" name="support.class.implements.php"/>
+				</starts-with>
+				<ends-with>
+					<expression>(?=\s*\b((extends)))|$</expression>
+				</ends-with>
+					<subzones>
+						<zone>
+							<expression>,\s*([a-zA-Z0-9_]+)\s*</expression>
+							<capture number="1" name="support.class.implements.php"/>
+						</zone>
+					 </subzones>
+				 </zone>
+		   </subzones>
+		</zone>
+		
+		<!-- Object Instantiation; $obj = new className(); -->
+		<zone name="meta.instantiation.php">
+			<expression>(?i)\b(new)\s+(?:(\$[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)|(\w+))|(\w+)(?=::)</expression>
+			<capture number="1" name="keyword.other.new.php"/>
+			<capture number="2" name="variable.other.php"/>
+			<capture number="3" name="support.class.php"/>
+			<capture number="4" name="support.class.php"/>
+		</zone>
+			
+		<!-- Array; array(); -->
+		<zone name="meta.array.php">
 			<starts-with>
-				<expression>(((&lt;=\?>)&lt;)|&lt;)\?(?i:php|=)?</expression>
-				<capture number="0" name="begin.php" />
-				<capture number="1" name="punctuation.begin.php" />
+				<expression>(array)\s*(?=\s*)(\()</expression>
+				<capture number="1" name="support.array.construct.php"/>
+				<capture number="3" name="punctuation.definition.array.begin.php"/>
+				<capture number="4" name="punctuation.definition.array.begin.php"/>
 			</starts-with>
 			<ends-with>
-				<expression>(\?)</expression>
-				<capture number="0" name="end.php" />
+				<expression>\)</expression>
+				<capture number="0" name="punctuation.definition.array.end.php"/>
 			</ends-with>
 			<subzones>
-				<include collection="functions" />
-				<include collection="variables" />
-				<include collection="meta" />
+				<include collection="string-single-quoted" />
+				<include syntax="self" />
 			</subzones>
+		</zone>
+			
+		<!-- Bult In PHP Functions -->
+		<!-- Array Functions -->
+		<zone name="support.function.array.php">
+			<expression>(?i)\b(s(huffle|ort)|n(ext|at(sort|casesort))|c(o(unt|mpact)|urrent)|in_array|u(sort|ksort|asort)|prev|e(nd|xtract)|k(sort|ey|rsort)|a(sort|r(sort|ray_(s(hift|um|plice|earch|lice)|c(h(unk|ange_key_case)|o(unt_values|mbine))|intersect(_(u(key|assoc)|key|assoc))?|diff(_(u(key|assoc)|key|assoc))?|u(n(shift|ique)|intersect(_(uassoc|assoc))?|diff(_(uassoc|assoc))?)|p(op|ush|ad|roduct)|values|key(s|_exists)|f(il(ter|l(_keys)?)|lip)|walk(_recursive)?|r(e(duce|verse)|and)|m(ultisort|erge(_recursive)?|ap))))|r(sort|eset|ange)|m(in|ax))(?=\s*\()</expression>
+		</zone>
+		<!-- Assert Functions -->
+		<zone name="support.function.assert.php">
+			<expression>(?i)\bassert(_options)?(?=\s*\()</expression>
+		</zone>
+		<!-- Attr Functions -->
+		<zone name="support.function.attr.php">
+			<expression>(?i)\bdom_attr_is_id(?=\s*\()</expression>
+		</zone>
+		<!-- Base64 Functions -->
+		<zone name="support.function.base64.php">
+			<expression>(?i)\bbase64_(decode|encode)(?=\s*\()</expression>
+		</zone>
+		<!-- Basic Functions -->
+		<zone name="support.function.basic_functions.php">
+			<expression>(?i)\b(highlight_(string|file)|s(ys_getloadavg|et_(include_path|magic_quotes_runtime)|leep)|c(on(stant|nection_(status|aborted))|all_user_(func(_array)?|method(_array)?))|time_(sleep_until|nanosleep)|i(s_uploaded_file|n(i_(set|restore|get(_all)?)|et_(ntop|pton))|p2long|gnore_user_abort|mport_request_variables)|u(sleep|nregister_tick_function)|error_(log|get_last)|p(hp_strip_whitespace|utenv|arse_ini_file|rint_r)|flush|long2ip|re(store_include_path|gister_(shutdown_function|tick_function))|get(servby(name|port)|opt|_(c(urrent_user|fg_var)|include_path|magic_quotes_(gpc|runtime))|protobyn(umber|ame)|env)|move_uploaded_file)(?=\s*\()</expression>
+		</zone>
+		<!-- BCmath Functions -->
+		<zone name="support.function.bcmath.php">
+			<expression>(?i)\bbc(s(cale|ub|qrt)|comp|div|pow(mod)?|add|m(od|ul))(?=\s*\()</expression>
+		</zone>
+		<!-- Birdsetp Functions -->
+		<zone name="support.function.birdstep.php">
+			<expression>(?i)\bbirdstep_(c(o(nnect|mmit)|lose)|off_autocommit|exec|f(ieldn(um|ame)|etch|reeresult)|autocommit|r(ollback|esult))(?=\s*\()</expression>
+		</zone>
+		<!-- Browscap Functions -->
+		<zone name="support.function.browscap.php">
+			<expression>(?i)\bget_browser(?=\s*\()</expression>
+		</zone>
+		<!-- Builtin Functions -->
+		<zone name="support.function.builtin_functions.php">
+			<expression>(?i)\b(s(tr(nc(asecmp|mp)|c(asecmp|mp)|len)|et_e(rror_handler|xception_handler))|c(lass_exists|reate_function)|trigger_error|i(s_(subclass_of|a)|nterface_exists)|de(fine(d)?|bug_(print_backtrace|backtrace))|zend_version|property_exists|e(ach|rror_reporting|xtension_loaded)|func(tion_exists|_(num_args|get_arg(s)?))|leak|restore_e(rror_handler|xception_handler)|get_(class(_(vars|methods))?|included_files|de(clared_(classes|interfaces)|fined_(constants|vars|functions))|object_vars|extension_funcs|parent_class|loaded_extensions|resource_type)|method_exists)(?=\s*\()</expression>
+		</zone>
+		<!-- bz2 Functions -->
+		<zone name="support.function.bz2.php">
+			<expression>(?i)\bbz(compress|decompress|open|err(str|no|or)|read)(?=\s*\()</expression>
+		</zone>
+		<!-- cal_unix Functions -->
+		<zone name="support.function.cal_unix.php">
+			<expression>(?i)\b(jdtounix|unixtojd)(?=\s*\()</expression>
+		</zone>
+		<!-- Calendar Functions -->
+		<zone name="support.function.calendar.php">
+			<expression>(?i)\b(cal_(to_jd|info|days_in_month|from_jd)|j(d(to(j(ulian|ewish)|french|gregorian)|dayofweek|monthname)|uliantojd|ewishtojd)|frenchtojd|gregoriantojd)(?=\s*\()</expression>
+		</zone>
+		<!-- Characterdata Functions -->
+		<zone name="support.function.characterdata.php">
+			<expression>(?i)\bdom_characterdata_(substring_data|insert_data|delete_data|append_data|replace_data)(?=\s*\()</expression>
+		</zone>
+		<!-- com_com Functions -->
+		<zone name="support.function.com_com.php">
+			<expression>(?i)\bcom_(create_guid|print_typeinfo|event_sink|load_typelib|get_active_object|message_pump)(?=\s*\()</expression>
+		</zone>
+		<!-- com_variant Functions -->
+		<zone name="support.function.com_variant.php">
+			<expression>(?i)\bvariant_(s(ub|et(_type)?)|n(ot|eg)|c(a(st|t)|mp)|i(nt|div|mp)|or|d(iv|ate_(to_timestamp|from_timestamp))|pow|eqv|fix|a(nd|dd|bs)|get_type|round|xor|m(od|ul))(?=\s*\()</expression>
+		</zone>
+		<!-- crc32 Functions -->
+		<zone name="support.function.crc32.php">
+			<expression>(?i)\bcrc32(?=\s*\()</expression>
+		</zone>
+		<!-- Crypt Functions -->
+		<zone name="support.function.crypt.php">
+			<expression>(?i)\bcrypt(?=\s*\()</expression>
+		</zone>
+		<!-- Ctype Functions -->
+		<zone name="support.function.ctype.php">
+			<expression>(?i)\bctype_(space|cntrl|digit|upper|p(unct|rint)|lower|al(num|pha)|graph|xdigit)(?=\s*\()</expression>
+		</zone>
+		<!-- cry_convert Functions -->
+		<zone name="support.function.cyr_convert.php">
+			<expression>(?i)\bconvert_cyr_string(?=\s*\()</expression>
+		</zone>
+		<!-- Datetime Functions -->
+		<zone name="support.function.datetime.php">
+			<expression>(?i)\bstrptime(?=\s*\()</expression>
+		</zone>
+		<!-- Dba Functions -->
+		<zone name="support.function.dba.php">
+			<expression>(?i)\bdba_(handlers|sync|nextkey|close|insert|delete|op(timize|en)|exists|popen|key_split|f(irstkey|etch)|list|replace)(?=\s*\()</expression>
+		</zone>
+		<!-- Dbase Functions -->
+		<zone name="support.function.dbase.php">
+			<expression>(?i)\bdbase_(num(fields|records)|c(lose|reate)|delete_record|open|pack|add_record|get_(header_info|record(_with_names)?)|replace_record)(?=\s*\()</expression>
+		</zone>
+		<!-- Dir Functions -->
+		<zone name="support.function.dir.php">
+			<expression>(?i)\b(scandir|c(h(dir|root)|losedir)|dir|opendir|re(addir|winddir)|g(etcwd|lob))(?=\s*\()</expression>
+		</zone>
+		<!-- Dl Functions -->
+		<zone name="support.function.dl.php">
+			<expression>(?i)\bdl(?=\s*\()</expression>
+		</zone>
+		<!-- Dns Functions -->
+		<zone name="support.function.dns.php">
+			<expression>(?i)\b(dns_(check_record|get_(record|mx))|gethostby(name(l)?|addr))(?=\s*\()</expression>
+		</zone>
+		<!-- Document Functions -->
+		<zone name="support.function.document.php">
+			<expression>(?i)\bdom_document_(s(chema_validate(_file)?|ave(_html(_file)?|xml)?)|normalize_document|create_(c(datasection|omment)|text_node|document_fragment|processing_instruction|e(ntity_reference|lement(_ns)?)|attribute(_ns)?)|import_node|validate|load(_html(_file)?|xml)?|adopt_node|re(name_node|laxNG_validate_(file|xml))|get_element(s_by_tag_name(_ns)?|_by_id)|xinclude)(?=\s*\()</expression>
+		</zone>
+		<!-- Domconfiguration Functions -->
+		<zone name="support.function.domconfiguration.php">
+			<expression>(?i)\bdom_domconfiguration_(set_parameter|can_set_parameter|get_parameter)(?=\s*\()</expression>
+		</zone>
+		<!-- Domerrorhandler Functions -->
+		<zone name="support.function.domerrorhandler.php">
+			<expression>(?i)\bdom_domerrorhandler_handle_error(?=\s*\()</expression>
+		</zone>
+		<!-- Domimplementation Functions -->
+		<zone name="support.function.domimplementation.php">
+			<expression>(?i)\bdom_domimplementation_(has_feature|create_document(_type)?|get_feature)(?=\s*\()</expression>
+		</zone>
+		<!-- Domimplmentationlist Functions -->
+		<zone name="support.function.domimplementationlist.php">
+			<expression>(?i)\bdom_domimplementationlist_item(?=\s*\()</expression>
+		</zone>
+		<!-- Domimplementationsource Functions -->
+		<zone name="support.function.domimplementationsource.php">
+			<expression>(?i)\bdom_domimplementationsource_get_domimplementation(s)?(?=\s*\()</expression>
+		</zone>
+		<!-- Domstinglist Functions -->
+		<zone name="support.function.domstringlist.php">
+			<expression>(?i)\bdom_domstringlist_item(?=\s*\()</expression>
+		</zone>
+		<!-- Easter Functions -->
+		<zone name="support.function.easter.php">
+			<expression>(?i)\beaster_da(ys|te)(?=\s*\()</expression>
+		</zone>
+		<!-- Element Functions -->
+		<zone name="support.function.element.php">
+			<expression>(?i)\bdom_element_(has_attribute(_ns)?|set_(id_attribute(_n(s|ode))?|attribute(_n(s|ode(_ns)?))?)|remove_attribute(_n(s|ode))?|get_(elements_by_tag_name(_ns)?|attribute(_n(s|ode(_ns)?))?))(?=\s*\()</expression>
+		</zone>
+		<!-- Exec Functions -->
+		<zone name="support.function.exec.php">
+			<expression>(?i)\b(s(hell_exec|ystem)|p(assthru|roc_nice)|e(scapeshell(cmd|arg)|xec))(?=\s*\()</expression>
+		</zone>
+		<!-- Exif Functions -->
+		<zone name="support.function.exif.php">
+			<expression>(?i)\bexif_(imagetype|t(humbnail|agname)|read_data)(?=\s*\()</expression>
+		</zone>
+		<!-- Fdf Functions -->
+		<zone name="support.function.fdf.php">
+			<expression>(?i)\bfdf_(header|s(et_(s(tatus|ubmit_form_action)|target_frame|o(n_import_javascript|pt)|javascript_action|encoding|v(ersion|alue)|f(ile|lags)|ap)|ave(_string)?)|next_field_name|c(lose|reate)|open(_string)?|e(num_values|rr(no|or))|add_(template|doc_javascript)|remove_item|get_(status|opt|encoding|v(ersion|alue)|f(ile|lags)|a(ttachment|p)))(?=\s*\()</expression>
+		</zone>
+		<!-- File Functions -->
+		<zone name="support.function.file.php">
+			<expression>(?i)\b(sys_get_temp_dir|copy|t(empnam|mpfile)|u(nlink|mask)|p(close|open)|f(s(canf|tat|eek)|nmatch|close|t(ell|runcate)|ile(_(put_contents|get_contents))?|open|p(utcsv|assthru)|eof|flush|write|lock|read|get(s(s)?|c(sv)?))|r(e(name|a(dfile|lpath)|wind)|mdir)|get_meta_tags|mkdir)(?=\s*\()</expression>
+		</zone>
+		<!-- Filestat Functions -->
+		<zone name="support.function.filestat.php">
+			<expression>(?i)\b(stat|c(h(own|grp|mod)|learstatcache)|is_(dir|executable|file|link|writable|readable)|touch|disk_(total_space|free_space)|file(size|ctime|type|inode|owner|_exists|perms|atime|group|mtime)|l(stat|chgrp))(?=\s*\()</expression>
+		</zone>
+		<!-- Filter Functions -->
+		<zone name="support.function.filter.php">
+			<expression>(?i)\bfilter_(has_var|input(_array)?|var(_array)?)(?=\s*\()</expression>
+		</zone>
+		<!-- Formatted_print Functions -->
+		<zone name="support.function.formatted_print.php">
+			<expression>(?i)\b(sprintf|printf|v(sprintf|printf|fprintf)|fprintf)(?=\s*\()</expression>
+		</zone>
+		<!-- Fsock Functions -->
+		<zone name="support.function.fsock.php">
+			<expression>(?i)\b(pfsockopen|fsockopen)(?=\s*\()</expression>
+		</zone>
+		<!-- Ftok In PHP Functions -->
+		<zone name="support.function.ftok.php">
+			<expression>(?i)\bftok(?=\s*\()</expression>
+		</zone>
+		<!-- Gd Functions -->
+		<zone name="support.function.gd.php">
+			<expression>(?i)\b(image(s(y|tring(up)?|et(style|t(hickness|ile)|pixel|brush)|avealpha|x)|c(har(up)?|o(nvolution|py(res(ized|ampled)|merge(gray)?)?|lor(s(total|et|forindex)|closest(hwb|alpha)?|transparent|deallocate|exact(alpha)?|a(t|llocate(alpha)?)|resolve(alpha)?|match))|reate(truecolor|from(string|jpeg|png|wbmp|g(if|d(2(part)?)?)|x(pm|bm)))?)|2wbmp|t(ypes|tf(text|bbox)|ruecolortopalette)|i(struecolor|nterlace)|d(estroy|ashedline)|jpeg|ellipse|p(s(slantfont|copyfont|text|e(ncodefont|xtendfont)|freefont|loadfont|bbox)|ng|olygon|alettecopy)|f(t(text|bbox)|il(ter|l(toborder|ed(polygon|ellipse|arc|rectangle))?)|ont(height|width))|wbmp|a(ntialias|lphablending|rc)|l(ine|oadfont|ayereffect)|r(otate|ectangle)|g(if|d(2)?|ammacorrect|rab(screen|window))|xbm)|jpeg2wbmp|png2wbmp|gd_info)(?=\s*\()</expression>
+		</zone>
+		<!-- Gettext Functions -->
+		<zone name="support.function.gettext.php">
+			<expression>(?i)\b(ngettext|textdomain|d(ngettext|c(ngettext|gettext)|gettext)|gettext|bind(textdomain|_textdomain_codeset))(?=\s*\()</expression>
+		</zone>
+		<!-- Gmp Functions -->
+		<zone name="support.function.gmp.php">
+			<expression>(?i)\bgmp_(hamdist|s(can(1|0)|ign|trval|ub|etbit|qrt(rem)?)|c(om|lrbit|mp)|ne(g|xtprime)|in(tval|it|vert)|or|div(_(q(r)?|r)|exact)|jacobi|p(o(pcount|w(m)?)|erfect_square|rob_prime)|fact|legendre|a(nd|dd|bs)|random|gcd(ext)?|xor|m(od|ul))(?=\s*\()</expression>
+		</zone>
+		<!-- Hash Functions -->
+		<zone name="support.function.hash.php">
+			<expression>(?i)\bhash(_(hmac(_file)?|init|update(_(stream|file))?|fi(nal|le)|algos))?(?=\s*\()</expression>
+		</zone>
+		<!-- Hash_md Functions -->
+		<zone name="support.function.hash_md.php">
+			<expression>(?i)\bmd5(_file)?(?=\s*\()</expression>
+		</zone>
+		<!-- Hash_sha Functions -->
+		<zone name="support.function.hash_sha.php">
+			<expression>(?i)\bsha1(_file)?(?=\s*\()</expression>
+		</zone>
+		<!-- Head Functions -->
+		<zone name="support.function.head.php">
+			<expression>(?i)\b(set(cookie|rawcookie)|header(s_(sent|list))?)(?=\s*\()</expression>
+		</zone>
+		<!-- Html Functions -->
+		<zone name="support.function.html.php">
+			<expression>(?i)\b(html(specialchars(_decode)?|_entity_decode|entities)|get_html_translation_table)(?=\s*\()</expression>
+		</zone>
+		<!-- Http Functions -->
+		<zone name="support.function.http.php">
+			<expression>(?i)\bhttp_build_query(?=\s*\()</expression>
+		</zone>
+		<!-- Ibase_blobsFunctions -->
+		<zone name="support.function.ibase_blobs.php">
+			<expression>(?i)\bibase_blob_(c(ancel|lose|reate)|i(nfo|mport)|open|echo|add|get)(?=\s*\()</expression>
+		</zone>
+		<!-- Ibase_events Functions -->
+		<zone name="support.function.ibase_events.php">
+			<expression>(?i)\bibase_(set_event_handler|free_event_handler|wait_event)(?=\s*\()</expression>
+		</zone>
+		<!-- Ibase_query Functions -->
+		<zone name="support.function.ibase_query.php">
+			<expression>(?i)\bibase_(n(um_(params|fields|rows)|ame_result)|execute|p(aram_info|repare)|f(ield_info|etch_(object|assoc|row)|ree_(query|result))|query|affected_rows)(?=\s*\()</expression>
+		</zone>
+		<!-- Ibase_service Functions -->
+		<zone name="support.function.ibase_service.php">
+			<expression>(?i)\bibase_(serv(ice_(detach|attach)|er_info)|d(elete_user|b_info)|add_user|restore|backup|m(odify_user|aintain_db))(?=\s*\()</expression>
+		</zone>
+		<!-- Iconv Functions -->
+		<zone name="support.function.iconv.php">
+			<expression>(?i)\b(iconv(_(s(tr(pos|len|rpos)|ubstr|et_encoding)|get_encoding|mime_(decode(_headers)?|encode)))?|ob_iconv_handler)(?=\s*\()</expression>
+		</zone>
+		<!-- Image Functions -->
+		<zone name="support.function.image.php">
+			<expression>(?i)\b(image_type_to_(extension|mime_type)|getimagesize)(?=\s*\()</expression>
+		</zone>
+		<!-- Info Functions -->
+		<zone name="support.function.info.php">
+			<expression>(?i)\b(zend_logo_guid|php(credits|info|_(sapi_name|ini_scanned_files|uname|egg_logo_guid|logo_guid|real_logo_guid)|version))(?=\s*\()</expression>
+		</zone>
+		<!-- Interbase Functions -->
+		<zone name="support.function.interbase.php">
+			<expression>(?i)\bibase_(c(o(nnect|mmit(_ret)?)|lose)|trans|drop_db|pconnect|err(code|msg)|gen_id|rollback(_ret)?)(?=\s*\()</expression>
+		</zone>
+		<!-- Interface Functions -->
+		<zone name="support.function.interface.php">
+			<expression>(?i)\bcurl_(setopt(_array)?|c(opy_handle|lose)|init|e(rr(no|or)|xec)|version|getinfo)(?=\s*\()</expression>
+		</zone>
+		<!-- Iptc Functions -->
+		<zone name="support.function.iptc.php">
+			<expression>(?i)\biptc(parse|embed)(?=\s*\()</expression>
+		</zone>
+		<!-- Json Functions -->
+		<zone name="support.function.json.php">
+			<expression>(?i)\bjson_(decode|encode)(?=\s*\()</expression>
+		</zone>
+		<!-- Lcg Functions -->
+		<zone name="support.function.lcg.php">
+			<expression>(?i)\blcg_value(?=\s*\()</expression>
+		</zone>
+		<!-- Ldap Functions -->
+		<zone name="support.function.ldap.php">
+			<expression>(?i)\bldap_(s(tart_tls|ort|e(t_(option|rebind_proc)|arch)|asl_bind)|next_(entry|attribute|reference)|co(nnect|unt_entries|mpare)|t61_to_8859|8859_to_t61|d(n2ufn|elete)|unbind|parse_re(sult|ference)|e(rr(no|2str|or)|xplode_dn)|f(irst_(entry|attribute|reference)|ree_result)|add|list|get_(option|dn|entries|values_len|attributes)|re(name|ad)|mod_(del|add|replace)|bind)(?=\s*\()</expression>
+		</zone>
+		<!-- Levenshtein Functions -->
+		<zone name="support.function.levenshtein.php">
+			<expression>(?i)\blevenshtein(?=\s*\()</expression>
+		</zone>
+		<!-- Libxml Functions -->
+		<zone name="support.function.libxml.php">
+			<expression>(?i)\blibxml_(set_streams_context|clear_errors|use_internal_errors|get_(errors|last_error))(?=\s*\()</expression>
+		</zone>
+		<!-- Link Functions -->
+		<zone name="support.function.link.php">
+			<expression>(?i)\b(symlink|link(info)?|readlink)(?=\s*\()</expression>
+		</zone>
+		<!-- Mail Functions -->
+		<zone name="support.function.mail.php">
+			<expression>(?i)\b(ezmlm_hash|mail)(?=\s*\()</expression>
+		</zone>
+		<!-- Main Functions -->
+		<zone name="support.function.main.php">
+			<expression>(?i)\bset_time_limit(?=\s*\()</expression>
+		</zone>
+		<!-- Math Functions -->
+		<zone name="support.function.math.php">
+			<expression>(?i)\b(h(ypot|exdec)|s(in(h)?|qrt)|number_format|c(os(h)?|eil)|is_(nan|infinite|finite)|tan(h)?|octdec|de(c(hex|oct|bin)|g2rad)|exp(m1)?|p(i|ow)|f(loor|mod)|log(1(p|0))?|a(sin(h)?|cos(h)?|tan(h|2)?|bs)|r(ound|ad2deg)|b(indec|ase_convert))(?=\s*\()</expression>
+		</zone>
+		<!-- Mbstring Functions -->
+		<zone name="support.function.mbstring.php">
+			<expression>(?i)\bmb_(s(tr(str|cut|to(upper|lower)|i(str|pos|mwidth)|pos|width|len|r(chr|i(chr|pos)|pos))|ubst(itute_character|r(_count)?)|end_mail)|http_(input|output)|c(heck_encoding|onvert_(case|encoding|variables|kana))|internal_encoding|output_handler|de(code_(numericentity|mimeheader)|tect_(order|encoding))|encode_(numericentity|mimeheader)|p(arse_str|referred_mime_name)|l(ist_(encodings(_alias_names)?|mime_names)|anguage)|get_info)(?=\s*\()</expression>
+		</zone>
+		<!-- Mcrypt Functions -->
+		<zone name="support.function.mcrypt.php">
+			<expression>(?i)\bm(crypt_(c(fb|reate_iv|bc)|ofb|decrypt|e(cb|nc(_(self_test|is_block_(algorithm(_mode)?|mode)|get_(supported_key_sizes|iv_size|key_size|algorithms_name|modes_name|block_size))|rypt))|list_(algorithms|modes)|ge(neric(_(init|deinit))?|t_(cipher_name|iv_size|key_size|block_size))|module_(self_test|close|is_block_(algorithm(_mode)?|mode)|open|get_(supported_key_sizes|algo_(key_size|block_size))))|decrypt_generic)(?=\s*\()</expression>
+		</zone>
+		<!-- md5 Functions -->
+		<zone name="support.function.md5.php">
+			<expression>(?i)\bmd5(_file)?(?=\s*\()</expression>
+		</zone>
+		<!-- Metaphone Functions -->
+		<zone name="support.function.metaphone.php">
+			<expression>(?i)\bmetaphone(?=\s*\()</expression>
+		</zone>
+		<!-- Mhash Functions -->
+		<zone name="support.function.mhash.php">
+			<expression>(?i)\bmhash(_(count|keygen_s2k|get_(hash_name|block_size)))?(?=\s*\()</expression>
+		</zone>
+		<!-- Microtime Functions -->
+		<zone name="support.function.microtime.php">
+			<expression>(?i)\b(get(timeofday|rusage)|microtime)(?=\s*\()</expression>
+		</zone>
+		<!-- Mime_magic Functions -->
+		<zone name="support.function.mime_magic.php">
+			<expression>(?i)\bmime_content_type(?=\s*\()</expression>
+		</zone>
+		<!-- Ming Functions -->
+		<zone name="support.function.ming.php">
+			<expression>(?i)\b(swf(prebuiltclip_init|videostream_init)|ming_(set(scale|cubicthreshold)|use(swfversion|constants)|keypress))(?=\s*\()</expression>
+		</zone>
+		<!-- Multi Functions -->
+		<zone name="support.function.multi.php">
+			<expression>(?i)\bcurl_multi_(select|close|in(it|fo_read)|exec|add_handle|getcontent|remove_handle)(?=\s*\()</expression>
+		</zone>
+		<!-- Mysqli_api Functions -->
+		<zone name="support.function.mysqli_api.php">
+			<expression>(?i)\bmysqli_(s(sl_set|t(ore_result|at|mt_(s(tore_result|end_long_data|qlstate)|num_rows|close|in(sert_id|it)|data_seek|p(aram_count|repare)|e(rr(no|or)|xecute)|f(ield_count|etch|ree_result)|a(ttr_(set|get)|ffected_rows)|res(ult_metadata|et)|bind_(param|result)))|e(t_local_infile_(handler|default)|lect_db)|qlstate)|n(um_(fields|rows)|ext_result)|c(ha(nge_user|racter_set_name)|ommit|lose)|thread_(safe|id)|in(sert_id|it|fo)|options|d(ump_debug_info|ebug|ata_seek)|use_result|p(ing|repare)|err(no|or)|kill|f(ield_(seek|count|tell)|etch_(field(s|_direct)?|lengths|row)|ree_result)|warning_count|a(utocommit|ffected_rows)|r(ollback|eal_(connect|escape_string|query))|get_(server_(info|version)|host_info|client_(info|version)|proto_info)|more_results)(?=\s*\()</expression>
+		</zone>
+		<!-- Mysqli_embedded Functions -->
+		<zone name="support.function.mysqli_embedded.php">
+			<expression>(?i)\bmysqli_embedded_server_(start|end)(?=\s*\()</expression>
+		</zone>
+		<!-- Mysqli_nonapi Functions -->
+		<zone name="support.function.mysqli_nonapi.php">
+			<expression>(?i)\bmysqli_(s(tmt_get_warnings|et_charset)|connect(_err(no|or))?|query|fetch_(object|a(ssoc|rray))|get_(charset|warnings)|multi_query)(?=\s*\()</expression>
+		</zone>
+		<!-- Mysqli_repl Functions -->
+		<zone name="support.function.mysqli_repl.php">
+			<expression>(?i)\bmysqli_(s(end_query|lave_query)|disable_r(pl_parse|eads_from_master)|enable_r(pl_parse|eads_from_master)|rpl_(p(arse_enabled|robe)|query_type)|master_query)(?=\s*\()</expression>
+		</zone>
+		<!-- Mysqli_report Functions -->
+		<zone name="support.function.mysqli_report.php">
+			<expression>(?i)\bmysqli_report(?=\s*\()</expression>
+		</zone>
+		<!-- Namednodemap Functions -->
+		<zone name="support.function.namednodemap.php">
+			<expression>(?i)\bdom_namednodemap_(set_named_item(_ns)?|item|remove_named_item(_ns)?|get_named_item(_ns)?)(?=\s*\()</expression>
+		</zone>
+		<!-- Namelist Functions -->
+		<zone name="support.function.namelist.php">
+			<expression>(?i)\bdom_namelist_get_name(space_uri)?(?=\s*\()</expression>
+		</zone>
+		<!-- Ncurses_functions Functions -->
+		<zone name="support.function.ncurses_functions.php">
+			<expression>(?i)\bncurses_(s(how_panel|cr(_(set|init|dump|restore)|l)|ta(nd(out|end)|rt_color)|lk_(set|noutrefresh|c(olor|lear)|init|touch|attr(set|o(n|ff))?|re(store|fresh))|avetty)|h(ide_panel|line|a(s_(colors|i(c|l)|key)|lfdelay))|n(o(nl|cbreak|echo|qiflush|raw)|ew(_panel|pad|win)|apms|l)|c(olor_(set|content)|urs_set|l(ear|rto(eol|bot))|an_change_color|break)|t(ypeahead|imeout|op_panel|erm(name|attrs))|i(sendwin|n(s(str|ch|tr|delln|ertln)|ch|it(_(color|pair))?))|d(oupdate|e(f(ine_key|_(shell_mode|prog_mode))|l(ch|_panel|eteln|ay_output|win)))|u(se_(default_colors|e(nv|xtended_names))|nget(ch|mouse)|pdate_panels)|p(noutrefresh|utp|a(nel_(window|above|below)|ir_content)|refresh)|e(cho(char)?|nd|rase(char)?)|v(idattr|line)|k(illchar|ey(ok|pad))|qiflush|f(ilter|l(ushinp|ash))|longname|w(stand(out|end)|hline|noutrefresh|c(olor_set|lear)|erase|vline|a(ttr(set|o(n|ff))|dd(str|ch))|getch|refresh|mo(use_trafo|ve)|border)|a(ssume_default_colors|ttr(set|o(n|ff))|dd(str|nstr|ch(str|nstr)?))|r(e(set(ty|_(shell_mode|prog_mode))|place_panel|fresh)|aw)|get(yx|ch|m(ouse|axyx))|b(o(ttom_panel|rder)|eep|kgd(set)?|audrate)|m(o(use(interval|_trafo|mask)|ve(_panel)?)|eta|v(hline|cur|inch|delch|vline|waddstr|add(str|nstr|ch(str|nstr)?)|getch)))(?=\s*\()</expression>
+		</zone>
+		<!-- Node Functions -->
+		<zone name="support.function.node.php">
+			<expression>(?i)\bdom_node_(set_user_data|has_(child_nodes|attributes)|normalize|c(ompare_document_position|lone_node)|i(s_(s(upported|ame_node)|default_namespace|equal_node)|nsert_before)|lookup_(namespace_uri|prefix)|append_child|get_(user_data|feature)|re(place_child|move_child))(?=\s*\()</expression>
+		</zone>
+		<!-- Nodelist Functions -->
+		<zone name="support.function.nodelist.php">
+			<expression>(?i)\bdom_nodelist_item(?=\s*\()</expression>
+		</zone>
+		<!-- Nsapi Functions -->
+		<zone name="support.function.nsapi.php">
+			<expression>(?i)\bnsapi_(virtual|re(sponse_headers|quest_headers))(?=\s*\()</expression>
+		</zone>
+		<!-- oci8_interface Functions -->
+		<zone name="support.function.oci8_interface.php">
+			<expression>(?i)\boci(setbufferinglob|_(s(tatement_type|e(t_prefetch|rver_version))|c(o(nnect|llection_(size|trim|element_(assign|get)|a(ssign|ppend)|max)|mmit)|lose|ancel)|n(um_(fields|rows)|ew_(c(o(nnect|llection)|ursor)|descriptor))|internal_debug|define_by_name|p(connect|a(ssword_change|rse))|e(rror|xecute)|f(ield_(s(cale|ize)|name|is_null|type(_raw)?|precision)|etch(_(object|a(ssoc|ll|rray)|row))?|ree_(statement|collection|descriptor))|lob_(s(ize|eek|ave)|c(opy|lose)|t(ell|runcate)|i(s_equal|mport)|e(of|rase|xport)|flush|append|write(_temporary)?|load|re(wind|ad))|r(ollback|esult)|bind_(array_by_name|by_name))|fetchinto|getbufferinglob)(?=\s*\()</expression>
+		</zone>
+		<!-- Openssl Functions -->
+		<zone name="support.function.openssl.php">
+			<expression>(?i)\bopenssl_(s(ign|eal)|csr_(sign|new|export(_to_file)?|get_(subject|public_key))|open|error_string|p(ublic_(decrypt|encrypt)|k(cs(12_(export(_to_file)?|read)|7_(sign|decrypt|encrypt|verify))|ey_(new|export(_to_file)?|free|get_(details|p(ublic|rivate))))|rivate_(decrypt|encrypt))|verify|x509_(check(_private_key|purpose)|parse|export(_to_file)?|free|read))(?=\s*\()</expression>
+		</zone>
+		<!-- Output Functions -->
+		<zone name="support.function.output.php">
+			<expression>(?i)\bo(utput_(add_rewrite_var|reset_rewrite_vars)|b_(start|clean|implicit_flush|end_(clean|flush)|flush|list_handlers|get_(status|c(ontents|lean)|flush|le(ngth|vel))))(?=\s*\()</expression>
+		</zone>
+		<!-- Pack Functions -->
+		<zone name="support.function.pack.php">
+			<expression>(?i)\b(unpack|pack)(?=\s*\()</expression>
+		</zone>
+		<!-- Pageinfo Functions -->
+		<zone name="support.function.pageinfo.php">
+			<expression>(?i)\bget(lastmod|my(inode|uid|pid|gid))(?=\s*\()</expression>
+		</zone>
+		<!-- Pcntl Functions -->
+		<zone name="support.function.pcntl.php">
+			<expression>(?i)\bpcntl_(s(ignal|etpriority)|exec|fork|w(stopsig|termsig|if(s(ignaled|topped)|exited)|exitstatus|ait(pid)?)|alarm|getpriority)(?=\s*\()</expression>
+		</zone>
+		<!-- Pdo Functions -->
+		<zone name="support.function.pdo.php">
+			<expression>(?i)\bpdo_drivers(?=\s*\()</expression>
+		</zone>
+		<!-- Pdf_dbh Functions -->
+		<zone name="support.function.pdo_dbh.php">
+			<expression>(?i)\bpdo_drivers(?=\s*\()</expression>
+		</zone>
+		<!-- Pgsql Functions -->
+		<zone name="support.function.pgsql.php">
+			<expression>(?i)\bpg_(se(nd_(execute|prepare|query(_params)?)|t_(client_encoding|error_verbosity)|lect)|host|num_(fields|rows)|c(o(n(nect(ion_(status|reset|busy))?|vert)|py_(to|from))|ancel_query|l(ient_encoding|ose))|insert|t(ty|ra(nsaction_status|ce))|options|d(elete|bname)|u(n(trace|escape_bytea)|pdate)|e(scape_(string|bytea)|nd_copy|xecute)|p(connect|ing|ort|ut_line|arameter_status|repare)|version|f(ield_(size|n(um|ame)|is_null|t(ype(_oid)?|able)|prtlen)|etch_(object|a(ssoc|ll(_columns)?|rray)|r(ow|esult))|ree_result)|query(_params)?|affected_rows|l(o_(seek|c(lose|reate)|tell|import|open|unlink|export|write|read(_all)?)|ast_(notice|oid|error))|get_(notify|pid|result)|result_(s(tatus|eek)|error(_field)?)|meta_data)(?=\s*\()</expression>
+		</zone>
+		<!-- Php_apache Functions -->
+		<zone name="support.function.php_apache.php">
+			<expression>(?i)\b(virtual|apache_(setenv|note|child_terminate|lookup_uri|get_(version|modules)|re(s(et_timeout|ponse_headers)|quest_(s(ome_auth_required|ub_req_(lookup_(uri|file)|method_uri)|e(t_(etag|last_modified)|rver_port)|atisfies)|headers(_(in|out))?|is_initial_req|discard_request_body|update_mtime|err_headers_out|log_error|auth_(name|type)|r(un|emote_host)|meets_conditions)))|getallheaders)(?=\s*\()</expression>
+		</zone>
+		<!-- Php_date Functions -->
+		<zone name="support.function.php_date.php">
+			<expression>(?i)\b(str(totime|ftime)|checkdate|time(zone_(name_(from_abbr|get)|identifiers_list|transitions_get|o(pen|ffset_get)|abbreviations_list))?|idate|date(_(sun(set|_info|rise)|create|isodate_set|time(zone_(set|get)|_set)|d(efault_timezone_(set|get)|ate_set)|offset_get|parse|format|modify))?|localtime|g(etdate|m(strftime|date|mktime))|mktime)(?=\s*\()</expression>
+		</zone>
+		<!-- Php_dom Functions -->
+		<zone name="support.function.php_dom.php">
+			<expression>(?i)\bdom_import_simplexml(?=\s*\()</expression>
+		</zone>
+		<!-- Php_fbsql Functions -->
+		<zone name="support.function.php_fbsql.php">
+			<expression>(?i)\bfbsql_(hostname|s(t(op_db|art_db)|e(t_(characterset|transaction|password|lob_mode)|lect_db))|n(um_(fields|rows)|ext_result)|c(hange_user|o(nnect|mmit)|lo(se|b_size)|reate_(clob|db|blob))|table_name|insert_id|d(ata(_seek|base(_password)?)|rop_db|b_(status|query))|username|err(no|or)|p(connect|assword)|f(ield_(seek|name|t(ype|able)|flags|len)|etch_(object|field|lengths|a(ssoc|rray)|row)|ree_result)|query|warnings|list_(tables|dbs|fields)|a(utocommit|ffected_rows)|get_autostart_info|r(o(ws_fetched|llback)|e(sult|ad_(clob|blob)))|blob_size)(?=\s*\()</expression>
+		</zone>
+		<!-- Php_ftp Functions -->
+		<zone name="support.function.php_ftp.php">
+			<expression>(?i)\bftp_(s(sl_connect|ystype|i(te|ze)|et_option)|n(list|b_(continue|put|f(put|get)|get))|c(h(dir|mod)|dup|onnect|lose)|delete|exec|p(ut|asv|wd)|f(put|get)|alloc|login|get(_option)?|r(ename|aw(list)?|mdir)|m(dtm|kdir))(?=\s*\()</expression>
+		</zone>
+		<!-- Php_functions Functions -->
+		<zone name="support.function.php_functions.php">
+			<expression>(?i)\b(virtual|apache_(setenv|note|get(_(version|modules)|env)|response_headers)|getallheaders)(?=\s*\()</expression>
+		</zone>
+		<!-- Php_imap Functions -->
+		<zone name="support.function.php_imap.php">
+			<expression>(?i)\bimap_(header(s|info)|s(can|tatus|ort|ubscribe|e(t(_quota|flag_full|acl)|arch)|avebody)|c(heck|l(ose|earflag_full)|reatemailbox)|num_(recent|msg)|t(hread|imeout)|8bit|delete(mailbox)?|open|u(n(subscribe|delete)|id|tf(7_(decode|encode)|8))|e(rrors|xpunge)|ping|qprint|fetch(header|structure|_overview|body)|l(sub|ist|ast_error)|a(ppend|lerts)|get(subscribed|_quota(root)?|acl|mailboxes)|r(e(namemailbox|open)|fc822_(parse_(headers|adrlist)|write_address))|m(sgno|ime_header_decode|ail(_(co(py|mpose)|move)|boxmsginfo)?)|b(inary|ody(struct)?|ase64))(?=\s*\()</expression>
+		</zone>
+		<!-- Php_mbregex Functions -->
+		<zone name="support.function.php_mbregex.php">
+			<expression>(?i)\bmb_(split|ereg(i(_replace)?|_(search(_(setpos|init|pos|get(pos|regs)|regs))?|replace|match))?|regex_(set_options|encoding))(?=\s*\()</expression>
+		</zone>
+		<!-- Php_milter Functions -->
+		<zone name="support.function.php_milter.php">
+			<expression>(?i)\bsmfi_(set(timeout|flags|reply)|chgheader|delrcpt|add(header|rcpt)|replacebody|getsymval)(?=\s*\()</expression>
+		</zone>
+		<!-- Php_msql Functions -->
+		<zone name="support.function.php_msql.php">
+			<expression>(?i)\bmsql_(select_db|num_(fields|rows)|c(onnect|lose|reate_db)|d(ata_seek|rop_db|b_query)|error|pconnect|f(ield_(seek|name|t(ype|able)|flags|len)|etch_(object|field|array|row)|ree_result)|query|affected_rows|list_(tables|dbs|fields)|result)(?=\s*\()</expression>
+		</zone>
+		<!-- Php_mssql Functions -->
+		<zone name="support.function.php_mssql.php">
+			<expression>(?i)\bmssql_(select_db|n(um_(fields|rows)|ext_result)|c(onnect|lose)|init|data_seek|execute|pconnect|query|f(ield_(seek|name|type|length)|etch_(object|field|a(ssoc|rray)|row|batch)|ree_(statement|result))|g(uid_string|et_last_message)|r(ows_affected|esult)|bind|min_(error_severity|message_severity))(?=\s*\()</expression>
+		</zone>
+		<!-- Php_mysql Functions -->
+		<zone name="support.function.php_mysql.php">
+			<expression>(?i)\bmysql_(s(tat|e(t_charset|lect_db))|num_(fields|rows)|c(onnect|l(ient_encoding|ose)|reate_db)|thread_id|in(sert_id|fo)|d(ata_seek|rop_db|b_query)|unbuffered_query|e(scape_string|rr(no|or))|p(connect|ing)|f(ield_(seek|name|t(ype|able)|flags|len)|etch_(object|field|lengths|a(ssoc|rray)|row)|ree_result)|query|affected_rows|list_(tables|dbs|processes|fields)|re(sult|al_escape_string)|get_(server_info|host_info|client_info|proto_info))(?=\s*\()</expression>
+		</zone>
+		<!-- Php_odbc Functions -->
+		<zone name="support.function.php_odbc.php">
+			<expression>(?i)\b(solid_fetch_prev|odbc_(s(tatistics|pecialcolumns|etoption)|n(um_(fields|rows)|ext_result)|c(o(nnect|lumn(s|privileges)|mmit)|ursor|lose(_all)?)|table(s|privileges)|data_source|e(rror(msg)?|xec(ute)?)|p(connect|r(imarykeys|ocedure(s|columns)|epare))|f(ield_(scale|n(um|ame)|type|len)|oreignkeys|etch_(into|object|array|row)|ree_result)|autocommit|longreadlen|gettypeinfo|r(ollback|esult(_all)?)|binmode))(?=\s*\()</expression>
+		</zone>
+		<!-- Php_pcre Functions -->
+		<zone name="support.function.php_pcre.php">
+			<expression>(?i)\bpreg_(split|quote|last_error|grep|replace(_callback)?|match(_all)?)(?=\s*\()</expression>
+		</zone>
+		<!-- Php_spl Functions -->
+		<zone name="support.function.php_spl.php">
+			<expression>(?i)\b(spl_(classes|object_hash|autoload(_(call|unregister|extensions|functions|register))?)|class_(implements|parents))(?=\s*\()</expression>
+		</zone>
+		<!-- Php_sybase Functions -->
+		<zone name="support.function.php_sybase_ct.php">
+			<expression>(?i)\bsybase_(se(t_message_handler|lect_db)|num_(fields|rows)|c(onnect|lose)|d(eadlock_retry_count|ata_seek)|unbuffered_query|pconnect|f(ield_seek|etch_(object|field|a(ssoc|rray)|row)|ree_result)|query|affected_rows|result|get_last_message|min_(server_severity|client_severity))(?=\s*\()</expression>
+		</zone>
+		<!-- Php_sybase_db Functions -->
+		<zone name="support.function.php_sybase_db.php">
+			<expression>(?i)\bsybase_(select_db|num_(fields|rows)|c(onnect|lose)|data_seek|pconnect|f(ield_seek|etch_(object|field|array|row)|ree_result)|query|affected_rows|result|get_last_message|min_(error_severity|message_severity))(?=\s*\()</expression>
+		</zone>
+		<!-- Php_xmlwriter Functions -->
+		<zone name="support.function.php_xmlwriter.php">
+			<expression>(?i)\bxmlwriter_(s(tart_(c(omment|data)|d(td(_(e(ntity|lement)|attlist))?|ocument)|pi|element(_ns)?|attribute(_ns)?)|et_indent(_string)?)|text|o(utput_memory|pen_(uri|memory))|end_(c(omment|data)|d(td(_(e(ntity|lement)|attlist))?|ocument)|pi|element|attribute)|f(ull_end_element|lush)|write_(c(omment|data)|dtd(_(e(ntity|lement)|attlist))?|pi|element(_ns)?|attribute(_ns)?|raw))(?=\s*\()</expression>
+		</zone>
+		<!-- Php_zip Functions -->
+		<zone name="support.function.php_zip.php">
+			<expression>(?i)\b(s(tat(Name|Index)|et(Comment(Name|Index)|ArchiveComment))|c(lose|reateEmptyDir)|delete(Name|Index)|open|zip_(close|open|entry_(name|c(ompress(ionmethod|edsize)|lose)|open|filesize|read)|read)|unchange(Name|Index|All)|locateName|addF(ile|romString)|rename(Name|Index)|get(Stream|Comment(Name|Index)|NameIndex|From(Name|Index)|ArchiveComment))(?=\s*\()</expression>
+		</zone>
+		<!-- Posix Functions -->
+		<zone name="support.function.posix.php">
+			<expression>(?i)\bposix_(s(trerror|et(sid|uid|pgid|e(uid|gid)|gid))|ctermid|i(satty|nitgroups)|t(tyname|imes)|uname|kill|access|get(sid|cwd|_last_error|uid|e(uid|gid)|p(id|pid|w(nam|uid)|g(id|rp))|login|rlimit|g(id|r(nam|oups|gid)))|mk(nod|fifo))(?=\s*\()</expression>
+		</zone>
+		<!-- Proc_open Functions -->
+		<zone name="support.function.proc_open.php">
+			<expression>(?i)\bproc_(close|terminate|open|get_status)(?=\s*\()</expression>
+		</zone>
+		<!-- Pspell Functions -->
+		<zone name="support.function.pspell.php">
+			<expression>(?i)\bpspell_(s(tore_replacement|uggest|ave_wordlist)|c(heck|onfig_(save_repl|create|ignore|d(ict_dir|ata_dir)|personal|r(untogether|epl)|mode)|lear_session)|new(_(config|personal))?|add_to_(session|personal))(?=\s*\()</expression>
+		</zone>
+		<!-- Quot_print Functions -->
+		<zone name="support.function.quot_print.php">
+			<expression>(?i)\bquoted_printable_decode(?=\s*\()</expression>
+		</zone>
+		<!-- Rand Functions -->
+		<zone name="support.function.rand.php">
+			<expression>(?i)\b(srand|getrandmax|rand|mt_(srand|getrandmax|rand))(?=\s*\()</expression>
+		</zone>
+		<!-- Readline Functions -->
+		<zone name="support.function.readline.php">
+			<expression>(?i)\breadline(_(c(ompletion_function|allback_(handler_(install|remove)|read_char)|lear_history)|info|on_new_line|write_history|list_history|add_history|re(display|ad_history)))?(?=\s*\()</expression>
+		</zone>
+		<!-- Recode Functions -->
+		<zone name="support.function.recode.php">
+			<expression>(?i)\brecode_(string|file)(?=\s*\()</expression>
+		</zone>
+		<!-- Reg Functions -->
+		<zone name="support.function.reg.php">
+			<expression>(?i)\b(s(plit(i)?|ql_regcase)|ereg(i(_replace)?|_replace)?)(?=\s*\()</expression>
+		</zone>
+		<!-- Session Functions -->
+		<zone name="support.function.session.php">
+			<expression>(?i)\bsession_(s(tart|et_(save_handler|cookie_params)|ave_path)|cache_(expire|limiter)|name|i(s_registered|d)|de(stroy|code)|un(set|register)|encode|write_close|reg(ister|enerate_id)|get_cookie_params|module_name)(?=\s*\()</expression>
+		</zone>
+		<!-- Sha1 Functions -->
+		<zone name="support.function.sha1.php">
+			<expression>(?i)\bsha1(_file)?(?=\s*\()</expression>
+		</zone>
+		<!-- Shmop Functions -->
+		<zone name="support.function.shmop.php">
+			<expression>(?i)\bshmop_(size|close|delete|open|write|read)(?=\s*\()</expression>
+		</zone>
+		<!-- Simplexml Functions -->
+		<zone name="support.function.simplexml.php">
+			<expression>(?i)\bsimplexml_(import_dom|load_(string|file))(?=\s*\()</expression>
+		</zone>
+		<!-- Skeleton Functions -->
+		<zone name="support.function.skeleton.php">
+			<expression>(?i)\bconfirm_extname_compiled(?=\s*\()</expression>
+		</zone>
+		<!-- Snmp Functions -->
+		<zone name="support.function.snmp.php">
+			<expression>(?i)\b(snmp(set|2_(set|walk|real_walk|get(next)?)|3_(set|walk|real_walk|get(next)?)|_(set_(oid_output_format|enum_print|valueretrieval|quick_print)|read_mib|get_(valueretrieval|quick_print))|walk|realwalk|get(next)?)|php_snmpv3)(?=\s*\()</expression>
+		</zone>
+		<!-- Sockets Functions -->
+		<zone name="support.function.sockets.php">
+			<expression>(?i)\bsocket_(s(hutdown|trerror|e(nd(to)?|t_(nonblock|option|block)|lect))|c(onnect|l(ose|ear_error)|reate(_(pair|listen))?)|write|l(isten|ast_error)|accept|get(sockname|_option|peername)|re(cv(from)?|ad)|bind)(?=\s*\()</expression>
+		</zone>
+		<!-- Soundex Functions -->
+		<zone name="support.function.soundex.php">
+			<expression>(?i)\bsoundex(?=\s*\()</expression>
+		</zone>
+		<!-- Spl_iterators Functions -->
+		<zone name="support.function.spl_iterators.php">
+			<expression>(?i)\biterator_(count|to_array|apply)(?=\s*\()</expression>
+		</zone>
+		<!-- Sqlite Functions -->
+		<zone name="support.function.sqlite.php">
+			<expression>(?i)\bsqlite_(has_prev|s(ingle_query|eek)|n(um_(fields|rows)|ext)|c(hanges|olumn|urrent|lose|reate_(function|aggregate))|open|u(nbuffered_query|df_(decode_binary|encode_binary))|e(scape_string|rror_string|xec)|p(open|rev)|key|valid|query|f(ield_name|etch_(single|column_types|object|a(ll|rray))|actory)|l(ib(encoding|version)|ast_(insert_rowid|error))|array_query|rewind|busy_timeout)(?=\s*\()</expression>
+		</zone>
+		<!-- Streamsfuns Functions -->
+		<zone name="support.function.streamsfuncs.php">
+			<expression>(?i)\bstream_(s(ocket_(s(hutdown|e(ndto|rver))|client|enable_crypto|pair|accept|recvfrom|get_name)|e(t_(timeout|write_buffer|blocking)|lect))|co(ntext_(set_(option|params)|create|get_(default|options))|py_to_stream)|filter_(prepend|append|remove)|get_(contents|transports|line|wrappers|meta_data))(?=\s*\()</expression>
+		</zone>
+		<!-- String Functions -->
+		<zone name="support.function.string.php">
+			<expression>(?i)\b(hebrev(c)?|s(scanf|imilar_text|tr(s(tr|pn)|natc(asecmp|mp)|c(hr|spn|oll)|i(str|p(slashes|cslashes|os|_tags))|t(o(upper|k|lower)|r)|_(s(huffle|plit)|ireplace|pad|word_count|r(ot13|ep(eat|lace)))|p(os|brk)|r(chr|ipos|ev|pos))|ubstr(_(co(unt|mpare)|replace))?|etlocale)|c(h(unk_split|r)|ount_chars)|nl(2br|_langinfo)|implode|trim|ord|dirname|uc(first|words)|join|pa(thinfo|rse_str)|explode|quotemeta|add(slashes|cslashes)|wordwrap|l(trim|ocaleconv)|rtrim|money_format|b(in2hex|asename))(?=\s*\()</expression>
+		</zone>
+		<!-- String_extend Functions -->
+		<zone name="support.function.string_extend.php">
+			<expression>(?i)\bdom_string_extend_find_offset(16|32)(?=\s*\()</expression>
+		</zone>
+		<!-- Syslog Functions -->
+		<zone name="support.function.syslog.php">
+			<expression>(?i)\b(syslog|closelog|openlog|define_syslog_variables)(?=\s*\()</expression>
+		</zone>
+		<!-- Sysvmsg Functions -->
+		<zone name="support.function.sysvmsg.php">
+			<expression>(?i)\bmsg_(s(tat_queue|e(nd|t_queue))|re(ceive|move_queue)|get_queue)(?=\s*\()</expression>
+		</zone>
+		<!-- Sysvsem Functions -->
+		<zone name="support.function.sysvsem.php">
+			<expression>(?i)\bsem_(acquire|re(lease|move)|get)(?=\s*\()</expression>
+		</zone>
+		<!-- Sysvshm Functions -->
+		<zone name="support.function.sysvshm.php">
+			<expression>(?i)\bshm_(detach|put_var|attach|get_var|remove(_var)?)(?=\s*\()</expression>
+		</zone>
+		<!-- Text Functions -->
+		<zone name="support.function.text.php">
+			<expression>(?i)\bdom_text_(split_text|is_whitespace_in_element_content|replace_whole_text)(?=\s*\()</expression>
+		</zone>
+		<!-- Tidy Functions -->
+		<zone name="support.function.tidy.php">
+			<expression>(?i)\btidy_(c(onfig_count|lean_repair)|is_x(html|ml)|diagnose|error_count|parse_(string|file)|access_count|warning_count|repair_(string|file)|get(opt|_(h(tml(_ver)?|ead)|status|config|o(utput|pt_doc)|error_buffer|r(oot|elease)|body)))(?=\s*\()</expression>
+		</zone>
+		<!-- Tokenizer Functions -->
+		<zone name="support.function.tokenizer.php">
+			<expression>(?i)\btoken_(name|get_all)(?=\s*\()</expression>
+		</zone>
+		<!-- Type Functions -->
+		<zone name="support.function.type.php">
+			<expression>(?i)\b(s(trval|ettype)|i(s_(s(calar|tring)|callable|nu(ll|meric)|object|float|array|long|resource|bool)|ntval)|floatval|gettype)(?=\s*\()</expression>
+		</zone>
+		<!-- Uniqid Functions -->
+		<zone name="support.function.uniqid.php">
+			<expression>(?i)\buniqid(?=\s*\()</expression>
+		</zone>
+		<!-- Url Functions -->
+		<zone name="support.function.url.php">
+			<expression>(?i)\b(url(decode|encode)|parse_url|get_headers|rawurl(decode|encode))(?=\s*\()</expression>
+		</zone>
+		<!-- User_filters Functions -->
+		<zone name="support.function.user_filters.php">
+			<expression>(?i)\bstream_(filter_register|get_filters|bucket_(new|prepend|append|make_writeable))(?=\s*\()</expression>
+		</zone>
+		<!-- Userdatahandler Functions -->
+		<zone name="support.function.userdatahandler.php">
+			<expression>(?i)\bdom_userdatahandler_handle(?=\s*\()</expression>
+		</zone>
+		<!-- Userspace Functions -->
+		<zone name="support.function.userspace.php">
+			<expression>(?i)\bstream_wrapper_(unregister|re(store|gister))(?=\s*\()</expression>
+		</zone>
+		<!-- Uuencode Functions -->
+		<zone name="support.function.uuencode.php">
+			<expression>(?i)\bconvert_uu(decode|encode)(?=\s*\()</expression>
+		</zone>
+		<!-- Var Functions -->
+		<zone name="support.function.var.php">
+			<expression>(?i)\b(serialize|debug_zval_dump|unserialize|var_(dump|export)|memory_get_(usage|peak_usage))(?=\s*\()</expression>
+		</zone>
+		<!-- Versioning Functions -->
+		<zone name="support.function.versioning.php">
+			<expression>(?i)\bversion_compare(?=\s*\()</expression>
+		</zone>
+		<!-- Wddx Functions -->
+		<zone name="support.function.wddx.php">
+			<expression>(?i)\bwddx_(serialize_va(lue|rs)|deserialize|packet_(start|end)|add_vars)(?=\s*\()</expression>
+		</zone>
+		<!-- Xml Functions -->
+		<zone name="support.function.xml.php">
+			<expression>(?i)\b(utf8_(decode|encode)|xml_(set_(start_namespace_decl_handler|notation_decl_handler|character_data_handler|default_handler|object|unparsed_entity_decl_handler|processing_instruction_handler|e(nd_namespace_decl_handler|lement_handler|xternal_entity_ref_handler))|error_string|parse(_into_struct|r_(set_option|create(_ns)?|free|get_option))?|get_(current_(column_number|line_number|byte_index)|error_code)))(?=\s*\()</expression>
+		</zone>
+		<!-- Xmlrpc-epi-php Functions -->
+		<zone name="support.function.xmlrpc-epi-php.php">
+			<expression>(?i)\bxmlrpc_(se(t_type|rver_(c(all_method|reate)|destroy|add_introspection_data|register_(introspection_callback|method)))|is_fault|decode(_request)?|parse_method_descriptions|encode(_request)?|get_type)(?=\s*\()</expression>
+		</zone>
+		<!-- Xpath Functions -->
+		<zone name="support.function.xpath.php">
+			<expression>(?i)\bdom_xpath_(evaluate|query|register_ns)(?=\s*\()</expression>
+		</zone>
+		<!-- Xsltprocessor Functions -->
+		<zone name="support.function.xsltprocessor.php">
+			<expression>(?i)\bxsl_xsltprocessor_(has_exslt_support|set_parameter|transform_to_(doc|uri|xml)|import_stylesheet|re(gister_php_functions|move_parameter)|get_parameter)(?=\s*\()</expression>
+		</zone>
+		<!-- zlib Functions -->
+		<zone name="support.function.zlib.php">
+			<expression>(?i)\b(ob_gzhandler|zlib_get_coding_type|readgzfile|gz(compress|inflate|deflate|open|uncompress|encode|file))(?=\s*\()</expression>
+		</zone>
+		<!-- Alias Functions -->
+		<zone name="support.function.alias.php">
+			<expression>(?i)\bis_int(eger)?(?=\s*\()</expression>
+		</zone>
+		
+		<!-- Bult In PHP Classes -->
+		<zone name="support.class.builtin.php">
+			<expression>(?i)\b(Re(cursive(RegexIterator|CachingIterator|IteratorIterator|DirectoryIterator|FilterIterator|ArrayIterator)|flection(Method|Class|Object|Extension|P(arameter|roperty)|Function)?|gexIterator)|s(tdClass|wf(s(hape|ound|prite)|text(field)?|displayitem|f(ill|ont(cha(r)?)?)|action|gradient|mo(vie|rph)|b(itmap|utton)))|XMLReader|tidyNode|S(impleXML(Iterator|Element)|oap(Server|Header|Client|Param|Var|Fault)|pl(TempFileObject|ObjectStorage|File(Info|Object)))|NoRewindIterator|C(OMPersistHelper|achingIterator)|I(nfiniteIterator|teratorIterator)|D(irectoryIterator|OM(XPath|Node|C(omment|dataSection)|Text|Document(Fragment)?|ProcessingInstruction|E(ntityReference|lement)|Attr))|P(DO(Statement)?|arentIterator)|E(rrorException|mptyIterator|xception)|FilterIterator|LimitIterator|A(p(pendIterator|acheRequest)|rray(Iterator|Object)))(?=\s*\()</expression>
+		</zone>
+		
+		<!-- Bult In PHP Functions -->
+		<zone name="support.function.construct.php">
+			<expression>(?i)\b((print|echo)\b|(isset|unset|e(val|mpty)|list)(?=\s*\())</expression>
+		</zone>
+		
+		<!-- Function definition; function funName() { ... } -->
+		<!-- 
+			TODO: Add subzones for parameters?
+		-->
+		<zone name="meta.function.php">
+				<expression>\b(function)\s+([a-zA-Z_$]\w*)?\s*(\()(.*?)(\))</expression>
+				<capture number="2" name="entity.name.function.php" />
+				<capture number="1" name="storage.type.function.php" />
+				<capture number="3" name="punctuation.definition.parameters.begin"/>
+				<capture number="4" name="variable.parameter.function.php"/>
+				<capture number="5" name="punctuation.definition.parameters.end"/>
+		</zone>
+		
+		<!-- Custom Function Call; funName(); -->
+		<zone name="meta.function-call.php">
+			<expression>[A-Za-z_][A-Za-z_0-9]*(?=\s*\()</expression>
+	   </zone>
+	   
+		<zone name="comment.block.documentation.phpdoc.php">
+			<starts-with>
+				<expression>/\*\*(?:#@\+)?\s*$</expression>
+				<capture number="0" name="punctuation.definition.comment.php"/>
+			</starts-with>
+			<ends-with>
+				<expression>\*/</expression>
+				<capture number="0" name="punctuation.definition.comment.php"/>
+			</ends-with>
+		</zone>
+		
+		<zone name="string.quoted.double.php">
+			<starts-with>
+				<expression>"</expression>
+				<capture number="0" name="punctuation.definition.string.begin.php"/>
+			</starts-with>
+			<ends-with>
+				<expression>"</expression>
+				<capture number="0" name="punctuation.definition.string.end.php"/>
+			</ends-with>
+			<subzones name="meta.string-contents.quoted.double.php">
+				<include collection="interpolation"/>
+			</subzones>
+		</zone>
+		
+		<zone name="comment.block.php">
+			<starts-with>
+				<expression>/\*</expression>
+				<capture number="0" name="punctuation.definition.comment.php"/>
+			</starts-with>
+			<ends-with>
+				<expression>\*/</expression>
+				<capture number="0" name="punctuation.definition.comment.php"/>
+			</ends-with>
+		</zone>
+		<zone name="comment.line.double-slash.php">
+			<expression>(//).*?($\n?|(?=\?>))</expression>
+			<capture number="1" name="punctuation.definition.comment.php"/>
+		</zone>
+		<zone name="comment.line.number-sign.php">
+			<expression>(#).*?($\n?|(?=\?>))</expression>
+			<capture number="1" name="punctuation.definition.comment.php"/>
+		</zone>
+		
+		<!-- Open Curly Brace -->
+		<zone name="meta.brace.curly.open.php">
+			<expression>\{</expression>
+	   </zone>
+	   <!-- Close Curly Brace -->
+		<zone name="meta.brace.curly.close.php">
+			<expression>\}</expression>
+	   </zone>
+	   <!-- Round Brace -->
+		<zone name="meta.brace.round.php">
+			<expression>\(|\)</expression>
 		</zone>
 	</zones>
 	
-	<library>
-		<!-- Classes -->
-		<collection name="functions">
-			<!-- Class definition; class className { ... } -->
-			<zone name="meta.class.php">
-					<expression>\b(class)\s+([a-zA-Z_$]\w*)</expression>
-					<capture number="2" name="entity.name.function.php" />
-					<capture number="1" name="storage.type.function.php" />
-					<capture number="3" name="punctuation.definition.parameters.begin"/>
-					<capture number="4" name="variable.parameter.function.php"/>
-					<capture number="5" name="punctuation.definition.parameters.end"/>
-				<subzones>
-					<include collection="variables" />
-					<include collection="functions" />
-				</subzones>
-			</zone>
-			<!-- Custom Function Call; funName(); -->
-			<zone name="meta.function-call.php">
-                <expression>[A-Za-z_][A-Za-z_0-9]*(?=\s*\()</expression>
-           </zone>
-		</collection>
-		
-		<!-- Functions -->
-		<collection name="functions">
-			<!-- Function definition; function funName() { ... } -->
-			<zone name="meta.function.php">
-					<expression>\b(function)\s+([a-zA-Z_$]\w*)?\s*(\()(.*?)(\))</expression>
-					<capture number="2" name="entity.name.function.php" />
-					<capture number="1" name="storage.type.function.php" />
-					<capture number="3" name="punctuation.definition.parameters.begin"/>
-					<capture number="4" name="variable.parameter.function.php"/>
-					<capture number="5" name="punctuation.definition.parameters.end"/>
-				<subzones>
-					<include collection="variables" />
-					<include collection="functions" />
-				</subzones>
-			</zone>
-			<!-- Custom Function Call; funName(); -->
-			<zone name="meta.function-call.php">
-                <expression>[A-Za-z_][A-Za-z_0-9]*(?=\s*\()</expression>
-           </zone>
-		</collection>
-		
-		<!-- Arrays -->
-		<collection name="arrays">
-			<!-- array(); -->
-			<zone name="meta.array.php">
-                <starts-with>
-                    <expression>(array)\s*(?=\s*)(\()(.*?)(\))</expression>
-                    <capture number="1" name="support.array.construct.php"/>
-                    <capture number="3" name="punctuation.definition.array.begin.php"/>
-                    <capture number="4" name="punctuation.definition.array.begin.php"/>
-                </starts-with>
-                <ends-with>
-                    <expression>\)</expression>
-                    <capture number="0" name="punctuation.definition.array.end.php"/>
-                </ends-with>
-                <subzones>
-					<include collection="string-single-quoted" />
-					<include syntax="self" />
-                </subzones>
-            </zone>
-		</collection>
-		
-		<!-- Variables -->
-		<collection name="variables">
-			<!-- Variable Name; $variableName -->
-			<zone name="meta.name.variable.php">
-				<expression>(?x)(\$+)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</expression>
-			</zone>
-			<subzones>
-				<include collection="arrays" />
-			</subzones>
-		</collection>
-		
-				
-		<!-- Strings; I as thinking of breaking up single quotes and double quotes in to their own 
-			  collection to mimi the built in HTML and XML Sugar. -->
-		<collection name="string-double-quoted">
-			<zone name="string.quoted.double.php">
-				<starts-with>
-					<expression>"</expression>
-					<capture number="0" name="punctuation.definition.string.begin.php"/>
-				</starts-with>
-				<ends-with>
-					<expression>"</expression>
-					<capture number="0" name="punctuation.definition.string.end.php"/>
-				</ends-with>
-				<subzones name="meta.string-contents.quoted.double.php">
-					<include collection="interpolation"/>
-				</subzones>
-			</zone>
-		</collection>
-		
-		<collection name="meta">
-			<!-- Open Curly Brace -->
-			<zone name="meta.brace.curly.open.php">
-	       	<expression>\{</expression>
-	       </zone>
-	       <!-- Close Curly Brace -->
-			<zone name="meta.brace.curly.close.php">
-	       	<expression>\}</expression>
-	       </zone>
-			<zone name="meta.brace.round.js">
-				<expression>\(|\)</expression>
-			</zone>
-		</collection>
+	<library>	
 		
 	</library>
 </syntax>
