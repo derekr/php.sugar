@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- PHP Syntax Sugar version  -->
+
+<syntax name="sourcecode.php">
+	<zones>
+		<!-- PHP Source Block; <?php ... ?> -->
+		<zone name="source.block.php">
+			<starts-with>
+				<expression>(((&lt;=\?>)&lt;)|&lt;)\?(?i:php|=)?</expression>
+				<capture number="0" name="begin.php" />
+				<capture number="1" name="punctuation.begin.php" />
+			</starts-with>
+			<ends-with>
+				<expression>(\?)</expression>
+				<capture number="0" name="end.php" />
+			</ends-with>
+			<subzones>
+				<include collection="functions" />
+				<include collection="variables" />
+				<include collection="arrays" />
+			</subzones>
+		</zone>
+	</zones>
+	
+	<library>
+		<!-- Functions -->
+		<collection name="functions">
+			<!-- Function definition; function funName() { ... } -->
+			<zone name="meta.function.php">
+				<starts-with>
+					<expression>\b(function)\s+([a-zA-Z_$]\w*)?\s*\((.*?)\)\s*(\{)</expression>
+					<capture number="1" name="storage.type.function.php" />
+					<capture number="2" name="entity.name.function.php" />
+					<capture number="3" name="parameters.function.php" />
+					<capture number="4" name="open.function.php" />
+				</starts-with>
+				<ends-with>
+					<expression>(\})</expression>
+					<capture number="1" name="close.function.php" />
+				</ends-with>
+				<subzones>
+					<include collection="variables" />
+					<include collection="functions" />
+				</subzones>
+			</zone>
+			<!-- Custom Function Call; funName(); -->
+			<zone name="meta.function-call.php">
+                <expression>[A-Za-z_][A-Za-z_0-9]*(?=\s*\()</expression>
+           </zone>
+		</collection>
+		
+		<!-- Arrays -->
+		<collection name="arrays">
+			<!-- array(); -->
+			<zone name="meta.array.php">
+                <starts-with>
+                    <expression>(array)\s*(?=\s*\()</expression>
+                    <capture number="1" name="support.function.construct.php"/>
+                    <capture number="2" name="punctuation.definition.array.begin.php"/>
+                </starts-with>
+                <ends-with>
+                    <expression>\)</expression>
+                    <capture number="0" name="punctuation.definition.array.end.php"/>
+                </ends-with>
+                <subzones>
+					<include collection="string-single-quoted" />
+					<include syntax="self" />
+                </subzones>
+            </zone>
+		</collection>
+		
+		<!-- Variables -->
+		<collection name="variables">
+			<!-- Variable Name; $variableName -->
+			<zone name="meta.name.variable.php">
+				<expression>\$+[A-Za-z_][A-Za-z_0-9]+</expression>
+			</zone>
+		</collection>
+		
+				
+		<!-- Strings; I as thinking of breaking up single quotes and double quotes in to their own 
+			  collection to mimi the built in HTML and XML Sugar. -->
+		<collection name="string-double-quoted">
+			<zone name="string.quoted.double.php">
+				<starts-with>
+					<expression>"</expression>
+					<capture number="0" name="punctuation.definition.string.begin.php"/>
+				</starts-with>
+				<ends-with>
+					<expression>"</expression>
+					<capture number="0" name="punctuation.definition.string.end.php"/>
+				</ends-with>
+				<subzones name="meta.string-contents.quoted.double.php">
+					<include collection="interpolation"/>
+				</subzones>
+			</zone>
+		</collection>
+
+	</library>
+</syntax>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+CodeSense Providers map contexts in a document to possible completions. The actual completions are defined in the various CodeSense libraries, categorized using their key. A CodeSense Provider tells Espresso what CodeSense libraries are active in the current context. One of these XML files can contain many <provider> elements.
+
+-->
+<codesense>
+
+	<provider>
+		<selector>code.php, function.php, if.control.php, dowhile.control.php, while.control.php, for.control.php</selector>
+		<completions>lveik.php.function</completions>
+		<complete-match>[a-zA-Z0-9]*</complete-match>
+		<require-suffix>(\s|>|^)</require-suffix>
+	</provider>
+	
+	<!-- Class Defenition -->
+	
+	<provider>
+		<selector>code.php, function.php, if.control.php, dowhile.control.php, while.control.php, for.control.php</selector>
+		<completions>lveik.php.class</completions>
+		<complete-match>[a-zA-Z0-9]*</complete-match>
+		<require-suffix>(\s|>|^)</require-suffix>
+	</provider>
+	
+	<provider>
+		<selector>defination.class.php, storage.type.extend.php, extend.class.php</selector>
+		<completions>lveik.php.class.extend</completions>
+		<complete-match>[a-zA-Z0-9]*</complete-match>
+		<require-suffix>(\s|>|^)</require-suffix>
+	</provider>
+	
+	<provider>
+		<selector>method.class.php, function.php</selector>
+		<completions>lveik.php.function.return</completions>
+		<complete-match>[a-zA-Z0-9]*</complete-match>
+		<require-suffix>(\s|>|^)</require-suffix>
+	</provider>
+	
+	<!-- Control Structures -->
+	
+	<provider>
+		<selector>code.php, function.php, if.control.php, dowhile.control.php, while.control.php, for.control.php</selector>
+		<completions>lveik.php.control.if</completions>
+		<complete-match>[a-zA-Z0-9]*</complete-match>
+		<require-suffix>(\s|>|^)</require-suffix>
+	</provider>
+	
+	<provider>
+		<selector>code.php, function.php, if.control.php, dowhile.control.php, while.control.php, for.control.php</selector>
+		<completions>lveik.php.control.for</completions>
+		<complete-match>[a-zA-Z0-9]*</complete-match>
+		<require-suffix>(\s|>|^)</require-suffix>
+	</provider>
+	
+	<provider>
+		<selector>code.php, function.php, if.control.php, dowhile.control.php, while.control.php, for.control.php</selector>
+		<completions>lveik.php.control.while</completions>
+		<complete-match>[a-zA-Z0-9]*</complete-match>
+		<require-suffix>(\s|>|^)</require-suffix>
+	</provider>
+	
+	<provider>
+		<selector>code.php, function.php, if.control.php, dowhile.control.php, while.control.php, for.control.php</selector>
+		<completions>lveik.php.control.dowhile</completions>
+		<complete-match>[a-zA-Z0-9]*</complete-match>
+		<require-suffix>(\s|>|^)</require-suffix>
+	</provider>
+	
+	<!-- Logical Structures -->
+	
+	<provider>
+		<selector>condition.control.php</selector>
+		<completions>lveik.php.control.condition</completions>
+		<complete-match>[a-zA-Z0-9]*</complete-match>
+		<require-suffix>(\s|>|^)</require-suffix>
+	</provider>
+	
+</codesense>

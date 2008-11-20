@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+CodeSense Libraries simply define lists of completions, categorized by keys. They don't define any criteria for when they should be used; this is the domain of a CodeSense Provider.
+
+-->
+<codesense version="1.0">
+	
+	<set name="lveik.php.control.condition">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into> #0</transform-into>
+			</append-dynamic>
+		</behavior>
+		
+		<completion string="AND" />
+		<completion string="OR" />
+		<completion string="XOR" />
+		
+	</set>
+	
+	<set name="lveik.php.function">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into> #{1:name}&#40;#{2:}&#41; &#123;\n\t#{3:}\n&#125;</transform-into>
+			</append-dynamic>
+		</behavior>
+		
+		<completion string="function" />
+		
+	</set>
+	
+	<set name="lveik.php.function.return">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into> #{1:mixed};</transform-into>
+			</append-dynamic>
+		</behavior>
+		
+		<completion string="return" />
+	</set>
+	
+	<!-- Class defenition -->
+	
+	<set name="lveik.php.class">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into> #{1:name} #{2:}&#123;\n\t#{3:}\n&#125;</transform-into>
+			</append-dynamic>
+		</behavior>
+		
+		<completion string="class" />
+	</set>
+	
+	<set name="lveik.php.class.extend">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into> #{1:class} </transform-into>
+			</append-dynamic>
+		</behavior>
+		
+		<completion string="extends" />
+	</set>
+	
+	<!-- Control Structures -->
+	
+	<set name="lveik.php.control.for">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into>&#40;#{1:variable}; #{2:condition}; #{3:evaluation}&#41; &#123;\n\t#{4:}\n&#125;</transform-into>
+			</append-dynamic>
+		</behavior>
+		<completion string="for" />
+	</set>
+	
+	<set name="lveik.php.control.while">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into>&#40;#{1:condition}&#41; &#123;\n\t#{2:}\n&#125;</transform-into>
+			</append-dynamic>
+		</behavior>
+		<completion string="while" />
+	</set>
+	
+	<set name="lveik.php.control.dowhile">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into> &#123;\n\t#{2:}\n&#125; while &#40;#{1:condition}&#41;</transform-into>
+			</append-dynamic>
+		</behavior>
+		<completion string="do" />
+	</set>
+	
+	<set name="lveik.php.control.if">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into>&#40;#{1:condition} &#41; &#123;\n\t#{2:}\n&#125;</transform-into>
+			</append-dynamic>
+		</behavior>
+		
+		<completion string="if" />
+	</set>
+	
+</codesense>
