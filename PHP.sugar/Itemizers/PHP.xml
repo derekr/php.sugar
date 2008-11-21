@@ -6,58 +6,61 @@
 		<start-selector>begin.php:capture(name)</start-selector>
 		<end-selector>end.php:capture(name)</end-selector>
 		<subrecipes>
-			<include-root-recipes />
+			<include recipe="comment.php" />
+			<include recipe="class.php" />
+			<include recipe="include.php" />
+			<include recipe="function.php" />
+			<include recipe="magic.function.php" />
 		</subrecipes>
 	</recipe>
 	
-	<!-- Variables; $variableName -->
-	<recipe name="meta.name.variable.php">
+	<recipe name="comment.php">
+		<class>ESCommentItem</class>
+		<selector>comment</selector>
+	</recipe>
+	
+	<!-- Defining a custom class -->
+	<recipe name="class.php">
 		<class>ESBaseItem</class>
-		<selector>meta.name.variable.php:capture(name)</selector>	
+		<start-selector>meta.class.php:has-child(entity.name.type.class.php:capture(name))</start-selector>
 		<subrecipes>
-			<include-root-recipes/>
+			<include recipe="function.php" />
 		</subrecipes>
 	</recipe>
 	
-	<!-- Everything in between the brackets of a control structure (loops, conditions) -->
-	<recipe name="construct.control.php">
+	<!-- Defining an include -->
+	<recipe name="include.php">
 		<class>ESBaseItem</class>
-		<start-selector>keyword.control:capture(name) ~ meta.brace.curly.open.php</start-selector>	
-		<end-selector>meta.brace.curly.close.php</end-selector>	
+		<selector>meta.include.php:has-child(keyword.control.import.include.php:capture(name))</selector>
 		<subrecipes>
-			<recipe>
-				<selector>meta.brace.round:has-child(capture:(name))</selector>
+			<recipe name="file.include.php">
+				<selector>meta.include.php:has-child(meta.string-contents.php:capture(name))</selector>
 			</recipe>
-			<include-root-recipes/>
 		</subrecipes>
 	</recipe>
 	
-	<!-- Definding a custom function -->
+	<!-- Defining a custom function -->
 	<recipe name="function.php">
 		<class>ESBaseItem</class>
-		<start-selector>function.php:has-child(name:capture(name)):capture(itemizer-firstused) + meta.brace.curly.open.php</start-selector>
+		<start-selector>meta.function.php:has-child(entity.name.function.php:capture(name))</start-selector>
+		<subrecipes>
+			<include recipe="block.hidden.php" />
+		</subrecipes>
+	</recipe>
+	
+	<!-- Defining a magic function -->
+	<recipe name="magic.function.php">
+		<class>ESBaseItem</class>
+		<start-selector>meta.function.php:has-child(support.function.magic.php:capture(name))</start-selector>
+		<subrecipes>
+			<include recipe="block.hidden.php" />
+		</subrecipes>
+	</recipe>
+	
+	<recipe name="block.hidden.php">
+		<class>ESBaseItem</class>
+		<start-selector>meta.brace.curly.open.php</start-selector>
 		<end-selector>meta.brace.curly.close.php</end-selector>
-		<subrecipes>
-			<include-root-recipes/>
-		</subrecipes>
-	</recipe>
-	
-	<!-- Support (built-in) Functions -->
-	<recipe name="support.function.php">
-		<class>ESBaseItem</class>
-		<selector>support.function:capture(name)</selector>
-		<subrecipes>
-			<include-root-recipes/>
-		</subrecipes>
-	</recipe>
-	
-	<!-- Function call (custom function) -->
-	<recipe name="meta.function-call.php">
-		<class>ESBaseItem</class>
-		<selector>meta.function-call:capture(name)</selector>
-		<subrecipes>
-			<include-root-recipes/>
-		</subrecipes>
 	</recipe>
 	
 </itemizer>
