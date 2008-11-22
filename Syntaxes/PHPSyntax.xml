@@ -19,7 +19,7 @@
 				<include collection="language" />
 			</subzones>
 		</zone>
-		
+		<include syntax="text.html.basic" />
 	</zones>
 	
 	<library>
