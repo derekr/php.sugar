@@ -16,9 +16,10 @@
 				<capture number="1" name="source.php"/>
 			</ends-with>
 			<subzones>
-				<include collection="language"/>
+				<include collection="language" />
 			</subzones>
 		</zone>
+		
 	</zones>
 	
 	<library>
@@ -341,8 +342,8 @@
 					<capture number="6" name="punctuation.definition.parameters.begin.php"/>
 				</starts-with>
 				<ends-with>
-					<expression>\)</expression>
-					<capture number="1" name="punctuation.definition.parameters.end.php"/>
+					<expression>(\))\s*</expression>
+					<capture number="1" name="punctuation.definition.parameters.end.php" />
 				</ends-with>
 				<subzones name="meta.function.arguments.php">
 					<zone name="meta.function.argument.array.php">
@@ -562,18 +563,15 @@
 				<capture number="2" name="variable.other.property.php"/>
 			</zone>
 			
-			<!-- Open Curly Brace -->
+			<include collection="instantiation" />
+			<include collection="constants" />
+			
 			<zone name="meta.brace.curly.open.php">
 				<expression>\{</expression>
 			</zone>
-           
-			<!-- Close Curly Brace -->
 			<zone name="meta.brace.curly.close.php">
 				<expression>\}</expression>
 			</zone>
-			
-			<include collection="instantiation" />
-			<include collection="constants" />
 		</collection>
 		
 		<collection name="numbers">
@@ -1405,6 +1403,6 @@
 			<include collection="var_global_safer"/>
 			<include collection="var_basic"/>
 		</collection>
-		
+
 	</library>
 </syntax>
