@@ -188,7 +188,7 @@
 							<capture number="2" name="punctuation.definition.string.php"/>
 						</ends-with>
 						<subzones name="source.sql">
-							<include syntax="source.sql"/>
+							<include syntax="sourcecode.sql"/>
 							<include collection="interpolation"/>
 						</subzones>
 					</zone>
@@ -551,12 +551,11 @@
 			</zone>
 			
 			<!-- Include basics (numbers, strings, variables...) -->
+			<include collection="variables" />
 			<include collection="numbers"/>
 			<include collection="strings" />
 			<include collection="string-backtick"/>
 			<include collection="function-call"/>
-			<include collection="variables" />
-			
 			<zone>
 				<expression>(?&lt;=[a-zA-Z0-9_\x{7f}-\x{ff}])(->)([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?)\b</expression>
 				<capture number="1" name="keyword.operator.php"/>
@@ -654,6 +653,183 @@
 			</zone>
 		</collection>
 		
+		<collection name="regex-double-quoted">
+            <zone name="string.regexp.double-quoted.php">
+                <starts-with>
+                    <expression>(?x)"/ (?= (\\.|[^"/])++/[imsxeADSUXu]*" )</expression>
+                    <capture number="0" name="punctuation.definition.string.begin.php"/>
+                </starts-with>
+                <ends-with>
+                    <expression>(/)([imsxeADSUXu]*)(")</expression>
+                    <capture number="0" name="punctuation.definition.string.end.php"/>
+                </ends-with>
+                <subzones>
+                		<include syntax="expression.regex" />
+                    <zone name="constant.character.escape.regex.php">
+                        <expression>(\\){1,2}[.$^\[\]{}]</expression>
+                    </zone>
+                    <include collection="interpolation"/>
+                    <zone name="string.regexp.arbitrary-repitition.php">
+                        <expression>(\{)\d+(,\d+)?(\})</expression>
+                        <capture number="1" name="punctuation.definition.arbitrary-repitition.php"/>
+                        <capture number="3" name="punctuation.definition.arbitrary-repitition.php"/>
+                    </zone>
+                    <zone name="string.regexp.character-class.php">
+                        <starts-with>
+                            <expression>\[(?:\^?\])?</expression>
+                            <capture number="0" name="punctuation.definition.character-class.php"/>
+                        </starts-with>
+                        <ends-with>
+                            <expression>\]</expression>
+                            <capture number="0" name="punctuation.definition.character-class.php"/>
+                        </ends-with>
+                        <subzones>
+                            <include collection="interpolation"/>
+                        </subzones>
+                    </zone>
+                    <zone name="keyword.operator.regexp.php">
+                        <expression>[$^+*]</expression>
+                    </zone>
+                </subzones>
+            </zone>
+        </collection>
+        
+        <collection name="regex-single-quoted">
+            <zone name="string.regexp.single-quoted.php">
+                <starts-with>
+                    <expression>(?x)'/ (?= (\\.|[^'/])++/[imsxeADSUXu]*' )</expression>
+                    <capture number="0" name="punctuation.definition.string.begin.php"/>
+                </starts-with>
+                <ends-with>
+                    <expression>(/)([imsxeADSUXu]*)(')</expression>
+                    <capture number="0" name="punctuation.definition.string.end.php"/>
+                </ends-with>
+                <subzones>
+                		<include syntax="expression.regex" />
+                    <zone name="string.regexp.arbitrary-repitition.php">
+                        <expression>(\{)\d+(,\d+)?(\})</expression>
+                        <capture number="1" name="punctuation.definition.arbitrary-repitition.php"/>
+                        <capture number="3" name="punctuation.definition.arbitrary-repitition.php"/>
+                    </zone>
+                    <zone name="constant.character.escape.regex.php">
+                        <expression>(\\){1,2}[.$^\[\]{}]</expression>
+                    </zone>
+                    <zone name="constant.character.escape.php">
+                        <expression>\\{1,2}[\\']</expression>
+                    </zone>
+                    <zone name="string.regexp.character-class.php">
+                        <starts-with>
+                            <expression>\[(?:\^?\])?</expression>
+                            <capture number="0" name="punctuation.definition.character-class.php"/>
+                        </starts-with>
+                        <ends-with>
+                            <expression>\]</expression>
+                            <capture number="0" name="punctuation.definition.character-class.php"/>
+                        </ends-with>
+                        <subzones>
+                            <zone name="constant.character.escape.php">
+                                <expression>\\[\\'\[\]]</expression>
+                            </zone>
+                        </subzones>
+                    </zone>
+                    <zone name="keyword.operator.regexp.php">
+                        <expression>[$^+*]</expression>
+                    </zone>
+                </subzones>
+            </zone>
+        </collection>
+        
+        <collection name="sql-string-double-quoted">
+            <zone name="string.quoted.double.sql.php">
+                <starts-with>
+                    <expression>"\s*(?=(SELECT|INSERT|UPDATE|DELETE|CREATE|REPLACE|ALTER)\b)</expression>
+                    <capture number="0" name="punctuation.definition.string.begin.php"/>
+                </starts-with>
+                <ends-with>
+                    <expression>"</expression>
+                    <capture number="0" name="punctuation.definition.string.end.php"/>
+                </ends-with>
+                <subzones name="source.sql.embedded.php">
+                		<include syntax="sourcecode.sql" />
+                		<include collection="interpolation" />
+						</subzones>
+            </zone>
+        </collection>
+        
+        <collection name="sql-string-single-quoted">
+            <zone name="string.quoted.single.sql.php">
+                <starts-with>
+                    <expression>'\s*(?=(SELECT|INSERT|UPDATE|DELETE|CREATE|REPLACE|ALTER)\b)</expression>
+                    <capture number="0" name="punctuation.definition.string.begin.php"/>
+                </starts-with>
+                <ends-with>
+                    <expression>'</expression>
+                    <capture number="0" name="punctuation.definition.string.end.php"/>
+                </ends-with>
+                <subzones name="source.sql.embedded.php">
+                    <zone name="comment.line.number-sign.sql">
+                        <expression>#(\\'|[^'])*(?='|$\n?)</expression>
+                    </zone>
+                    <zone name="comment.line.double-dash.sql">
+                        <expression>--(\\'|[^'])*(?='|$\n?)</expression>
+                    </zone>
+                    <zone name="string.quoted.single.unclosed.sql">
+                        <starts-with>
+                            <expression>\\'(?!([^\\']|\\[^'])*\\')(?=(\\[^']|.)*?')</expression>
+                        </starts-with>
+                        <ends-with>
+                            <expression>(?=')</expression>
+                        </ends-with>
+                        <subzones>
+                            <zone name="constant.character.escape.php">
+                                <expression>\\[\\']</expression>
+                            </zone>
+                        </subzones>
+                    </zone>
+                    <zone name="string.quoted.other.backtick.unclosed.sql">
+                        <starts-with>
+                            <expression>`(?=[^`]*?')</expression>
+                        </starts-with>
+                        <ends-with>
+                            <expression>(?=')</expression>
+                        </ends-with>
+                        <subzones>
+                            <zone name="constant.character.escape.php">
+                                <expression>\\[\\']</expression>
+                            </zone>
+                        </subzones>
+                    </zone>
+                    <zone name="string.quoted.double.unclosed.sql">
+                        <starts-with>
+                            <expression>"(?=[^"]*?')</expression>
+                        </starts-with>
+                        <ends-with>
+                            <expression>(?=')</expression>
+                        </ends-with>
+                        <subzones>
+                            <zone name="constant.character.escape.php">
+                                <expression>\\[\\']</expression>
+                            </zone>
+                        </subzones>
+                    </zone>
+                    <zone name="string.quoted.single.sql">
+                        <starts-with>
+                            <expression>\\'</expression>
+                            <capture number="0" name="constant.character.escape.php"/>
+                        </starts-with>
+                        <ends-with>
+                            <expression>\\'</expression>
+                            <capture number="0" name="constant.character.escape.php"/>
+                        </ends-with>
+                    </zone>
+                    <zone name="constant.character.escape.php">
+                        <expression>\\[\\']</expression>
+                    </zone>
+                    <include syntax="sourcecode.sql"/>
+                </subzones>
+            </zone>
+        </collection>
+		
 		<collection name="string-backtick">
 			<zone name="string.interpolated.php">
 				<starts-with>
@@ -669,6 +845,7 @@
 						<expression>\\.</expression>
 					</zone>
 					<include collection="interpolation"/>
+					<include syntax="sourcecode.sql" />
 				</subzones>
 			</zone>
 		</collection>
@@ -684,7 +861,8 @@
 					<capture number="0" name="punctuation.definition.string.end.php"/>
 				</ends-with>
 				<subzones name="meta.string-contents.quoted.double.php">
-					<include collection="interpolation"/>
+					<include collection="variables" />
+					<include collection="interpolation" />
 				</subzones>
 			</zone>
 		</collection>
@@ -708,9 +886,13 @@
 		</collection>
 		
 		<collection name="strings">
-			<include collection="string-double-quoted"/>
-			<include collection="string-single-quoted"/>
-		</collection>
+            <include collection="regex-double-quoted"/>
+            <include collection="sql-string-double-quoted"/>
+            <include collection="string-double-quoted"/>
+            <include collection="regex-single-quoted"/>
+            <include collection="sql-string-single-quoted"/>
+            <include collection="string-single-quoted"/>
+        </collection>
 		
 		<collection name="support">
 			<!-- Array Functions -->
