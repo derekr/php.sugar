@@ -13,7 +13,6 @@
 			<ends-with>
 				<expression>(\?)></expression>
 				<capture number="0" name="punctuation.section.embedded.end.php"/>
-				<capture number="1" name="source.php"/>
 			</ends-with>
 			<subzones>
 				<include collection="language" />
