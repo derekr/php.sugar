@@ -3,7 +3,7 @@
 	
 	<before zone="close.php">
 		<shift-indent by="-1" />
-	</after>
+	</before>
 	
 	<after zone="open.php">
 		<shift-indent by="+1" />
