@@ -17,6 +17,11 @@ variable {
 	background-color: #f2fbfe;
 }
 
+php variable > group {
+	color: #3482da;
+	background-color: #f2fbfe;
+}
+
 include {
 	color: #555;
 	background-color: #f8f8f8;

@@ -10,36 +10,31 @@
 		</subrecipes>
 	</recipe>
 	
-	<recipe name="comment.php">
-		<class>ESCommentItem</class>
-		<selector>comment</selector>
-	</recipe>
-	
 	<!-- Defining a custom class -->
-	<recipe name="class.php">
+	<recipe name="container.class">
 		<class>ESBaseItem</class>
-		<start-selector>meta.class.php:has-child(name:capture(name)):capture(itemizer-firstused) + meta.brace.curly.open.php</start-selector>
-		<end-selector>meta.brace.curly.close.php</end-selector>
+		<start-selector>container.class:has-child(current:has-child((name:capture(name))):capture(itemizer-firstused) + delimiter.balanced.curly-brace.begin</start-selector>
+		<end-selector>delimiter.balanced.curly-brace.end</end-selector>
 		<subrecipes>
 			<include-root-recipes />
 		</subrecipes>
 	</recipe>
 	
 	<!-- Defining a custom function -->
-	<recipe name="function.php">
+	<recipe name="container.function">
 		<class>ESBaseItem</class>
-		<start-selector>meta.function.php:has-child(name:capture(name)):capture(itemizer-firstused) + meta.brace.curly.open.php</start-selector>
-		<end-selector>meta.brace.curly.close.php</end-selector>
+		<start-selector>container.function:has-child(name:capture(name)):capture(itemizer-firstused) + delimiter.balanced.curly-brace.begin</start-selector>
+		<end-selector>delimiter.balanced.curly-brace.end</end-selector>
 		<subrecipes>
 			<include-root-recipes />
 		</subrecipes>
 	</recipe>
 	
 	<!-- Defining a magic function -->
-	<recipe name="magic.function.php">
+	<recipe name="container.function.magic">
 		<class>ESBaseItem</class>
-		<start-selector>meta.function.php:has-child(magic:capture(name)):capture(itemizer-firstused) + meta.brace.curly.open.php</start-selector>
-		<end-selector>meta.brace.curly.close.php</end-selector>
+		<start-selector>container.function.magic:has-child(name:capture(name)):capture(itemizer-firstused) + delimiter.balanced.curly-brace.begin</start-selector>
+		<end-selector>delimiter.balanced.curly-brace.end</end-selector>
 		<subrecipes>
 			<include-root-recipes />
 		</subrecipes>
@@ -59,6 +54,11 @@
 	<recipe name="include.php">
 		<class>ESBaseItem</class>
 		<selector>meta.include.php:has-child(string:has-child(string-contents:capture(name))):capture(itemizer-firstused)</selector>
+	</recipe>
+	
+	<recipe name="comment.php">
+		<class>ESCommentItem</class>
+		<selector>comment</selector>
 	</recipe>
 	
 </itemizer>
