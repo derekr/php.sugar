@@ -23,8 +23,9 @@
 	    <!-- Includes all other collections -->
 	    <collection name="language">
 	        <include collection="metadata.comment" />
-	        <include collection="literal.keyword" />
+	        <include collection="container.function" />
 	        <include collection="identifier.function" />
+	        <include collection="literal.keyword" />
 	        <include collection="identifier.class" />
 	        <include collection="identifier.variable" />
 	        <include collection="literal.string" />
@@ -163,7 +164,7 @@
 			<zone name="literal.keyword.constant.std">
 				<expression>\b(A(B(DAY_([1-7])|MON_([0-9]{1,2}))|LT_DIGITS|M_STR|SSERT_(ACTIVE|BAIL|CALLBACK|QUIET_EVAL|WARNING))|C(ASE_(LOWER|UPPER)|HAR_MAX|O(DESET|NNECTION_(ABORTED|NORMAL|TIMEOUT)|UNT_(NORMAL|RECURSIVE))|REDITS_(ALL|DOCS|FULLPAGE|GENERAL|GROUP|MODULES|QA|SAPI)|RNCYSTR|RYPT_(BLOWFISH|EXT_DES|MD5|SALT_LENGTH|STD_DES)|URRENCY_SYMBOL)|D(AY_([1-7])|ECIMAL_POINT|IRECTORY_SEPARATOR|_(FMT|T_FMT))|E(NT_(COMPAT|NOQUOTES|QUOTES)|RA(|_D_FMT|_D_T_FMT|_T_FMT|_YEAR)|XTR_(IF_EXISTS|OVERWRITE|PREFIX_(ALL|IF_EXISTS|INVALID|SAME)|SKIP))|FRAC_DIGITS|GROUPING|HTML_(ENTITIES|SPECIALCHARS)|IN(FO_(ALL|CONFIGURATION|CREDITS|ENVIRONMENT|GENERAL|LICENSE|MODULES|VARIABLES)|I_(ALL|PERDIR|SYSTEM|USER)|T_(CURR_SYMBOL|FRAC_DIGITS))|L(C_(ALL|COLLATE|CTYPE|MESSAGES|MONETARY|NUMERIC|TIME)|O(CK_(EX|NB|SH|UN)|G_(ALERT|AUTH(|PRIV)|CONS|CRIT|CRON|DAEMON|DEBUG|EMERG|ERR|INFO|KERN|LOCAL([0-7])|LPR|MAIL|NDELAY|NEWS|NOTICE|NOWAIT|ODELAY|PERROR|PID|SYSLOG|USER|UUCP|WARNING)))|M(ON_([0-9]{1,2}|DECIMAL_POINT|GROUPING|THOUSANDS_SEP)|YSQL_(ASSOC|BOTH|NUM)|_(1_PI|2_(PI|SQRTPI)|E|L(N10|N2|OG(10E|2E))|PI(|_2|_4)|SQRT1_2|SQRT2))|N(EGATIVE_SIGN|O(EXPR|STR)|_(CS_PRECEDES|SEP_BY_SPACE|SIGN_POSN))|P(ATH(INFO_(BASENAME|DIRNAME|EXTENSION|FILENAME)|_SEPARATOR)|M_STR|OSITIVE_SIGN|_(CS_PRECEDES|SEP_BY_SPACE|SIGN_POSN))|RADIXCHAR|S(EEK_(CUR|END|SET)|ORT_(ASC|DESC|NUMERIC|REGULAR|STRING)|TR_PAD_(BOTH|LEFT|RIGHT))|T(HOUS(ANDS_SEP|EP)|_(FMT(|_AMPM)))|YES(EXPR|STR))\b</expression>
 			</zone>
-			
+            <!-- May need to uncomment later. Currently fucking up functions -->
 			<zone name="literal.keyword.constant.other">
 				<expression>[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*</expression>
 			</zone>
@@ -190,6 +191,10 @@
 			</zone>
 		</collection>
 		
+		<collection name="identifier.variable.parameter">
+		    <include zone="identifier.variable.local" />
+		</collection>
+		
 		<collection name="identifier.class">
 			<zone name="identifier.class">
 				<expression>(?i)\b(new)\s+(?:(\$[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)|(\w+))|(\w+)(?=::)</expression>
@@ -199,6 +204,47 @@
 				<capture number="4" name="identifier.class.static-method"/>
 			</zone>
 		</collection>
+        
+        
+        <!-- Containers -->
+        <collection name="container.function">
+            <zone name="container.function.magic.parenthesis-delimited">
+                <starts-with>
+                    <expression>((?:(?:final|abstract|public|private|protected|static)\s+)*)(function)(?:\s+|(\s*&amp;\s*))(?:(__(?:call|(?:con|de)struct|get|(?:is|un)?set|tostring|clone|set_state|sleep|wakeup|autoload))|(__[a-zA-Z0-9_]+))\s*(\()</expression>
+                    <capture number="1" name="keyword.modifier" />
+                    <capture number="2" name="keyword.definition.function.begin" />
+                    <capture number="4" name="name" />
+                    <capture number="6" name="delimiter.balanced.parenthesis.parameters.function.begin" />
+                </starts-with>
+                <ends-with>
+                    <expression>\)</expression>
+                    <capture number="0" name="delimiter.balanced.parenthesis.parameters.function.end" />
+                </ends-with>
+                <subzones>
+                    <zone name="identifier.variable.parameter">
+        		        <expression>(?x)(\$+)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</expression>
+        		    </zone>
+                </subzones>
+            </zone>
+            <zone name="container.function.parenthesis-delimited">
+                <starts-with>
+                    <expression>((?:(?:final|abstract|public|private|protected|static)\s+)*)(function)(?:\s+|(\s*&amp;\s*))(?:(__(?:call|(?:con|de)struct|get|(?:is|un)?set|tostring|clone|set_state|sleep|wakeup|autoload))|([a-zA-Z0-9_]+))\s*(\()</expression>
+                    <capture number="1" name="keyword.modifier" />
+                    <capture number="2" name="keyword.definition.function.begin" />
+                    <capture number="5" name="name" />
+                    <capture number="6" name="delimiter.balanced.parenthesis.parameters.function.begin" />
+                </starts-with>
+                <ends-with>
+                    <expression>\)</expression>
+                    <capture number="0" name="delimiter.balanced.parenthesis.parameters.function.end" />
+                </ends-with>
+                <subzones>
+                    <zone name="identifier.variable.parameter">
+        		        <expression>(?x)(\$+)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</expression>
+        		    </zone>
+                </subzones>
+            </zone>
+        </collection>
         
         <collection name="delimiter">
             <zone name="delimiter.terminator">

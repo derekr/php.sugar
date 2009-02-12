@@ -12,13 +12,18 @@ php {
 	spell-check: disabled;
 }
 
-php > variable, php > variable > punctuation {
+variable {
 	color: #3d96fc;
 	background-color: #f2fbfe;
 }
 
-php > include {
+include {
 	color: #555;
 	background-color: #f8f8f8;
 	font-style: italic;
+}
+
+php function > name {
+	color: #cc6cfc;
+	background-color: #fbf2fe;
 }
