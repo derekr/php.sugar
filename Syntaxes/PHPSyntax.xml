@@ -24,8 +24,10 @@
 	    <collection name="language">
 	        <include collection="metadata.comment" />
 	        <include collection="container.class" />
+	        <include collection="container.block" />
 	        <include collection="container.function" />
 	        <include collection="identifier.function" />
+	        <include collection="literal.collection" />
 	        <include collection="literal.keyword" />
 	        <include collection="identifier.class" />
 	        <include collection="identifier.variable" />
@@ -144,6 +146,24 @@
             </zone>
 	    </collection>
 	    
+	    <collection name="literal.collection">
+	        <zone name="literal.collection.dictionary.array">
+	            <starts-with>
+                    <expression>(\barray\b)\s*(\()</expression>
+                    <capture number="1" name="keyword.definition.array.begin" />
+                    <capture number="2" name="delimiter.balanced.parenthesis.condition.begin" />
+                </starts-with>
+                <ends-with>
+                    <expression>\)</expression>
+                    <capture number="0" name="delimiter.balanced.parenthesis.condition.end" />
+                </ends-with>
+                <subzones>
+                    <include collection="identifier.variable" />
+                    <include collection="identifier.function" />
+                </subzones>
+	        </zone>
+	    </collection>
+	    
 		<collection name="literal.keyword">
 		    <zone name="literal.keyword.bool.true">
 		        <expression>\btrue\b</expression>
@@ -230,6 +250,7 @@
                     <zone name="identifier.variable.parameter">
         		        <expression>(?x)(\$+)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</expression>
         		    </zone>
+        		    <include collection="literal.collection" />
                 </subzones>
             </zone>
             <zone name="container.function.parenthesis-delimited">
@@ -248,6 +269,7 @@
                     <zone name="identifier.variable.parameter">
         		        <expression>(?x)(\$+)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</expression>
         		    </zone>
+        		    <include collection="literal.collection" />
                 </subzones>
             </zone>
         </collection>
@@ -261,6 +283,57 @@
                     <capture number="5" name="class.extended" />
                     <capture number="6" name="keyword.definition.class.extends.begin" />
                     <capture number="7" name="name" />
+            </zone>
+        </collection>
+        
+        <collection name="container.block">
+            <zone name="container.block.if">
+                <starts-with>
+                    <expression>(\bif\b)\s*(\()\b</expression>
+                    <capture number="1" name="keyword.control.flow.if" />
+                    <capture number="2" name="delimiter.balanced.parenthesis.condition.begin" />
+                </starts-with>
+                <ends-with>
+                    <expression>\)</expression>
+                    <capture number="0" name="delimiter.balanced.parenthesis.condition.end" />
+                </ends-with>
+                <subzones>
+                    <include collection="identifier.variable" />
+                    <include collection="identifier.function" />
+                    <include collection="literal.collection" />
+                </subzones>
+            </zone>
+            <zone name="container.block.ifelse">
+                <starts-with>
+                    <expression>(\bif(\s)*else\b)\s*(\()</expression>
+                    <capture number="1" name="keyword.control.flow.ifelse" />
+                    <capture number="2" name="delimiter.balanced.parenthesis.condition.begin" />
+                </starts-with>
+                <ends-with>
+                    <expression>\)</expression>
+                    <capture number="0" name="delimiter.balanced.parenthesis.condition.end" />
+                </ends-with>
+                <subzones>
+                    <include collection="identifier.variable" />
+                    <include collection="identifier.function" />
+                    <include collection="literal.collection" />
+                </subzones>
+            </zone>
+            <zone name="container.block.foreach">
+                <starts-with>
+                    <expression>(\bfor(\s)*each\b)\s*(\()</expression>
+                    <capture number="1" name="keyword.control.flow.foreach" />
+                    <capture number="2" name="delimiter.balanced.parenthesis.condition.begin" />
+                </starts-with>
+                <ends-with>
+                    <expression>\)</expression>
+                    <capture number="0" name="delimiter.balanced.parenthesis.condition.end" />
+                </ends-with>
+                <subzones>
+                    <include collection="identifier.variable" />
+                    <include collection="identifier.function" />
+                    <include collection="literal.collection" />
+                </subzones>
             </zone>
         </collection>
         

@@ -13,17 +13,7 @@
 	<!-- Defining a custom class -->
 	<recipe name="container.class">
 		<class>ESBaseItem</class>
-		<start-selector>container.class:has-child(current:has-child((name:capture(name))):capture(itemizer-firstused) + delimiter.balanced.curly-brace.begin</start-selector>
-		<end-selector>delimiter.balanced.curly-brace.end</end-selector>
-		<subrecipes>
-			<include-root-recipes />
-		</subrecipes>
-	</recipe>
-	
-	<!-- Defining a custom function -->
-	<recipe name="container.function">
-		<class>ESBaseItem</class>
-		<start-selector>container.function:has-child(name:capture(name)):capture(itemizer-firstused) + delimiter.balanced.curly-brace.begin</start-selector>
+		<start-selector>container.class:has-child(current:has-child((name:capture(name))) + delimiter.balanced.curly-brace.begin:capture(itemizer-firstused)</start-selector>
 		<end-selector>delimiter.balanced.curly-brace.end</end-selector>
 		<subrecipes>
 			<include-root-recipes />
@@ -33,7 +23,17 @@
 	<!-- Defining a magic function -->
 	<recipe name="container.function.magic">
 		<class>ESBaseItem</class>
-		<start-selector>container.function.magic:has-child(name:capture(name)):capture(itemizer-firstused) + delimiter.balanced.curly-brace.begin</start-selector>
+		<start-selector>container.function.magic:has-child(name:capture(name)) + delimiter.balanced.curly-brace.begin:capture(itemizer-firstused)</start-selector>
+		<end-selector>delimiter.balanced.curly-brace.end</end-selector>
+		<subrecipes>
+			<include-root-recipes />
+		</subrecipes>
+	</recipe>
+	
+	<!-- Defining a custom function -->
+	<recipe name="container.function">
+		<class>ESBaseItem</class>
+		<start-selector>container.function:has-child(name:capture(name)) + delimiter.balanced.curly-brace.begin:capture(itemizer-firstused)</start-selector>
 		<end-selector>delimiter.balanced.curly-brace.end</end-selector>
 		<subrecipes>
 			<include-root-recipes />
@@ -41,10 +41,10 @@
 	</recipe>
 	
 	<!-- Defining control structures; (if, else, switch, for, foreach...)-->
-	<recipe name="control.hidden.php">
+	<recipe name="container.block">
 		<class>ESBaseItem</class>
-		<start-selector>keyword.control:capture(name) ~ meta.brace.curly.open.php</start-selector>
-		<end-selector>meta.brace.curly.close.php</end-selector>
+		<start-selector>container.block:capture(name) + delimiter.balanced.curly-brace.begin:capture(itemizer-firstused)</start-selector>
+		<end-selector>delimiter.balanced.curly-brace.end</end-selector>
 		<subrecipes>
 			<include-root-recipes />
 		</subrecipes>
