@@ -2,14 +2,36 @@
 
 <settings>
 
-	<language id="net.lveik.default.php">
+	<language id="com.gridlee.php">
 		
 		<root-zone>sourcecode.php</root-zone>
-		<name>PHP</name>
+		
 		<detectors>
-			<extension>php</extension>
-			<extension>inc</extension>
+			<extension casesensitive="false">php</extension>
+			<extension casesensitive="false">inc</extension>
+			<extension casesensitive="false">phtml</extension>
 		</detectors>
+		
+		<meta>
+		    <name>
+		        PHP
+		    </name>
+		    <description>
+		        Official php.sugar for Espresso.
+		    </description>
+		    <author>
+		        Derek Reynolds, oprah_noodle
+		    </author>
+		    <identifier>
+		        com.gridlee.Sugar.PHP
+		    </identifier>
+		    <version status="preview">
+		        .9b1
+		    </version>
+		    <dependencies>
+                <dependency id="name.elliottcable.Sugar.Regex">Regex</dependency>
+            </dependencies>
+		</meta>
 		
 	</language>
 	
