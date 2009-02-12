@@ -23,11 +23,11 @@
 	    <!-- Includes all other collections -->
 	    <collection name="language">
 	        <include collection="metadata.comment" />
+	        <include collection="literal.collection" />
 	        <include collection="container.class" />
 	        <include collection="container.block" />
 	        <include collection="container.function" />
 	        <include collection="identifier.function" />
-	        <include collection="literal.collection" />
 	        <include collection="literal.keyword" />
 	        <include collection="identifier.class" />
 	        <include collection="identifier.variable" />
@@ -151,15 +151,21 @@
 	            <starts-with>
                     <expression>(\barray\b)\s*(\()</expression>
                     <capture number="1" name="keyword.definition.array.begin" />
-                    <capture number="2" name="delimiter.balanced.parenthesis.condition.begin" />
+                    <capture number="2" name="delimiter.balanced.parenthesis.begin" />
                 </starts-with>
                 <ends-with>
                     <expression>\)</expression>
-                    <capture number="0" name="delimiter.balanced.parenthesis.condition.end" />
+                    <capture number="0" name="delimiter.balanced.parenthesis.end" />
                 </ends-with>
                 <subzones>
-                    <include collection="identifier.variable" />
-                    <include collection="identifier.function" />
+                    <include collection="literal.collection" />
+                    <include collection="container.function" />
+        	        <include collection="identifier.function" />
+        	        <include collection="literal.keyword" />
+        	        <include collection="identifier.class" />
+        	        <include collection="identifier.variable" />
+        	        <include collection="literal.string" />
+        	        <include collection="delimiter" />
                 </subzones>
 	        </zone>
 	    </collection>

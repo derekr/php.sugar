@@ -50,6 +50,15 @@
 		</subrecipes>
 	</recipe>
 	
+	<recipe name="literal.collection.hidden">
+	    <class>ESBaseItem</class>
+		<start-selector>literal.collection > delimiter.balanced.parenthesis.begin</start-selector>
+		<end-selector>literal.collection > delimiter.balanced.parenthesis.begin.end</end-selector>
+		<subrecipes>
+			<include-root-recipes />
+		</subrecipes>
+	</recipe>
+	
 	<!-- Defining an include -->
 	<recipe name="include.php">
 		<class>ESBaseItem</class>
