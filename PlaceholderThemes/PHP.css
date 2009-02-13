@@ -53,6 +53,11 @@ identifier.function {
 	color: #a2ce4e;
 }
 
+identifier.function.support {
+	color: #c1c11b;
+	background-color: #f9fdea;
+}
+
 keyword {
 	color: #6700b9;
 }

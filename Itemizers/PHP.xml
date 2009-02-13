@@ -60,9 +60,16 @@
 	</recipe>
 	
 	<!-- Defining an include -->
-	<recipe name="include.php">
+	<recipe name="include">
 		<class>ESBaseItem</class>
-		<selector>meta.include.php:has-child(string:has-child(string-contents:capture(name))):capture(itemizer-firstused)</selector>
+		<start-selector>keyword.include:capture(name)</start-selector>
+		<end-selector>delimiter.terminator</end-selector>
+		<subrecipes>
+			<recipe>
+			    <class>ESBaseItem</class>
+			    <selector>variable:capture(name), keyword:capture(name), literal:capture(name)</selector>
+			</recipe>
+		</subrecipes>
 	</recipe>
 	
 	<recipe name="comment.php">
