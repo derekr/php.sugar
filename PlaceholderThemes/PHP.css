@@ -12,7 +12,7 @@ php {
 	spell-check: disabled;
 }
 
-variable {
+variable, string.double variable {
 	color: #3d96fc;
 	background-color: #f2fbfe;
 }
@@ -22,13 +22,46 @@ php variable > group {
 	background-color: #f2fbfe;
 }
 
+class, container.function {
+	background-color: #fcf8fe;
+}
+
+class.definition, function.definition {
+	color: #fb9ffd;
+}
+
+class > name {
+	color: #6700b9;
+}
+
+function > modifier {
+	color: #d386d5;
+}
+
 include {
 	color: #555;
 	background-color: #f8f8f8;
 	font-style: italic;
 }
 
-php function > name {
+container.function > name {
 	color: #cc6cfc;
 	background-color: #fbf2fe;
+}
+
+identifier.function {
+	color: #a2ce4e;
+}
+
+keyword {
+	color: #6700b9;
+}
+
+integer {
+    color: #6700b9;
+	background-color: #fbf2fe;
+}
+
+phpDoc.keyword {
+	color: #ad91ba;
 }
