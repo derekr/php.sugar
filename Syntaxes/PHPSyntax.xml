@@ -296,6 +296,7 @@
 		</collection>
 		
 		<collection name="identifier.function">
+		    <include collection="identifier.function.support" />
 		    <zone name="identifier.function.class.method">
 			    <starts-with>
 			        <expression>(->)[A-Za-z_][A-Za-z_0-9]*(\()</expression>
@@ -334,7 +335,6 @@
                     <include collection="operator" />
 				</subzones>
 			</zone>
-			<include collection="identifier.function.support" />
 		</collection>
 		
 		<collection name="identifier.variable.parameter">
@@ -608,667 +608,676 @@
         <collection name="identifier.function.support">
             <!-- Array Functions -->
             <zone name="identifier.function.support.array">
-                    <expression>(?i)\b(s(huffle|ort)|n(ext|at(sort|casesort))|c(o(unt|mpact)|urrent)|in_array|u(sort|ksort|asort)|prev|e(nd|xtract)|k(sort|ey|rsort)|a(sort|r(sort|ray_(s(hift|um|plice|earch|lice)|c(h(unk|ange_key_case)|o(unt_values|mbine))|intersect(_(u(key|assoc)|key|assoc))?|diff(_(u(key|assoc)|key|assoc))?|u(n(shift|ique)|intersect(_(uassoc|assoc))?|diff(_(uassoc|assoc))?)|p(op|ush|ad|roduct)|values|key(s|_exists)|f(il(ter|l(_keys)?)|lip)|walk(_recursive)?|r(e(duce|verse)|and)|m(ultisort|erge(_recursive)?|ap))))|r(sort|eset|ange)|m(in|ax))(?=\s*\()</expression>
+                <starts-with>
+                    <expression>(?i)\b(s(huffle|ort)|n(ext|at(sort|casesort))|c(o(unt|mpact)|urrent)|in_array|u(sort|ksort|asort)|prev|e(nd|xtract)|k(sort|ey|rsort)|a(sort|r(sort|ray_(s(hift|um|plice|earch|lice)|c(h(unk|ange_key_case)|o(unt_values|mbine))|intersect(_(u(key|assoc)|key|assoc))?|diff(_(u(key|assoc)|key|assoc))?|u(n(shift|ique)|intersect(_(uassoc|assoc))?|diff(_(uassoc|assoc))?)|p(op|ush|ad|roduct)|values|key(s|_exists)|f(il(ter|l(_keys)?)|lip)|walk(_recursive)?|r(e(duce|verse)|and)|m(ultisort|erge(_recursive)?|ap))))|r(sort|eset|ange)|m(in|ax))(\()</expression>
+                    <capture number="1" name="name" />
+                    <capture number="41" name="delimiter.balanced.parenthesis.begin" />
+                </starts-with>
+                <ends-with>
+                    <expression>\)</expression>
+				    <capture number="0" name="delimiter.balanced.parenthesis.end" />
+                </ends-with>
+                    
             </zone>
             <!-- Assert Functions -->
             <zone name="identifier.function.support.assert">
-                    <expression>(?i)\bassert(_options)?(?=\s*\()</expression>
+                    <expression>(?i)\bassert(_options)?(\()</expression>
             </zone>
             <!-- Attr Functions -->
             <zone name="identifier.function.support.attr">
-                    <expression>(?i)\bdom_attr_is_id(?=\s*\()</expression>
+                    <expression>(?i)\bdom_attr_is_id(\()</expression>
             </zone>
             <!-- Base64 Functions -->
             <zone name="identifier.function.support.base64">
-                    <expression>(?i)\bbase64_(decode|encode)(?=\s*\()</expression>
+                    <expression>(?i)\bbase64_(decode|encode)(\()</expression>
             </zone>
             <!-- Basic Functions -->
             <zone name="identifier.function.support.basic_functions">
-                    <expression>(?i)\b(highlight_(string|file)|s(ys_getloadavg|et_(include_path|magic_quotes_runtime)|leep)|c(on(stant|nection_(status|aborted))|all_user_(func(_array)?|method(_array)?))|time_(sleep_until|nanosleep)|i(s_uploaded_file|n(i_(set|restore|get(_all)?)|et_(ntop|pton))|p2long|gnore_user_abort|mport_request_variables)|u(sleep|nregister_tick_function)|error_(log|get_last)|p(hp_strip_whitespace|utenv|arse_ini_file|rint_r)|flush|long2ip|re(store_include_path|gister_(shutdown_function|tick_function))|get(servby(name|port)|opt|_(c(urrent_user|fg_var)|include_path|magic_quotes_(gpc|runtime))|protobyn(umber|ame)|env)|move_uploaded_file)(?=\s*\()</expression>
+                    <expression>(?i)\b(highlight_(string|file)|s(ys_getloadavg|et_(include_path|magic_quotes_runtime)|leep)|c(on(stant|nection_(status|aborted))|all_user_(func(_array)?|method(_array)?))|time_(sleep_until|nanosleep)|i(s_uploaded_file|n(i_(set|restore|get(_all)?)|et_(ntop|pton))|p2long|gnore_user_abort|mport_request_variables)|u(sleep|nregister_tick_function)|error_(log|get_last)|p(hp_strip_whitespace|utenv|arse_ini_file|rint_r)|flush|long2ip|re(store_include_path|gister_(shutdown_function|tick_function))|get(servby(name|port)|opt|_(c(urrent_user|fg_var)|include_path|magic_quotes_(gpc|runtime))|protobyn(umber|ame)|env)|move_uploaded_file)(\()</expression>
             </zone>
             <!-- BCmath Functions -->
             <zone name="identifier.function.support.bcmath">
-                    <expression>(?i)\bbc(s(cale|ub|qrt)|comp|div|pow(mod)?|add|m(od|ul))(?=\s*\()</expression>
+                    <expression>(?i)\bbc(s(cale|ub|qrt)|comp|div|pow(mod)?|add|m(od|ul))(\()</expression>
             </zone>
             <!-- Birdsetp Functions -->
             <zone name="identifier.function.support.birdstep">
-                    <expression>(?i)\bbirdstep_(c(o(nnect|mmit)|lose)|off_autocommit|exec|f(ieldn(um|ame)|etch|reeresult)|autocommit|r(ollback|esult))(?=\s*\()</expression>
+                    <expression>(?i)\bbirdstep_(c(o(nnect|mmit)|lose)|off_autocommit|exec|f(ieldn(um|ame)|etch|reeresult)|autocommit|r(ollback|esult))(\()</expression>
             </zone>
             <!-- Browscap Functions -->
             <zone name="identifier.function.support.browscap">
-                    <expression>(?i)\bget_browser(?=\s*\()</expression>
+                    <expression>(?i)\bget_browser(\()</expression>
             </zone>
             <!-- Builtin Functions -->
             <zone name="identifier.function.support.builtin_functions">
-                    <expression>(?i)\b(s(tr(nc(asecmp|mp)|c(asecmp|mp)|len)|et_e(rror_handler|xception_handler))|c(lass_exists|reate_function)|trigger_error|i(s_(subclass_of|a)|nterface_exists)|de(fine(d)?|bug_(print_backtrace|backtrace))|zend_version|property_exists|e(ach|rror_reporting|xtension_loaded)|func(tion_exists|_(num_args|get_arg(s)?))|leak|restore_e(rror_handler|xception_handler)|get_(class(_(vars|methods))?|included_files|de(clared_(classes|interfaces)|fined_(constants|vars|functions))|object_vars|extension_funcs|parent_class|loaded_extensions|resource_type)|method_exists)(?=\s*\()</expression>
+                    <expression>(?i)\b(s(tr(nc(asecmp|mp)|c(asecmp|mp)|len)|et_e(rror_handler|xception_handler))|c(lass_exists|reate_function)|trigger_error|i(s_(subclass_of|a)|nterface_exists)|de(fine(d)?|bug_(print_backtrace|backtrace))|zend_version|property_exists|e(ach|rror_reporting|xtension_loaded)|func(tion_exists|_(num_args|get_arg(s)?))|leak|restore_e(rror_handler|xception_handler)|get_(class(_(vars|methods))?|included_files|de(clared_(classes|interfaces)|fined_(constants|vars|functions))|object_vars|extension_funcs|parent_class|loaded_extensions|resource_type)|method_exists)(\()</expression>
             </zone>
             <!-- bz2 Functions -->
             <zone name="identifier.function.support.bz2">
-                    <expression>(?i)\bbz(compress|decompress|open|err(str|no|or)|read)(?=\s*\()</expression>
+                    <expression>(?i)\bbz(compress|decompress|open|err(str|no|or)|read)(\()</expression>
             </zone>
             <!-- cal_unix Functions -->
             <zone name="identifier.function.support.cal_unix">
-                    <expression>(?i)\b(jdtounix|unixtojd)(?=\s*\()</expression>
+                    <expression>(?i)\b(jdtounix|unixtojd)(\()</expression>
             </zone>
             <!-- Calendar Functions -->
             <zone name="identifier.function.support.calendar">
-                    <expression>(?i)\b(cal_(to_jd|info|days_in_month|from_jd)|j(d(to(j(ulian|ewish)|french|gregorian)|dayofweek|monthname)|uliantojd|ewishtojd)|frenchtojd|gregoriantojd)(?=\s*\()</expression>
+                    <expression>(?i)\b(cal_(to_jd|info|days_in_month|from_jd)|j(d(to(j(ulian|ewish)|french|gregorian)|dayofweek|monthname)|uliantojd|ewishtojd)|frenchtojd|gregoriantojd)(\()</expression>
             </zone>
             <!-- Characterdata Functions -->
             <zone name="identifier.function.support.characterdata">
-                    <expression>(?i)\bdom_characterdata_(substring_data|insert_data|delete_data|append_data|replace_data)(?=\s*\()</expression>
+                    <expression>(?i)\bdom_characterdata_(substring_data|insert_data|delete_data|append_data|replace_data)(\()</expression>
             </zone>
             <!-- com_com Functions -->
             <zone name="identifier.function.support.com_com">
-                    <expression>(?i)\bcom_(create_guid|print_typeinfo|event_sink|load_typelib|get_active_object|message_pump)(?=\s*\()</expression>
+                    <expression>(?i)\bcom_(create_guid|print_typeinfo|event_sink|load_typelib|get_active_object|message_pump)(\()</expression>
             </zone>
             <!-- com_variant Functions -->
             <zone name="identifier.function.support.com_variant">
-                    <expression>(?i)\bvariant_(s(ub|et(_type)?)|n(ot|eg)|c(a(st|t)|mp)|i(nt|div|mp)|or|d(iv|ate_(to_timestamp|from_timestamp))|pow|eqv|fix|a(nd|dd|bs)|get_type|round|xor|m(od|ul))(?=\s*\()</expression>
+                    <expression>(?i)\bvariant_(s(ub|et(_type)?)|n(ot|eg)|c(a(st|t)|mp)|i(nt|div|mp)|or|d(iv|ate_(to_timestamp|from_timestamp))|pow|eqv|fix|a(nd|dd|bs)|get_type|round|xor|m(od|ul))(\()</expression>
             </zone>
             <!-- crc32 Functions -->
             <zone name="identifier.function.support.crc32">
-                    <expression>(?i)\bcrc32(?=\s*\()</expression>
+                    <expression>(?i)\bcrc32(\()</expression>
             </zone>
             <!-- Crypt Functions -->
             <zone name="identifier.function.support.crypt">
-                    <expression>(?i)\bcrypt(?=\s*\()</expression>
+                    <expression>(?i)\bcrypt(\()</expression>
             </zone>
             <!-- Ctype Functions -->
             <zone name="identifier.function.support.ctype">
-                    <expression>(?i)\bctype_(space|cntrl|digit|upper|p(unct|rint)|lower|al(num|pha)|graph|xdigit)(?=\s*\()</expression>
+                    <expression>(?i)\bctype_(space|cntrl|digit|upper|p(unct|rint)|lower|al(num|pha)|graph|xdigit)(\()</expression>
             </zone>
             <!-- cry_convert Functions -->
             <zone name="identifier.function.support.cyr_convert">
-                    <expression>(?i)\bconvert_cyr_string(?=\s*\()</expression>
+                    <expression>(?i)\bconvert_cyr_string(\()</expression>
             </zone>
             <!-- Datetime Functions -->
             <zone name="identifier.function.support.datetime">
-                    <expression>(?i)\bstrptime(?=\s*\()</expression>
+                    <expression>(?i)\bstrptime(\()</expression>
             </zone>
             <!-- Dba Functions -->
             <zone name="identifier.function.support.dba">
-                    <expression>(?i)\bdba_(handlers|sync|nextkey|close|insert|delete|op(timize|en)|exists|popen|key_split|f(irstkey|etch)|list|replace)(?=\s*\()</expression>
+                    <expression>(?i)\bdba_(handlers|sync|nextkey|close|insert|delete|op(timize|en)|exists|popen|key_split|f(irstkey|etch)|list|replace)(\()</expression>
             </zone>
             <!-- Dbase Functions -->
             <zone name="identifier.function.support.dbase">
-                    <expression>(?i)\bdbase_(num(fields|records)|c(lose|reate)|delete_record|open|pack|add_record|get_(header_info|record(_with_names)?)|replace_record)(?=\s*\()</expression>
+                    <expression>(?i)\bdbase_(num(fields|records)|c(lose|reate)|delete_record|open|pack|add_record|get_(header_info|record(_with_names)?)|replace_record)(\()</expression>
             </zone>
             <!-- Dir Functions -->
             <zone name="identifier.function.support.dir">
-                    <expression>(?i)\b(scandir|c(h(dir|root)|losedir)|dir|opendir|re(addir|winddir)|g(etcwd|lob))(?=\s*\()</expression>
+                    <expression>(?i)\b(scandir|c(h(dir|root)|losedir)|dir|opendir|re(addir|winddir)|g(etcwd|lob))(\()</expression>
             </zone>
             <!-- Dl Functions -->
             <zone name="identifier.function.support.dl">
-                    <expression>(?i)\bdl(?=\s*\()</expression>
+                    <expression>(?i)\bdl(\()</expression>
             </zone>
             <!-- Dns Functions -->
             <zone name="identifier.function.support.dns">
-                    <expression>(?i)\b(dns_(check_record|get_(record|mx))|gethostby(name(l)?|addr))(?=\s*\()</expression>
+                    <expression>(?i)\b(dns_(check_record|get_(record|mx))|gethostby(name(l)?|addr))(\()</expression>
             </zone>
             <!-- Document Functions -->
             <zone name="identifier.function.support.document">
-                    <expression>(?i)\bdom_document_(s(chema_validate(_file)?|ave(_html(_file)?|xml)?)|normalize_document|create_(c(datasection|omment)|text_node|document_fragment|processing_instruction|e(ntity_reference|lement(_ns)?)|attribute(_ns)?)|import_node|validate|load(_html(_file)?|xml)?|adopt_node|re(name_node|laxNG_validate_(file|xml))|get_element(s_by_tag_name(_ns)?|_by_id)|xinclude)(?=\s*\()</expression>
+                    <expression>(?i)\bdom_document_(s(chema_validate(_file)?|ave(_html(_file)?|xml)?)|normalize_document|create_(c(datasection|omment)|text_node|document_fragment|processing_instruction|e(ntity_reference|lement(_ns)?)|attribute(_ns)?)|import_node|validate|load(_html(_file)?|xml)?|adopt_node|re(name_node|laxNG_validate_(file|xml))|get_element(s_by_tag_name(_ns)?|_by_id)|xinclude)(\()</expression>
             </zone>
             <!-- Domconfiguration Functions -->
             <zone name="identifier.function.support.domconfiguration">
-                    <expression>(?i)\bdom_domconfiguration_(set_parameter|can_set_parameter|get_parameter)(?=\s*\()</expression>
+                    <expression>(?i)\bdom_domconfiguration_(set_parameter|can_set_parameter|get_parameter)(\()</expression>
             </zone>
             <!-- Domerrorhandler Functions -->
             <zone name="identifier.function.support.domerrorhandler">
-                    <expression>(?i)\bdom_domerrorhandler_handle_error(?=\s*\()</expression>
+                    <expression>(?i)\bdom_domerrorhandler_handle_error(\()</expression>
             </zone>
             <!-- Domimplementation Functions -->
             <zone name="identifier.function.support.domimplementation">
-                    <expression>(?i)\bdom_domimplementation_(has_feature|create_document(_type)?|get_feature)(?=\s*\()</expression>
+                    <expression>(?i)\bdom_domimplementation_(has_feature|create_document(_type)?|get_feature)(\()</expression>
             </zone>
             <!-- Domimplmentationlist Functions -->
             <zone name="identifier.function.support.domimplementationlist">
-                    <expression>(?i)\bdom_domimplementationlist_item(?=\s*\()</expression>
+                    <expression>(?i)\bdom_domimplementationlist_item(\()</expression>
             </zone>
             <!-- Domimplementationsource Functions -->
             <zone name="identifier.function.support.domimplementationsource">
-                    <expression>(?i)\bdom_domimplementationsource_get_domimplementation(s)?(?=\s*\()</expression>
+                    <expression>(?i)\bdom_domimplementationsource_get_domimplementation(s)?(\()</expression>
             </zone>
             <!-- Domstinglist Functions -->
             <zone name="identifier.function.support.domstringlist">
-                    <expression>(?i)\bdom_domstringlist_item(?=\s*\()</expression>
+                    <expression>(?i)\bdom_domstringlist_item(\()</expression>
             </zone>
             <!-- Easter Functions -->
             <zone name="identifier.function.support.easter">
-                    <expression>(?i)\beaster_da(ys|te)(?=\s*\()</expression>
+                    <expression>(?i)\beaster_da(ys|te)(\()</expression>
             </zone>
             <!-- Element Functions -->
             <zone name="identifier.function.support.element">
-                    <expression>(?i)\bdom_element_(has_attribute(_ns)?|set_(id_attribute(_n(s|ode))?|attribute(_n(s|ode(_ns)?))?)|remove_attribute(_n(s|ode))?|get_(elements_by_tag_name(_ns)?|attribute(_n(s|ode(_ns)?))?))(?=\s*\()</expression>
+                    <expression>(?i)\bdom_element_(has_attribute(_ns)?|set_(id_attribute(_n(s|ode))?|attribute(_n(s|ode(_ns)?))?)|remove_attribute(_n(s|ode))?|get_(elements_by_tag_name(_ns)?|attribute(_n(s|ode(_ns)?))?))(\()</expression>
             </zone>
             <!-- Exec Functions -->
             <zone name="identifier.function.support.exec">
-                    <expression>(?i)\b(s(hell_exec|ystem)|p(assthru|roc_nice)|e(scapeshell(cmd|arg)|xec))(?=\s*\()</expression>
+                    <expression>(?i)\b(s(hell_exec|ystem)|p(assthru|roc_nice)|e(scapeshell(cmd|arg)|xec))(\()</expression>
             </zone>
             <!-- Exif Functions -->
             <zone name="identifier.function.support.exif">
-                    <expression>(?i)\bexif_(imagetype|t(humbnail|agname)|read_data)(?=\s*\()</expression>
+                    <expression>(?i)\bexif_(imagetype|t(humbnail|agname)|read_data)(\()</expression>
             </zone>
             <!-- Fdf Functions -->
             <zone name="identifier.function.support.fdf">
-                    <expression>(?i)\bfdf_(header|s(et_(s(tatus|ubmit_form_action)|target_frame|o(n_import_javascript|pt)|javascript_action|encoding|v(ersion|alue)|f(ile|lags)|ap)|ave(_string)?)|next_field_name|c(lose|reate)|open(_string)?|e(num_values|rr(no|or))|add_(template|doc_javascript)|remove_item|get_(status|opt|encoding|v(ersion|alue)|f(ile|lags)|a(ttachment|p)))(?=\s*\()</expression>
+                    <expression>(?i)\bfdf_(header|s(et_(s(tatus|ubmit_form_action)|target_frame|o(n_import_javascript|pt)|javascript_action|encoding|v(ersion|alue)|f(ile|lags)|ap)|ave(_string)?)|next_field_name|c(lose|reate)|open(_string)?|e(num_values|rr(no|or))|add_(template|doc_javascript)|remove_item|get_(status|opt|encoding|v(ersion|alue)|f(ile|lags)|a(ttachment|p)))(\()</expression>
             </zone>
             <!-- File Functions -->
             <zone name="identifier.function.support.file">
-                    <expression>(?i)\b(sys_get_temp_dir|copy|t(empnam|mpfile)|u(nlink|mask)|p(close|open)|f(s(canf|tat|eek)|nmatch|close|t(ell|runcate)|ile(_(put_contents|get_contents))?|open|p(utcsv|assthru)|eof|flush|write|lock|read|get(s(s)?|c(sv)?))|r(e(name|a(dfile|lpath)|wind)|mdir)|get_meta_tags|mkdir)(?=\s*\()</expression>
+                    <expression>(?i)\b(sys_get_temp_dir|copy|t(empnam|mpfile)|u(nlink|mask)|p(close|open)|f(s(canf|tat|eek)|nmatch|close|t(ell|runcate)|ile(_(put_contents|get_contents))?|open|p(utcsv|assthru)|eof|flush|write|lock|read|get(s(s)?|c(sv)?))|r(e(name|a(dfile|lpath)|wind)|mdir)|get_meta_tags|mkdir)(\()</expression>
             </zone>
             <!-- Filestat Functions -->
             <zone name="identifier.function.support.filestat">
-                    <expression>(?i)\b(stat|c(h(own|grp|mod)|learstatcache)|is_(dir|executable|file|link|writable|readable)|touch|disk_(total_space|free_space)|file(size|ctime|type|inode|owner|_exists|perms|atime|group|mtime)|l(stat|chgrp))(?=\s*\()</expression>
+                    <expression>(?i)\b(stat|c(h(own|grp|mod)|learstatcache)|is_(dir|executable|file|link|writable|readable)|touch|disk_(total_space|free_space)|file(size|ctime|type|inode|owner|_exists|perms|atime|group|mtime)|l(stat|chgrp))(\()</expression>
             </zone>
             <!-- Filter Functions -->
             <zone name="identifier.function.support.filter">
-                    <expression>(?i)\bfilter_(has_var|input(_array)?|var(_array)?)(?=\s*\()</expression>
+                    <expression>(?i)\bfilter_(has_var|input(_array)?|var(_array)?)(\()</expression>
             </zone>
             <!-- Formatted_print Functions -->
             <zone name="identifier.function.support.formatted_print">
-                    <expression>(?i)\b(sprintf|printf|v(sprintf|printf|fprintf)|fprintf)(?=\s*\()</expression>
+                    <expression>(?i)\b(sprintf|printf|v(sprintf|printf|fprintf)|fprintf)(\()</expression>
             </zone>
             <!-- Fsock Functions -->
             <zone name="identifier.function.support.fsock">
-                    <expression>(?i)\b(pfsockopen|fsockopen)(?=\s*\()</expression>
+                    <expression>(?i)\b(pfsockopen|fsockopen)(\()</expression>
             </zone>
             <!-- Ftok In PHP Functions -->
             <zone name="identifier.function.support.ftok">
-                    <expression>(?i)\bftok(?=\s*\()</expression>
+                    <expression>(?i)\bftok(\()</expression>
             </zone>
             <!-- Gd Functions -->
             <zone name="identifier.function.support.gd">
-                    <expression>(?i)\b(image(s(y|tring(up)?|et(style|t(hickness|ile)|pixel|brush)|avealpha|x)|c(har(up)?|o(nvolution|py(res(ized|ampled)|merge(gray)?)?|lor(s(total|et|forindex)|closest(hwb|alpha)?|transparent|deallocate|exact(alpha)?|a(t|llocate(alpha)?)|resolve(alpha)?|match))|reate(truecolor|from(string|jpeg|png|wbmp|g(if|d(2(part)?)?)|x(pm|bm)))?)|2wbmp|t(ypes|tf(text|bbox)|ruecolortopalette)|i(struecolor|nterlace)|d(estroy|ashedline)|jpeg|ellipse|p(s(slantfont|copyfont|text|e(ncodefont|xtendfont)|freefont|loadfont|bbox)|ng|olygon|alettecopy)|f(t(text|bbox)|il(ter|l(toborder|ed(polygon|ellipse|arc|rectangle))?)|ont(height|width))|wbmp|a(ntialias|lphablending|rc)|l(ine|oadfont|ayereffect)|r(otate|ectangle)|g(if|d(2)?|ammacorrect|rab(screen|window))|xbm)|jpeg2wbmp|png2wbmp|gd_info)(?=\s*\()</expression>
+                    <expression>(?i)\b(image(s(y|tring(up)?|et(style|t(hickness|ile)|pixel|brush)|avealpha|x)|c(har(up)?|o(nvolution|py(res(ized|ampled)|merge(gray)?)?|lor(s(total|et|forindex)|closest(hwb|alpha)?|transparent|deallocate|exact(alpha)?|a(t|llocate(alpha)?)|resolve(alpha)?|match))|reate(truecolor|from(string|jpeg|png|wbmp|g(if|d(2(part)?)?)|x(pm|bm)))?)|2wbmp|t(ypes|tf(text|bbox)|ruecolortopalette)|i(struecolor|nterlace)|d(estroy|ashedline)|jpeg|ellipse|p(s(slantfont|copyfont|text|e(ncodefont|xtendfont)|freefont|loadfont|bbox)|ng|olygon|alettecopy)|f(t(text|bbox)|il(ter|l(toborder|ed(polygon|ellipse|arc|rectangle))?)|ont(height|width))|wbmp|a(ntialias|lphablending|rc)|l(ine|oadfont|ayereffect)|r(otate|ectangle)|g(if|d(2)?|ammacorrect|rab(screen|window))|xbm)|jpeg2wbmp|png2wbmp|gd_info)(\()</expression>
             </zone>
             <!-- Gettext Functions -->
             <zone name="identifier.function.support.gettext">
-                    <expression>(?i)\b(ngettext|textdomain|d(ngettext|c(ngettext|gettext)|gettext)|gettext|bind(textdomain|_textdomain_codeset))(?=\s*\()</expression>
+                    <expression>(?i)\b(ngettext|textdomain|d(ngettext|c(ngettext|gettext)|gettext)|gettext|bind(textdomain|_textdomain_codeset))(\()</expression>
             </zone>
             <!-- Gmp Functions -->
             <zone name="identifier.function.support.gmp">
-                    <expression>(?i)\bgmp_(hamdist|s(can(1|0)|ign|trval|ub|etbit|qrt(rem)?)|c(om|lrbit|mp)|ne(g|xtprime)|in(tval|it|vert)|or|div(_(q(r)?|r)|exact)|jacobi|p(o(pcount|w(m)?)|erfect_square|rob_prime)|fact|legendre|a(nd|dd|bs)|random|gcd(ext)?|xor|m(od|ul))(?=\s*\()</expression>
+                    <expression>(?i)\bgmp_(hamdist|s(can(1|0)|ign|trval|ub|etbit|qrt(rem)?)|c(om|lrbit|mp)|ne(g|xtprime)|in(tval|it|vert)|or|div(_(q(r)?|r)|exact)|jacobi|p(o(pcount|w(m)?)|erfect_square|rob_prime)|fact|legendre|a(nd|dd|bs)|random|gcd(ext)?|xor|m(od|ul))(\()</expression>
             </zone>
             <!-- Hash Functions -->
             <zone name="identifier.function.support.hash">
-                    <expression>(?i)\bhash(_(hmac(_file)?|init|update(_(stream|file))?|fi(nal|le)|algos))?(?=\s*\()</expression>
+                    <expression>(?i)\bhash(_(hmac(_file)?|init|update(_(stream|file))?|fi(nal|le)|algos))?(\()</expression>
             </zone>
             <!-- Hash_md Functions -->
             <zone name="identifier.function.support.hash_md">
-                    <expression>(?i)\bmd5(_file)?(?=\s*\()</expression>
+                    <expression>(?i)\bmd5(_file)?(\()</expression>
             </zone>
             <!-- Hash_sha Functions -->
             <zone name="identifier.function.support.hash_sha">
-                    <expression>(?i)\bsha1(_file)?(?=\s*\()</expression>
+                    <expression>(?i)\bsha1(_file)?(\()</expression>
             </zone>
             <!-- Head Functions -->
             <zone name="identifier.function.support.head">
-                    <expression>(?i)\b(set(cookie|rawcookie)|header(s_(sent|list))?)(?=\s*\()</expression>
+                    <expression>(?i)\b(set(cookie|rawcookie)|header(s_(sent|list))?)(\()</expression>
             </zone>
             <!-- Html Functions -->
             <zone name="identifier.function.support.html">
-                    <expression>(?i)\b(html(specialchars(_decode)?|_entity_decode|entities)|get_html_translation_table)(?=\s*\()</expression>
+                    <expression>(?i)\b(html(specialchars(_decode)?|_entity_decode|entities)|get_html_translation_table)(\()</expression>
             </zone>
             <!-- Http Functions -->
             <zone name="identifier.function.support.http">
-                    <expression>(?i)\bhttp_build_query(?=\s*\()</expression>
+                    <expression>(?i)\bhttp_build_query(\()</expression>
             </zone>
             <!-- Ibase_blobsFunctions -->
             <zone name="identifier.function.support.ibase_blobs">
-                    <expression>(?i)\bibase_blob_(c(ancel|lose|reate)|i(nfo|mport)|open|echo|add|get)(?=\s*\()</expression>
+                    <expression>(?i)\bibase_blob_(c(ancel|lose|reate)|i(nfo|mport)|open|echo|add|get)(\()</expression>
             </zone>
             <!-- Ibase_events Functions -->
             <zone name="identifier.function.support.ibase_events">
-                    <expression>(?i)\bibase_(set_event_handler|free_event_handler|wait_event)(?=\s*\()</expression>
+                    <expression>(?i)\bibase_(set_event_handler|free_event_handler|wait_event)(\()</expression>
             </zone>
             <!-- Ibase_query Functions -->
             <zone name="identifier.function.support.ibase_query">
-                    <expression>(?i)\bibase_(n(um_(params|fields|rows)|ame_result)|execute|p(aram_info|repare)|f(ield_info|etch_(object|assoc|row)|ree_(query|result))|query|affected_rows)(?=\s*\()</expression>
+                    <expression>(?i)\bibase_(n(um_(params|fields|rows)|ame_result)|execute|p(aram_info|repare)|f(ield_info|etch_(object|assoc|row)|ree_(query|result))|query|affected_rows)(\()</expression>
             </zone>
             <!-- Ibase_service Functions -->
             <zone name="identifier.function.support.ibase_service">
-                    <expression>(?i)\bibase_(serv(ice_(detach|attach)|er_info)|d(elete_user|b_info)|add_user|restore|backup|m(odify_user|aintain_db))(?=\s*\()</expression>
+                    <expression>(?i)\bibase_(serv(ice_(detach|attach)|er_info)|d(elete_user|b_info)|add_user|restore|backup|m(odify_user|aintain_db))(\()</expression>
             </zone>
             <!-- Iconv Functions -->
             <zone name="identifier.function.support.iconv">
-                    <expression>(?i)\b(iconv(_(s(tr(pos|len|rpos)|ubstr|et_encoding)|get_encoding|mime_(decode(_headers)?|encode)))?|ob_iconv_handler)(?=\s*\()</expression>
+                    <expression>(?i)\b(iconv(_(s(tr(pos|len|rpos)|ubstr|et_encoding)|get_encoding|mime_(decode(_headers)?|encode)))?|ob_iconv_handler)(\()</expression>
             </zone>
             <!-- Image Functions -->
             <zone name="identifier.function.support.image">
-                    <expression>(?i)\b(image_type_to_(extension|mime_type)|getimagesize)(?=\s*\()</expression>
+                    <expression>(?i)\b(image_type_to_(extension|mime_type)|getimagesize)(\()</expression>
             </zone>
             <!-- Info Functions -->
             <zone name="identifier.function.support.info">
-                    <expression>(?i)\b(zend_logo_guid|php(credits|info|_(sapi_name|ini_scanned_files|uname|egg_logo_guid|logo_guid|real_logo_guid)|version))(?=\s*\()</expression>
+                    <expression>(?i)\b(zend_logo_guid|php(credits|info|_(sapi_name|ini_scanned_files|uname|egg_logo_guid|logo_guid|real_logo_guid)|version))(\()</expression>
             </zone>
             <!-- Interbase Functions -->
             <zone name="identifier.function.support.interbase">
-                    <expression>(?i)\bibase_(c(o(nnect|mmit(_ret)?)|lose)|trans|drop_db|pconnect|err(code|msg)|gen_id|rollback(_ret)?)(?=\s*\()</expression>
+                    <expression>(?i)\bibase_(c(o(nnect|mmit(_ret)?)|lose)|trans|drop_db|pconnect|err(code|msg)|gen_id|rollback(_ret)?)(\()</expression>
             </zone>
             <!-- Interface Functions -->
             <zone name="identifier.function.support.interface">
-                    <expression>(?i)\bcurl_(setopt(_array)?|c(opy_handle|lose)|init|e(rr(no|or)|xec)|version|getinfo)(?=\s*\()</expression>
+                    <expression>(?i)\bcurl_(setopt(_array)?|c(opy_handle|lose)|init|e(rr(no|or)|xec)|version|getinfo)(\()</expression>
             </zone>
             <!-- Iptc Functions -->
             <zone name="identifier.function.support.iptc">
-                    <expression>(?i)\biptc(parse|embed)(?=\s*\()</expression>
+                    <expression>(?i)\biptc(parse|embed)(\()</expression>
             </zone>
             <!-- Json Functions -->
             <zone name="identifier.function.support.json">
-                    <expression>(?i)\bjson_(decode|encode)(?=\s*\()</expression>
+                    <expression>(?i)\bjson_(decode|encode)(\()</expression>
             </zone>
             <!-- Lcg Functions -->
             <zone name="identifier.function.support.lcg">
-                    <expression>(?i)\blcg_value(?=\s*\()</expression>
+                    <expression>(?i)\blcg_value(\()</expression>
             </zone>
             <!-- Ldap Functions -->
             <zone name="identifier.function.support.ldap">
-                    <expression>(?i)\bldap_(s(tart_tls|ort|e(t_(option|rebind_proc)|arch)|asl_bind)|next_(entry|attribute|reference)|co(nnect|unt_entries|mpare)|t61_to_8859|8859_to_t61|d(n2ufn|elete)|unbind|parse_re(sult|ference)|e(rr(no|2str|or)|xplode_dn)|f(irst_(entry|attribute|reference)|ree_result)|add|list|get_(option|dn|entries|values_len|attributes)|re(name|ad)|mod_(del|add|replace)|bind)(?=\s*\()</expression>
+                    <expression>(?i)\bldap_(s(tart_tls|ort|e(t_(option|rebind_proc)|arch)|asl_bind)|next_(entry|attribute|reference)|co(nnect|unt_entries|mpare)|t61_to_8859|8859_to_t61|d(n2ufn|elete)|unbind|parse_re(sult|ference)|e(rr(no|2str|or)|xplode_dn)|f(irst_(entry|attribute|reference)|ree_result)|add|list|get_(option|dn|entries|values_len|attributes)|re(name|ad)|mod_(del|add|replace)|bind)(\()</expression>
             </zone>
             <!-- Levenshtein Functions -->
             <zone name="identifier.function.support.levenshtein">
-                    <expression>(?i)\blevenshtein(?=\s*\()</expression>
+                    <expression>(?i)\blevenshtein(\()</expression>
             </zone>
             <!-- Libxml Functions -->
             <zone name="identifier.function.support.libxml">
-                    <expression>(?i)\blibxml_(set_streams_context|clear_errors|use_internal_errors|get_(errors|last_error))(?=\s*\()</expression>
+                    <expression>(?i)\blibxml_(set_streams_context|clear_errors|use_internal_errors|get_(errors|last_error))(\()</expression>
             </zone>
             <!-- Link Functions -->
             <zone name="identifier.function.support.link">
-                    <expression>(?i)\b(symlink|link(info)?|readlink)(?=\s*\()</expression>
+                    <expression>(?i)\b(symlink|link(info)?|readlink)(\()</expression>
             </zone>
             <!-- Mail Functions -->
             <zone name="identifier.function.support.mail">
-                    <expression>(?i)\b(ezmlm_hash|mail)(?=\s*\()</expression>
+                    <expression>(?i)\b(ezmlm_hash|mail)(\()</expression>
             </zone>
             <!-- Main Functions -->
             <zone name="identifier.function.support.main">
-                    <expression>(?i)\bset_time_limit(?=\s*\()</expression>
+                    <expression>(?i)\bset_time_limit(\()</expression>
             </zone>
             <!-- Math Functions -->
             <zone name="identifier.function.support.math">
-                    <expression>(?i)\b(h(ypot|exdec)|s(in(h)?|qrt)|number_format|c(os(h)?|eil)|is_(nan|infinite|finite)|tan(h)?|octdec|de(c(hex|oct|bin)|g2rad)|exp(m1)?|p(i|ow)|f(loor|mod)|log(1(p|0))?|a(sin(h)?|cos(h)?|tan(h|2)?|bs)|r(ound|ad2deg)|b(indec|ase_convert))(?=\s*\()</expression>
+                    <expression>(?i)\b(h(ypot|exdec)|s(in(h)?|qrt)|number_format|c(os(h)?|eil)|is_(nan|infinite|finite)|tan(h)?|octdec|de(c(hex|oct|bin)|g2rad)|exp(m1)?|p(i|ow)|f(loor|mod)|log(1(p|0))?|a(sin(h)?|cos(h)?|tan(h|2)?|bs)|r(ound|ad2deg)|b(indec|ase_convert))(\()</expression>
             </zone>
             <!-- Mbstring Functions -->
             <zone name="identifier.function.support.mbstring">
-                    <expression>(?i)\bmb_(s(tr(str|cut|to(upper|lower)|i(str|pos|mwidth)|pos|width|len|r(chr|i(chr|pos)|pos))|ubst(itute_character|r(_count)?)|end_mail)|http_(input|output)|c(heck_encoding|onvert_(case|encoding|variables|kana))|internal_encoding|output_handler|de(code_(numericentity|mimeheader)|tect_(order|encoding))|encode_(numericentity|mimeheader)|p(arse_str|referred_mime_name)|l(ist_(encodings(_alias_names)?|mime_names)|anguage)|get_info)(?=\s*\()</expression>
+                    <expression>(?i)\bmb_(s(tr(str|cut|to(upper|lower)|i(str|pos|mwidth)|pos|width|len|r(chr|i(chr|pos)|pos))|ubst(itute_character|r(_count)?)|end_mail)|http_(input|output)|c(heck_encoding|onvert_(case|encoding|variables|kana))|internal_encoding|output_handler|de(code_(numericentity|mimeheader)|tect_(order|encoding))|encode_(numericentity|mimeheader)|p(arse_str|referred_mime_name)|l(ist_(encodings(_alias_names)?|mime_names)|anguage)|get_info)(\()</expression>
             </zone>
             <!-- Mcrypt Functions -->
             <zone name="identifier.function.support.mcrypt">
-                    <expression>(?i)\bm(crypt_(c(fb|reate_iv|bc)|ofb|decrypt|e(cb|nc(_(self_test|is_block_(algorithm(_mode)?|mode)|get_(supported_key_sizes|iv_size|key_size|algorithms_name|modes_name|block_size))|rypt))|list_(algorithms|modes)|ge(neric(_(init|deinit))?|t_(cipher_name|iv_size|key_size|block_size))|module_(self_test|close|is_block_(algorithm(_mode)?|mode)|open|get_(supported_key_sizes|algo_(key_size|block_size))))|decrypt_generic)(?=\s*\()</expression>
+                    <expression>(?i)\bm(crypt_(c(fb|reate_iv|bc)|ofb|decrypt|e(cb|nc(_(self_test|is_block_(algorithm(_mode)?|mode)|get_(supported_key_sizes|iv_size|key_size|algorithms_name|modes_name|block_size))|rypt))|list_(algorithms|modes)|ge(neric(_(init|deinit))?|t_(cipher_name|iv_size|key_size|block_size))|module_(self_test|close|is_block_(algorithm(_mode)?|mode)|open|get_(supported_key_sizes|algo_(key_size|block_size))))|decrypt_generic)(\()</expression>
             </zone>
             <!-- md5 Functions -->
             <zone name="identifier.function.support.md5">
-                    <expression>(?i)\bmd5(_file)?(?=\s*\()</expression>
+                    <expression>(?i)\bmd5(_file)?(\()</expression>
             </zone>
             <!-- Metaphone Functions -->
             <zone name="identifier.function.support.metaphone">
-                    <expression>(?i)\bmetaphone(?=\s*\()</expression>
+                    <expression>(?i)\bmetaphone(\()</expression>
             </zone>
             <!-- Mhash Functions -->
             <zone name="identifier.function.support.mhash">
-                    <expression>(?i)\bmhash(_(count|keygen_s2k|get_(hash_name|block_size)))?(?=\s*\()</expression>
+                    <expression>(?i)\bmhash(_(count|keygen_s2k|get_(hash_name|block_size)))?(\()</expression>
             </zone>
             <!-- Microtime Functions -->
             <zone name="identifier.function.support.microtime">
-                    <expression>(?i)\b(get(timeofday|rusage)|microtime)(?=\s*\()</expression>
+                    <expression>(?i)\b(get(timeofday|rusage)|microtime)(\()</expression>
             </zone>
             <!-- Mime_magic Functions -->
             <zone name="identifier.function.support.mime_magic">
-                    <expression>(?i)\bmime_content_type(?=\s*\()</expression>
+                    <expression>(?i)\bmime_content_type(\()</expression>
             </zone>
             <!-- Ming Functions -->
             <zone name="identifier.function.support.ming">
-                    <expression>(?i)\b(swf(prebuiltclip_init|videostream_init)|ming_(set(scale|cubicthreshold)|use(swfversion|constants)|keypress))(?=\s*\()</expression>
+                    <expression>(?i)\b(swf(prebuiltclip_init|videostream_init)|ming_(set(scale|cubicthreshold)|use(swfversion|constants)|keypress))(\()</expression>
             </zone>
             <!-- Multi Functions -->
             <zone name="identifier.function.support.multi">
-                    <expression>(?i)\bcurl_multi_(select|close|in(it|fo_read)|exec|add_handle|getcontent|remove_handle)(?=\s*\()</expression>
+                    <expression>(?i)\bcurl_multi_(select|close|in(it|fo_read)|exec|add_handle|getcontent|remove_handle)(\()</expression>
             </zone>
             <!-- Mysqli_api Functions -->
             <zone name="identifier.function.support.mysqli_api">
-                    <expression>(?i)\bmysqli_(s(sl_set|t(ore_result|at|mt_(s(tore_result|end_long_data|qlstate)|num_rows|close|in(sert_id|it)|data_seek|p(aram_count|repare)|e(rr(no|or)|xecute)|f(ield_count|etch|ree_result)|a(ttr_(set|get)|ffected_rows)|res(ult_metadata|et)|bind_(param|result)))|e(t_local_infile_(handler|default)|lect_db)|qlstate)|n(um_(fields|rows)|ext_result)|c(ha(nge_user|racter_set_name)|ommit|lose)|thread_(safe|id)|in(sert_id|it|fo)|options|d(ump_debug_info|ebug|ata_seek)|use_result|p(ing|repare)|err(no|or)|kill|f(ield_(seek|count|tell)|etch_(field(s|_direct)?|lengths|row)|ree_result)|warning_count|a(utocommit|ffected_rows)|r(ollback|eal_(connect|escape_string|query))|get_(server_(info|version)|host_info|client_(info|version)|proto_info)|more_results)(?=\s*\()</expression>
+                    <expression>(?i)\bmysqli_(s(sl_set|t(ore_result|at|mt_(s(tore_result|end_long_data|qlstate)|num_rows|close|in(sert_id|it)|data_seek|p(aram_count|repare)|e(rr(no|or)|xecute)|f(ield_count|etch|ree_result)|a(ttr_(set|get)|ffected_rows)|res(ult_metadata|et)|bind_(param|result)))|e(t_local_infile_(handler|default)|lect_db)|qlstate)|n(um_(fields|rows)|ext_result)|c(ha(nge_user|racter_set_name)|ommit|lose)|thread_(safe|id)|in(sert_id|it|fo)|options|d(ump_debug_info|ebug|ata_seek)|use_result|p(ing|repare)|err(no|or)|kill|f(ield_(seek|count|tell)|etch_(field(s|_direct)?|lengths|row)|ree_result)|warning_count|a(utocommit|ffected_rows)|r(ollback|eal_(connect|escape_string|query))|get_(server_(info|version)|host_info|client_(info|version)|proto_info)|more_results)(\()</expression>
             </zone>
             <!-- Mysqli_embedded Functions -->
             <zone name="identifier.function.support.mysqli_embedded">
-                    <expression>(?i)\bmysqli_embedded_server_(start|end)(?=\s*\()</expression>
+                    <expression>(?i)\bmysqli_embedded_server_(start|end)(\()</expression>
             </zone>
             <!-- Mysqli_nonapi Functions -->
             <zone name="identifier.function.support.mysqli_nonapi">
-                    <expression>(?i)\bmysqli_(s(tmt_get_warnings|et_charset)|connect(_err(no|or))?|query|fetch_(object|a(ssoc|rray))|get_(charset|warnings)|multi_query)(?=\s*\()</expression>
+                    <expression>(?i)\bmysqli_(s(tmt_get_warnings|et_charset)|connect(_err(no|or))?|query|fetch_(object|a(ssoc|rray))|get_(charset|warnings)|multi_query)(\()</expression>
             </zone>
             <!-- Mysqli_repl Functions -->
             <zone name="identifier.function.support.mysqli_repl">
-                    <expression>(?i)\bmysqli_(s(end_query|lave_query)|disable_r(pl_parse|eads_from_master)|enable_r(pl_parse|eads_from_master)|rpl_(p(arse_enabled|robe)|query_type)|master_query)(?=\s*\()</expression>
+                    <expression>(?i)\bmysqli_(s(end_query|lave_query)|disable_r(pl_parse|eads_from_master)|enable_r(pl_parse|eads_from_master)|rpl_(p(arse_enabled|robe)|query_type)|master_query)(\()</expression>
             </zone>
             <!-- Mysqli_report Functions -->
             <zone name="identifier.function.support.mysqli_report">
-                    <expression>(?i)\bmysqli_report(?=\s*\()</expression>
+                    <expression>(?i)\bmysqli_report(\()</expression>
             </zone>
             <!-- Namednodemap Functions -->
             <zone name="identifier.function.support.namednodemap">
-                    <expression>(?i)\bdom_namednodemap_(set_named_item(_ns)?|item|remove_named_item(_ns)?|get_named_item(_ns)?)(?=\s*\()</expression>
+                    <expression>(?i)\bdom_namednodemap_(set_named_item(_ns)?|item|remove_named_item(_ns)?|get_named_item(_ns)?)(\()</expression>
             </zone>
             <!-- Namelist Functions -->
             <zone name="identifier.function.support.namelist">
-                    <expression>(?i)\bdom_namelist_get_name(space_uri)?(?=\s*\()</expression>
+                    <expression>(?i)\bdom_namelist_get_name(space_uri)?(\()</expression>
             </zone>
             <!-- Ncurses_functions Functions -->
             <zone name="identifier.function.support.ncurses_functions">
-                    <expression>(?i)\bncurses_(s(how_panel|cr(_(set|init|dump|restore)|l)|ta(nd(out|end)|rt_color)|lk_(set|noutrefresh|c(olor|lear)|init|touch|attr(set|o(n|ff))?|re(store|fresh))|avetty)|h(ide_panel|line|a(s_(colors|i(c|l)|key)|lfdelay))|n(o(nl|cbreak|echo|qiflush|raw)|ew(_panel|pad|win)|apms|l)|c(olor_(set|content)|urs_set|l(ear|rto(eol|bot))|an_change_color|break)|t(ypeahead|imeout|op_panel|erm(name|attrs))|i(sendwin|n(s(str|ch|tr|delln|ertln)|ch|it(_(color|pair))?))|d(oupdate|e(f(ine_key|_(shell_mode|prog_mode))|l(ch|_panel|eteln|ay_output|win)))|u(se_(default_colors|e(nv|xtended_names))|nget(ch|mouse)|pdate_panels)|p(noutrefresh|utp|a(nel_(window|above|below)|ir_content)|refresh)|e(cho(char)?|nd|rase(char)?)|v(idattr|line)|k(illchar|ey(ok|pad))|qiflush|f(ilter|l(ushinp|ash))|longname|w(stand(out|end)|hline|noutrefresh|c(olor_set|lear)|erase|vline|a(ttr(set|o(n|ff))|dd(str|ch))|getch|refresh|mo(use_trafo|ve)|border)|a(ssume_default_colors|ttr(set|o(n|ff))|dd(str|nstr|ch(str|nstr)?))|r(e(set(ty|_(shell_mode|prog_mode))|place_panel|fresh)|aw)|get(yx|ch|m(ouse|axyx))|b(o(ttom_panel|rder)|eep|kgd(set)?|audrate)|m(o(use(interval|_trafo|mask)|ve(_panel)?)|eta|v(hline|cur|inch|delch|vline|waddstr|add(str|nstr|ch(str|nstr)?)|getch)))(?=\s*\()</expression>
+                    <expression>(?i)\bncurses_(s(how_panel|cr(_(set|init|dump|restore)|l)|ta(nd(out|end)|rt_color)|lk_(set|noutrefresh|c(olor|lear)|init|touch|attr(set|o(n|ff))?|re(store|fresh))|avetty)|h(ide_panel|line|a(s_(colors|i(c|l)|key)|lfdelay))|n(o(nl|cbreak|echo|qiflush|raw)|ew(_panel|pad|win)|apms|l)|c(olor_(set|content)|urs_set|l(ear|rto(eol|bot))|an_change_color|break)|t(ypeahead|imeout|op_panel|erm(name|attrs))|i(sendwin|n(s(str|ch|tr|delln|ertln)|ch|it(_(color|pair))?))|d(oupdate|e(f(ine_key|_(shell_mode|prog_mode))|l(ch|_panel|eteln|ay_output|win)))|u(se_(default_colors|e(nv|xtended_names))|nget(ch|mouse)|pdate_panels)|p(noutrefresh|utp|a(nel_(window|above|below)|ir_content)|refresh)|e(cho(char)?|nd|rase(char)?)|v(idattr|line)|k(illchar|ey(ok|pad))|qiflush|f(ilter|l(ushinp|ash))|longname|w(stand(out|end)|hline|noutrefresh|c(olor_set|lear)|erase|vline|a(ttr(set|o(n|ff))|dd(str|ch))|getch|refresh|mo(use_trafo|ve)|border)|a(ssume_default_colors|ttr(set|o(n|ff))|dd(str|nstr|ch(str|nstr)?))|r(e(set(ty|_(shell_mode|prog_mode))|place_panel|fresh)|aw)|get(yx|ch|m(ouse|axyx))|b(o(ttom_panel|rder)|eep|kgd(set)?|audrate)|m(o(use(interval|_trafo|mask)|ve(_panel)?)|eta|v(hline|cur|inch|delch|vline|waddstr|add(str|nstr|ch(str|nstr)?)|getch)))(\()</expression>
             </zone>
             <!-- Node Functions -->
             <zone name="identifier.function.support.node">
-                    <expression>(?i)\bdom_node_(set_user_data|has_(child_nodes|attributes)|normalize|c(ompare_document_position|lone_node)|i(s_(s(upported|ame_node)|default_namespace|equal_node)|nsert_before)|lookup_(namespace_uri|prefix)|append_child|get_(user_data|feature)|re(place_child|move_child))(?=\s*\()</expression>
+                    <expression>(?i)\bdom_node_(set_user_data|has_(child_nodes|attributes)|normalize|c(ompare_document_position|lone_node)|i(s_(s(upported|ame_node)|default_namespace|equal_node)|nsert_before)|lookup_(namespace_uri|prefix)|append_child|get_(user_data|feature)|re(place_child|move_child))(\()</expression>
             </zone>
             <!-- Nodelist Functions -->
             <zone name="identifier.function.support.nodelist">
-                    <expression>(?i)\bdom_nodelist_item(?=\s*\()</expression>
+                    <expression>(?i)\bdom_nodelist_item(\()</expression>
             </zone>
             <!-- Nsapi Functions -->
             <zone name="identifier.function.support.nsapi">
-                    <expression>(?i)\bnsapi_(virtual|re(sponse_headers|quest_headers))(?=\s*\()</expression>
+                    <expression>(?i)\bnsapi_(virtual|re(sponse_headers|quest_headers))(\()</expression>
             </zone>
             <!-- oci8_interface Functions -->
             <zone name="identifier.function.support.oci8_interface">
-                    <expression>(?i)\boci(setbufferinglob|_(s(tatement_type|e(t_prefetch|rver_version))|c(o(nnect|llection_(size|trim|element_(assign|get)|a(ssign|ppend)|max)|mmit)|lose|ancel)|n(um_(fields|rows)|ew_(c(o(nnect|llection)|ursor)|descriptor))|internal_debug|define_by_name|p(connect|a(ssword_change|rse))|e(rror|xecute)|f(ield_(s(cale|ize)|name|is_null|type(_raw)?|precision)|etch(_(object|a(ssoc|ll|rray)|row))?|ree_(statement|collection|descriptor))|lob_(s(ize|eek|ave)|c(opy|lose)|t(ell|runcate)|i(s_equal|mport)|e(of|rase|xport)|flush|append|write(_temporary)?|load|re(wind|ad))|r(ollback|esult)|bind_(array_by_name|by_name))|fetchinto|getbufferinglob)(?=\s*\()</expression>
+                    <expression>(?i)\boci(setbufferinglob|_(s(tatement_type|e(t_prefetch|rver_version))|c(o(nnect|llection_(size|trim|element_(assign|get)|a(ssign|ppend)|max)|mmit)|lose|ancel)|n(um_(fields|rows)|ew_(c(o(nnect|llection)|ursor)|descriptor))|internal_debug|define_by_name|p(connect|a(ssword_change|rse))|e(rror|xecute)|f(ield_(s(cale|ize)|name|is_null|type(_raw)?|precision)|etch(_(object|a(ssoc|ll|rray)|row))?|ree_(statement|collection|descriptor))|lob_(s(ize|eek|ave)|c(opy|lose)|t(ell|runcate)|i(s_equal|mport)|e(of|rase|xport)|flush|append|write(_temporary)?|load|re(wind|ad))|r(ollback|esult)|bind_(array_by_name|by_name))|fetchinto|getbufferinglob)(\()</expression>
             </zone>
             <!-- Openssl Functions -->
             <zone name="identifier.function.support.openssl">
-                    <expression>(?i)\bopenssl_(s(ign|eal)|csr_(sign|new|export(_to_file)?|get_(subject|public_key))|open|error_string|p(ublic_(decrypt|encrypt)|k(cs(12_(export(_to_file)?|read)|7_(sign|decrypt|encrypt|verify))|ey_(new|export(_to_file)?|free|get_(details|p(ublic|rivate))))|rivate_(decrypt|encrypt))|verify|x509_(check(_private_key|purpose)|parse|export(_to_file)?|free|read))(?=\s*\()</expression>
+                    <expression>(?i)\bopenssl_(s(ign|eal)|csr_(sign|new|export(_to_file)?|get_(subject|public_key))|open|error_string|p(ublic_(decrypt|encrypt)|k(cs(12_(export(_to_file)?|read)|7_(sign|decrypt|encrypt|verify))|ey_(new|export(_to_file)?|free|get_(details|p(ublic|rivate))))|rivate_(decrypt|encrypt))|verify|x509_(check(_private_key|purpose)|parse|export(_to_file)?|free|read))(\()</expression>
             </zone>
             <!-- Output Functions -->
             <zone name="identifier.function.support.output">
-                    <expression>(?i)\bo(utput_(add_rewrite_var|reset_rewrite_vars)|b_(start|clean|implicit_flush|end_(clean|flush)|flush|list_handlers|get_(status|c(ontents|lean)|flush|le(ngth|vel))))(?=\s*\()</expression>
+                    <expression>(?i)\bo(utput_(add_rewrite_var|reset_rewrite_vars)|b_(start|clean|implicit_flush|end_(clean|flush)|flush|list_handlers|get_(status|c(ontents|lean)|flush|le(ngth|vel))))(\()</expression>
             </zone>
             <!-- Pack Functions -->
             <zone name="identifier.function.support.pack">
-                    <expression>(?i)\b(unpack|pack)(?=\s*\()</expression>
+                    <expression>(?i)\b(unpack|pack)(\()</expression>
             </zone>
             <!-- Pageinfo Functions -->
             <zone name="identifier.function.support.pageinfo">
-                    <expression>(?i)\bget(lastmod|my(inode|uid|pid|gid))(?=\s*\()</expression>
+                    <expression>(?i)\bget(lastmod|my(inode|uid|pid|gid))(\()</expression>
             </zone>
             <!-- Pcntl Functions -->
             <zone name="identifier.function.support.pcntl">
-                    <expression>(?i)\bpcntl_(s(ignal|etpriority)|exec|fork|w(stopsig|termsig|if(s(ignaled|topped)|exited)|exitstatus|ait(pid)?)|alarm|getpriority)(?=\s*\()</expression>
+                    <expression>(?i)\bpcntl_(s(ignal|etpriority)|exec|fork|w(stopsig|termsig|if(s(ignaled|topped)|exited)|exitstatus|ait(pid)?)|alarm|getpriority)(\()</expression>
             </zone>
             <!-- Pdo Functions -->
             <zone name="identifier.function.support.pdo">
-                    <expression>(?i)\bpdo_drivers(?=\s*\()</expression>
+                    <expression>(?i)\bpdo_drivers(\()</expression>
             </zone>
             <!-- Pdf_dbh Functions -->
             <zone name="identifier.function.support.pdo_dbh">
-                    <expression>(?i)\bpdo_drivers(?=\s*\()</expression>
+                    <expression>(?i)\bpdo_drivers(\()</expression>
             </zone>
             <!-- Pgsql Functions -->
             <zone name="identifier.function.support.pgsql">
-                    <expression>(?i)\bpg_(se(nd_(execute|prepare|query(_params)?)|t_(client_encoding|error_verbosity)|lect)|host|num_(fields|rows)|c(o(n(nect(ion_(status|reset|busy))?|vert)|py_(to|from))|ancel_query|l(ient_encoding|ose))|insert|t(ty|ra(nsaction_status|ce))|options|d(elete|bname)|u(n(trace|escape_bytea)|pdate)|e(scape_(string|bytea)|nd_copy|xecute)|p(connect|ing|ort|ut_line|arameter_status|repare)|version|f(ield_(size|n(um|ame)|is_null|t(ype(_oid)?|able)|prtlen)|etch_(object|a(ssoc|ll(_columns)?|rray)|r(ow|esult))|ree_result)|query(_params)?|affected_rows|l(o_(seek|c(lose|reate)|tell|import|open|unlink|export|write|read(_all)?)|ast_(notice|oid|error))|get_(notify|pid|result)|result_(s(tatus|eek)|error(_field)?)|meta_data)(?=\s*\()</expression>
+                    <expression>(?i)\bpg_(se(nd_(execute|prepare|query(_params)?)|t_(client_encoding|error_verbosity)|lect)|host|num_(fields|rows)|c(o(n(nect(ion_(status|reset|busy))?|vert)|py_(to|from))|ancel_query|l(ient_encoding|ose))|insert|t(ty|ra(nsaction_status|ce))|options|d(elete|bname)|u(n(trace|escape_bytea)|pdate)|e(scape_(string|bytea)|nd_copy|xecute)|p(connect|ing|ort|ut_line|arameter_status|repare)|version|f(ield_(size|n(um|ame)|is_null|t(ype(_oid)?|able)|prtlen)|etch_(object|a(ssoc|ll(_columns)?|rray)|r(ow|esult))|ree_result)|query(_params)?|affected_rows|l(o_(seek|c(lose|reate)|tell|import|open|unlink|export|write|read(_all)?)|ast_(notice|oid|error))|get_(notify|pid|result)|result_(s(tatus|eek)|error(_field)?)|meta_data)(\()</expression>
             </zone>
             <!-- Php_apache Functions -->
             <zone name="identifier.function.support_apache">
-                    <expression>(?i)\b(virtual|apache_(setenv|note|child_terminate|lookup_uri|get_(version|modules)|re(s(et_timeout|ponse_headers)|quest_(s(ome_auth_required|ub_req_(lookup_(uri|file)|method_uri)|e(t_(etag|last_modified)|rver_port)|atisfies)|headers(_(in|out))?|is_initial_req|discard_request_body|update_mtime|err_headers_out|log_error|auth_(name|type)|r(un|emote_host)|meets_conditions)))|getallheaders)(?=\s*\()</expression>
+                    <expression>(?i)\b(virtual|apache_(setenv|note|child_terminate|lookup_uri|get_(version|modules)|re(s(et_timeout|ponse_headers)|quest_(s(ome_auth_required|ub_req_(lookup_(uri|file)|method_uri)|e(t_(etag|last_modified)|rver_port)|atisfies)|headers(_(in|out))?|is_initial_req|discard_request_body|update_mtime|err_headers_out|log_error|auth_(name|type)|r(un|emote_host)|meets_conditions)))|getallheaders)(\()</expression>
             </zone>
             <!-- Php_date Functions -->
             <zone name="identifier.function.support_date">
-                    <expression>(?i)\b(str(totime|ftime)|checkdate|time(zone_(name_(from_abbr|get)|identifiers_list|transitions_get|o(pen|ffset_get)|abbreviations_list))?|idate|date(_(sun(set|_info|rise)|create|isodate_set|time(zone_(set|get)|_set)|d(efault_timezone_(set|get)|ate_set)|offset_get|parse|format|modify))?|localtime|g(etdate|m(strftime|date|mktime))|mktime)(?=\s*\()</expression>
+                    <expression>(?i)\b(str(totime|ftime)|checkdate|time(zone_(name_(from_abbr|get)|identifiers_list|transitions_get|o(pen|ffset_get)|abbreviations_list))?|idate|date(_(sun(set|_info|rise)|create|isodate_set|time(zone_(set|get)|_set)|d(efault_timezone_(set|get)|ate_set)|offset_get|parse|format|modify))?|localtime|g(etdate|m(strftime|date|mktime))|mktime)(\()</expression>
             </zone>
             <!-- Php_dom Functions -->
             <zone name="identifier.function.support_dom">
-                    <expression>(?i)\bdom_import_simplexml(?=\s*\()</expression>
+                    <expression>(?i)\bdom_import_simplexml(\()</expression>
             </zone>
             <!-- Php_fbsql Functions -->
             <zone name="identifier.function.support_fbsql">
-                    <expression>(?i)\bfbsql_(hostname|s(t(op_db|art_db)|e(t_(characterset|transaction|password|lob_mode)|lect_db))|n(um_(fields|rows)|ext_result)|c(hange_user|o(nnect|mmit)|lo(se|b_size)|reate_(clob|db|blob))|table_name|insert_id|d(ata(_seek|base(_password)?)|rop_db|b_(status|query))|username|err(no|or)|p(connect|assword)|f(ield_(seek|name|t(ype|able)|flags|len)|etch_(object|field|lengths|a(ssoc|rray)|row)|ree_result)|query|warnings|list_(tables|dbs|fields)|a(utocommit|ffected_rows)|get_autostart_info|r(o(ws_fetched|llback)|e(sult|ad_(clob|blob)))|blob_size)(?=\s*\()</expression>
+                    <expression>(?i)\bfbsql_(hostname|s(t(op_db|art_db)|e(t_(characterset|transaction|password|lob_mode)|lect_db))|n(um_(fields|rows)|ext_result)|c(hange_user|o(nnect|mmit)|lo(se|b_size)|reate_(clob|db|blob))|table_name|insert_id|d(ata(_seek|base(_password)?)|rop_db|b_(status|query))|username|err(no|or)|p(connect|assword)|f(ield_(seek|name|t(ype|able)|flags|len)|etch_(object|field|lengths|a(ssoc|rray)|row)|ree_result)|query|warnings|list_(tables|dbs|fields)|a(utocommit|ffected_rows)|get_autostart_info|r(o(ws_fetched|llback)|e(sult|ad_(clob|blob)))|blob_size)(\()</expression>
             </zone>
             <!-- Php_ftp Functions -->
             <zone name="identifier.function.support_ftp">
-                    <expression>(?i)\bftp_(s(sl_connect|ystype|i(te|ze)|et_option)|n(list|b_(continue|put|f(put|get)|get))|c(h(dir|mod)|dup|onnect|lose)|delete|exec|p(ut|asv|wd)|f(put|get)|alloc|login|get(_option)?|r(ename|aw(list)?|mdir)|m(dtm|kdir))(?=\s*\()</expression>
+                    <expression>(?i)\bftp_(s(sl_connect|ystype|i(te|ze)|et_option)|n(list|b_(continue|put|f(put|get)|get))|c(h(dir|mod)|dup|onnect|lose)|delete|exec|p(ut|asv|wd)|f(put|get)|alloc|login|get(_option)?|r(ename|aw(list)?|mdir)|m(dtm|kdir))(\()</expression>
             </zone>
             <!-- Php_functions Functions -->
             <zone name="identifier.function.support_functions">
-                    <expression>(?i)\b(virtual|apache_(setenv|note|get(_(version|modules)|env)|response_headers)|getallheaders)(?=\s*\()</expression>
+                    <expression>(?i)\b(virtual|apache_(setenv|note|get(_(version|modules)|env)|response_headers)|getallheaders)(\()</expression>
             </zone>
             <!-- Php_imap Functions -->
             <zone name="identifier.function.support_imap">
-                    <expression>(?i)\bimap_(header(s|info)|s(can|tatus|ort|ubscribe|e(t(_quota|flag_full|acl)|arch)|avebody)|c(heck|l(ose|earflag_full)|reatemailbox)|num_(recent|msg)|t(hread|imeout)|8bit|delete(mailbox)?|open|u(n(subscribe|delete)|id|tf(7_(decode|encode)|8))|e(rrors|xpunge)|ping|qprint|fetch(header|structure|_overview|body)|l(sub|ist|ast_error)|a(ppend|lerts)|get(subscribed|_quota(root)?|acl|mailboxes)|r(e(namemailbox|open)|fc822_(parse_(headers|adrlist)|write_address))|m(sgno|ime_header_decode|ail(_(co(py|mpose)|move)|boxmsginfo)?)|b(inary|ody(struct)?|ase64))(?=\s*\()</expression>
+                    <expression>(?i)\bimap_(header(s|info)|s(can|tatus|ort|ubscribe|e(t(_quota|flag_full|acl)|arch)|avebody)|c(heck|l(ose|earflag_full)|reatemailbox)|num_(recent|msg)|t(hread|imeout)|8bit|delete(mailbox)?|open|u(n(subscribe|delete)|id|tf(7_(decode|encode)|8))|e(rrors|xpunge)|ping|qprint|fetch(header|structure|_overview|body)|l(sub|ist|ast_error)|a(ppend|lerts)|get(subscribed|_quota(root)?|acl|mailboxes)|r(e(namemailbox|open)|fc822_(parse_(headers|adrlist)|write_address))|m(sgno|ime_header_decode|ail(_(co(py|mpose)|move)|boxmsginfo)?)|b(inary|ody(struct)?|ase64))(\()</expression>
             </zone>
             <!-- Php_mbregex Functions -->
             <zone name="identifier.function.support_mbregex">
-                    <expression>(?i)\bmb_(split|ereg(i(_replace)?|_(search(_(setpos|init|pos|get(pos|regs)|regs))?|replace|match))?|regex_(set_options|encoding))(?=\s*\()</expression>
+                    <expression>(?i)\bmb_(split|ereg(i(_replace)?|_(search(_(setpos|init|pos|get(pos|regs)|regs))?|replace|match))?|regex_(set_options|encoding))(\()</expression>
             </zone>
             <!-- Php_milter Functions -->
             <zone name="identifier.function.support_milter">
-                    <expression>(?i)\bsmfi_(set(timeout|flags|reply)|chgheader|delrcpt|add(header|rcpt)|replacebody|getsymval)(?=\s*\()</expression>
+                    <expression>(?i)\bsmfi_(set(timeout|flags|reply)|chgheader|delrcpt|add(header|rcpt)|replacebody|getsymval)(\()</expression>
             </zone>
             <!-- Php_msql Functions -->
             <zone name="identifier.function.support_msql">
-                    <expression>(?i)\bmsql_(select_db|num_(fields|rows)|c(onnect|lose|reate_db)|d(ata_seek|rop_db|b_query)|error|pconnect|f(ield_(seek|name|t(ype|able)|flags|len)|etch_(object|field|array|row)|ree_result)|query|affected_rows|list_(tables|dbs|fields)|result)(?=\s*\()</expression>
+                    <expression>(?i)\bmsql_(select_db|num_(fields|rows)|c(onnect|lose|reate_db)|d(ata_seek|rop_db|b_query)|error|pconnect|f(ield_(seek|name|t(ype|able)|flags|len)|etch_(object|field|array|row)|ree_result)|query|affected_rows|list_(tables|dbs|fields)|result)(\()</expression>
             </zone>
             <!-- Php_mssql Functions -->
             <zone name="identifier.function.support_mssql">
-                    <expression>(?i)\bmssql_(select_db|n(um_(fields|rows)|ext_result)|c(onnect|lose)|init|data_seek|execute|pconnect|query|f(ield_(seek|name|type|length)|etch_(object|field|a(ssoc|rray)|row|batch)|ree_(statement|result))|g(uid_string|et_last_message)|r(ows_affected|esult)|bind|min_(error_severity|message_severity))(?=\s*\()</expression>
+                    <expression>(?i)\bmssql_(select_db|n(um_(fields|rows)|ext_result)|c(onnect|lose)|init|data_seek|execute|pconnect|query|f(ield_(seek|name|type|length)|etch_(object|field|a(ssoc|rray)|row|batch)|ree_(statement|result))|g(uid_string|et_last_message)|r(ows_affected|esult)|bind|min_(error_severity|message_severity))(\()</expression>
             </zone>
             <!-- Php_mysql Functions -->
             <zone name="identifier.function.support_mysql">
-                    <expression>(?i)\bmysql_(s(tat|e(t_charset|lect_db))|num_(fields|rows)|c(onnect|l(ient_encoding|ose)|reate_db)|thread_id|in(sert_id|fo)|d(ata_seek|rop_db|b_query)|unbuffered_query|e(scape_string|rr(no|or))|p(connect|ing)|f(ield_(seek|name|t(ype|able)|flags|len)|etch_(object|field|lengths|a(ssoc|rray)|row)|ree_result)|query|affected_rows|list_(tables|dbs|processes|fields)|re(sult|al_escape_string)|get_(server_info|host_info|client_info|proto_info))(?=\s*\()</expression>
+                    <expression>(?i)\bmysql_(s(tat|e(t_charset|lect_db))|num_(fields|rows)|c(onnect|l(ient_encoding|ose)|reate_db)|thread_id|in(sert_id|fo)|d(ata_seek|rop_db|b_query)|unbuffered_query|e(scape_string|rr(no|or))|p(connect|ing)|f(ield_(seek|name|t(ype|able)|flags|len)|etch_(object|field|lengths|a(ssoc|rray)|row)|ree_result)|query|affected_rows|list_(tables|dbs|processes|fields)|re(sult|al_escape_string)|get_(server_info|host_info|client_info|proto_info))(\()</expression>
             </zone>
             <!-- Php_odbc Functions -->
             <zone name="identifier.function.support_odbc">
-                    <expression>(?i)\b(solid_fetch_prev|odbc_(s(tatistics|pecialcolumns|etoption)|n(um_(fields|rows)|ext_result)|c(o(nnect|lumn(s|privileges)|mmit)|ursor|lose(_all)?)|table(s|privileges)|data_source|e(rror(msg)?|xec(ute)?)|p(connect|r(imarykeys|ocedure(s|columns)|epare))|f(ield_(scale|n(um|ame)|type|len)|oreignkeys|etch_(into|object|array|row)|ree_result)|autocommit|longreadlen|gettypeinfo|r(ollback|esult(_all)?)|binmode))(?=\s*\()</expression>
+                    <expression>(?i)\b(solid_fetch_prev|odbc_(s(tatistics|pecialcolumns|etoption)|n(um_(fields|rows)|ext_result)|c(o(nnect|lumn(s|privileges)|mmit)|ursor|lose(_all)?)|table(s|privileges)|data_source|e(rror(msg)?|xec(ute)?)|p(connect|r(imarykeys|ocedure(s|columns)|epare))|f(ield_(scale|n(um|ame)|type|len)|oreignkeys|etch_(into|object|array|row)|ree_result)|autocommit|longreadlen|gettypeinfo|r(ollback|esult(_all)?)|binmode))(\()</expression>
             </zone>
             <!-- Php_pcre Functions -->
             <zone name="identifier.function.support_pcre">
-                    <expression>(?i)\bpreg_(split|quote|last_error|grep|replace(_callback)?|match(_all)?)(?=\s*\()</expression>
+                    <expression>(?i)\bpreg_(split|quote|last_error|grep|replace(_callback)?|match(_all)?)(\()</expression>
             </zone>
             <!-- Php_spl Functions -->
             <zone name="identifier.function.support_spl">
-                    <expression>(?i)\b(spl_(classes|object_hash|autoload(_(call|unregister|extensions|functions|register))?)|class_(implements|parents))(?=\s*\()</expression>
+                    <expression>(?i)\b(spl_(classes|object_hash|autoload(_(call|unregister|extensions|functions|register))?)|class_(implements|parents))(\()</expression>
             </zone>
             <!-- Php_sybase Functions -->
             <zone name="identifier.function.support_sybase_ct">
-                    <expression>(?i)\bsybase_(se(t_message_handler|lect_db)|num_(fields|rows)|c(onnect|lose)|d(eadlock_retry_count|ata_seek)|unbuffered_query|pconnect|f(ield_seek|etch_(object|field|a(ssoc|rray)|row)|ree_result)|query|affected_rows|result|get_last_message|min_(server_severity|client_severity))(?=\s*\()</expression>
+                    <expression>(?i)\bsybase_(se(t_message_handler|lect_db)|num_(fields|rows)|c(onnect|lose)|d(eadlock_retry_count|ata_seek)|unbuffered_query|pconnect|f(ield_seek|etch_(object|field|a(ssoc|rray)|row)|ree_result)|query|affected_rows|result|get_last_message|min_(server_severity|client_severity))(\()</expression>
             </zone>
             <!-- Php_sybase_db Functions -->
             <zone name="identifier.function.support_sybase_db">
-                    <expression>(?i)\bsybase_(select_db|num_(fields|rows)|c(onnect|lose)|data_seek|pconnect|f(ield_seek|etch_(object|field|array|row)|ree_result)|query|affected_rows|result|get_last_message|min_(error_severity|message_severity))(?=\s*\()</expression>
+                    <expression>(?i)\bsybase_(select_db|num_(fields|rows)|c(onnect|lose)|data_seek|pconnect|f(ield_seek|etch_(object|field|array|row)|ree_result)|query|affected_rows|result|get_last_message|min_(error_severity|message_severity))(\()</expression>
             </zone>
             <!-- Php_xmlwriter Functions -->
             <zone name="identifier.function.support_xmlwriter">
-                    <expression>(?i)\bxmlwriter_(s(tart_(c(omment|data)|d(td(_(e(ntity|lement)|attlist))?|ocument)|pi|element(_ns)?|attribute(_ns)?)|et_indent(_string)?)|text|o(utput_memory|pen_(uri|memory))|end_(c(omment|data)|d(td(_(e(ntity|lement)|attlist))?|ocument)|pi|element|attribute)|f(ull_end_element|lush)|write_(c(omment|data)|dtd(_(e(ntity|lement)|attlist))?|pi|element(_ns)?|attribute(_ns)?|raw))(?=\s*\()</expression>
+                    <expression>(?i)\bxmlwriter_(s(tart_(c(omment|data)|d(td(_(e(ntity|lement)|attlist))?|ocument)|pi|element(_ns)?|attribute(_ns)?)|et_indent(_string)?)|text|o(utput_memory|pen_(uri|memory))|end_(c(omment|data)|d(td(_(e(ntity|lement)|attlist))?|ocument)|pi|element|attribute)|f(ull_end_element|lush)|write_(c(omment|data)|dtd(_(e(ntity|lement)|attlist))?|pi|element(_ns)?|attribute(_ns)?|raw))(\()</expression>
             </zone>
             <!-- Php_zip Functions -->
             <zone name="identifier.function.support_zip">
-                    <expression>(?i)\b(s(tat(Name|Index)|et(Comment(Name|Index)|ArchiveComment))|c(lose|reateEmptyDir)|delete(Name|Index)|open|zip_(close|open|entry_(name|c(ompress(ionmethod|edsize)|lose)|open|filesize|read)|read)|unchange(Name|Index|All)|locateName|addF(ile|romString)|rename(Name|Index)|get(Stream|Comment(Name|Index)|NameIndex|From(Name|Index)|ArchiveComment))(?=\s*\()</expression>
+                    <expression>(?i)\b(s(tat(Name|Index)|et(Comment(Name|Index)|ArchiveComment))|c(lose|reateEmptyDir)|delete(Name|Index)|open|zip_(close|open|entry_(name|c(ompress(ionmethod|edsize)|lose)|open|filesize|read)|read)|unchange(Name|Index|All)|locateName|addF(ile|romString)|rename(Name|Index)|get(Stream|Comment(Name|Index)|NameIndex|From(Name|Index)|ArchiveComment))(\()</expression>
             </zone>
             <!-- Posix Functions -->
             <zone name="identifier.function.support.posix">
-                    <expression>(?i)\bposix_(s(trerror|et(sid|uid|pgid|e(uid|gid)|gid))|ctermid|i(satty|nitgroups)|t(tyname|imes)|uname|kill|access|get(sid|cwd|_last_error|uid|e(uid|gid)|p(id|pid|w(nam|uid)|g(id|rp))|login|rlimit|g(id|r(nam|oups|gid)))|mk(nod|fifo))(?=\s*\()</expression>
+                    <expression>(?i)\bposix_(s(trerror|et(sid|uid|pgid|e(uid|gid)|gid))|ctermid|i(satty|nitgroups)|t(tyname|imes)|uname|kill|access|get(sid|cwd|_last_error|uid|e(uid|gid)|p(id|pid|w(nam|uid)|g(id|rp))|login|rlimit|g(id|r(nam|oups|gid)))|mk(nod|fifo))(\()</expression>
             </zone>
             <!-- Proc_open Functions -->
             <zone name="identifier.function.support.proc_open">
-                    <expression>(?i)\bproc_(close|terminate|open|get_status)(?=\s*\()</expression>
+                    <expression>(?i)\bproc_(close|terminate|open|get_status)(\()</expression>
             </zone>
             <!-- Pspell Functions -->
             <zone name="identifier.function.support.pspell">
-                    <expression>(?i)\bpspell_(s(tore_replacement|uggest|ave_wordlist)|c(heck|onfig_(save_repl|create|ignore|d(ict_dir|ata_dir)|personal|r(untogether|epl)|mode)|lear_session)|new(_(config|personal))?|add_to_(session|personal))(?=\s*\()</expression>
+                    <expression>(?i)\bpspell_(s(tore_replacement|uggest|ave_wordlist)|c(heck|onfig_(save_repl|create|ignore|d(ict_dir|ata_dir)|personal|r(untogether|epl)|mode)|lear_session)|new(_(config|personal))?|add_to_(session|personal))(\()</expression>
             </zone>
             <!-- Quot_print Functions -->
             <zone name="identifier.function.support.quot_print">
-                    <expression>(?i)\bquoted_printable_decode(?=\s*\()</expression>
+                    <expression>(?i)\bquoted_printable_decode(\()</expression>
             </zone>
             <!-- Rand Functions -->
             <zone name="identifier.function.support.rand">
-                    <expression>(?i)\b(srand|getrandmax|rand|mt_(srand|getrandmax|rand))(?=\s*\()</expression>
+                    <expression>(?i)\b(srand|getrandmax|rand|mt_(srand|getrandmax|rand))(\()</expression>
             </zone>
             <!-- Readline Functions -->
             <zone name="identifier.function.support.readline">
-                    <expression>(?i)\breadline(_(c(ompletion_function|allback_(handler_(install|remove)|read_char)|lear_history)|info|on_new_line|write_history|list_history|add_history|re(display|ad_history)))?(?=\s*\()</expression>
+                    <expression>(?i)\breadline(_(c(ompletion_function|allback_(handler_(install|remove)|read_char)|lear_history)|info|on_new_line|write_history|list_history|add_history|re(display|ad_history)))?(\()</expression>
             </zone>
             <!-- Recode Functions -->
             <zone name="identifier.function.support.recode">
-                    <expression>(?i)\brecode_(string|file)(?=\s*\()</expression>
+                    <expression>(?i)\brecode_(string|file)(\()</expression>
             </zone>
             <!-- Reg Functions -->
             <zone name="identifier.function.support.reg">
-                    <expression>(?i)\b(s(plit(i)?|ql_regcase)|ereg(i(_replace)?|_replace)?)(?=\s*\()</expression>
+                    <expression>(?i)\b(s(plit(i)?|ql_regcase)|ereg(i(_replace)?|_replace)?)(\()</expression>
             </zone>
             <!-- Session Functions -->
             <zone name="identifier.function.support.session">
-                    <expression>(?i)\bsession_(s(tart|et_(save_handler|cookie_params)|ave_path)|cache_(expire|limiter)|name|i(s_registered|d)|de(stroy|code)|un(set|register)|encode|write_close|reg(ister|enerate_id)|get_cookie_params|module_name)(?=\s*\()</expression>
+                    <expression>(?i)\bsession_(s(tart|et_(save_handler|cookie_params)|ave_path)|cache_(expire|limiter)|name|i(s_registered|d)|de(stroy|code)|un(set|register)|encode|write_close|reg(ister|enerate_id)|get_cookie_params|module_name)(\()</expression>
             </zone>
             <!-- Sha1 Functions -->
             <zone name="identifier.function.support.sha1">
-                    <expression>(?i)\bsha1(_file)?(?=\s*\()</expression>
+                    <expression>(?i)\bsha1(_file)?(\()</expression>
             </zone>
             <!-- Shmop Functions -->
             <zone name="identifier.function.support.shmop">
-                    <expression>(?i)\bshmop_(size|close|delete|open|write|read)(?=\s*\()</expression>
+                    <expression>(?i)\bshmop_(size|close|delete|open|write|read)(\()</expression>
             </zone>
             <!-- Simplexml Functions -->
             <zone name="identifier.function.support.simplexml">
-                    <expression>(?i)\bsimplexml_(import_dom|load_(string|file))(?=\s*\()</expression>
+                    <expression>(?i)\bsimplexml_(import_dom|load_(string|file))(\()</expression>
             </zone>
             <!-- Skeleton Functions -->
             <zone name="identifier.function.support.skeleton">
-                    <expression>(?i)\bconfirm_extname_compiled(?=\s*\()</expression>
+                    <expression>(?i)\bconfirm_extname_compiled(\()</expression>
             </zone>
             <!-- Snmp Functions -->
             <zone name="identifier.function.support.snmp">
-                    <expression>(?i)\b(snmp(set|2_(set|walk|real_walk|get(next)?)|3_(set|walk|real_walk|get(next)?)|_(set_(oid_output_format|enum_print|valueretrieval|quick_print)|read_mib|get_(valueretrieval|quick_print))|walk|realwalk|get(next)?)|php_snmpv3)(?=\s*\()</expression>
+                    <expression>(?i)\b(snmp(set|2_(set|walk|real_walk|get(next)?)|3_(set|walk|real_walk|get(next)?)|_(set_(oid_output_format|enum_print|valueretrieval|quick_print)|read_mib|get_(valueretrieval|quick_print))|walk|realwalk|get(next)?)|php_snmpv3)(\()</expression>
             </zone>
             <!-- Sockets Functions -->
             <zone name="identifier.function.support.sockets">
-                    <expression>(?i)\bsocket_(s(hutdown|trerror|e(nd(to)?|t_(nonblock|option|block)|lect))|c(onnect|l(ose|ear_error)|reate(_(pair|listen))?)|write|l(isten|ast_error)|accept|get(sockname|_option|peername)|re(cv(from)?|ad)|bind)(?=\s*\()</expression>
+                    <expression>(?i)\bsocket_(s(hutdown|trerror|e(nd(to)?|t_(nonblock|option|block)|lect))|c(onnect|l(ose|ear_error)|reate(_(pair|listen))?)|write|l(isten|ast_error)|accept|get(sockname|_option|peername)|re(cv(from)?|ad)|bind)(\()</expression>
             </zone>
             <!-- Soundex Functions -->
             <zone name="identifier.function.support.soundex">
-                    <expression>(?i)\bsoundex(?=\s*\()</expression>
+                    <expression>(?i)\bsoundex(\()</expression>
             </zone>
             <!-- Spl_iterators Functions -->
             <zone name="identifier.function.support.spl_iterators">
-                    <expression>(?i)\biterator_(count|to_array|apply)(?=\s*\()</expression>
+                    <expression>(?i)\biterator_(count|to_array|apply)(\()</expression>
             </zone>
             <!-- Sqlite Functions -->
             <zone name="identifier.function.support.sqlite">
-                    <expression>(?i)\bsqlite_(has_prev|s(ingle_query|eek)|n(um_(fields|rows)|ext)|c(hanges|olumn|urrent|lose|reate_(function|aggregate))|open|u(nbuffered_query|df_(decode_binary|encode_binary))|e(scape_string|rror_string|xec)|p(open|rev)|key|valid|query|f(ield_name|etch_(single|column_types|object|a(ll|rray))|actory)|l(ib(encoding|version)|ast_(insert_rowid|error))|array_query|rewind|busy_timeout)(?=\s*\()</expression>
+                    <expression>(?i)\bsqlite_(has_prev|s(ingle_query|eek)|n(um_(fields|rows)|ext)|c(hanges|olumn|urrent|lose|reate_(function|aggregate))|open|u(nbuffered_query|df_(decode_binary|encode_binary))|e(scape_string|rror_string|xec)|p(open|rev)|key|valid|query|f(ield_name|etch_(single|column_types|object|a(ll|rray))|actory)|l(ib(encoding|version)|ast_(insert_rowid|error))|array_query|rewind|busy_timeout)(\()</expression>
             </zone>
             <!-- Streamsfuns Functions -->
             <zone name="identifier.function.support.streamsfuncs">
-                    <expression>(?i)\bstream_(s(ocket_(s(hutdown|e(ndto|rver))|client|enable_crypto|pair|accept|recvfrom|get_name)|e(t_(timeout|write_buffer|blocking)|lect))|co(ntext_(set_(option|params)|create|get_(default|options))|py_to_stream)|filter_(prepend|append|remove)|get_(contents|transports|line|wrappers|meta_data))(?=\s*\()</expression>
+                    <expression>(?i)\bstream_(s(ocket_(s(hutdown|e(ndto|rver))|client|enable_crypto|pair|accept|recvfrom|get_name)|e(t_(timeout|write_buffer|blocking)|lect))|co(ntext_(set_(option|params)|create|get_(default|options))|py_to_stream)|filter_(prepend|append|remove)|get_(contents|transports|line|wrappers|meta_data))(\()</expression>
             </zone>
             <!-- String Functions -->
             <zone name="identifier.function.support.string">
-                    <expression>(?i)\b(hebrev(c)?|s(scanf|imilar_text|tr(s(tr|pn)|natc(asecmp|mp)|c(hr|spn|oll)|i(str|p(slashes|cslashes|os|_tags))|t(o(upper|k|lower)|r)|_(s(huffle|plit)|ireplace|pad|word_count|r(ot13|ep(eat|lace)))|p(os|brk)|r(chr|ipos|ev|pos))|ubstr(_(co(unt|mpare)|replace))?|etlocale)|c(h(unk_split|r)|ount_chars)|nl(2br|_langinfo)|implode|trim|ord|dirname|uc(first|words)|join|pa(thinfo|rse_str)|explode|quotemeta|add(slashes|cslashes)|wordwrap|l(trim|ocaleconv)|rtrim|money_format|b(in2hex|asename))(?=\s*\()</expression>
+                    <expression>(?i)\b(hebrev(c)?|s(scanf|imilar_text|tr(s(tr|pn)|natc(asecmp|mp)|c(hr|spn|oll)|i(str|p(slashes|cslashes|os|_tags))|t(o(upper|k|lower)|r)|_(s(huffle|plit)|ireplace|pad|word_count|r(ot13|ep(eat|lace)))|p(os|brk)|r(chr|ipos|ev|pos))|ubstr(_(co(unt|mpare)|replace))?|etlocale)|c(h(unk_split|r)|ount_chars)|nl(2br|_langinfo)|implode|trim|ord|dirname|uc(first|words)|join|pa(thinfo|rse_str)|explode|quotemeta|add(slashes|cslashes)|wordwrap|l(trim|ocaleconv)|rtrim|money_format|b(in2hex|asename))(\()</expression>
             </zone>
             <!-- String_extend Functions -->
             <zone name="identifier.function.support.string_extend">
-                    <expression>(?i)\bdom_string_extend_find_offset(16|32)(?=\s*\()</expression>
+                    <expression>(?i)\bdom_string_extend_find_offset(16|32)(\()</expression>
             </zone>
             <!-- Syslog Functions -->
             <zone name="identifier.function.support.syslog">
-                    <expression>(?i)\b(syslog|closelog|openlog|define_syslog_variables)(?=\s*\()</expression>
+                    <expression>(?i)\b(syslog|closelog|openlog|define_syslog_variables)(\()</expression>
             </zone>
             <!-- Sysvmsg Functions -->
             <zone name="identifier.function.support.sysvmsg">
-                    <expression>(?i)\bmsg_(s(tat_queue|e(nd|t_queue))|re(ceive|move_queue)|get_queue)(?=\s*\()</expression>
+                    <expression>(?i)\bmsg_(s(tat_queue|e(nd|t_queue))|re(ceive|move_queue)|get_queue)(\()</expression>
             </zone>
             <!-- Sysvsem Functions -->
             <zone name="identifier.function.support.sysvsem">
-                    <expression>(?i)\bsem_(acquire|re(lease|move)|get)(?=\s*\()</expression>
+                    <expression>(?i)\bsem_(acquire|re(lease|move)|get)(\()</expression>
             </zone>
             <!-- Sysvshm Functions -->
             <zone name="identifier.function.support.sysvshm">
-                    <expression>(?i)\bshm_(detach|put_var|attach|get_var|remove(_var)?)(?=\s*\()</expression>
+                    <expression>(?i)\bshm_(detach|put_var|attach|get_var|remove(_var)?)(\()</expression>
             </zone>
             <!-- Text Functions -->
             <zone name="identifier.function.support.text">
-                    <expression>(?i)\bdom_text_(split_text|is_whitespace_in_element_content|replace_whole_text)(?=\s*\()</expression>
+                    <expression>(?i)\bdom_text_(split_text|is_whitespace_in_element_content|replace_whole_text)(\()</expression>
             </zone>
             <!-- Tidy Functions -->
             <zone name="identifier.function.support.tidy">
-                    <expression>(?i)\btidy_(c(onfig_count|lean_repair)|is_x(html|ml)|diagnose|error_count|parse_(string|file)|access_count|warning_count|repair_(string|file)|get(opt|_(h(tml(_ver)?|ead)|status|config|o(utput|pt_doc)|error_buffer|r(oot|elease)|body)))(?=\s*\()</expression>
+                    <expression>(?i)\btidy_(c(onfig_count|lean_repair)|is_x(html|ml)|diagnose|error_count|parse_(string|file)|access_count|warning_count|repair_(string|file)|get(opt|_(h(tml(_ver)?|ead)|status|config|o(utput|pt_doc)|error_buffer|r(oot|elease)|body)))(\()</expression>
             </zone>
             <!-- Tokenizer Functions -->
             <zone name="identifier.function.support.tokenizer">
-                    <expression>(?i)\btoken_(name|get_all)(?=\s*\()</expression>
+                    <expression>(?i)\btoken_(name|get_all)(\()</expression>
             </zone>
             <!-- Type Functions -->
             <zone name="identifier.function.support.type">
-                    <expression>(?i)\b(s(trval|ettype)|i(s_(s(calar|tring)|callable|nu(ll|meric)|object|float|array|long|resource|bool)|ntval)|floatval|gettype)(?=\s*\()</expression>
+                    <expression>(?i)\b(s(trval|ettype)|i(s_(s(calar|tring)|callable|nu(ll|meric)|object|float|array|long|resource|bool)|ntval)|floatval|gettype)(\()</expression>
             </zone>
             <!-- Uniqid Functions -->
             <zone name="identifier.function.support.uniqid">
-                    <expression>(?i)\buniqid(?=\s*\()</expression>
+                    <expression>(?i)\buniqid(\()</expression>
             </zone>
             <!-- Url Functions -->
             <zone name="identifier.function.support.url">
-                    <expression>(?i)\b(url(decode|encode)|parse_url|get_headers|rawurl(decode|encode))(?=\s*\()</expression>
+                    <expression>(?i)\b(url(decode|encode)|parse_url|get_headers|rawurl(decode|encode))(\()</expression>
             </zone>
             <!-- User_filters Functions -->
             <zone name="identifier.function.support.user_filters">
-                    <expression>(?i)\bstream_(filter_register|get_filters|bucket_(new|prepend|append|make_writeable))(?=\s*\()</expression>
+                    <expression>(?i)\bstream_(filter_register|get_filters|bucket_(new|prepend|append|make_writeable))(\()</expression>
             </zone>
             <!-- Userdatahandler Functions -->
             <zone name="identifier.function.support.userdatahandler">
-                    <expression>(?i)\bdom_userdatahandler_handle(?=\s*\()</expression>
+                    <expression>(?i)\bdom_userdatahandler_handle(\()</expression>
             </zone>
             <!-- Userspace Functions -->
             <zone name="identifier.function.support.userspace">
-                    <expression>(?i)\bstream_wrapper_(unregister|re(store|gister))(?=\s*\()</expression>
+                    <expression>(?i)\bstream_wrapper_(unregister|re(store|gister))(\()</expression>
             </zone>
             <!-- Uuencode Functions -->
             <zone name="identifier.function.support.uuencode">
-                    <expression>(?i)\bconvert_uu(decode|encode)(?=\s*\()</expression>
+                    <expression>(?i)\bconvert_uu(decode|encode)(\()</expression>
             </zone>
             <!-- Var Functions -->
             <zone name="identifier.function.support.var">
-                    <expression>(?i)\b(serialize|debug_zval_dump|unserialize|var_(dump|export)|memory_get_(usage|peak_usage))(?=\s*\()</expression>
+                    <expression>(?i)\b(serialize|debug_zval_dump|unserialize|var_(dump|export)|memory_get_(usage|peak_usage))(\()</expression>
             </zone>
             <!-- Versioning Functions -->
             <zone name="identifier.function.support.versioning">
-                    <expression>(?i)\bversion_compare(?=\s*\()</expression>
+                    <expression>(?i)\bversion_compare(\()</expression>
             </zone>
             <!-- Wddx Functions -->
             <zone name="identifier.function.support.wddx">
-                    <expression>(?i)\bwddx_(serialize_va(lue|rs)|deserialize|packet_(start|end)|add_vars)(?=\s*\()</expression>
+                    <expression>(?i)\bwddx_(serialize_va(lue|rs)|deserialize|packet_(start|end)|add_vars)(\()</expression>
             </zone>
             <!-- Xml Functions -->
             <zone name="identifier.function.support.xml">
-                    <expression>(?i)\b(utf8_(decode|encode)|xml_(set_(start_namespace_decl_handler|notation_decl_handler|character_data_handler|default_handler|object|unparsed_entity_decl_handler|processing_instruction_handler|e(nd_namespace_decl_handler|lement_handler|xternal_entity_ref_handler))|error_string|parse(_into_struct|r_(set_option|create(_ns)?|free|get_option))?|get_(current_(column_number|line_number|byte_index)|error_code)))(?=\s*\()</expression>
+                    <expression>(?i)\b(utf8_(decode|encode)|xml_(set_(start_namespace_decl_handler|notation_decl_handler|character_data_handler|default_handler|object|unparsed_entity_decl_handler|processing_instruction_handler|e(nd_namespace_decl_handler|lement_handler|xternal_entity_ref_handler))|error_string|parse(_into_struct|r_(set_option|create(_ns)?|free|get_option))?|get_(current_(column_number|line_number|byte_index)|error_code)))(\()</expression>
             </zone>
             <!-- Xmlrpc-epi-php Functions -->
             <zone name="identifier.function.support.xmlrpc-epi-php">
-                    <expression>(?i)\bxmlrpc_(se(t_type|rver_(c(all_method|reate)|destroy|add_introspection_data|register_(introspection_callback|method)))|is_fault|decode(_request)?|parse_method_descriptions|encode(_request)?|get_type)(?=\s*\()</expression>
+                    <expression>(?i)\bxmlrpc_(se(t_type|rver_(c(all_method|reate)|destroy|add_introspection_data|register_(introspection_callback|method)))|is_fault|decode(_request)?|parse_method_descriptions|encode(_request)?|get_type)(\()</expression>
             </zone>
             <!-- Xpath Functions -->
             <zone name="identifier.function.support.xpath">
-                    <expression>(?i)\bdom_xpath_(evaluate|query|register_ns)(?=\s*\()</expression>
+                    <expression>(?i)\bdom_xpath_(evaluate|query|register_ns)(\()</expression>
             </zone>
             <!-- Xsltprocessor Functions -->
             <zone name="identifier.function.support.xsltprocessor">
-                    <expression>(?i)\bxsl_xsltprocessor_(has_exslt_support|set_parameter|transform_to_(doc|uri|xml)|import_stylesheet|re(gister_php_functions|move_parameter)|get_parameter)(?=\s*\()</expression>
+                    <expression>(?i)\bxsl_xsltprocessor_(has_exslt_support|set_parameter|transform_to_(doc|uri|xml)|import_stylesheet|re(gister_php_functions|move_parameter)|get_parameter)(\()</expression>
             </zone>
             <!-- zlib Functions -->
             <zone name="identifier.function.support.zlib">
-                    <expression>(?i)\b(ob_gzhandler|zlib_get_coding_type|readgzfile|gz(compress|inflate|deflate|open|uncompress|encode|file))(?=\s*\()</expression>
+                    <expression>(?i)\b(ob_gzhandler|zlib_get_coding_type|readgzfile|gz(compress|inflate|deflate|open|uncompress|encode|file))(\()</expression>
             </zone>
             <!-- Alias Functions -->
             <zone name="identifier.function.support.alias">
-                    <expression>(?i)\bis_int(eger)?(?=\s*\()</expression>
+                    <expression>(?i)\bis_int(eger)?(\()</expression>
             </zone>
             
             <!-- Built In PHP Functions -->
             <zone name="identifier.function.support.construct">
-                    <expression>(?i)\b((print|echo)\b|(isset|unset|e(val|mpty)|list)(?=\s*\())</expression>
+                    <expression>(?i)\b((print|echo)\b|(isset|unset|e(val|mpty)|list)(\())</expression>
             </zone>
         </collection>
         
         <collection name="identifier.class.support">
             <!-- Bult In PHP Classes -->
             <zone name="support.class.builtin.php">
-                    <expression>(?i)\b(Re(cursive(RegexIterator|CachingIterator|IteratorIterator|DirectoryIterator|FilterIterator|ArrayIterator)|flection(Method|Class|Object|Extension|P(arameter|roperty)|Function)?|gexIterator)|s(tdClass|wf(s(hape|ound|prite)|text(field)?|displayitem|f(ill|ont(cha(r)?)?)|action|gradient|mo(vie|rph)|b(itmap|utton)))|XMLReader|tidyNode|S(impleXML(Iterator|Element)|oap(Server|Header|Client|Param|Var|Fault)|pl(TempFileObject|ObjectStorage|File(Info|Object)))|NoRewindIterator|C(OMPersistHelper|achingIterator)|I(nfiniteIterator|teratorIterator)|D(irectoryIterator|OM(XPath|Node|C(omment|dataSection)|Text|Document(Fragment)?|ProcessingInstruction|E(ntityReference|lement)|Attr))|P(DO(Statement)?|arentIterator)|E(rrorException|mptyIterator|xception)|FilterIterator|LimitIterator|A(p(pendIterator|acheRequest)|rray(Iterator|Object)))(?=\s*\()</expression>
+                    <expression>(?i)\b(Re(cursive(RegexIterator|CachingIterator|IteratorIterator|DirectoryIterator|FilterIterator|ArrayIterator)|flection(Method|Class|Object|Extension|P(arameter|roperty)|Function)?|gexIterator)|s(tdClass|wf(s(hape|ound|prite)|text(field)?|displayitem|f(ill|ont(cha(r)?)?)|action|gradient|mo(vie|rph)|b(itmap|utton)))|XMLReader|tidyNode|S(impleXML(Iterator|Element)|oap(Server|Header|Client|Param|Var|Fault)|pl(TempFileObject|ObjectStorage|File(Info|Object)))|NoRewindIterator|C(OMPersistHelper|achingIterator)|I(nfiniteIterator|teratorIterator)|D(irectoryIterator|OM(XPath|Node|C(omment|dataSection)|Text|Document(Fragment)?|ProcessingInstruction|E(ntityReference|lement)|Attr))|P(DO(Statement)?|arentIterator)|E(rrorException|mptyIterator|xception)|FilterIterator|LimitIterator|A(p(pendIterator|acheRequest)|rray(Iterator|Object)))(\()</expression>
             </zone>            
         </collection>
         
