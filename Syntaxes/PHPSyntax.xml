@@ -2,14 +2,16 @@
 <syntax name="sourcecode.php">
 	<zones>
 		<!-- PHP Source Block; <?php ... ?> -->
-		<zone name="container.block">
+		<zone name="source.php">
 			<starts-with>
-				<expression>^((&lt;)(\?)(php|=)?)</expression>
-				<capture number="0" name="container.block.begin"/>
+				<expression>(&lt;)(\?)(php|=)?</expression>
+				<capture number="0" name="punctuation.section.embedded.php.begin"/>
+				<capture number="2" name="punctuation.question-mark" />
+				<capture number="3" name="keyword.definition.php" />
 			</starts-with>
 			<ends-with>
 				<expression>(\?)></expression>
-				<capture number="0" name="container.block.end"/>
+				<capture number="0" name="punctuation.section.embedded.php.end"/>
 				<capture number="1" name="source"/>
 			</ends-with>
 			<subzones>
@@ -30,12 +32,12 @@
 	        <include collection="identifier.function" />
 	        <include collection="keyword" />
 	        <include collection="literal.keyword" />
-	        <include collection="operator" />
 	        <include collection="identifier.class" />
 	        <include collection="identifier.variable" />
 	        <include collection="literal.string" />
 	        <include collection="literal.numeric" />
 	        <include collection="delimiter" />
+	        <include collection="operator" />
 	    </collection>
 	    
 	    
@@ -279,10 +281,8 @@
 		<!-- Identifiers -->
 		
 		<collection name="identifier.variable">
-		    <zone name="identifier.variable.instance">
-	            <expression>(\$this)((->\w+?)+)\b</expression>
-	            <capture number="1" name="identifier.variable.instance.class" />
-	            <capture number="2" name="identifier.variable.instance.group" />
+		    <zone name="identifier.variable.class.property">
+		        <expression>(?x)(->)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</expression>
 		    </zone>
 		    <zone name="identifier.variable.instance.class">
 		        <expression>(?x)(\$+)this\b</expression>
@@ -296,10 +296,45 @@
 		</collection>
 		
 		<collection name="identifier.function">
-		    <include collection="identifier.function.support" />
-			<zone name="identifier.function">
-				<expression>[A-Za-z_][A-Za-z_0-9]*(?=\s*\()</expression>
+		    <zone name="identifier.function.class.method">
+			    <starts-with>
+			        <expression>(->)[A-Za-z_][A-Za-z_0-9]*(\()</expression>
+			        <capture number="2" name="delimiter.balanced.parenthesis.begin" />
+			    </starts-with>
+				<ends-with>
+				    <expression>\)</expression>
+				    <capture number="0" name="delimiter.balanced.parenthesis.end" />
+				</ends-with>
+				<subzones>
+				    <include collection="literal.string" />
+                    <include collection="literal.keyword" />
+                    <include collection="literal.collection" />
+                    <include collection="identifier.function" />
+                    <include collection="keyword" />
+                    <include collection="identifier.variable" />
+                    <include collection="operator" />
+				</subzones>
 			</zone>
+			<zone name="identifier.function">
+			    <starts-with>
+			        <expression>[A-Za-z_][A-Za-z_0-9]*(\()</expression>
+			        <capture number="1" name="delimiter.balanced.parenthesis.begin" />
+			    </starts-with>
+				<ends-with>
+				    <expression>\)</expression>
+				    <capture number="0" name="delimiter.balanced.parenthesis.end" />
+				</ends-with>
+				<subzones>
+				    <include collection="literal.string" />
+                    <include collection="literal.keyword" />
+                    <include collection="literal.collection" />
+                    <include collection="identifier.function" />
+                    <include collection="keyword" />
+                    <include collection="identifier.variable" />
+                    <include collection="operator" />
+				</subzones>
+			</zone>
+			<include collection="identifier.function.support" />
 		</collection>
 		
 		<collection name="identifier.variable.parameter">
@@ -520,6 +555,9 @@
         <!-- Operators (grabbed from elliottcable's Ruby.sugar) -->
         
         <collection name="operator">
+            <zone name="operator.class">
+                <expression>-></expression>
+            </zone>
             <zone name="operator.comparator">
                 <expression>===|==|&lt;|&lt;=|&gt;|&gt;=</expression>
             </zone>
@@ -546,9 +584,6 @@
             </zone>
             <zone name="delimiter.separator.comma">
                 <expression>,</expression>
-            </zone>
-            <zone name="delimiter.separator.right-arrow">
-                <expression>-></expression>
             </zone>
             <zone name="delimiter.balanced.curly-brace.begin">
                 <expression>\{</expression>

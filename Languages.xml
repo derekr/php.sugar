@@ -3,13 +3,18 @@
 <settings>
 
 	<language id="com.gridlee.php">
-		
+		<name>PHP</name>
 		<root-zone>sourcecode.php</root-zone>
 		
 		<detectors>
 			<extension casesensitive="false">php</extension>
 			<extension casesensitive="false">inc</extension>
+			<extension casesensitive="false">html</extension>
 			<extension casesensitive="false">phtml</extension>
+			<combo>
+                <extension>phtml</extension>
+                <match-content lines="1">!DOCTYPE</match-content>
+            </combo> 
 		</detectors>
 		
 		<meta>

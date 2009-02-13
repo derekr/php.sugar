@@ -3,8 +3,8 @@
 	<!-- PHP Source; <?php ... ?>, <?= =?> -->
     <recipe name="source.block.php">
 		<class>ESBaseItem</class>
-		<start-selector>punctuation.section.embedded.begin.php:capture(name)</start-selector>
-		<end-selector>punctuation.section.embedded.end.php:capture(name)</end-selector>
+		<start-selector>php.begin:capture(name) + *</start-selector>
+		<end-selector>php.end:capture(name)</end-selector>
 		<subrecipes>
 			<include-root-recipes />
 		</subrecipes>
@@ -53,6 +53,15 @@
 	<recipe name="literal.collection.hidden">
 	    <class>ESBaseItem</class>
 		<start-selector>literal.collection > delimiter.balanced.parenthesis.begin</start-selector>
+		<end-selector>literal.collection > delimiter.balanced.parenthesis.begin.end</end-selector>
+		<subrecipes>
+			<include-root-recipes />
+		</subrecipes>
+	</recipe>
+	
+	<recipe name="identifier.function.hidden">
+	    <class>ESBaseItem</class>
+		<start-selector>identifier.function > delimiter.balanced.parenthesis.begin</start-selector>
 		<end-selector>literal.collection > delimiter.balanced.parenthesis.begin.end</end-selector>
 		<subrecipes>
 			<include-root-recipes />
