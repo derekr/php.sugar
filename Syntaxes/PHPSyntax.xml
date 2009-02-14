@@ -29,9 +29,9 @@
 	        <include collection="container.class" />
 	        <include collection="container.block" />
 	        <include collection="container.function" />
+	        <include collection="literal.keyword" />
 	        <include collection="identifier.function" />
 	        <include collection="keyword" />
-	        <include collection="literal.keyword" />
 	        <include collection="identifier.class" />
 	        <include collection="identifier.variable" />
 	        <include collection="literal.string" />
@@ -210,15 +210,23 @@
         <collection name="literal.keyword">
             <!-- true -->
             <zone name="literal.keyword.bool.true">
-            <expression>\btrue\b</expression>
+            	<expression>\btrue\b</expression>
             </zone>
             <!-- false -->
             <zone name="literal.keyword.bool.false">
-            <expression>\bfalse\b</expression>
+            	<expression>\bfalse\b</expression>
             </zone>
-            <!-- nil -->
+            <!-- null -->
             <zone name="literal.keyword.nothing.null">
-            <expression>\bnull\b</expression>
+            	<expression>\bnull\b</expression>
+            </zone>
+            <!-- echo -->
+            <zone name="literal.keyword.constant.echo">
+            	<expression>\becho\b</expression>
+            </zone>
+			<!-- print -->
+            <zone name="literal.keyword.constant.print">
+            	<expression>\bprint\b</expression>
             </zone>
         </collection>
     
@@ -238,11 +246,12 @@
                     <include collection="container.function" />
         	        <include collection="identifier.function" />
         	        <include collection="literal.keyword" />
-        	        <include collection="operator" />
+        	        <include collection="keyword" />
         	        <include collection="identifier.class" />
         	        <include collection="identifier.variable" />
         	        <include collection="literal.string" />
         	        <include collection="delimiter" />
+        	        <include collection="operator" />
                 </subzones>
 	        </zone>
 	    </collection>
@@ -272,9 +281,16 @@
                 <expression>\b(catch|try|throw|exception)\b</expression>
             </zone>
             
+            <zone name="keyword.constant.class.other">
+				<expression>([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)(::)([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)</expression>
+				<capture number="1" name="class.name" />
+				<capture number="2" name="operator.class.static" />
+				<capture number="3" name="keyword.constant.other" />
+			</zone>
+            
 			<zone name="keyword.constant.other">
 				<expression>[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*</expression>
-			</zone>
+			</zone>	
 		</collection>
 		
 		
@@ -297,6 +313,7 @@
 		
 		<collection name="identifier.function">
 		    <include collection="identifier.function.support" />
+		    
 		    <zone name="identifier.function.class.method">
 			    <starts-with>
 			        <expression>(->)[A-Za-z_][A-Za-z_0-9]*(\()</expression>
@@ -310,6 +327,24 @@
 				    <include collection="identifier.function.subzones" />
 				</subzones>
 			</zone>
+			
+			<zone name="identifier.function.class.method.static">
+				<starts-with>
+					<expression>([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)(::)([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)(\()</expression>
+					<capture number="1" name="class.name" />
+					<capture number="2" name="operator.class.static" />
+					<capture number="3" name="method.name" />
+					<capture number="4" name="delimiter.balanced.parenthesis.begin" />
+				</starts-with>
+				<ends-with>
+					<expression>\)</expression>
+					<capture number="0" name="delimiter.balanced.parenthesis.end" />
+				</ends-with>
+				<subzones>
+					<include collection="identifier.function.subzones" />
+				</subzones>
+			</zone>
+			
 			<zone name="identifier.function">
 			    <starts-with>
 			        <expression>[A-Za-z_][A-Za-z_0-9]*(\()</expression>
@@ -328,12 +363,12 @@
 		<collection name="identifier.function.subzones">
             <include collection="literal.string" />
             <include collection="literal.numeric" />
+            <include collection="literal.collection" />
             <include collection="literal.keyword" />
             <include collection="keyword" />
+            <include collection="identifier.function" />
             <include collection="identifier.variable.parameter" />
             <include collection="identifier.variable" />
-            <include collection="identifier.function" />
-            <include collection="literal.collection" />
             <include collection="operator" />
         </collection>
 		
@@ -375,10 +410,11 @@
         		    <include collection="operator" />
                 </subzones>
             </zone>
+            
             <zone name="container.function.parenthesis-delimited">
                 <starts-with>
                     <expression>((?:(?:final|abstract|public|private|protected|static)\s+)*)(function)(?:\s+|(\s*&amp;\s*))(?:(__(?:call|(?:con|de)struct|get|(?:is|un)?set|tostring|clone|set_state|sleep|wakeup|autoload))|([a-zA-Z0-9_]+))\s*(\()</expression>
-                    <capture number="1" name="keyword.modifier" />
+                    <capture number="1" name="keyword.modifier.scope" />
                     <capture number="2" name="keyword.definition.function.begin" />
                     <capture number="5" name="name" />
                     <capture number="6" name="delimiter.balanced.parenthesis.parameters.function.begin" />
@@ -400,11 +436,15 @@
             <zone name="container.class">
                     <expression>(?i)^\s*((abstract|final)?\s*(class)\s+([a-z0-9_]+))\s*((?i:(extends))\s+([a-zA-Z0-9_]+))?\s*((?i:(implements))\s+([a-zA-Z0-9_]+))?</expression>
                     <capture number="1" name="class.current" />
+                    <capture number="2" name="keyword.modifier.scope" />
                     <capture number="3" name="keyword.definition.class.begin" />
                     <capture number="4" name="name" />
                     <capture number="5" name="class.extended" />
-                    <capture number="6" name="keyword.definition.class.extends.begin" />
+                    <capture number="6" name="keyword.definition.class.extended.begin" />
                     <capture number="7" name="name" />
+                    <capture number="8" name="class.implemented" />
+                    <capture number="9" name="keyword.definition.class.implemented.begin" />
+                    <capture number="10" name="name" />
             </zone>
         </collection>
         
@@ -546,10 +586,11 @@
             <include collection="literal.string" />
             <include collection="literal.numeric" />
             <include collection="literal.keyword" />
+            <include collection="identifier.function" />
             <include collection="keyword" />
             <include collection="identifier.variable" />
-            <include collection="identifier.function" />
             <include collection="literal.collection" />
+            <include collection="delimiter" />
             <include collection="operator" />
         </collection>
         
@@ -585,6 +626,9 @@
             </zone>
             <zone name="delimiter.separator.comma">
                 <expression>,</expression>
+            </zone>
+            <zone name="delimiter.separator.pairing">
+                <expression>=></expression>
             </zone>
             <zone name="delimiter.balanced.curly-brace.begin">
                 <expression>\{</expression>

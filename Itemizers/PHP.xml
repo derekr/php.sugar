@@ -50,6 +50,15 @@
 		</subrecipes>
 	</recipe>
 	
+	<recipe name="container.block.hidden">
+		<class>ESBaseItem</class>
+		<start-selector>container.block > delimiter.balanced.parenthesis.begin</start-selector>
+		<end-selector>container.block > delimiter.balanced.parenthesis.end</end-selector>
+		<subrecipes>
+			<include-root-recipes />
+		</subrecipes>
+	</recipe>
+	
 	<recipe name="literal.collection.hidden">
 	    <class>ESBaseItem</class>
 		<start-selector>literal.collection > delimiter.balanced.parenthesis.begin</start-selector>
