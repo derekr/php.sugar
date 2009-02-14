@@ -4,7 +4,7 @@
 		<!-- PHP Source Block; <?php ... ?> -->
 		<zone name="source.php">
 			<starts-with>
-				<expression>(&lt;)(\?)(php|=)?</expression>
+				<expression>(&lt;)(\?)(php|=)</expression>
 				<capture number="0" name="punctuation.section.embedded.php.begin"/>
 				<capture number="2" name="punctuation.question-mark" />
 				<capture number="3" name="keyword.definition.php" />
@@ -364,9 +364,9 @@
             <include collection="literal.string" />
             <include collection="literal.numeric" />
             <include collection="literal.collection" />
+            <include collection="identifier.function" />
             <include collection="literal.keyword" />
             <include collection="keyword" />
-            <include collection="identifier.function" />
             <include collection="identifier.variable.parameter" />
             <include collection="identifier.variable" />
             <include collection="operator" />

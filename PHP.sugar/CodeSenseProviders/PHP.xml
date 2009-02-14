@@ -7,7 +7,7 @@ CodeSense Providers map contexts in a document to possible completions. The actu
 <codesense>
 	
 	<provider>
-		<selector>source.php, class.php, container.block, identifier.function *</selector>
+		<selector>sourcecode.php, source.php, container.block *, identifier.function *</selector>
 		<completions>com.gridlee.identifier.function.support</completions>
 		<complete-match>([a-zA-Z0-9-_])+</complete-match>
 	</provider>
