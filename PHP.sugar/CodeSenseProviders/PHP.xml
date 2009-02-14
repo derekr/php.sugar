@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+CodeSense Providers map contexts in a document to possible completions. The actual completions are defined in the various CodeSense libraries, categorized using their key. A CodeSense Provider tells Espresso what CodeSense libraries are active in the current context. One of these XML files can contain many <provider> elements.
+
+-->
+<codesense>
+	
+	<provider>
+		<selector>source.php, class.php, container.block, identifier.function *</selector>
+		<completions>com.gridlee.identifier.function.support</completions>
+		<complete-match>([a-zA-Z0-9-_])+</complete-match>
+	</provider>
+
+</codesense>
