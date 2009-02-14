@@ -8,6 +8,7 @@
 		
 		<detectors>
 			<extension casesensitive="false">php</extension>
+			<extension casesensitive="false">phps</extension>
 			<extension casesensitive="false">inc</extension>
 			<extension casesensitive="false">html</extension>
 			<extension casesensitive="false">phtml</extension>
@@ -31,7 +32,7 @@
 		        com.gridlee.Sugar.PHP
 		    </identifier>
 		    <version status="preview">
-		        .9b1
+		        1.0b1
 		    </version>
 		    <dependencies>
                 <dependency id="name.elliottcable.Sugar.Regex">Regex</dependency>
