@@ -361,15 +361,17 @@
 		</collection>
 		
 		<collection name="identifier.function.subzones">
-            <include collection="literal.string" />
-            <include collection="literal.numeric" />
-            <include collection="literal.collection" />
-            <include collection="identifier.function" />
-            <include collection="literal.keyword" />
-            <include collection="keyword" />
-            <include collection="identifier.variable.parameter" />
-            <include collection="identifier.variable" />
-            <include collection="operator" />
+            <include collection="metadata.comment" />
+	        <include collection="literal.collection" />
+	        <include collection="literal.keyword" />
+	        <include collection="identifier.function" />
+	        <include collection="keyword" />
+	        <include collection="identifier.class" />
+	        <include collection="identifier.variable" />
+	        <include collection="literal.string" />
+	        <include collection="literal.numeric" />
+	        <include collection="delimiter" />
+	        <include collection="operator" />
         </collection>
 		
 		<collection name="identifier.variable.parameter">
