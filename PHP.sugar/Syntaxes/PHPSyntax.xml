@@ -2,17 +2,19 @@
 <syntax name="sourcecode.php">
 	<zones>
 		<!-- PHP Source Block; <?php ... ?> -->
-		<zone name="source.php">
+		<zone name="container.block.embedded.source.php">
 			<starts-with>
 				<expression>(&lt;)(\?)(php|=)</expression>
-				<capture number="0" name="punctuation.section.embedded.php.begin"/>
-				<capture number="2" name="punctuation.question-mark" />
+				<capture number="0" name="delimiter.embedded.source.php.begin"/>
+				<capture number="1" name="delimiter.left-angle.bracket.begin" />
+				<capture number="2" name="delimiter.question-mark" />
 				<capture number="3" name="keyword.definition.php" />
 			</starts-with>
 			<ends-with>
-				<expression>(\?)></expression>
-				<capture number="0" name="punctuation.section.embedded.php.end"/>
-				<capture number="1" name="source"/>
+				<expression>(\?)(>)</expression>
+				<capture number="0" name="delimiter.embedded.source.php.end"/>
+				<capture number="1" name="delimiter.question-mark"/>
+				<capture number="2" name="delimiter.right-angle.bracket.begin" />
 			</ends-with>
 			<subzones>
 				<include collection="language" />
@@ -41,85 +43,85 @@
 	    </collection>
 	    
 	    
+	    <!-- phpDoc -->
+	    <collection name="metadata.comment.phpDoc">
+	        <zone name="metadata.comment.documentation.phpDoc.invalid.illegal.missing-asterisk">
+	            <expression>^(?!\s*\*).*$\n?</expression>
+	        </zone>
+	        <zone>
+	    		<expression>^\s*\*\s*(@access)\s+((public|private|protected)|(.+))\s*$</expression>
+	    		<capture number="1" name="metadata.comment.phpDoc.keyword"/>
+	    		<capture number="3" name="metadata.comment.phpDoc.storage.modifier"/>
+	    		<capture number="4" name="metadata.comment.phpDoc.invalid.illegal.wrong-access-typedoc"/>
+	    	</zone>
+	    	<zone name="metadata.comment.phpDoc.markup.underline.link">
+	    		<expression>((https?|s?ftp|ftps|file|smb|afp|nfs|(x-)?man|gopher|txmt)://|mailto:)[-:@a-zA-Z0-9_.~%+/?=&amp;#]+(?&lt;![.?:])</expression>
+	    	</zone>
+	    	<zone>
+	    		<expression>(@xlink)\s+(.+)\s*$</expression>
+	    		<capture number="1" name="metadata.comment.phpDoc.keyword"/>
+	    		<capture number="2" name="metadata.comment.phpDoc.markup.underline.link"/>
+	    	</zone>
+	    	<zone name="metadata.comment.phpDoc.keyword">
+	    		<expression>\@(a(bstract|uthor)|c(ategory|opyright)|example|global|internal|li(cense|nk)|pa(ckage|ram)|return|s(ee|ince|tatic|ubpackage)|t(hrows|odo)|v(ar|ersion)|uses|deprecated|final)\b</expression>
+	    	</zone>
+	    	<zone name="metadata.comment.phpDoc.meta.tag.inlinedoc">
+	    		<expression>\{(@(link)).+?\}</expression>
+	    		<capture number="1" name="metadata.comment.phpDoc.keyword"/>
+	    	</zone>
+	    </collection>
+	    
+	    
 	    <!-- Metadata -->
 	    <collection name="metadata.comment">
 	        <!-- // comment -->
 	        <zone name="metadata.comment.line.double-slash">
                 <expression>(//)(.*?$\n?)</expression>
-                <capture number="1" name="punctuation.definition.comment" />
+                <capture number="1" name="delimiter.separator.double-slash.comment.begin" />
 	        </zone>
 	        <!-- # comment -->
 	        <zone name="metadata.comment.line.hash">
                 <expression>(#)(.*?$\n?)</expression>
-			    <capture number="1" name="punctuation.definition.comment" />
+			    <capture number="1" name="delimiter.separator.hash.comment.begin" />
 	        </zone>
 	        <zone name="metadata.comment.documentation">
 				<starts-with>
 					<expression>(/\*\*)</expression>
-					<capture number="1" name="punctuation.definition.comment"/>
+					<capture number="1" name="delimiter.separator.slash.double-asterisk.comment.begin"/>
 				</starts-with>
 				<ends-with>
 					<expression>(\*/)</expression>
-					<capture number="1" name="punctuation.definition.comment"/>
+					<capture number="1" name="delimiter.separator.slash.single-asterisk.comment.end"/>
 				</ends-with>
 				<subzones>
 				    <zone name="delimiter.separator.asterisk">
-        		        <expression>(\*{1})</expression>
-        		    </zone>
+                        <expression>\*</expression>
+                    </zone>
 					<include collection="metadata.comment.phpDoc"/>
 				</subzones>
 			</zone>
 			<zone name="metadata.comment.block">
 				<starts-with>
 					<expression>(/\*{2})</expression>
-					<capture number="1" name="punctuation.definition.comment"/>
+					<capture number="1" name="delimiter.separator.slash.single-asterisk.comment.begin"/>
 				</starts-with>
 				<ends-with>
 					<expression>(\*/)</expression>
-					<capture number="1" name="punctuation.definition.comment"/>
+					<capture number="1" name="delimiter.separator.slash.single-asterisk.comment.end"/>
 				</ends-with>
 			</zone>
 	    </collection>
-	    <!-- phpDoc -->
-	    <collection name="metadata.comment.phpDoc">
-	        <zone name="metadata.comment.documentation.phpDoc.invalid.illegal.missing-asterisk">
-                <expression>^(?!\s*\*).*$\n?</expression>
-	        </zone>
-	        <zone>
-				<expression>^\s*\*\s*(@access)\s+((public|private|protected)|(.+))\s*$</expression>
-				<capture number="1" name="metadata.comment.phpDoc.keyword"/>
-				<capture number="3" name="metadata.comment.phpDoc.storage.modifier"/>
-				<capture number="4" name="metadata.comment.phpDoc.invalid.illegal.wrong-access-typedoc"/>
-			</zone>
-			<zone name="metadata.comment.phpDoc.markup.underline.link">
-				<expression>((https?|s?ftp|ftps|file|smb|afp|nfs|(x-)?man|gopher|txmt)://|mailto:)[-:@a-zA-Z0-9_.~%+/?=&amp;#]+(?&lt;![.?:])</expression>
-			</zone>
-			<zone>
-				<expression>(@xlink)\s+(.+)\s*$</expression>
-				<capture number="1" name="metadata.comment.phpDoc.keyword"/>
-				<capture number="2" name="metadata.comment.phpDoc.markup.underline.link"/>
-			</zone>
-			<zone name="metadata.comment.phpDoc.keyword">
-				<expression>\@(a(bstract|uthor)|c(ategory|opyright)|example|global|internal|li(cense|nk)|pa(ckage|ram)|return|s(ee|ince|tatic|ubpackage)|t(hrows|odo)|v(ar|ersion)|uses|deprecated|final)\b</expression>
-			</zone>
-			<zone name="metadata.comment.phpDoc.meta.tag.inlinedoc">
-				<expression>\{(@(link)).+?\}</expression>
-				<capture number="1" name="metadata.comment.phpDoc.keyword"/>
-			</zone>
-	    </collection>
-	    
-	    
 	    <!-- Literals -->
 	    
 	    <collection name="literal.string">
             <zone name="literal.string.quoted.single">
                 <starts-with>
                     <expression>'</expression>
-                    <capture number="0" name="begin"/>
+                    <capture number="0" name="delimiter.balanced.quote.single.begin"/>
                 </starts-with>
                 <ends-with>
                     <expression>'</expression>
-                    <capture number="0" name="end"/>
+                    <capture number="0" name="delimiter.balanced.quote.single.end"/>
                 </ends-with>
                 <subzones>
                     <zone name="literal.escape.brief">
@@ -133,11 +135,11 @@
             <zone name="literal.string.quoted.double">
                 <starts-with>
                     <expression>"</expression>
-                    <capture number="0" name="begin"/>
+                    <capture number="0" name="delimiter.balanced.quote.double.begin"/>
                 </starts-with>
                 <ends-with>
                     <expression>"</expression>
-                    <capture number="0" name="end"/>
+                    <capture number="0" name="delimiter.balanced.quote.double.begin"/>
                 </ends-with>
                 <subzones>
                     <include collection="identifier.variable" />
@@ -273,6 +275,10 @@
 				<expression>\b(A(B(DAY_([1-7])|MON_([0-9]{1,2}))|LT_DIGITS|M_STR|SSERT_(ACTIVE|BAIL|CALLBACK|QUIET_EVAL|WARNING))|C(ASE_(LOWER|UPPER)|HAR_MAX|O(DESET|NNECTION_(ABORTED|NORMAL|TIMEOUT)|UNT_(NORMAL|RECURSIVE))|REDITS_(ALL|DOCS|FULLPAGE|GENERAL|GROUP|MODULES|QA|SAPI)|RNCYSTR|RYPT_(BLOWFISH|EXT_DES|MD5|SALT_LENGTH|STD_DES)|URRENCY_SYMBOL)|D(AY_([1-7])|ECIMAL_POINT|IRECTORY_SEPARATOR|_(FMT|T_FMT))|E(NT_(COMPAT|NOQUOTES|QUOTES)|RA(|_D_FMT|_D_T_FMT|_T_FMT|_YEAR)|XTR_(IF_EXISTS|OVERWRITE|PREFIX_(ALL|IF_EXISTS|INVALID|SAME)|SKIP))|FRAC_DIGITS|GROUPING|HTML_(ENTITIES|SPECIALCHARS)|IN(FO_(ALL|CONFIGURATION|CREDITS|ENVIRONMENT|GENERAL|LICENSE|MODULES|VARIABLES)|I_(ALL|PERDIR|SYSTEM|USER)|T_(CURR_SYMBOL|FRAC_DIGITS))|L(C_(ALL|COLLATE|CTYPE|MESSAGES|MONETARY|NUMERIC|TIME)|O(CK_(EX|NB|SH|UN)|G_(ALERT|AUTH(|PRIV)|CONS|CRIT|CRON|DAEMON|DEBUG|EMERG|ERR|INFO|KERN|LOCAL([0-7])|LPR|MAIL|NDELAY|NEWS|NOTICE|NOWAIT|ODELAY|PERROR|PID|SYSLOG|USER|UUCP|WARNING)))|M(ON_([0-9]{1,2}|DECIMAL_POINT|GROUPING|THOUSANDS_SEP)|YSQL_(ASSOC|BOTH|NUM)|_(1_PI|2_(PI|SQRTPI)|E|L(N10|N2|OG(10E|2E))|PI(|_2|_4)|SQRT1_2|SQRT2))|N(EGATIVE_SIGN|O(EXPR|STR)|_(CS_PRECEDES|SEP_BY_SPACE|SIGN_POSN))|P(ATH(INFO_(BASENAME|DIRNAME|EXTENSION|FILENAME)|_SEPARATOR)|M_STR|OSITIVE_SIGN|_(CS_PRECEDES|SEP_BY_SPACE|SIGN_POSN))|RADIXCHAR|S(EEK_(CUR|END|SET)|ORT_(ASC|DESC|NUMERIC|REGULAR|STRING)|TR_PAD_(BOTH|LEFT|RIGHT))|T(HOUS(ANDS_SEP|EP)|_(FMT(|_AMPM)))|YES(EXPR|STR))\b</expression>
 			</zone>
             
+            <zone name="keyword.constant.class">
+                <expression>\bconst\b</expression>
+            </zone>
+            
             <zone name="keyword.control.include">
                 <expression>(?i)\b((?:require|include)(?:_once)?)\b\s*</expression>
             </zone>
@@ -297,26 +303,31 @@
 		<!-- Identifiers -->
 		
 		<collection name="identifier.variable">
-		    <zone name="identifier.variable.class.property">
-		        <expression>(?x)(->)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</expression>
+		    <zone name="identifier.variable.object.property">
+		        <expression>(->)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</expression>
+		        <capture number="1" name="delimiter.separator.pairing.object" />
 		    </zone>
 		    <zone name="identifier.variable.instance.class">
 		        <expression>(?x)(\$+)this\b</expression>
+		        <capture number="1" name="delimiter.variable.begin" />
 		    </zone>
 		    <zone name="identifier.variable.global">
 		        <expression>(\$)(_(COOKIE|FILES|GET|POST|REQUEST))\b</expression>
+		        <capture number="1" name="delimiter.variable.begin" />
 		    </zone>
 		    <zone name="identifier.variable.local">
 		        <expression>(?x)(\$+)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</expression>
+		        <capture number="1" name="delimiter.variable.begin" />
 		    </zone>
 		</collection>
 		
 		<collection name="identifier.function">
 		    <include collection="identifier.function.support" />
 		    
-		    <zone name="identifier.function.class.method">
+		    <zone name="identifier.function.object.method">
 			    <starts-with>
 			        <expression>(->)[A-Za-z_][A-Za-z_0-9]*(\()</expression>
+			        <capture number="1" name="delimiter.separator.pairing.object" />
 			        <capture number="2" name="delimiter.balanced.parenthesis.begin" />
 			    </starts-with>
 				<ends-with>
@@ -407,9 +418,19 @@
                 <subzones>
                     <zone name="identifier.variable.parameter">
         		        <expression>(?x)(\$+)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</expression>
+        		        <capture number="1" name="delimiter.variable.begin" />
         		    </zone>
-        		    <include collection="literal.collection" />
+        		    <include collection="metadata.comment" />
+        	        <include collection="literal.collection" />
+        	        <include collection="literal.keyword" />
+        	        <include collection="identifier.function" />
+        	        <include collection="keyword" />
+        	        <include collection="identifier.class" />
+        	        <include collection="identifier.variable" />
+        	        <include collection="literal.string" />
+        	        <include collection="literal.numeric" />
         		    <include collection="operator" />
+        		    <include collection="delimiter" />
                 </subzones>
             </zone>
             
@@ -428,8 +449,19 @@
                 <subzones>
                     <zone name="identifier.variable.parameter">
         		        <expression>(?x)(\$+)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</expression>
+        		        <capture number="1" name="delimiter.variable.begin" />
         		    </zone>
-        		    <include collection="literal.collection" />
+        		    <include collection="metadata.comment" />
+        	        <include collection="literal.collection" />
+        	        <include collection="literal.keyword" />
+        	        <include collection="identifier.function" />
+        	        <include collection="keyword" />
+        	        <include collection="identifier.class" />
+        	        <include collection="identifier.variable" />
+        	        <include collection="literal.string" />
+        	        <include collection="literal.numeric" />
+        		    <include collection="operator" />
+        		    <include collection="delimiter" />
                 </subzones>
             </zone>
         </collection>
@@ -486,7 +518,7 @@
             </zone>
             <zone name="container.block.foreach">
                 <starts-with>
-                    <expression>(\bfor(\s)*each\b)\s*(\()</expression>
+                    <expression>(\bfor\s*each\b)\s*(\()</expression>
                     <capture number="1" name="keyword.control.flow.foreach" />
                     <capture number="2" name="delimiter.balanced.parenthesis.condition.begin" />
                 </starts-with>
@@ -495,6 +527,9 @@
                     <capture number="0" name="delimiter.balanced.parenthesis.condition.end" />
                 </ends-with>
                 <subzones>
+                    <zone name="operator.as">
+                        <expression>as</expression>
+                    </zone>
                     <include collection="container.block.subzones" />
                 </subzones>
             </zone>

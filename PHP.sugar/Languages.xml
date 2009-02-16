@@ -15,7 +15,11 @@
 			<combo>
                 <extension>phtml</extension>
                 <match-content lines="1">!DOCTYPE</match-content>
-            </combo> 
+            </combo>
+            <combo>
+                <extension>php</extension>
+                <match-content lines="1">!DOCTYPE</match-content>
+            </combo>
 		</detectors>
 		
 		<meta>
