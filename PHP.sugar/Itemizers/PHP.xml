@@ -90,9 +90,13 @@
 		</subrecipes>
 	</recipe>
 	
-	<recipe name="comment.php">
+	<recipe name="metadata.comment.documentation">
+	    <selector>comment.documentation:has-child(delimiter.begin + line:capture(name))</selector>
+	</recipe>
+	
+	<recipe name="metadata.comment.line">
 		<class>ESCommentItem</class>
-		<selector>comment</selector>
+		<selector>metadata.comment.line:has-child(content:capture(name))</selector>
 	</recipe>
 	
 </itemizer>

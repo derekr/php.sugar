@@ -43,6 +43,59 @@
 	    </collection>
 	    
 	    
+	    <!-- Metadata -->
+	    <collection name="metadata.comment">
+	        <!-- // comment -->
+	        <zone name="metadata.comment.line.double-slash">
+                <expression>(//)(\s?(.*)?$\n?)</expression>
+                <capture number="1" name="delimiter.separator.double-slash.comment.begin" />
+                <capture number="3" name="content" />
+	        </zone>
+	        <!-- # comment -->
+	        <zone name="metadata.comment.line.hash">
+                <expression>(#)(\s?(.*)?$\n?)</expression>
+			    <capture number="1" name="delimiter.separator.hash.comment.begin" />
+			    <capture number="3" name="content" />
+	        </zone>
+	        <zone name="metadata.comment.documentation">
+				<starts-with>
+					<expression>(/\*\*)</expression>
+					<capture number="1" name="delimiter.separator.slash.double-asterisk.comment.begin"/>
+				</starts-with>
+				<ends-with>
+					<expression>(\*/)</expression>
+					<capture number="1" name="delimiter.separator.slash.single-asterisk.comment.end"/>
+				</ends-with>
+				<subzones>
+					<zone name="comment.line">
+					    <starts-with>
+					        <expression>(\*)</expression>
+					        <capture number="1" name="delimiter.separator.asterisk" />
+					    </starts-with>
+					    <ends-with>
+					        <expression>$\n?</expression>
+					    </ends-with>
+					    <subzones>
+					        <include collection="metadata.comment.phpDoc" />
+					        <zone name="content">
+					            <expressoin>(.*)?</expressoin>
+					            <capture number="3" name="content" />
+					        </zone>
+					    </subzones>
+                    </zone>
+				</subzones>
+			</zone>
+			<zone name="metadata.comment.block">
+				<starts-with>
+					<expression>(/\*{2})</expression>
+					<capture number="1" name="delimiter.separator.slash.single-asterisk.comment.begin"/>
+				</starts-with>
+				<ends-with>
+					<expression>(\*/)</expression>
+					<capture number="1" name="delimiter.separator.slash.single-asterisk.comment.end"/>
+				</ends-with>
+			</zone>
+	    </collection>
 	    <!-- phpDoc -->
 	    <collection name="metadata.comment.phpDoc">
 	        <zone name="metadata.comment.documentation.phpDoc.invalid.illegal.missing-asterisk">
@@ -69,47 +122,6 @@
 	    		<expression>\{(@(link)).+?\}</expression>
 	    		<capture number="1" name="metadata.comment.phpDoc.keyword"/>
 	    	</zone>
-	    </collection>
-	    
-	    
-	    <!-- Metadata -->
-	    <collection name="metadata.comment">
-	        <!-- // comment -->
-	        <zone name="metadata.comment.line.double-slash">
-                <expression>(//)(.*?$\n?)</expression>
-                <capture number="1" name="delimiter.separator.double-slash.comment.begin" />
-	        </zone>
-	        <!-- # comment -->
-	        <zone name="metadata.comment.line.hash">
-                <expression>(#)(.*?$\n?)</expression>
-			    <capture number="1" name="delimiter.separator.hash.comment.begin" />
-	        </zone>
-	        <zone name="metadata.comment.documentation">
-				<starts-with>
-					<expression>(/\*\*)</expression>
-					<capture number="1" name="delimiter.separator.slash.double-asterisk.comment.begin"/>
-				</starts-with>
-				<ends-with>
-					<expression>(\*/)</expression>
-					<capture number="1" name="delimiter.separator.slash.single-asterisk.comment.end"/>
-				</ends-with>
-				<subzones>
-				    <zone name="delimiter.separator.asterisk">
-                        <expression>\*</expression>
-                    </zone>
-					<include collection="metadata.comment.phpDoc"/>
-				</subzones>
-			</zone>
-			<zone name="metadata.comment.block">
-				<starts-with>
-					<expression>(/\*{2})</expression>
-					<capture number="1" name="delimiter.separator.slash.single-asterisk.comment.begin"/>
-				</starts-with>
-				<ends-with>
-					<expression>(\*/)</expression>
-					<capture number="1" name="delimiter.separator.slash.single-asterisk.comment.end"/>
-				</ends-with>
-			</zone>
 	    </collection>
 	    <!-- Literals -->
 	    
@@ -620,15 +632,18 @@
         </collection>
         
         <collection name="container.block.subzones">
-            <include collection="literal.string" />
-            <include collection="literal.numeric" />
-            <include collection="literal.keyword" />
-            <include collection="identifier.function" />
-            <include collection="keyword" />
-            <include collection="identifier.variable" />
-            <include collection="literal.collection" />
-            <include collection="delimiter" />
-            <include collection="operator" />
+            <include collection="metadata.comment" />
+	        <include collection="literal.collection" />
+	        <include collection="container.block" />
+	        <include collection="literal.keyword" />
+	        <include collection="identifier.function" />
+	        <include collection="keyword" />
+	        <include collection="identifier.class" />
+	        <include collection="identifier.variable" />
+	        <include collection="literal.string" />
+	        <include collection="literal.numeric" />
+	        <include collection="delimiter" />
+	        <include collection="operator" />
         </collection>
         
         <!-- Operators (grabbed from elliottcable's Ruby.sugar) -->
