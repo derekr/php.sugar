@@ -511,7 +511,7 @@
             </zone>
             <zone name="container.block.elseif">
                 <starts-with>
-                    <expression>(\belse(\s)*if\b)\s*(\()</expression>
+                    <expression>(\belse\s*if\b)\s*(\()</expression>
                     <capture number="1" name="keyword.control.flow.elseif" />
                     <capture number="2" name="delimiter.balanced.parenthesis.condition.begin" />
                 </starts-with>
