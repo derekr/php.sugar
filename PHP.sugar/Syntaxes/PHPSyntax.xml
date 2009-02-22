@@ -4,7 +4,7 @@
 		<!-- PHP Source Block; <?php ... ?> -->
 		<zone name="container.block.embedded.source.php">
 			<starts-with>
-				<expression>(&lt;)(\?)(php|=)</expression>
+				<expression>(&lt;)(\?)(php|=)?</expression>
 				<capture number="0" name="delimiter.embedded.source.php.begin"/>
 				<capture number="1" name="delimiter.left-angle.bracket.begin" />
 				<capture number="2" name="delimiter.question-mark" />
