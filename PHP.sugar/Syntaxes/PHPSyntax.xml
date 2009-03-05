@@ -623,22 +623,12 @@
                 </subzones>
             </zone>
             <zone name="container.block.try">
-                <starts-with>
-                    <expression>(\btry\b)\s*(\()</expression>
-                    <capture number="1" name="keyword.control.flow.try" />
-                    <capture number="2" name="delimiter.balanced.parenthesis.condition.begin" />
-                </starts-with>
-                <ends-with>
-                    <expression>\)</expression>
-                    <capture number="0" name="delimiter.balanced.parenthesis.condition.end" />
-                </ends-with>
-                <subzones>
-                    <include collection="container.block.subzones" />
-                </subzones>
+                <expression>(\btry\b)</expression>
+                <capture number="1" name="keyword.control.flow.try" />
             </zone>
             <zone name="container.block.catch">
                 <starts-with>
-                    <expression>(\btry\b)\s*(\()</expression>
+                    <expression>(\bcatch\b)\s*(\()</expression>
                     <capture number="1" name="keyword.control.flow.catch" />
                     <capture number="2" name="delimiter.balanced.parenthesis.condition.begin" />
                 </starts-with>
