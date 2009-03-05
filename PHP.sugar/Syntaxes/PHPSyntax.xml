@@ -31,15 +31,16 @@
 	        <include collection="container.class" />
 	        <include collection="container.block" />
 	        <include collection="container.function" />
-	        <include collection="literal.keyword" />
-	        <include collection="identifier.function" />
-	        <include collection="keyword" />
-	        <include collection="identifier.class" />
-	        <include collection="identifier.variable" />
-	        <include collection="literal.string" />
-	        <include collection="literal.numeric" />
 	        <include collection="delimiter" />
 	        <include collection="operator" />
+	        <include collection="literal.keyword" />
+	        <include collection="identifier.function" />
+	        <include collection="identifier.constant" />
+	        <include collection="identifier.variable" />
+	        <include collection="identifier.class" />
+	        <include collection="literal.string" />
+	        <include collection="literal.numeric" />
+	        <include collection="keyword" />
 	    </collection>
 	    
 	    
@@ -306,6 +307,10 @@
 				<capture number="3" name="keyword.constant.other" />
 			</zone>
             
+            <zone name="keyword.modifier.scope">
+            	<expression>\b(static|public|protected|private|abstract)\b</expression>
+            </zone>
+            
 			<zone name="keyword.constant.other">
 				<expression>[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*</expression>
 			</zone>	
@@ -319,6 +324,13 @@
 		        <expression>(->)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</expression>
 		        <capture number="1" name="delimiter.separator.pairing.object" />
 		    </zone>
+		    <zone name="identifier.variable.class.static.property">
+		        <expression>([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)(::)(\$+)([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b)</expression>
+		        <capture number="1" name="class.name" />
+				<capture number="2" name="operator.class.static" />
+		        <capture number="3" name="delimiter.variable.begin" />
+		        <capture number="4" name="property.name" />
+		    </zone>
 		    <zone name="identifier.variable.instance.class">
 		        <expression>(?x)(\$+)this\b</expression>
 		        <capture number="1" name="delimiter.variable.begin" />
@@ -331,6 +343,15 @@
 		        <expression>(?x)(\$+)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</expression>
 		        <capture number="1" name="delimiter.variable.begin" />
 		    </zone>
+		</collection>
+		
+		<collection name="identifier.constant">
+			<zone name="identifier.class.constant">
+				<expression>([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)(::)([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)</expression>
+				<capture number="1" name="class.name" />
+				<capture number="2" name="operator.class.static" />
+				<capture number="3" name="constant.name" />
+			</zone>
 		</collection>
 		
 		<collection name="identifier.function">
@@ -388,13 +409,13 @@
 	        <include collection="literal.collection" />
 	        <include collection="literal.keyword" />
 	        <include collection="identifier.function" />
-	        <include collection="keyword" />
-	        <include collection="identifier.class" />
-	        <include collection="identifier.variable" />
-	        <include collection="literal.string" />
-	        <include collection="literal.numeric" />
 	        <include collection="delimiter" />
 	        <include collection="operator" />
+	        <include collection="identifier.variable" />
+	        <include collection="identifier.class" />
+	        <include collection="literal.string" />
+	        <include collection="literal.numeric" />
+	        <include collection="keyword" />
         </collection>
 		
 		<collection name="identifier.variable.parameter">
@@ -637,23 +658,27 @@
 	        <include collection="container.block" />
 	        <include collection="literal.keyword" />
 	        <include collection="identifier.function" />
-	        <include collection="keyword" />
-	        <include collection="identifier.class" />
-	        <include collection="identifier.variable" />
-	        <include collection="literal.string" />
-	        <include collection="literal.numeric" />
 	        <include collection="delimiter" />
 	        <include collection="operator" />
+	        <include collection="identifier.variable" />
+	        <include collection="identifier.class" />
+	        <include collection="literal.string" />
+	        <include collection="literal.numeric" />
+	        <include collection="keyword" />
         </collection>
         
         <!-- Operators (grabbed from elliottcable's Ruby.sugar) -->
         
         <collection name="operator">
+        	<zone name="operator.type.instanceof">
+        		<expression>\binstanceof</expression>
+        	</zone>
             <zone name="operator.class">
                 <expression>-></expression>
             </zone>
             <zone name="operator.comparator">
-                <expression>===|==|&lt;|&lt;=|&gt;|&gt;=</expression>
+                <expression>(!)?(===|==|&lt;|&lt;=|&gt;|&gt;=)</expression>
+                <capture number="1" name="not" />
             </zone>
             <zone name="operator.accessor">
                 <expression>=|&lt;&lt;|&gt;&gt;</expression>
