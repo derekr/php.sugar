@@ -60,12 +60,12 @@
 	        </zone>
 	        <zone name="metadata.comment.documentation">
 				<starts-with>
-					<expression>(/\*\*)</expression>
+					<expression>(/\*\*)(\**)</expression>
 					<capture number="1" name="delimiter.separator.slash.double-asterisk.comment.begin"/>
 				</starts-with>
 				<ends-with>
-					<expression>(\*/)</expression>
-					<capture number="1" name="delimiter.separator.slash.single-asterisk.comment.end"/>
+					<expression>(\**)(\*/)</expression>
+					<capture number="2" name="delimiter.separator.slash.single-asterisk.comment.end"/>
 				</ends-with>
 				<subzones>
 					<zone name="comment.line">
@@ -86,6 +86,7 @@
                     </zone>
 				</subzones>
 			</zone>
+			
 			<zone name="metadata.comment.block">
 				<starts-with>
 					<expression>(/\*)</expression>
