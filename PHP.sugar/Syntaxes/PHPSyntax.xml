@@ -88,7 +88,7 @@
 			</zone>
 			<zone name="metadata.comment.block">
 				<starts-with>
-					<expression>(/\*{2})</expression>
+					<expression>(/\*)</expression>
 					<capture number="1" name="delimiter.separator.slash.single-asterisk.comment.begin"/>
 				</starts-with>
 				<ends-with>
