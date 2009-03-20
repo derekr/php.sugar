@@ -12,45 +12,45 @@ php {
 	spell-check: disabled;
 }
 
-variable, string.double variable {
+php variable, string.double variable {
 	color: #4F9FCF;
 	newcolor: #6FBFFF;
 }
 
-variable > group {
+php variable > group {
 	color: #3482da;
 	background-color: #f2fbfe;
 }
 
-definition {
+php.definition {
 	color: #d44950;
 }
 
-name {
+php name {
 	color: #4f9fcf;
 	newcolor: #6fbfff;
 }
 
-modifier {
+php modifier {
 	color: #d48080;
 }
 
-include {
+php include {
 	color: #555;
 	background-color: #f8f8f8;
 	font-style: italic;
 }
 
-identifier.function {
+php identifier.function {
 	color: #699d36;
 	font-weight: bold;
 }
 
-integer {
+php integer {
     color: #6700b9;
 	background-color: #fbf2fe;
 }
 
-phpDoc.keyword {
+php phpDoc.keyword {
 	color: #ad91ba;
 }

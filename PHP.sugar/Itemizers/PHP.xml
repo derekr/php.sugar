@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <itemizer>
 	<!-- PHP Source; <?php ... ?>, <?= =?> -->
-    <recipe name="source.block.php">
+    <recipe name="source.block.php.processing-instruction">
 		<class>ESBaseItem</class>
 		<start-selector>php.begin:capture(name) + *</start-selector>
 		<end-selector>php.end:capture(name)</end-selector>

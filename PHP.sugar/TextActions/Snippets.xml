@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<action-recipes>
+	
+	<snippet id="com.macrabbit.TextActions.PHP.IfElse" category="tools.Snippets/PHP/Control/1">
+		<title>If/Else</title>
+		<text><![CDATA[if (${1:...}) {
+	$2
+}${3:
+else if (${4:...}) {
+	$5
+\}}
+else {
+	$6
+}]]></text>
+		<syntax-context>php, php *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.PHP.ForeachArray" category="tools.Snippets/PHP/Control/2">
+		<title>Foreach (array)</title>
+		<text><![CDATA[foreach (\$${1:array} as \$${2:value})
+{
+	$0
+}]]></text>
+		<syntax-context>php, php *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.PHP.ForeachMap" category="tools.Snippets/PHP/Control/2">
+		<title>Foreach (map)</title>
+		<text><![CDATA[foreach (\$${1:map} as \$${2:key} => \$${3:value})
+{
+	$0
+}]]></text>
+		<syntax-context>php, php *</syntax-context>
+	</snippet>
+	
+</action-recipes>
