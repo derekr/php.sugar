@@ -30,6 +30,18 @@
 		</subrecipes>
 	</recipe>
 	
+	<!-- class property definition -->
+	<recipe name="class.property.definition">
+	    <class>ESBaseItem</class>
+	    <selector>keyword.modifier.scope + identifier.variable:capture(name)</selector>
+	</recipe>
+	
+	<!-- class property definition -->
+	<recipe name="class.constant.definition">
+	    <class>ESBaseItem</class>
+	    <selector>keyword.constant.class + keyword.constant.other:capture(name)</selector>
+	</recipe>
+	
 	<!-- Defining a custom function -->
 	<recipe name="container.function">
 		<class>ESBaseItem</class>
