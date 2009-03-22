@@ -31,13 +31,13 @@
 	        <include collection="container.class" />
 	        <include collection="container.block" />
 	        <include collection="container.function" />
+	        <include collection="identifier.variable" />
+	        <include collection="identifier.function" />
+	        <include collection="identifier.class" />
+	        <include collection="identifier.constant" />
 	        <include collection="delimiter" />
 	        <include collection="operator" />
 	        <include collection="literal.keyword" />
-	        <include collection="identifier.function" />
-	        <include collection="identifier.constant" />
-	        <include collection="identifier.variable" />
-	        <include collection="identifier.class" />
 	        <include collection="literal.string" />
 	        <include collection="literal.numeric" />
 	        <include collection="keyword" />
@@ -311,7 +311,7 @@
             
 			<zone name="keyword.constant.other">
 				<expression>[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*</expression>
-			</zone>	
+			</zone>
 		</collection>
 		
 		
@@ -320,7 +320,7 @@
 		<collection name="identifier.variable">
 		    <zone name="identifier.variable.object.property">
 		        <expression>(->)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</expression>
-		        <capture number="1" name="delimiter.separator.pairing.object" />
+		        <capture number="1" name="operator.key.path.object" />
 		    </zone>
 		    <zone name="identifier.variable.class.static.property">
 		        <expression>([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)(::)(\$+)([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b)</expression>
@@ -403,17 +403,7 @@
 		</collection>
 		
 		<collection name="identifier.function.subzones">
-            <include collection="metadata.comment" />
-	        <include collection="literal.collection" />
-	        <include collection="literal.keyword" />
-	        <include collection="identifier.function" />
-	        <include collection="delimiter" />
-	        <include collection="operator" />
-	        <include collection="identifier.variable" />
-	        <include collection="identifier.class" />
-	        <include collection="literal.string" />
-	        <include collection="literal.numeric" />
-	        <include collection="keyword" />
+            <include collection="language" />
         </collection>
 		
 		<collection name="identifier.variable.parameter">
@@ -641,18 +631,14 @@
         </collection>
         
         <collection name="container.block.subzones">
-            <include collection="metadata.comment" />
-	        <include collection="literal.collection" />
-	        <include collection="container.block" />
-	        <include collection="literal.keyword" />
-	        <include collection="identifier.function" />
-	        <include collection="delimiter" />
-	        <include collection="operator" />
-	        <include collection="identifier.variable" />
-	        <include collection="identifier.class" />
-	        <include collection="literal.string" />
-	        <include collection="literal.numeric" />
-	        <include collection="keyword" />
+            <zone name="sub-expression">
+                <starts-with>\(</starts-with>
+                <ends-with>\)</ends-with>
+                <subzones>
+                    <include collection="language" />
+                </subzones>
+            </zone>
+            <include collection="language" />
         </collection>
         
         <!-- Operators (grabbed from elliottcable's Ruby.sugar) -->
@@ -661,7 +647,7 @@
         	<zone name="operator.type.instanceof">
         		<expression>\binstanceof</expression>
         	</zone>
-            <zone name="operator.class">
+            <zone name="operator.keypath.object">
                 <expression>-></expression>
             </zone>
             <zone name="operator.comparator">
