@@ -31,8 +31,8 @@
 	        <include collection="container.class" />
 	        <include collection="container.block" />
 	        <include collection="container.function" />
-	        <include collection="identifier.variable" />
 	        <include collection="identifier.function" />
+	        <include collection="identifier.variable" />
 	        <include collection="identifier.class" />
 	        <include collection="identifier.constant" />
 	        <include collection="delimiter" />
@@ -320,7 +320,7 @@
 		<collection name="identifier.variable">
 		    <zone name="identifier.variable.object.property">
 		        <expression>(->)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</expression>
-		        <capture number="1" name="operator.key.path.object" />
+		        <capture number="1" name="operator.pointer" />
 		    </zone>
 		    <zone name="identifier.variable.class.static.property">
 		        <expression>([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)(::)(\$+)([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b)</expression>
@@ -357,9 +357,10 @@
 		    
 		    <zone name="identifier.function.object.method">
 			    <starts-with>
-			        <expression>(->)[A-Za-z_][A-Za-z_0-9]*(\()</expression>
-			        <capture number="1" name="delimiter.separator.pairing.object" />
-			        <capture number="2" name="delimiter.balanced.parenthesis.begin" />
+			        <expression>(->)([A-Za-z_][A-Za-z_0-9]*)(\()</expression>
+			        <capture number="1" name="delimiter.pointer" />
+			        <capture number="2" name="name" />
+			        <capture number="3" name="delimiter.balanced.parenthesis.begin" />
 			    </starts-with>
 				<ends-with>
 				    <expression>\)</expression>
@@ -414,7 +415,7 @@
 		    <!--<include collection="identifier.class.support" />-->
 			<zone name="identifier.class">
 				<expression>(?i)\b(new)\s+(?:(\$[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)|(\w+))|(\w+)(?=::)</expression>
-				<capture number="1" name="literal.keyword.new"/>
+				<capture number="1" name="keyword.constant.new"/>
 				<capture number="2" name="identifier.variable"/>
 				<capture number="3" name="identifier.class.name"/>
 				<capture number="4" name="identifier.class.static-method"/>
@@ -645,9 +646,11 @@
         
         <collection name="operator">
         	<zone name="operator.type.instanceof">
-        		<expression>\binstanceof</expression>
+        		<expression>\b(instanceof)\s*([a-zA-Z_]*)</expression>
+        		<capture number="1" name="operator.type.instanceof" />
+        		<capture number="2" name="identifier.class.name" />
         	</zone>
-            <zone name="operator.keypath.object">
+            <zone name="operator.pointed">
                 <expression>-></expression>
             </zone>
             <zone name="operator.comparator">
