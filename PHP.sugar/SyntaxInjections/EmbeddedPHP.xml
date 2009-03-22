@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<injections>
+    <!-- Injecting PHP syntax in to open-tag (<body <?= $class; ?>>) zones -->
+    <injection name="com.gridlee.injections.php-html.tag" selector="php-html tag.open.html" action="insert-before-target">
+        <include syntax="sourcecode.php" />
+        <cut-off>\?></cut-off>
+	</injection>
+	
+	<!-- Injecting PHP syntax in to attribute values (id="<?= $var; ?>") zones -->
+	<injection name="com.gridlee.injections.php-html.attr" selector="php-html attribute-value.string" action="insert-before-target">
+        <include syntax="sourcecode.php" />
+        <cut-off>\?></cut-off>
+	</injection>
+</injections>

@@ -2,7 +2,7 @@
 
 <settings>
 
-	<language id="com.gridlee.php">
+	<language id="com.gridlee.PHP">
 		<name>PHP</name>
 		<root-zone>sourcecode.php</root-zone>
 		
@@ -10,16 +10,6 @@
 			<extension casesensitive="false">php</extension>
 			<extension casesensitive="false">phps</extension>
 			<extension casesensitive="false">inc</extension>
-			<extension casesensitive="false">html</extension>
-			<extension casesensitive="false">phtml</extension>
-			<combo>
-                <extension>phtml</extension>
-                <match-content lines="1">!DOCTYPE</match-content>
-            </combo>
-            <combo>
-                <extension>php</extension>
-                <match-content lines="1">!DOCTYPE</match-content>
-            </combo>
 		</detectors>
 		
 		<meta>
@@ -30,17 +20,52 @@
 		        Official php.sugar for Espresso.
 		    </description>
 		    <author>
-		        Derek Reynolds, oprah_noodle
+		        Derek Reynolds
 		    </author>
 		    <identifier>
 		        com.gridlee.Sugar.PHP
 		    </identifier>
 		    <version status="preview">
-		        1.0b1
+		        1.0b3
 		    </version>
 		    <dependencies>
                 <dependency id="name.elliottcable.Sugar.Regex">Regex</dependency>
             </dependencies>
+		</meta>
+		
+	</language>
+	
+	<!-- PHP-HTML -->
+	<language id="com.gridlee.PHP-HTML">
+		<name>PHP-HTML</name>
+		<root-zone>sourcecode.php-html</root-zone>
+		
+		<detectors>
+			<extension casesensitive="false">php</extension>
+			<extension casesensitive="false">phps</extension>
+			<extension casesensitive="false">inc</extension>
+			<extension casesensitive="false">html</extension>
+			<extension casesensitive="false">phtml</extension>
+            <match-content lines="2"><![CDATA[<!DOCTYPE html PUBLIC]]></match-content>
+		    <match-content lines="1"><![CDATA[<html]]></match-content>
+		</detectors>
+		
+		<meta>
+		    <name>
+		        PHP-HTML
+		    </name>
+		    <description>
+		        Official php.sugar for Espresso.
+		    </description>
+		    <author>
+		        Derek Reynolds
+		    </author>
+		    <identifier>
+		        com.gridlee.Sugar.PHP-HTML
+		    </identifier>
+		    <version status="preview">
+		        1.0b3
+		    </version>
 		</meta>
 		
 	</language>
