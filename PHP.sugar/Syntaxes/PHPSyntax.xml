@@ -26,6 +26,7 @@
 	<library>
 	    <!-- Includes all other collections -->
 	    <collection name="language">
+	        <include collection="metadata.comment.phpDoc" />
 	        <include collection="metadata.comment" />
 	        <include collection="literal.collection" />
 	        <include collection="container.class" />
@@ -41,6 +42,47 @@
 	        <include collection="literal.string" />
 	        <include collection="literal.numeric" />
 	        <include collection="keyword" />
+	    </collection>
+	    
+	    
+	    <!-- phpDoc -->
+	    <collection name="metadata.comment.phpDoc">
+	        <zone name="metadata.comment.phpDoc.block">
+	            <starts-with>
+					<expression>\s*(/\*\*)\Z</expression>
+					<capture number="1" name="delimiter.separator.slash.double-asterisk.comment.begin"/>
+				</starts-with>
+				<ends-with>
+					<expression>\s*(\*/)\Z</expression>
+					<capture number="1" name="delimiter.separator.single-asterisk.slash.comment.end"/>
+				</ends-with>
+				<subzones>
+				    <zone name="metadata.comment.documentation.phpDoc.invalid.illegal.missing-asterisk">
+        	            <expression>^(?!\s*\*).*$\n?</expression>
+        	        </zone>
+        	        <zone>
+        	    		<expression>^\s*\*\s*(@access)\s+((public|private|protected)|(.+))\s*$</expression>
+        	    		<capture number="1" name="metadata.comment.phpDoc.keyword"/>
+        	    		<capture number="3" name="metadata.comment.phpDoc.storage.modifier"/>
+        	    		<capture number="4" name="metadata.comment.phpDoc.invalid.illegal.wrong-access-typedoc"/>
+        	    	</zone>
+        	    	<zone name="metadata.comment.phpDoc.markup.underline.link">
+        	    		<expression>((https?|s?ftp|ftps|file|smb|afp|nfs|(x-)?man|gopher|txmt)://|mailto:)[-:@a-zA-Z0-9_.~%+/?=&amp;#]+(?&lt;![.?:])</expression>
+        	    	</zone>
+        	    	<zone>
+        	    		<expression>(@xlink)\s+(.+)\s*$</expression>
+        	    		<capture number="1" name="metadata.comment.phpDoc.keyword"/>
+        	    		<capture number="2" name="metadata.comment.phpDoc.markup.underline.link"/>
+        	    	</zone>
+        	    	<zone name="metadata.comment.phpDoc.keyword">
+        	    		<expression>\@(a(bstract|uthor)|c(ategory|opyright)|example|global|internal|li(cense|nk)|pa(ckage|ram)|return|s(ee|ince|tatic|ubpackage)|t(hrows|odo)|v(ar|ersion)|uses|deprecated|final)\b</expression>
+        	    	</zone>
+        	    	<zone name="metadata.comment.phpDoc.meta.tag.inlinedoc">
+        	    		<expression>\{(@(link)).+?\}</expression>
+        	    		<capture number="1" name="metadata.comment.phpDoc.keyword"/>
+        	    	</zone>
+				</subzones>
+			</zone>
 	    </collection>
 	    
 	    
@@ -60,31 +102,13 @@
 	        </zone>
 	        <zone name="metadata.comment.documentation">
 				<starts-with>
-					<expression>(/\*\*)(\**)</expression>
-					<capture number="1" name="delimiter.separator.slash.double-asterisk.comment.begin"/>
+					<expression>/(\*)+</expression>
+					<capture number="0" name="delimiter.separator.slash.asterisk.comment.begin"/>
 				</starts-with>
 				<ends-with>
-					<expression>(\**)(\*/)</expression>
-					<capture number="2" name="delimiter.separator.slash.single-asterisk.comment.end"/>
+					<expression>(\*)+/</expression>
+					<capture number="0" name="delimiter.separator.asterisk.slash.comment.end"/>
 				</ends-with>
-				<subzones>
-					<zone name="comment.line">
-					    <starts-with>
-					        <expression>(\*)</expression>
-					        <capture number="1" name="delimiter.separator.asterisk" />
-					    </starts-with>
-					    <ends-with>
-					        <expression>$\n?</expression>
-					    </ends-with>
-					    <subzones>
-					        <include collection="metadata.comment.phpDoc" />
-					        <zone name="content">
-					            <expressoin>(.*)?</expressoin>
-					            <capture number="3" name="content" />
-					        </zone>
-					    </subzones>
-                    </zone>
-				</subzones>
 			</zone>
 			
 			<zone name="metadata.comment.block">
@@ -98,35 +122,9 @@
 				</ends-with>
 			</zone>
 	    </collection>
-	    <!-- phpDoc -->
-	    <collection name="metadata.comment.phpDoc">
-	        <zone name="metadata.comment.documentation.phpDoc.invalid.illegal.missing-asterisk">
-	            <expression>^(?!\s*\*).*$\n?</expression>
-	        </zone>
-	        <zone>
-	    		<expression>^\s*\*\s*(@access)\s+((public|private|protected)|(.+))\s*$</expression>
-	    		<capture number="1" name="metadata.comment.phpDoc.keyword"/>
-	    		<capture number="3" name="metadata.comment.phpDoc.storage.modifier"/>
-	    		<capture number="4" name="metadata.comment.phpDoc.invalid.illegal.wrong-access-typedoc"/>
-	    	</zone>
-	    	<zone name="metadata.comment.phpDoc.markup.underline.link">
-	    		<expression>((https?|s?ftp|ftps|file|smb|afp|nfs|(x-)?man|gopher|txmt)://|mailto:)[-:@a-zA-Z0-9_.~%+/?=&amp;#]+(?&lt;![.?:])</expression>
-	    	</zone>
-	    	<zone>
-	    		<expression>(@xlink)\s+(.+)\s*$</expression>
-	    		<capture number="1" name="metadata.comment.phpDoc.keyword"/>
-	    		<capture number="2" name="metadata.comment.phpDoc.markup.underline.link"/>
-	    	</zone>
-	    	<zone name="metadata.comment.phpDoc.keyword">
-	    		<expression>\@(a(bstract|uthor)|c(ategory|opyright)|example|global|internal|li(cense|nk)|pa(ckage|ram)|return|s(ee|ince|tatic|ubpackage)|t(hrows|odo)|v(ar|ersion)|uses|deprecated|final)\b</expression>
-	    	</zone>
-	    	<zone name="metadata.comment.phpDoc.meta.tag.inlinedoc">
-	    		<expression>\{(@(link)).+?\}</expression>
-	    		<capture number="1" name="metadata.comment.phpDoc.keyword"/>
-	    	</zone>
-	    </collection>
-	    <!-- Literals -->
 	    
+	    
+	    <!-- Literals -->
 	    <collection name="literal.string">
             <zone name="literal.string.quoted.single">
                 <starts-with>
