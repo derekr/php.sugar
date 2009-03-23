@@ -10,6 +10,7 @@
 
 php {
 	spell-check: disabled;
+	color: #333;
 }
 
 php variable, string.double variable {
@@ -22,7 +23,7 @@ php variable > group {
 	background-color: #f2fbfe;
 }
 
-php.definition {
+php.definition{
 	color: #d44950;
 }
 
