@@ -7,7 +7,7 @@ CodeSense Providers map contexts in a document to possible completions. The actu
 <codesense>
 	
 	<provider>
-		<selector>embedded.source.php > *:not(metadata.comment, string, variable), container.block > *:not(metadata.comment, string, variable), identifier.function > *:not(metadata.comment, string, variable)</selector>
+		<selector>sourcecode.php > *:not(metadata.comment, string, variable), container.block > *:not(metadata.comment, string, variable), identifier.function > *:not(metadata.comment, string, variable)</selector>
 		<completions>com.gridlee.identifier.function.support</completions>
 		<complete-match>([a-zA-Z0-9-_])+\s*</complete-match>
 	</provider>

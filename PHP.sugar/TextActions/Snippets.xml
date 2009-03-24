@@ -33,4 +33,63 @@ else {
 		<syntax-context>php, php *</syntax-context>
 	</snippet>
 	
+	<snippet id="com.macrabbit.TextActions.PHP.Class" category="tools.Snippets./PHP">
+		<title>Class</title>
+		<text><![CDATA[${1:/**
+ * ${2:className}
+ *
+ * ${3:class description}
+ * 
+ * @author ${4:your name}
+ */}
+${5:${6:abstract }class ${7:${2:ClassName}}${8: ${9:extends${10: ExtendedClassName}}${11: implements${12: ImplementedClassName}}}}
+{
+	${13:booyah}
+}]]></text>
+		<syntax-context>php *:not(comment, string, variable, control.block, function)</syntax-context>
+		<text-trigger>sclass</text-trigger>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.PHP.Function" category="tools.Snippets./PHP">
+		<title>Function</title>
+		<text><![CDATA[${1:/**
+ * ${2:function description}
+ *
+${3: * @author ${4:your name}}
+${5: * @param \$${6:param}}
+ * @return ${7:return type}
+ */}
+${8:static|public|protected|private }function ${9:functionName}(\$${10:${6}})
+{
+	${11:booyah}
+}]]></text>
+		<syntax-context>php *:not(comment, string, variable, control.block, function)</syntax-context>
+		<text-trigger>sfun</text-trigger>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.PHP.Variable" category="tools.Snippets./PHP">
+		<title>Variable</title>
+		<text><![CDATA[${1:/**
+ * ${2:variable description}
+ *
+ * @var ${3:variable type}
+ */}
+${4:static|public|protected|private }\$${5:variableName}${6: = ${7:null};}]]></text>
+		<syntax-context>php *:not(comment, string, variable, control.block, function)</syntax-context>
+		<text-trigger>svar</text-trigger>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.PHP.PHPDoc" category="tools.Snippets./PHP">
+		<title>PHP Doc</title>
+		<text><![CDATA[/**${1:
+ * ${2:description|class/function name}
+ *}${3: 
+ * ${4:description}
+ *}${5:
+ * @author ${6:your name}}${7:
+ * @${8:tag} ${9:value}}
+ */]]></text>
+		<syntax-context>php *:not(comment, string, variable, control.block, function)</syntax-context>
+		<text-trigger>sdoc</text-trigger>
+	</snippet>
 </action-recipes>
