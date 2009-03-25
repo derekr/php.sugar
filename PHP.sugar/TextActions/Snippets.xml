@@ -12,25 +12,70 @@ else if (${4:...}) {
 else {
 	$6
 }]]></text>
-		<syntax-context>php, php *</syntax-context>
+		<syntax-context>php *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<text-trigger>sif</text-trigger>
 	</snippet>
 	
 	<snippet id="com.macrabbit.TextActions.PHP.ForeachArray" category="tools.Snippets/PHP/Control/2">
-		<title>Foreach (array)</title>
-		<text><![CDATA[foreach (\$${1:array} as \$${2:value})
+		<title>Foreach</title>
+		<text><![CDATA[foreach (\$${1:array} as \$${2:value|key}${3: => \$${4:value}})
 {
-	$0
+	${0://code}
 }]]></text>
-		<syntax-context>php, php *</syntax-context>
+		<syntax-context>php *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<text-trigger>sforeach</text-trigger>
 	</snippet>
 	
-	<snippet id="com.macrabbit.TextActions.PHP.ForeachMap" category="tools.Snippets/PHP/Control/2">
-		<title>Foreach (map)</title>
-		<text><![CDATA[foreach (\$${1:map} as \$${2:key} => \$${3:value})
+	<snippet id="com.macrabbit.TextActions.PHP.For" category="tools.Snippets/PHP/Control/3">
+		<title>For</title>
+		<text><![CDATA[for (\$${1:i} = ${2:n}; \$${3:${1:i}} ${4:<} ${5:n}; \$${6:${1:i}}++;)
 {
-	$0
+	${0://code}
 }]]></text>
-		<syntax-context>php, php *</syntax-context>
+		<syntax-context>php *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<text-trigger>sfor</text-trigger>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.PHP.While" category="tools.Snippets/PHP/Control/4">
+		<title>While</title>
+		<text><![CDATA[while (${1:condition})
+{
+	${0://code}
+}]]></text>
+		<syntax-context>php *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<text-trigger>swhile</text-trigger>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.PHP.DoWhile" category="tools.Snippets/PHP/Control/4">
+		<title>Do While</title>
+		<text><![CDATA[do
+{
+    ${1://code}
+}
+while (${2:condition})
+{
+	${0://code}
+}]]></text>
+		<syntax-context>php *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<text-trigger>sdowhile</text-trigger>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.PHP.Switch" category="tools.Snippets/PHP/Control/5">
+		<title>Switch</title>
+		<text>
+<![CDATA[switch (\$${1:condition})
+{
+    ${2:case ${3:'value'}:
+        ${4://code}
+        break;}
+    
+    ${5:default:
+        ${0://code}
+        break;}
+}]]>
+        </text>
+		<syntax-context>php *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<text-trigger>sswitch</text-trigger>
 	</snippet>
 	
 	<snippet id="com.macrabbit.TextActions.PHP.Class" category="tools.Snippets./PHP">
@@ -44,9 +89,9 @@ else {
  */}
 ${5:${6:abstract }class ${7:${2:ClassName}}${8: ${9:extends${10: ExtendedClassName}}${11: implements${12: ImplementedClassName}}}}
 {
-	${13:booyah}
+	${0://code}
 }]]></text>
-		<syntax-context>php *:not(comment, string, variable, control.block, function)</syntax-context>
+		<syntax-context>php *:not(comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>sclass</text-trigger>
 	</snippet>
 	
@@ -61,7 +106,7 @@ ${5: * @param \$${6:param}}
  */}
 ${8:static|public|protected|private }function ${9:functionName}(\$${10:${6}})
 {
-	${11:booyah}
+	${0://code}
 }]]></text>
 		<syntax-context>php *:not(comment, string, variable, control.block, function)</syntax-context>
 		<text-trigger>sfun</text-trigger>
