@@ -12,7 +12,7 @@ else if (${4:...}) {
 else {
 	$6
 }]]></text>
-		<syntax-context>php *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<syntax-context>php, php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>sif</text-trigger>
 	</snippet>
 	
@@ -22,7 +22,7 @@ else {
 {
 	${0://code}
 }]]></text>
-		<syntax-context>php *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<syntax-context>php, php > *:not(metadata.comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>sforeach</text-trigger>
 	</snippet>
 	
@@ -32,7 +32,7 @@ else {
 {
 	${0://code}
 }]]></text>
-		<syntax-context>php *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<syntax-context>php, php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>sfor</text-trigger>
 	</snippet>
 	
@@ -42,7 +42,7 @@ else {
 {
 	${0://code}
 }]]></text>
-		<syntax-context>php *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<syntax-context>php, php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>swhile</text-trigger>
 	</snippet>
 	
@@ -56,7 +56,7 @@ while (${2:condition})
 {
 	${0://code}
 }]]></text>
-		<syntax-context>php *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<syntax-context>php, php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>sdowhile</text-trigger>
 	</snippet>
 	
@@ -74,7 +74,7 @@ while (${2:condition})
         break;}
 }]]>
         </text>
-		<syntax-context>php *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<syntax-context>php, php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>sswitch</text-trigger>
 	</snippet>
 	
@@ -91,7 +91,7 @@ ${5:${6:abstract }class ${7:${2:ClassName}}${8: ${9:extends${10: ExtendedClassNa
 {
 	${0://code}
 }]]></text>
-		<syntax-context>php *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<syntax-context>php, php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>sclass</text-trigger>
 	</snippet>
 	
@@ -108,7 +108,7 @@ ${8:static|public|protected|private }function ${9:functionName}(\$${10:${6}})
 {
 	${0://code}
 }]]></text>
-		<syntax-context>php *:not(comment, string, variable, control.block, function)</syntax-context>
+		<syntax-context>php, php > *:not(comment, string, variable, control.block, function)</syntax-context>
 		<text-trigger>sfun</text-trigger>
 	</snippet>
 	
@@ -120,7 +120,7 @@ ${8:static|public|protected|private }function ${9:functionName}(\$${10:${6}})
  * @var ${3:variable type}
  */}
 ${4:static|public|protected|private }\$${5:variableName}${6: = ${7:null};}]]></text>
-		<syntax-context>php *:not(comment, string, variable, control.block, function)</syntax-context>
+		<syntax-context>php, php > *:not(comment, string, variable, control.block, function)</syntax-context>
 		<text-trigger>svar</text-trigger>
 	</snippet>
 	
@@ -134,7 +134,7 @@ ${4:static|public|protected|private }\$${5:variableName}${6: = ${7:null};}]]></t
  * @author ${6:your name}}${7:
  * @${8:tag} ${9:value}}
  */]]></text>
-		<syntax-context>php *:not(comment, string, variable, control.block, function)</syntax-context>
+		<syntax-context>php, php > *:not(comment, string, variable, control.block, function)</syntax-context>
 		<text-trigger>sdoc</text-trigger>
 	</snippet>
 </action-recipes>
