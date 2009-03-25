@@ -35,11 +35,11 @@
 	        <include collection="identifier.variable" />
 	        <include collection="identifier.class" />
 	        <include collection="identifier.constant" />
-	        <include collection="delimiter" />
-	        <include collection="operator" />
 	        <include collection="literal.keyword" />
 	        <include collection="literal.string" />
 	        <include collection="literal.numeric" />
+	        <include collection="delimiter" />
+	        <include collection="operator" />
 	        <include collection="keyword" />
 	    </collection>
 	    
@@ -143,6 +143,7 @@
                     </zone>
                 </subzones>
             </zone>
+            
             <zone name="literal.string.quoted.double">
                 <starts-with>
                     <expression>"</expression>
@@ -161,6 +162,15 @@
                         <capture number="2" name="character"/>
                     </zone>
                 </subzones>
+            </zone>
+            
+            <zone name="literal.string.unquoted.heredoc">
+                <starts-with>
+                    <expression>(&lt;&lt;&lt;-?)(\w+)</expression>
+                </starts-with>
+                <starts-with>
+                    <expression>\2</expression>
+                </starts-with>
             </zone>
 	    </collection>
 	    
