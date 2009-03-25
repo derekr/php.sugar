@@ -12,14 +12,9 @@
 		<value>*/</value>
 	</setting>
 
-	<setting name="comment-singleline-double-slash">
+	<setting name="comment-singleline-start">
 		<syntax-context>php, php > *</syntax-context>
 		<value>//</value>
-	</setting>
-
-	<setting name="comment-singleline-hash">
-		<syntax-context>php, php > *</syntax-context>
-		<value>#</value>
 	</setting>
 	
 </settings>
