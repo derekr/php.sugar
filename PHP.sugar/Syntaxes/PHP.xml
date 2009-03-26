@@ -48,11 +48,11 @@
 	    <collection name="metadata.comment.phpDoc">
 	        <zone name="metadata.comment.phpDoc.block">
 	            <starts-with>
-					<expression>\s*(/\*\*)\Z</expression>
+					<expression>\s*(/\*\*)</expression>
 					<capture number="1" name="delimiter.separator.slash.double-asterisk.comment.begin"/>
 				</starts-with>
 				<ends-with>
-					<expression>\s*(\*/)\Z</expression>
+					<expression>\s*(\*/)</expression>
 					<capture number="1" name="delimiter.separator.single-asterisk.slash.comment.end"/>
 				</ends-with>
 				<subzones>
@@ -311,7 +311,7 @@
             <zone name="keyword.constant.class.other">
 				<expression>([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)(::)([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)</expression>
 				<capture number="1" name="class.name" />
-				<capture number="2" name="operator.class.static" />
+				<capture number="2" name="operator.scope.resolution" />
 				<capture number="3" name="keyword.constant.other" />
 			</zone>
             
@@ -329,27 +329,27 @@
 		
 		<collection name="identifier.variable">
 		    <zone name="identifier.variable.object.property">
-		        <expression>(->)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</expression>
+		        <expression>(->)([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)</expression>
 		        <capture number="1" name="operator.pointer" />
 		    </zone>
 		    <zone name="identifier.variable.class.static.property">
-		        <expression>([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)(::)(\$+)([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b)</expression>
+		        <expression>([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)(::)(\$)([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)</expression>
 		        <capture number="1" name="class.name" />
-				<capture number="2" name="operator.class.static" />
-		        <capture number="3" name="delimiter.variable.begin" />
+				<capture number="2" name="operator.scope.resolution" />
+		        <capture number="3" name="operator.dollar-sign.variable.begin" />
 		        <capture number="4" name="property.name" />
 		    </zone>
 		    <zone name="identifier.variable.instance.class">
-		        <expression>(?x)(\$+)this\b</expression>
-		        <capture number="1" name="delimiter.variable.begin" />
+		        <expression>(\$)this\b</expression>
+		        <capture number="1" name="operator.dollar-sign.variable.begin" />
 		    </zone>
 		    <zone name="identifier.variable.global">
 		        <expression>(\$)(_(COOKIE|FILES|GET|POST|REQUEST))\b</expression>
-		        <capture number="1" name="delimiter.variable.begin" />
+		        <capture number="1" name="operator.dollar-sign.variable.begin" />
 		    </zone>
 		    <zone name="identifier.variable.local">
-		        <expression>(?x)(\$+)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</expression>
-		        <capture number="1" name="delimiter.variable.begin" />
+		        <expression>(\$)([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)</expression>
+		        <capture number="1" name="operator.dollar-sign.variable.begin" />
 		    </zone>
 		</collection>
 		
@@ -357,7 +357,7 @@
 			<zone name="identifier.class.constant">
 				<expression>([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)(::)([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)</expression>
 				<capture number="1" name="class.name" />
-				<capture number="2" name="operator.class.static" />
+				<capture number="2" name="operator.scope.resolution" />
 				<capture number="3" name="constant.name" />
 			</zone>
 		</collection>
@@ -385,7 +385,7 @@
 				<starts-with>
 					<expression>([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)(::)([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)(\()</expression>
 					<capture number="1" name="class.name" />
-					<capture number="2" name="operator.class.static" />
+					<capture number="2" name="operator.scope.resolution" />
 					<capture number="3" name="method.name" />
 					<capture number="4" name="delimiter.balanced.parenthesis.begin" />
 				</starts-with>
@@ -663,6 +663,9 @@
             <zone name="operator.pointed">
                 <expression>-></expression>
             </zone>
+            <zone name="operator.dollar-sign.variable">
+                <expression>\$</expression>
+            </zone>            
             <zone name="operator.comparator">
                 <expression>(!)?(===|==|&lt;|&lt;=|&gt;|&gt;=)</expression>
                 <capture number="1" name="not" />
