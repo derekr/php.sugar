@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<action-categories>
+	<!-- Generic categories -->
+	<category id="actions.text.snippets.PHP" show="sub">
+		<title>PHP</title>
+	</category>
+
+</action-categories>

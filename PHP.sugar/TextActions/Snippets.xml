@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <action-recipes>
 	
-	<snippet id="com.macrabbit.TextActions.PHP.IfElse" category="tools.Snippets/PHP/Control/1">
+	<snippet id="com.macrabbit.TextActions.PHP.IfElse" category="actions.text.snippets.PHP">
 		<title>If/Else</title>
 		<text><![CDATA[if (${1:...}) {
 	$2
@@ -16,7 +16,7 @@ else {
 		<text-trigger>sif</text-trigger>
 	</snippet>
 	
-	<snippet id="com.macrabbit.TextActions.PHP.ForeachArray" category="tools.Snippets/PHP/Control/2">
+	<snippet id="com.macrabbit.TextActions.PHP.ForeachArray" category="actions.text.snippets.PHP">
 		<title>Foreach</title>
 		<text><![CDATA[foreach (\$${1:array} as \$${2:value|key}${3: => \$${4:value}})
 {
@@ -26,7 +26,7 @@ else {
 		<text-trigger>sforeach</text-trigger>
 	</snippet>
 	
-	<snippet id="com.macrabbit.TextActions.PHP.For" category="tools.Snippets/PHP/Control/3">
+	<snippet id="com.macrabbit.TextActions.PHP.For" category="actions.text.snippets.PHP">
 		<title>For</title>
 		<text><![CDATA[for (\$${1:i} = ${2:n}; \$${3:${1:i}} ${4:<} ${5:n}; \$${6:${1:i}}++;)
 {
@@ -36,7 +36,7 @@ else {
 		<text-trigger>sfor</text-trigger>
 	</snippet>
 	
-	<snippet id="com.macrabbit.TextActions.PHP.While" category="tools.Snippets/PHP/Control/4">
+	<snippet id="com.macrabbit.TextActions.PHP.While" category="actions.text.snippets.PHP">
 		<title>While</title>
 		<text><![CDATA[while (${1:condition})
 {
@@ -46,7 +46,7 @@ else {
 		<text-trigger>swhile</text-trigger>
 	</snippet>
 	
-	<snippet id="com.macrabbit.TextActions.PHP.DoWhile" category="tools.Snippets/PHP/Control/4">
+	<snippet id="com.macrabbit.TextActions.PHP.DoWhile" category="actions.text.snippets.PHP">
 		<title>Do While</title>
 		<text><![CDATA[do
 {
@@ -60,7 +60,7 @@ while (${2:condition})
 		<text-trigger>sdowhile</text-trigger>
 	</snippet>
 	
-	<snippet id="com.macrabbit.TextActions.PHP.Switch" category="tools.Snippets/PHP/Control/5">
+	<snippet id="com.macrabbit.TextActions.PHP.Switch" category="actions.text.snippets.PHP">
 		<title>Switch</title>
 		<text>
 <![CDATA[switch (\$${1:condition})
@@ -78,7 +78,7 @@ while (${2:condition})
 		<text-trigger>sswitch</text-trigger>
 	</snippet>
 	
-	<snippet id="com.macrabbit.TextActions.PHP.Class" category="tools.Snippets./PHP">
+	<snippet id="com.macrabbit.TextActions.PHP.Class" category="actions.text.snippets.PHP">
 		<title>Class</title>
 		<text><![CDATA[${1:/**
  * ${2:className}
@@ -95,7 +95,7 @@ ${5:${6:abstract }class ${7:${2:ClassName}}${8: ${9:extends${10: ExtendedClassNa
 		<text-trigger>sclass</text-trigger>
 	</snippet>
 	
-	<snippet id="com.macrabbit.TextActions.PHP.Function" category="tools.Snippets./PHP">
+	<snippet id="com.macrabbit.TextActions.PHP.Function" category="actions.text.snippets.PHP">
 		<title>Function</title>
 		<text><![CDATA[${1:/**
  * ${2:function description}
@@ -112,7 +112,7 @@ ${8:static|public|protected|private }function ${9:functionName}(\$${10:${6}})
 		<text-trigger>sfun</text-trigger>
 	</snippet>
 	
-	<snippet id="com.macrabbit.TextActions.PHP.Variable" category="tools.Snippets./PHP">
+	<snippet id="com.macrabbit.TextActions.PHP.Variable" category="actions.text.snippets.PHP">
 		<title>Variable</title>
 		<text><![CDATA[${1:/**
  * ${2:variable description}
@@ -124,7 +124,7 @@ ${4:static|public|protected|private }\$${5:variableName}${6: = ${7:null};}]]></t
 		<text-trigger>svar</text-trigger>
 	</snippet>
 	
-	<snippet id="com.macrabbit.TextActions.PHP.PHPDoc" category="tools.Snippets./PHP">
+	<snippet id="com.macrabbit.TextActions.PHP.PHPDoc" category="actions.text.snippets.PHP">
 		<title>PHP Doc</title>
 		<text><![CDATA[/**${1:
  * ${2:description|class/function name}
