@@ -10,7 +10,7 @@
 			<extension casesensitive="false">php</extension>
 			<extension casesensitive="false">phps</extension>
 			<extension casesensitive="false">inc</extension>
-			<match-content lines="1">(&lt;)(\?)\Z</match-content>
+			<match-content lines="1">(&lt;)(\?)\A</match-content>
 		    <match-content lines="1">(&lt;)(\?)(php|=)?</match-content>
 		</detectors>
 		
