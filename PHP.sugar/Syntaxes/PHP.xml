@@ -660,7 +660,7 @@
         		<capture number="1" name="operator.type.instanceof" />
         		<capture number="2" name="identifier.class.name" />
         	</zone>
-            <zone name="operator.pointed">
+            <zone name="operator.pointer">
                 <expression>-></expression>
             </zone>
             <zone name="operator.dollar-sign.variable">
