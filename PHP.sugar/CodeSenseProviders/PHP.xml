@@ -7,9 +7,15 @@ CodeSense Providers map contexts in a document to possible completions. The actu
 <codesense>
 	
 	<provider>
-		<selector>php-html > *:not(php-html, tag.open, tag.close), php *:not(metadata.comment, string, variable), php > *:not(metadata.comment, string, variable), php > container.block > *:not(metadata.comment, string, variable), php > identifier.function > *:not(metadata.comment, string, variable)</selector>
+		<selector>php-html > *:not(php-html, tag.open, tag.close), php *:not(metadata.comment, string, variable, variable *), php > *:not(metadata.comment, string, variable, variable *), php > container.block > *:not(metadata.comment, string, variable, variable *), php > identifier.function > *:not(metadata.comment, string, variable, variable *)</selector>
 		<completions>com.gridlee.identifier.function.support</completions>
-		<complete-match>[^\$]([a-zA-Z0-9-_])+\s*</complete-match>
+		<complete-match>([a-zA-Z0-9-_])+\s*</complete-match>
+	</provider>
+
+    <provider>
+		<selector>php-html > *:not(php-html, tag.open, tag.close), php *:not(metadata.comment, string, variable, variable *), php > *:not(metadata.comment, string, variable, variable *), php > container.block > *:not(metadata.comment, string, variable, variable *), php > identifier.function > *:not(metadata.comment, string, variable, variable *)</selector>
+		<completions>com.gridlee.identifier.fake</completions>
+		<complete-match>(\$[a-zA-Z0-9-_])+\s*</complete-match>
 	</provider>
 
 </codesense>
