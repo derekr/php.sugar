@@ -7,9 +7,11 @@
 		<root-zone>sourcecode.php</root-zone>
 		<table>
 		<detectors>
-			<extension casesensitive="false">php</extension>
 			<extension casesensitive="false">phps</extension>
 			<extension casesensitive="false">inc</extension>
+<<<<<<< .mine
+			<extension casesensitive="false">php</extension>
+=======
 			<combo>
 			    <extension casesensitive="false">php</extension>
     			<extension casesensitive="false">phps</extension>
@@ -17,6 +19,7 @@
 			    <match-content lines="1">&lt;\?</match-content>
 			</combo>
 		    <match-content lines="1">(&lt;)(\?)(php|=)?</match-content>
+>>>>>>> .r88
 		</detectors>
 		
 		<meta>
@@ -48,10 +51,22 @@
 		<root-zone>sourcecode.php-html</root-zone>
 		
 		<detectors>
-			<extension casesensitive="false">php</extension>
-			<extension casesensitive="false">phps</extension>
-			<extension casesensitive="false">inc</extension>
-			<extension casesensitive="false">html</extension>
+			<combo>
+			    <extension casesensitive="false">php</extension>
+			    <match-content lines="1">(&lt;)(html|div|body|head|table)</match-content>
+			</combo>
+			<combo>
+			    <extension casesensitive="false">phps</extension>
+			    <match-content lines="1">(&lt;)(html|div|body|head|table)</match-content>
+			</combo>
+			<combo>
+			    <extension casesensitive="false">inc</extension>
+			    <match-content lines="1">(&lt;)(html|div|body|head|table)</match-content>
+			</combo>
+			<combo>
+			    <extension casesensitive="false">html</extension>
+			    <match-content lines="1">(&lt;)(html|div|body|head|table)</match-content>
+			</combo>
 			<extension casesensitive="false">phtml</extension>
 			<combo>
 			    <extension casesensitive="false">php</extension>
