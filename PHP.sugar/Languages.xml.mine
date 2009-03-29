@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings>
+
+	<language id="com.gridlee.PHP">
+		<name>PHP</name>
+		<root-zone>sourcecode.php</root-zone>
+		
+		<detectors>
+			<extension casesensitive="false">phps</extension>
+			<extension casesensitive="false">inc</extension>
+			<extension casesensitive="false">php</extension>
+		</detectors>
+		
+		<meta>
+		    <name>
+		        PHP
+		    </name>
+		    <description>
+		        Official php.sugar for Espresso.
+		    </description>
+		    <author>
+		        Derek Reynolds
+		    </author>
+		    <identifier>
+		        com.gridlee.Sugar.PHP
+		    </identifier>
+		    <version status="preview">
+		        1.0b3
+		    </version>
+		    <dependencies>
+                <dependency id="name.elliottcable.Sugar.Regex">Regex</dependency>
+            </dependencies>
+		</meta>
+		
+	</language>
+	
+	<!-- PHP-HTML -->
+	<language id="com.gridlee.PHP-HTML">
+		<name>PHP-HTML</name>
+		<root-zone>sourcecode.php-html</root-zone>
+		
+		<detectors>
+			<combo>
+			    <extension casesensitive="false">php</extension>
+			    <match-content lines="1">(&lt;)(html|div|body|head|table)</match-content>
+			</combo>
+			<combo>
+			    <extension casesensitive="false">phps</extension>
+			    <match-content lines="1">(&lt;)(html|div|body|head|table)</match-content>
+			</combo>
+			<combo>
+			    <extension casesensitive="false">inc</extension>
+			    <match-content lines="1">(&lt;)(html|div|body|head|table)</match-content>
+			</combo>
+			<combo>
+			    <extension casesensitive="false">html</extension>
+			    <match-content lines="1">(&lt;)(html|div|body|head|table)</match-content>
+			</combo>
+			<extension casesensitive="false">phtml</extension>
+		</detectors>
+		
+		<meta>
+		    <name>
+		        PHP-HTML
+		    </name>
+		    <description>
+		        Official php.sugar for Espresso.
+		    </description>
+		    <author>
+		        Derek Reynolds
+		    </author>
+		    <identifier>
+		        com.gridlee.Sugar.PHP-HTML
+		    </identifier>
+		    <version status="preview">
+		        1.0b3
+		    </version>
+		</meta>
+		
+	</language>
+	
+</settings>
