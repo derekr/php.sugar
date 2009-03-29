@@ -5,12 +5,17 @@
 	<language id="com.gridlee.PHP">
 		<name>PHP</name>
 		<root-zone>sourcecode.php</root-zone>
-		
+		<table>
 		<detectors>
 			<extension casesensitive="false">php</extension>
 			<extension casesensitive="false">phps</extension>
 			<extension casesensitive="false">inc</extension>
-			<match-content lines="1">(&lt;)(\?)\Z</match-content>
+			<combo>
+			    <extension casesensitive="false">php</extension>
+    			<extension casesensitive="false">phps</extension>
+    			<extension casesensitive="false">inc</extension>
+			    <match-content lines="1">&lt;\?</match-content>
+			</combo>
 		    <match-content lines="1">(&lt;)(\?)(php|=)?</match-content>
 		</detectors>
 		
@@ -48,6 +53,14 @@
 			<extension casesensitive="false">inc</extension>
 			<extension casesensitive="false">html</extension>
 			<extension casesensitive="false">phtml</extension>
+			<combo>
+			    <extension casesensitive="false">php</extension>
+    			<extension casesensitive="false">phps</extension>
+    			<extension casesensitive="false">inc</extension>
+    			<extension casesensitive="false">html</extension>
+    			<extension casesensitive="false">phtml</extension>
+    			<match-content lines="1">(&lt;)(html|div|body|head|span|table)</match-content>
+			</combo>
 		</detectors>
 		
 		<meta>
