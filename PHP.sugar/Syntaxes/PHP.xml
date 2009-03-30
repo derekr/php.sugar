@@ -88,9 +88,9 @@
 	    <!-- Metadata -->
 	    <collection name="metadata.comment">
 	        <!-- // comment -->
-	        <zone name="metadata.comment.line.double-slash">
+	        <zone name="metadata.comment.single-line.double-slash">
                 <expression>(//)(\s?(.*)?$\n?)</expression>
-                <capture number="1" name="delimiter.separator.double-slash.comment.begin" />
+                <capture number="1" name="delimiter.separator.double-slash.comment.punctuation.definitoin.begin" />
                 <capture number="3" name="content" />
 	        </zone>
 	        <!-- # comment -->
