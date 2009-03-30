@@ -5,6 +5,20 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 
 -->
 <codesense version="1.0">
+    <set name="com.gridlee.identifier.snippets">
+	    
+	    <completion string="if" />
+	    <completion string="for" />
+	    <completion string="foreach" />
+	    <completion string="dowhile" />
+	    <completion string="while" />
+	    <completion string="function" />
+	    <completion string="class" />
+	    <completion string="doc" />
+	    <completion string="var" />
+	
+	</set>
+
 	<!-- Built In Support Function -->
 	
 	<set name="com.gridlee.identifier.function.support">
