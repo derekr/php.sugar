@@ -18,7 +18,58 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 	    <completion string="var" />
 	
 	</set>
-
+    
+    <set name="com.gridlee.magic-constants">
+	    
+	    <completion string="__LINE__" />
+	    <completion string="__FILE__" />
+	    <completion string="__DIR__" />
+	    <completion string="__FUNCTION__" />
+	    <completion string="__CLASS__" />
+	    <completion string="__METHOD__" />
+	    <completion string="__NAMESPACE__" />
+	
+	</set>
+    
+    <set name="com.gridlee.keyword.scope">
+	    
+	    <behavior>
+            <append-dynamic>
+    	        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+    	        <transform-into> $0</transform-into>
+    	    </append-dynamic>
+        </behavior>
+	    
+	    <completion string="static" />
+	    <completion string="public" />
+	    <completion string="protected" />
+	    <completion string="private" />
+	    <completion string="abstract" />
+	    <completion string="global" />
+	
+	</set>
+    
+    <set name="com.gridlee.identifier.global-variables">
+	    
+	    <behavior>
+            <append-dynamic>
+    	        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+    	        <transform-into>${1:['${2:booyah}']}</transform-into>
+    	    </append-dynamic>
+        </behavior>
+	    
+	    <completion string="$GLOBALS" />
+	    <completion string="$_SERVER" />
+	    <completion string="$_GET" />
+	    <completion string="$_POST" />
+	    <completion string="$_FILES" />
+	    <completion string="$_COOKIE" />
+	    <completion string="$_SESSION" />
+	    <completion string="$_REQUEST" />
+	    <completion string="$_ENV" />
+	
+	</set>
+    
 	<!-- Built In Support Function -->
 	
 	<set name="com.gridlee.identifier.function.support">
