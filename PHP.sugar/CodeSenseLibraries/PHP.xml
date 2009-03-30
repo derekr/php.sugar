@@ -80,6 +80,15 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
     	    </append-dynamic>
         </behavior>
 	    
+	    <completion string="echo">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into> ${1:'${2:string}'}</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
 	    <completion string="acos">
 			<behavior>
 				<append-dynamic>
