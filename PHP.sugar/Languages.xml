@@ -26,10 +26,11 @@
 		        com.gridlee.Sugar.PHP
 		    </identifier>
 		    <version status="preview">
-		        1.0b4
+		        1.0b4.2
 		    </version>
 		    <dependencies>
                 <dependency id="name.elliottcable.Sugar.Regex">Regex</dependency>
+                <dependency id="net.fileability.SQL">SQL</dependency>
             </dependencies>
 		</meta>
 		
@@ -74,7 +75,7 @@
 		        com.gridlee.Sugar.PHP-HTML
 		    </identifier>
 		    <version status="preview">
-		        1.0b4
+		        1.0b4.2
 		    </version>
 		</meta>
 		
