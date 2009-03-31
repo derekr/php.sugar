@@ -38,6 +38,7 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
     	        <matched-suffix>(\s*:)|[^:]</matched-suffix>
     	        <transform-into> $0</transform-into>
     	    </append-dynamic>
+    	    
         </behavior>
 	    
 	    <completion string="static" />
@@ -56,6 +57,8 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
     	        <matched-suffix>(\s*:)|[^:]</matched-suffix>
     	        <transform-into>${1:['${2:booyah}']}</transform-into>
     	    </append-dynamic>
+    	    
+    	    <confirm-partial characters="_" />
         </behavior>
 	    
 	    <completion string="$GLOBALS" />
