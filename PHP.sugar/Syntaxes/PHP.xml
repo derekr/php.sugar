@@ -113,18 +113,107 @@
 			<zone name="metadata.comment.block">
 				<starts-with>
 					<expression>(/\*)</expression>
-					<capture number="1" name="delimiter.separator.slash.single-asterisk.comment.begin"/>
+					<capture number="1" name="delimiter.separator.slash.single-asterisk.comment.punctuation.definitoin.begin"/>
 				</starts-with>
 				<ends-with>
 					<expression>(\*/)</expression>
-					<capture number="1" name="delimiter.separator.slash.single-asterisk.comment.end"/>
+					<capture number="1" name="delimiter.separator.slash.single-asterisk.comment.punctuation.definitoin.end"/>
 				</ends-with>
 			</zone>
 	    </collection>
 	    
 	    
-	    <!-- Literals -->
+	    <!-- Literals -->	    
 	    <collection name="literal.string">
+	        <!-- SQL Strings -->
+            <zone name="literal.string.sql.quoted.single">
+                <starts-with>
+                    <expression>(')(SELECT|INSERT|UPDATE|DELETE|CREATE|REPLACE|ALTER)\b</expression>
+                    <capture number="1" name="delimiter.balanced.quote.single.begin"/>
+                    <capture number="2" name="keyword.control.sql"/>
+                </starts-with>
+                <ends-with>
+                    <expression>'</expression>
+                    <capture number="0" name="delimiter.balanced.quote.single.end"/>
+                </ends-with>
+                <subzones>
+                    <cut-off>'</cut-off>
+                    <include syntax="sourcecode.sql" />
+                    <zone name="literal.escape.brief">
+                        <!-- 'A single-quoted string with \'escape sequences\'' -->
+                        <expression>(\\)('|\\)</expression>
+                        <capture number="1" name="delimiter.seperator.escape"/>
+                        <capture number="2" name="character"/>
+                    </zone>
+                </subzones>
+            </zone>
+            
+            <zone name="literal.string.sql.quoted.double">
+                <starts-with>
+                    <expression>(")(SELECT|INSERT|UPDATE|DELETE|CREATE|REPLACE|ALTER)\b</expression>
+                    <capture number="1" name="delimiter.balanced.quote.double.begin"/>
+                    <capture number="2" name="keyword.control.sql"/>
+                </starts-with>
+                <ends-with>
+                    <expression>"</expression>
+                    <capture number="0" name="delimiter.balanced.quote.double.end"/>
+                </ends-with>
+                <subzones>
+                    <cut-off>"</cut-off>
+                    <include syntax="sourcecode.sql" />
+                    <zone name="literal.escape.brief">
+                        <!-- "A double-quoted string with \"escape sequences\"" -->
+                        <expression>(\\)("|\\)</expression>
+                        <capture number="1" name="delimiter.seperator.escape"/>
+                        <capture number="2" name="character"/>
+                    </zone>
+                </subzones>
+            </zone>
+            
+            <!-- Regex Strings -->
+            <zone name="literal.string.regex.quoted.single">
+                <starts-with>
+                    <expression>(')\/</expression>
+                    <capture number="1" name="delimiter.balanced.quote.single.begin"/>
+                </starts-with>
+                <ends-with>
+                    <expression>\/(')</expression>
+                    <capture number="1" name="delimiter.balanced.quote.single.end"/>
+                </ends-with>
+                <subzones>
+                    <cut-off>\/(')</cut-off>
+                    <include syntax="expression.regex" />
+                    <zone name="literal.escape.brief">
+                        <!-- 'A single-quoted string with \'escape sequences\'' -->
+                        <expression>(\\)('|\\)</expression>
+                        <capture number="1" name="delimiter.seperator.escape"/>
+                        <capture number="2" name="character"/>
+                    </zone>
+                </subzones>
+            </zone>
+            
+            <zone name="literal.string.regex.quoted.double">
+                <starts-with>
+                    <expression>(")\/</expression>
+                    <capture number="1" name="delimiter.balanced.quote.double.begin"/>
+                </starts-with>
+                <ends-with>
+                    <expression>\/(")</expression>
+                    <capture number="1" name="delimiter.balanced.quote.double.end"/>
+                </ends-with>
+                <subzones>
+                    <cut-off>"</cut-off>
+                    <include syntax="expression.regex" />
+                    <zone name="literal.escape.brief">
+                        <!-- "A double-quoted string with \"escape sequences\"" -->
+                        <expression>(\\)("|\\)</expression>
+                        <capture number="1" name="delimiter.seperator.escape"/>
+                        <capture number="2" name="character"/>
+                    </zone>
+                </subzones>
+            </zone>
+            
+            <!-- regular ol' strings -->            
             <zone name="literal.string.quoted.single">
                 <starts-with>
                     <expression>'</expression>

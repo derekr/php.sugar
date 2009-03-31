@@ -7,7 +7,7 @@ CodeSense Providers map contexts in a document to possible completions. The actu
 <codesense>
 	
 	<provider>
-        <selector>php-html > *:not(php-html, tag.open, tag.close), php :not(string, quote, variable, variable + *, comment, keyword.constant.other, php.source.begin + keyword, php.source.begin > keyword), identifier.function</selector>
+        <selector>php-html > *:not(php-html, tag.open, tag.close), php :not(string, string > *, quote, variable, variable + *, comment, keyword.constant.other, php.source.begin + keyword, php.source.begin > keyword, capturing.group), identifier.function</selector>
 		<completions>com.gridlee.identifier.function.support</completions>
 		<completions>com.gridlee.identifier.global-variables</completions>
 		<completions>com.gridlee.keyword.scope</completions>
