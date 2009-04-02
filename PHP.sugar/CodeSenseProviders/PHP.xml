@@ -13,7 +13,7 @@ CodeSense Providers map contexts in a document to possible completions. The actu
 		<completions>com.gridlee.keyword.scope</completions>
 		<completions>com.gridlee.identifier.snippets</completions>
 		<completions>com.gridlee.magic-constants</completions>
-		<complete-match>[\<\$a-zA-Z0-9-_\>]+</complete-match>
+		<complete-match>[&lt;\?\$a-zA-Z0-9-_\>]+</complete-match>
 	</provider>
     
 </codesense>
