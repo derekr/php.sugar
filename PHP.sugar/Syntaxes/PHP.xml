@@ -170,49 +170,6 @@
                 </subzones>
             </zone>
             
-            <!-- Regex Strings -->
-            <zone name="literal.string.regex.quoted.single">
-                <starts-with>
-                    <expression>(')\/</expression>
-                    <capture number="1" name="delimiter.balanced.quote.single.begin"/>
-                </starts-with>
-                <ends-with>
-                    <expression>\/(')</expression>
-                    <capture number="1" name="delimiter.balanced.quote.single.end"/>
-                </ends-with>
-                <subzones>
-                    <cut-off>\/(')</cut-off>
-                    <include syntax="expression.regex" />
-                    <zone name="literal.escape.brief">
-                        <!-- 'A single-quoted string with \'escape sequences\'' -->
-                        <expression>(\\)('|\\)</expression>
-                        <capture number="1" name="delimiter.seperator.escape"/>
-                        <capture number="2" name="character"/>
-                    </zone>
-                </subzones>
-            </zone>
-            
-            <zone name="literal.string.regex.quoted.double">
-                <starts-with>
-                    <expression>(")\/</expression>
-                    <capture number="1" name="delimiter.balanced.quote.double.begin"/>
-                </starts-with>
-                <ends-with>
-                    <expression>\/(")</expression>
-                    <capture number="1" name="delimiter.balanced.quote.double.end"/>
-                </ends-with>
-                <subzones>
-                    <cut-off>"</cut-off>
-                    <include syntax="expression.regex" />
-                    <zone name="literal.escape.brief">
-                        <!-- "A double-quoted string with \"escape sequences\"" -->
-                        <expression>(\\)("|\\)</expression>
-                        <capture number="1" name="delimiter.seperator.escape"/>
-                        <capture number="2" name="character"/>
-                    </zone>
-                </subzones>
-            </zone>
-            
             <!-- regular ol' strings -->            
             <zone name="literal.string.quoted.single">
                 <starts-with>
