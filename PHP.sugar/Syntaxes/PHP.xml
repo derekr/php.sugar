@@ -170,6 +170,37 @@
                 </subzones>
             </zone>
             
+            <!-- Regex Strings -->
+            <zone name="literal.string.regex.quoted.single">
+                <starts-with>
+                    <expression>(')\/</expression>
+                    <capture number="1" name="delimiter.balanced.quote.single.begin"/>
+                </starts-with>
+                <ends-with>
+                    <expression>\/(')</expression>
+                    <capture number="1" name="delimiter.balanced.quote.single.end"/>
+                </ends-with>
+                <subzones>
+                    <cut-off>\/(')</cut-off>
+                    <include syntax="expression.regex" />
+                </subzones>
+            </zone>
+            
+            <zone name="literal.string.regex.quoted.double">
+                <starts-with>
+                    <expression>(")\/</expression>
+                    <capture number="1" name="delimiter.balanced.quote.double.begin"/>
+                </starts-with>
+                <ends-with>
+                    <expression>\/(")</expression>
+                    <capture number="1" name="delimiter.balanced.quote.double.end"/>
+                </ends-with>
+                <subzones>
+                    <cut-off>\/(")</cut-off>
+                    <include syntax="expression.regex" />
+                </subzones>
+            </zone>
+            
             <!-- regular ol' strings -->            
             <zone name="literal.string.quoted.single">
                 <starts-with>
