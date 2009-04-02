@@ -212,11 +212,16 @@
             
             <zone name="literal.string.unquoted.heredoc">
                 <starts-with>
-                    <expression>(&lt;&lt;&lt;-?)(\w+)</expression>
+                    <expression>(&lt;{3})(\w+)</expression>
+                    <capture number="0" name="delimiter.heredoc.begin" />
                 </starts-with>
-                <starts-with>
+                <ends-with>
                     <expression>\2</expression>
-                </starts-with>
+                    <capture number="0" name="delimiter.heredoc.end" />
+                </ends-with>
+                <subzones>
+                    <include collection="identifier.variable" />
+                </subzones>
             </zone>
 	    </collection>
 	    
