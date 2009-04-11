@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+@description Defines PHP language
+@author Derek Reynolds <derekr@me.com>
+@copyright The MIT License
 
+Copyright (c) 2009
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
 <settings>
 
 	<language id="com.gridlee.PHP">
@@ -10,6 +34,13 @@
 			<extension casesensitive="false">phps</extension>
 			<extension casesensitive="false">inc</extension>
 			<extension casesensitive="false">php</extension>
+			<match-content lines="1"><![CDATA[<!DOCTYPE html PUBLIC]]></match-content>
+			<match-content lines="1"><![CDATA[<html]]></match-content>
+			<combo>
+			    <extension casesensetive="false">html</extension>
+			    <match-content lines="1"><![CDATA[<?php]]></match-content>
+			    <match-content lines="1"><![CDATA[<?]]></match-content>
+			</combo>
 		</detectors>
 		
 		<meta>
@@ -32,51 +63,6 @@
                 <dependency id="name.elliottcable.Sugar.Regex">Regex</dependency>
                 <dependency id="net.fileability.SQL">SQL</dependency>
             </dependencies>
-		</meta>
-		
-	</language>
-	
-	<!-- PHP-HTML -->
-	<language id="com.gridlee.PHP-HTML">
-		<name>PHP-HTML</name>
-		<root-zone>sourcecode.php-html</root-zone>
-		
-		<detectors>
-			<combo>
-			    <extension casesensitive="false">php</extension>
-			    <match-content lines="1">(&lt;)(html|div|body|head|table)</match-content>
-			</combo>
-			<combo>
-			    <extension casesensitive="false">phps</extension>
-			    <match-content lines="1">(&lt;)(html|div|body|head|table)</match-content>
-			</combo>
-			<combo>
-			    <extension casesensitive="false">inc</extension>
-			    <match-content lines="1">(&lt;)(html|div|body|head|table)</match-content>
-			</combo>
-			<combo>
-			    <extension casesensitive="false">html</extension>
-			    <match-content lines="1">(&lt;)(html|div|body|head|table)</match-content>
-			</combo>
-			<extension casesensitive="false">phtml</extension>
-		</detectors>
-		
-		<meta>
-		    <name>
-		        PHP-HTML
-		    </name>
-		    <description>
-		        Official php.sugar for Espresso.
-		    </description>
-		    <author>
-		        Derek Reynolds
-		    </author>
-		    <identifier>
-		        com.gridlee.Sugar.PHP-HTML
-		    </identifier>
-		    <version status="preview">
-		        1.0b4.2
-		    </version>
 		</meta>
 		
 	</language>
