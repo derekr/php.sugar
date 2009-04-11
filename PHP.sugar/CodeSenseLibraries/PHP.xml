@@ -92,6 +92,42 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 			</behavior>
 	    </completion>
 	    
+	    <completion string="include">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into> ${1:'${2:/path/to/file}'}</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="include_once">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into> ${1:'${2:/path/to/file}'}</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="require">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into> ${1:'${2:/path/to/file}'}</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="require_once">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into> ${1:'${2:/path/to/file}'}</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
 	    <completion string="acos">
 			<behavior>
 				<append-dynamic>
