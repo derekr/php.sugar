@@ -27,7 +27,7 @@ THE SOFTWARE.
 <codesense>
 	
 	<provider>
-        <selector>php :not(string, string > *, quote, variable, variable + *, comment, keyword.constant.other, php.source.begin + keyword, php.source.begin > keyword, capturing.group, object, object *, object + *, tag.open, tag.close), identifier.function, identifier.method *</selector>
+        <selector>html php, php :not(string, string > *, quote, variable, variable + *, comment, capturing.group, object, object *, object + *), identifier.function, identifier.method *</selector>
 		<completions>com.gridlee.identifier.function.support</completions>
 		<completions>com.gridlee.identifier.global-variables</completions>
 		<completions>com.gridlee.keyword.scope</completions>

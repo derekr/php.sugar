@@ -47,7 +47,6 @@ THE SOFTWARE.
 		</zone>
 		
 		<!-- include the html syntax within php -->
-		<include syntax="text.html.basic" />
 	</zones>
 	
 	<library>
