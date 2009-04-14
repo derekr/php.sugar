@@ -34,13 +34,6 @@ THE SOFTWARE.
 			<extension casesensitive="false">phps</extension>
 			<extension casesensitive="false">inc</extension>
 			<extension casesensitive="false">php</extension>
-			<match-content lines="1"><![CDATA[<!DOCTYPE html PUBLIC]]></match-content>
-			<match-content lines="1"><![CDATA[<html]]></match-content>
-			<combo>
-			    <extension casesensetive="false">html</extension>
-			    <match-content lines="1"><![CDATA[<?php]]></match-content>
-			    <match-content lines="1"><![CDATA[<?]]></match-content>
-			</combo>
 		</detectors>
 		
 		<meta>
