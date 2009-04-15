@@ -12,7 +12,7 @@ else if (${4:...}) {
 else {
 	$6
 }]]></text>
-		<syntax-context>php, php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<syntax-context>source.php, source.php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>if</text-trigger>
 	</snippet>
 	
@@ -22,7 +22,7 @@ else {
 {
 	${0://code}
 }]]></text>
-		<syntax-context>php, php > *:not(metadata.comment, string, variable, control.block, function, class)</syntax-context>
+		<syntax-context>source.php, source.php > *:not(metadata.comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>foreach</text-trigger>
 	</snippet>
 	
@@ -32,7 +32,7 @@ else {
 {
 	${0://code}
 }]]></text>
-		<syntax-context>php, php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<syntax-context>source.php, source.php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>for</text-trigger>
 	</snippet>
 	
@@ -42,7 +42,7 @@ else {
 {
 	${0://code}
 }]]></text>
-		<syntax-context>php, php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<syntax-context>source.php, source.php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>while</text-trigger>
 	</snippet>
 	
@@ -56,7 +56,7 @@ while (${2:condition})
 {
 	${0://code}
 }]]></text>
-		<syntax-context>php, php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<syntax-context>source.php, source.php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>dowhile</text-trigger>
 	</snippet>
 	
@@ -74,7 +74,7 @@ while (${2:condition})
         break;}
 }]]>
         </text>
-		<syntax-context>php, php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<syntax-context>source.php, source.php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>switch</text-trigger>
 	</snippet>
 	
@@ -91,7 +91,7 @@ ${5:${6:abstract }class ${7:${2:ClassName}}${8: ${9:extends${10: ExtendedClassNa
 {
 	${0://code}
 }]]></text>
-		<syntax-context>php, php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<syntax-context>source.php, source.php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>class</text-trigger>
 	</snippet>
 	
@@ -108,7 +108,7 @@ ${8:static|public|protected|private }function ${9:functionName}(\$${10:${6}})
 {
 	${0://code}
 }]]></text>
-		<syntax-context>php, php > *:not(comment, string, variable, control.block, function)</syntax-context>
+		<syntax-context>source.php, source.php > *:not(comment, string, variable, control.block, function)</syntax-context>
 		<text-trigger>function</text-trigger>
 	</snippet>
 	
@@ -120,7 +120,7 @@ ${8:static|public|protected|private }function ${9:functionName}(\$${10:${6}})
  * @var ${3:variable type}
  */}
 ${4:static|public|protected|private }\$${5:variableName}${6: = ${7:null};}]]></text>
-		<syntax-context>php, php > *:not(comment, string, variable, control.block, function)</syntax-context>
+		<syntax-context>source.php, source.php > *:not(comment, string, variable, control.block, function)</syntax-context>
 		<text-trigger>var</text-trigger>
 	</snippet>
 	
@@ -134,7 +134,7 @@ ${4:static|public|protected|private }\$${5:variableName}${6: = ${7:null};}]]></t
  * @author ${6:your name}}${7:
  * @${8:tag} ${9:value}}
  */]]></text>
-		<syntax-context>php, php > *:not(comment, string, variable, control.block, function)</syntax-context>
+		<syntax-context>source.php, source.php > *:not(comment, string, variable, control.block, function)</syntax-context>
 		<text-trigger>doc</text-trigger>
 	</snippet>
 </action-recipes>
