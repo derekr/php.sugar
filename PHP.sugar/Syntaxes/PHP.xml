@@ -74,7 +74,7 @@ THE SOFTWARE.
 	    <collection name="metadata.comment.phpDoc">
 	        <zone name="metadata.comment.phpDoc.block">
 	            <starts-with>
-					<expression>\s*(/\*\*)</expression>
+					<expression>\s*(/\*\*)\Z$</expression>
 					<capture number="1" name="delimiter.separator.slash.double-asterisk.comment.begin"/>
 				</starts-with>
 				<ends-with>
@@ -127,13 +127,16 @@ THE SOFTWARE.
 	        </zone>
 	        <zone name="metadata.comment.documentation">
 				<starts-with>
-					<expression>/(\*)+</expression>
+					<expression>\/(\*)+</expression>
 					<capture number="0" name="delimiter.separator.slash.asterisk.comment.begin"/>
 				</starts-with>
 				<ends-with>
-					<expression>(\*)+/</expression>
+					<expression>(\*)+\/</expression>
 					<capture number="0" name="delimiter.separator.asterisk.slash.comment.end"/>
 				</ends-with>
+				<cut-off>
+                    <expression>\*\/</expression>
+                </cut-off>
 			</zone>
 			
 			<zone name="metadata.comment.block">
