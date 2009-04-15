@@ -45,8 +45,7 @@ THE SOFTWARE.
 				<include collection="language" />
 			</subzones>
 		</zone>
-		
-		<!-- include the html syntax within php -->
+
 	</zones>
 	
 	<library>

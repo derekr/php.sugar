@@ -26,14 +26,23 @@ THE SOFTWARE.
 -->
 <settings>
 
-	<language id="com.gridlee.PHP">
+	<language id="com.gridlee.Syntax.Programming.PHP">
 		<name>PHP</name>
 		<root-zone>sourcecode.php</root-zone>
 		
 		<detectors>
-			<extension casesensitive="false">phps</extension>
-			<extension casesensitive="false">inc</extension>
-			<extension casesensitive="false">php</extension>
+		    <combo>
+			    <extension casesensitive="false">phps</extension>
+			    <match-content lines="1">^(&lt;)(\?)(php|=)?</match-content>
+			</combo>
+			<combo>
+			    <extension casesensitive="false">inc</extension>
+                <match-content lines="1">^(&lt;)(\?)(php|=)?</match-content>
+			</combo>
+			<combo>
+			    <extension casesensitive="false">php</extension>
+                <match-content lines="1">^(&lt;)(\?)(php|=)?</match-content>
+			</combo>
 		</detectors>
 		
 		<meta>
@@ -50,7 +59,7 @@ THE SOFTWARE.
 		        com.gridlee.Sugar.PHP
 		    </identifier>
 		    <version status="preview">
-		        1.0b4.2
+		        1.0b4.3
 		    </version>
 		    <dependencies>
                 <dependency id="name.elliottcable.Sugar.Regex">Regex</dependency>
@@ -59,5 +68,49 @@ THE SOFTWARE.
 		</meta>
 		
 	</language>
-	
+
+    <language id="com.gridlee.Declarative.Programming.PHP.HTML">
+		<name>PHP+HTML</name>
+		<root-zone>php.html</root-zone>
+		
+		<detectors>
+		    <combo>
+			    <extension casesensitive="false">phps</extension>
+			    <match-content lines="1">^(&lt;)(\?)(php|=)?</match-content>
+			</combo>
+			<combo>
+			    <extension casesensitive="false">inc</extension>
+                <match-content lines="1">^(&lt;)(\?)(php|=)?</match-content>
+			</combo>
+			<combo>
+			    <extension casesensitive="false">php</extension>
+			    <match-content lines="1">(&lt;)[a-zA-Z\!]*</match-content>
+                <match-content lines="1">^(&lt;)(\?)(php|=)?</match-content>
+			</combo>
+		</detectors>
+		
+		<meta>
+		    <name>
+		        PHP+HTML
+		    </name>
+		    <description>
+		        Official php.sugar for Espresso.
+		    </description>
+		    <author>
+		        Derek Reynolds
+		    </author>
+		    <identifier>
+		        com.gridlee.Sugar.PHP
+		    </identifier>
+		    <version status="preview">
+		        1.0b4.3
+		    </version>
+		    <dependencies>
+                <dependency id="name.elliottcable.Sugar.Regex">Regex</dependency>
+                <dependency id="net.fileability.SQL">SQL</dependency>
+            </dependencies>
+		</meta>
+		
+	</language>
+
 </settings>

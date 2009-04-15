@@ -27,13 +27,13 @@ THE SOFTWARE.
 <codesense>
 	
 	<provider>
-        <selector>html php, php :not(string, string > *, quote, variable, variable + *, comment, capturing.group, object, object *, object + *), identifier.function, identifier.method *</selector>
+        <selector>container.block.embedded.source.php:not(string, string > *, quote, variable, variable + *, comment, capturing.group, object, object *, object + *), identifier.function, identifier.method *</selector>
 		<completions>com.gridlee.identifier.function.support</completions>
 		<completions>com.gridlee.identifier.global-variables</completions>
 		<completions>com.gridlee.keyword.scope</completions>
 		<completions>com.gridlee.identifier.snippets</completions>
 		<completions>com.gridlee.magic-constants</completions>
-		<complete-match>[&lt;\?\$a-zA-Z0-9-_\>]+</complete-match>
+		<complete-match>[\?\$a-zA-Z0-9-_\>]+</complete-match>
 	</provider>
     
 </codesense>

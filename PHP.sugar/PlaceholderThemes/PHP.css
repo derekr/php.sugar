@@ -41,7 +41,7 @@ php include {
 	font-style: italic;
 }
 
-php identifier.function {
+php identifier.function name {
 	color: #699d36;
 	font-weight: bold;
 }
