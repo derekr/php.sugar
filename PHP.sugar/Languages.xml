@@ -31,18 +31,10 @@ THE SOFTWARE.
 		<root-zone>sourcecode.php</root-zone>
 		
 		<detectors>
-		    <combo>
-			    <extension casesensitive="false">phps</extension>
-			    <match-content lines="1">^(&lt;)(\?)(php|=)?</match-content>
-			</combo>
-			<combo>
-			    <extension casesensitive="false">inc</extension>
-                <match-content lines="1">^(&lt;)(\?)(php|=)?</match-content>
-			</combo>
-			<combo>
-			    <extension casesensitive="false">php</extension>
-                <match-content lines="1">^(&lt;)(\?)(php|=)?</match-content>
-			</combo>
+		    <extension casesensitive="false">phps</extension>
+		    <extension casesensitive="false">inc</extension>
+		    <extension casesensitive="false">php</extension>
+		    <match-content lines="1">^(&lt;)(\?)(php|=)?</match-content>
 		</detectors>
 		
 		<meta>
@@ -76,16 +68,15 @@ THE SOFTWARE.
 		<detectors>
 		    <combo>
 			    <extension casesensitive="false">phps</extension>
-			    <match-content lines="1">^(&lt;)(\?)(php|=)?</match-content>
+			    <match-content lines="1">&lt;[a-zA-Z!]*(\s|>)</match-content>
 			</combo>
 			<combo>
 			    <extension casesensitive="false">inc</extension>
-                <match-content lines="1">^(&lt;)(\?)(php|=)?</match-content>
+                <match-content lines="1">&lt;[a-zA-Z!]*(\s|>)</match-content>
 			</combo>
 			<combo>
 			    <extension casesensitive="false">php</extension>
-			    <match-content lines="1">(&lt;)[a-zA-Z\!]*</match-content>
-                <match-content lines="1">^(&lt;)(\?)(php|=)?</match-content>
+			    <match-content lines="1">&lt;[a-zA-Z!]*(\s|>)</match-content>
 			</combo>
 		</detectors>
 		
