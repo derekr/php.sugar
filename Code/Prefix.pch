@@ -1,0 +1,9 @@
+//
+// Prefix header
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
+
+#define MRRelease(arg) {[arg release]; arg = nil;}

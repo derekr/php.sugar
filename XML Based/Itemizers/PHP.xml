@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@description Defines PHP itemizers
+@author Derek Reynolds <derekr@me.com>
+@copyright The MIT License
+
+Copyright (c) 2009
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+<itemizer>
+	<!-- PHP Source; <?php ... ?>, <?= =?> -->
+    <recipe name="source.block.php.processing-instruction">
+		<class>ESBaseItem</class>
+		<start-selector>php.begin:capture(name) + *</start-selector>
+		<end-selector>php.end:capture(name)</end-selector>
+		<subrecipes>
+			<include-root-recipes />
+		</subrecipes>
+	</recipe>
+	
+	<!-- Defining a custom class -->
+	<recipe name="container.class">
+		<class>ESBaseItem</class>
+		<start-selector>container.class:has-child(current:has-child((name:capture(name))) + delimiter.balanced.curly-brace.begin:capture(itemizer-firstused)</start-selector>
+		<end-selector>delimiter.balanced.curly-brace.end</end-selector>
+		<subrecipes>
+			<include-root-recipes />
+		</subrecipes>
+	</recipe>
+	
+	<!-- Defining a magic function -->
+	<recipe name="container.function.magic">
+		<class>ESBaseItem</class>
+		<start-selector>container.function.magic:has-child(name:capture(name)) + delimiter.balanced.curly-brace.begin:capture(itemizer-firstused)</start-selector>
+		<end-selector>delimiter.balanced.curly-brace.end</end-selector>
+		<subrecipes>
+			<include-root-recipes />
+		</subrecipes>
+	</recipe>
+	
+	<!-- class property definition -->
+	<recipe name="class.property.definition">
+	    <class>ESBaseItem</class>
+	    <selector>keyword.modifier.scope + identifier.variable:capture(name)</selector>
+	</recipe>
+	
+	<!-- class constant definition -->
+	<recipe name="class.constant.definition">
+	    <class>ESBaseItem</class>
+	    <selector>keyword.constant.class + keyword.constant.other:capture(name)</selector>
+	</recipe>
+	
+	<!-- Defining a custom function -->
+	<recipe name="container.function">
+		<class>ESBaseItem</class>
+		<start-selector>container.function:has-child(name:capture(name)) + delimiter.balanced.curly-brace.begin:capture(itemizer-firstused)</start-selector>
+		<end-selector>delimiter.balanced.curly-brace.end</end-selector>
+		<subrecipes>
+			<include-root-recipes />
+		</subrecipes>
+	</recipe>
+	
+	<!-- Defining control structures; (if, else, switch, for, foreach...)-->
+	<recipe name="container.block">
+		<class>ESBaseItem</class>
+		<start-selector>container.block:capture(name) + delimiter.balanced.curly-brace.begin:capture(itemizer-firstused)</start-selector>
+		<end-selector>delimiter.balanced.curly-brace.end</end-selector>
+		<subrecipes>
+			<include-root-recipes />
+		</subrecipes>
+	</recipe>
+	
+	<recipe name="container.block.hidden">
+		<class>ESBaseItem</class>
+		<start-selector>container.block > delimiter.balanced.parenthesis.begin</start-selector>
+		<end-selector>container.block > delimiter.balanced.parenthesis.end</end-selector>
+		<subrecipes>
+			<include-root-recipes />
+		</subrecipes>
+	</recipe>
+	
+	<recipe name="literal.collection.hidden">
+	    <class>ESBaseItem</class>
+		<start-selector>literal.collection > delimiter.balanced.parenthesis.begin</start-selector>
+		<end-selector>literal.collection > delimiter.balanced.parenthesis.begin.end</end-selector>
+		<subrecipes>
+			<include-root-recipes />
+		</subrecipes>
+	</recipe>
+	
+	<recipe name="identifier.function.hidden">
+	    <class>ESBaseItem</class>
+		<start-selector>identifier.function > delimiter.balanced.parenthesis.begin</start-selector>
+		<end-selector>literal.collection > delimiter.balanced.parenthesis.begin.end</end-selector>
+		<subrecipes>
+			<include-root-recipes />
+		</subrecipes>
+	</recipe>
+	
+	<!-- Defining an include -->
+	<recipe name="include">
+		<class>DRImportItem</class>
+		<selector>keyword.include ~ string:capture(name)</selector>
+	</recipe>
+	
+	<recipe name="built-in.comment">
+	    <class>ESCommentItem</class>
+	    <selector>comment.line</selector>
+	</recipe>
+	
+</itemizer>
