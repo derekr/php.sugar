@@ -1,6 +1,6 @@
 /*
 	@theme PHP Placeholder
-	@placeholder php, php-html
+	@placeholder php.html, php
 */
 
 @base {
@@ -13,9 +13,8 @@ php {
 	color: #333;
 }
 
-php variable, string.double variable {
+php variable, string.double variable, php keyword.constant.other {
 	color: #4F9FCF;
-	newcolor: #6FBFFF;
 }
 
 php variable > group {
@@ -32,16 +31,19 @@ php name {
 	newcolor: #6fbfff;
 }
 
-php modifier {
+php modifier, php keyword.constant.class {
 	color: #d48080;
 }
 
-php include {
-	color: #555;
+php keyword.control.include {
 	font-style: italic;
 }
 
-php identifier.function name {
+php keyword.definition {
+	color: #699d36;
+}
+
+php identifier.function name, php literal.keyword {
 	color: #699d36;
 	font-weight: bold;
 }
