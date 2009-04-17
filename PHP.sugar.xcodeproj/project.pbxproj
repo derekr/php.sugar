@@ -1,0 +1,370 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3D0E843D0EC3EA940022EEE4 /* PHP.sugar in Copy To Espresso */ = {isa = PBXBuildFile; fileRef = 8D5B49B6048680CD000E48DA /* PHP.sugar */; };
+		65633DB80F9703C8008F9159 /* CodeSenseLibraries in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 65FD16C90F97028D0008EEC9 /* CodeSenseLibraries */; };
+		65633DB90F9703C8008F9159 /* CodeSenseProviders in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 65FD16CC0F97028D0008EEC9 /* CodeSenseProviders */; };
+		65633DBA0F9703C8008F9159 /* ContextualSettings in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 65FD16CF0F97028D0008EEC9 /* ContextualSettings */; };
+		65633DBB0F9703C8008F9159 /* Itemizers in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 65FD16D20F97028D0008EEC9 /* Itemizers */; };
+		65633DBC0F9703C8008F9159 /* Languages.xml in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 65FD16D50F97028D0008EEC9 /* Languages.xml */; };
+		65633DBD0F9703C8008F9159 /* PlaceholderThemes in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 65FD16D60F97028D0008EEC9 /* PlaceholderThemes */; };
+		65633DBE0F9703C8008F9159 /* Syntaxes in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 65FD16D90F97028D0008EEC9 /* Syntaxes */; };
+		65633DBF0F9703C8008F9159 /* SyntaxInjections in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 65FD16DD0F97028D0008EEC9 /* SyntaxInjections */; };
+		65633DC00F9703C8008F9159 /* TextActions in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 65FD16E00F97028D0008EEC9 /* TextActions */; };
+		65633EC00F970B66008F9159 /* DRImportItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 65633EBF0F970B66008F9159 /* DRImportItem.m */; };
+		6588B5E90F9830250009D664 /* include.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588B5E80F9830250009D664 /* include.png */; };
+		6588B5FA0F9838890009D664 /* class.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588B5F90F9838890009D664 /* class.png */; };
+		6588B5FF0F9838A60009D664 /* DRClassItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588B5FE0F9838A60009D664 /* DRClassItem.m */; };
+		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
+		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3D0E84440EC3EAA80022EEE4 /* Copy To Espresso */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "~/Library/Application Support/Espresso/Sugars";
+			dstSubfolderSpec = 0;
+			files = (
+				3D0E843D0EC3EA940022EEE4 /* PHP.sugar in Copy To Espresso */,
+			);
+			name = "Copy To Espresso";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D65765F0E991E6E009E9EB8 /* Copy XML Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 1;
+			files = (
+				65633DB80F9703C8008F9159 /* CodeSenseLibraries in Copy XML Files */,
+				65633DB90F9703C8008F9159 /* CodeSenseProviders in Copy XML Files */,
+				65633DBA0F9703C8008F9159 /* ContextualSettings in Copy XML Files */,
+				65633DBB0F9703C8008F9159 /* Itemizers in Copy XML Files */,
+				65633DBC0F9703C8008F9159 /* Languages.xml in Copy XML Files */,
+				65633DBD0F9703C8008F9159 /* PlaceholderThemes in Copy XML Files */,
+				65633DBE0F9703C8008F9159 /* Syntaxes in Copy XML Files */,
+				65633DBF0F9703C8008F9159 /* SyntaxInjections in Copy XML Files */,
+				65633DC00F9703C8008F9159 /* TextActions in Copy XML Files */,
+			);
+			name = "Copy XML Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		65633EBE0F970B66008F9159 /* DRImportItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRImportItem.h; path = Code/Itemizer/DRImportItem.h; sourceTree = "<group>"; };
+		65633EBF0F970B66008F9159 /* DRImportItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRImportItem.m; path = Code/Itemizer/DRImportItem.m; sourceTree = "<group>"; };
+		6588B5E80F9830250009D664 /* include.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = include.png; path = icons/include.png; sourceTree = "<group>"; };
+		6588B5F90F9838890009D664 /* class.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = class.png; path = icons/class.png; sourceTree = "<group>"; };
+		6588B5FD0F9838A60009D664 /* DRClassItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRClassItem.h; sourceTree = "<group>"; };
+		6588B5FE0F9838A60009D664 /* DRClassItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRClassItem.m; sourceTree = "<group>"; };
+		65FD16C90F97028D0008EEC9 /* CodeSenseLibraries */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CodeSenseLibraries; path = "XML Based/CodeSenseLibraries"; sourceTree = "<group>"; };
+		65FD16CC0F97028D0008EEC9 /* CodeSenseProviders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CodeSenseProviders; path = "XML Based/CodeSenseProviders"; sourceTree = "<group>"; };
+		65FD16CF0F97028D0008EEC9 /* ContextualSettings */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ContextualSettings; path = "XML Based/ContextualSettings"; sourceTree = "<group>"; };
+		65FD16D20F97028D0008EEC9 /* Itemizers */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Itemizers; path = "XML Based/Itemizers"; sourceTree = "<group>"; };
+		65FD16D50F97028D0008EEC9 /* Languages.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Languages.xml; path = "XML Based/Languages.xml"; sourceTree = "<group>"; };
+		65FD16D60F97028D0008EEC9 /* PlaceholderThemes */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PlaceholderThemes; path = "XML Based/PlaceholderThemes"; sourceTree = "<group>"; };
+		65FD16D90F97028D0008EEC9 /* Syntaxes */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Syntaxes; path = "XML Based/Syntaxes"; sourceTree = "<group>"; };
+		65FD16DD0F97028D0008EEC9 /* SyntaxInjections */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SyntaxInjections; path = "XML Based/SyntaxInjections"; sourceTree = "<group>"; };
+		65FD16E00F97028D0008EEC9 /* TextActions */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TextActions; path = "XML Based/TextActions"; sourceTree = "<group>"; };
+		8D5B49B6048680CD000E48DA /* PHP.sugar */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PHP.sugar; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D5B49B3048680CD000E48DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* CSS */ = {
+			isa = PBXGroup;
+			children = (
+				6588B5E70F9830170009D664 /* Icons */,
+				65633E8E0F97084A008F9159 /* Code */,
+				65FD16C80F97027D0008EEC9 /* XML Based */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
+				19C28FB8FE9D52D311CA2CBB /* Products */,
+			);
+			name = CSS;
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
+				1058C7AEFEA557BF11CA2CBB /* Other Frameworks */,
+			);
+			name = "Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D5B49B7048680CD000E48DA /* Info.plist */,
+				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7AEFEA557BF11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				089C167FFE841241C02AAC07 /* AppKit.framework */,
+				D2F7E65807B2D6F200F64583 /* CoreData.framework */,
+				089C1672FE841209C02AAC07 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB8FE9D52D311CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D5B49B6048680CD000E48DA /* PHP.sugar */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65633E8E0F97084A008F9159 /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				65633E8F0F970864008F9159 /* Itemizers */,
+			);
+			name = Code;
+			sourceTree = "<group>";
+		};
+		65633E8F0F970864008F9159 /* Itemizers */ = {
+			isa = PBXGroup;
+			children = (
+				65633EBE0F970B66008F9159 /* DRImportItem.h */,
+				65633EBF0F970B66008F9159 /* DRImportItem.m */,
+				6588B5FD0F9838A60009D664 /* DRClassItem.h */,
+				6588B5FE0F9838A60009D664 /* DRClassItem.m */,
+			);
+			name = Itemizers;
+			sourceTree = "<group>";
+		};
+		6588B5E70F9830170009D664 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				6588B5F90F9838890009D664 /* class.png */,
+				6588B5E80F9830250009D664 /* include.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		65FD16C80F97027D0008EEC9 /* XML Based */ = {
+			isa = PBXGroup;
+			children = (
+				65FD16C90F97028D0008EEC9 /* CodeSenseLibraries */,
+				65FD16CC0F97028D0008EEC9 /* CodeSenseProviders */,
+				65FD16CF0F97028D0008EEC9 /* ContextualSettings */,
+				65FD16D20F97028D0008EEC9 /* Itemizers */,
+				65FD16D50F97028D0008EEC9 /* Languages.xml */,
+				65FD16D60F97028D0008EEC9 /* PlaceholderThemes */,
+				65FD16D90F97028D0008EEC9 /* Syntaxes */,
+				65FD16DD0F97028D0008EEC9 /* SyntaxInjections */,
+				65FD16E00F97028D0008EEC9 /* TextActions */,
+			);
+			name = "XML Based";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D5B49AC048680CD000E48DA /* PHP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "PHP" */;
+			buildPhases = (
+				8D5B49AF048680CD000E48DA /* Resources */,
+				8D5B49B1048680CD000E48DA /* Sources */,
+				8D5B49B3048680CD000E48DA /* Frameworks */,
+				3D65765F0E991E6E009E9EB8 /* Copy XML Files */,
+				3D0E84440EC3EAA80022EEE4 /* Copy To Espresso */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PHP;
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = CSS;
+			productReference = 8D5B49B6048680CD000E48DA /* PHP.sugar */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "PHP.sugar" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 089C166AFE841209C02AAC07 /* CSS */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D5B49AC048680CD000E48DA /* PHP */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D5B49AF048680CD000E48DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
+				6588B5E90F9830250009D664 /* include.png in Resources */,
+				6588B5FA0F9838890009D664 /* class.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D5B49B1048680CD000E48DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65633EC00F970B66008F9159 /* DRImportItem.m in Sources */,
+				6588B5FF0F9838A60009D664 /* DRClassItem.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C167DFE841241C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C167EFE841241C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB913B08733D840010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = $ESPRESSO_PATH/Contents/MacOS/Espresso;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Code/Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				PRODUCT_NAME = PHP;
+				USER_HEADER_SEARCH_PATHS = $BUILT_PRODUCTS_DIR/Espresso.app/Contents/Headers;
+				WRAPPER_EXTENSION = sugar;
+			};
+			name = Debug;
+		};
+		1DEB913C08733D840010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = $ESPRESSO_PATH/Contents/MacOS/Espresso;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Code/XML+HTML_Prefix.pch";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				PRODUCT_NAME = PHP;
+				USER_HEADER_SEARCH_PATHS = $BUILT_PRODUCTS_DIR/Espresso.app/Contents/Headers;
+				WRAPPER_EXTENSION = sugar;
+			};
+			name = Release;
+		};
+		1DEB913F08733D840010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				BUNDLE_LOADER = "$(ESPRESSO_PATH)/Contents/MacOS/Espresso";
+				ESPRESSO_PATH = /Applications/Espresso.app;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(ESPRESSO_PATH)/Contents/Headers";
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		1DEB914008733D840010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				BUNDLE_LOADER = "$(ESPRESSO_PATH)/Contents/MacOS/Espresso";
+				ESPRESSO_PATH = /Applications/Espresso.app;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(ESPRESSO_PATH)/Contents/Headers";
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "PHP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB913B08733D840010E9CD /* Debug */,
+				1DEB913C08733D840010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "PHP.sugar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB913F08733D840010E9CD /* Debug */,
+				1DEB914008733D840010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}

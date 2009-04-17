@@ -212,7 +212,7 @@ THE SOFTWARE.
                     <expression>'</expression>
                     <capture number="0" name="delimiter.balanced.quote.single.end"/>
                 </ends-with>
-                <subzones>
+                <subzones name="content">
                     <zone name="literal.escape.brief">
                         <!-- 'A single-quoted string with \'escape sequences\'' -->
                         <expression>(\\)('|\\)</expression>
