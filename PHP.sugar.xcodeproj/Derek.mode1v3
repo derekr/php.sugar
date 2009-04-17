@@ -269,6 +269,7 @@
 								<string>65633E8F0F970864008F9159</string>
 								<string>65FD16C80F97027D0008EEC9</string>
 								<string>65FD16D20F97028D0008EEC9</string>
+								<string>65FD16D60F97028D0008EEC9</string>
 								<string>65FD16D90F97028D0008EEC9</string>
 								<string>089C167CFE841241C02AAC07</string>
 								<string>19C28FB8FE9D52D311CA2CBB</string>
@@ -280,12 +281,14 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>40</integer>
-									<integer>39</integer>
+									<integer>18</integer>
+									<integer>17</integer>
+									<integer>10</integer>
+									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 46}, {283, 675}}</string>
+							<string>{{0, 0}, {283, 675}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -322,7 +325,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>PHP.xml</string>
+								<string>PHP.css</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -330,11 +333,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>PHP.xml</string>
+										<string>PHP.css</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>653AED4F0F984DE700974793</string>
+										<string>6515FB5A0F992C0F00A75F1E</string>
 										<key>history</key>
 										<array>
 											<string>65633F600F971059008F9159</string>
@@ -349,7 +352,8 @@
 											<string>6588B60B0F983A9E0009D664</string>
 											<string>653087DE0F983FC300A99EB2</string>
 											<string>653087DF0F983FC300A99EB2</string>
-											<string>6559F5CA0F984DD200047D7B</string>
+											<string>6515FB530F98DA4000A75F1E</string>
+											<string>6515FB540F98DA4000A75F1E</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -366,6 +370,7 @@
 											<string>6588B6180F983A9E0009D664</string>
 											<string>6588B62A0F983A9E0009D664</string>
 											<string>6588B62C0F983A9E0009D664</string>
+											<string>6515FB550F98DA4000A75F1E</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -423,9 +428,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>653AED500F984DE700974793</string>
+				<string>6515FB580F98DA4000A75F1E</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>653AED510F984DE700974793</string>
+				<string>6515FB590F98DA4000A75F1E</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -559,7 +564,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>65FD14DC0F96FD5E0008EEC9</string>
 		<string>/Users/Derek/Documents/Git Repos/sugars/php-sugar/PHP.sugar.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
