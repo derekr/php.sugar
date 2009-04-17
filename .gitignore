@@ -1,43 +1,26 @@
-.DS_Store
-.LSOverride
-DRClassItem.h
-DRClassItem.m
-build/Debug/PHP.sugar/CodeSenseLibraries/PHP.xml
-build/Debug/PHP.sugar/CodeSenseProviders/PHP.xml
-build/Debug/PHP.sugar/Contents/Info.plist
-build/Debug/PHP.sugar/Contents/MacOS/PHP
-build/Debug/PHP.sugar/Contents/Resources/English.lproj/InfoPlist.strings
-build/Debug/PHP.sugar/Contents/Resources/class.png
-build/Debug/PHP.sugar/Contents/Resources/document__plus.png
-build/Debug/PHP.sugar/Contents/Resources/include.png
-build/Debug/PHP.sugar/ContextualSettings/Comment.xml
-build/Debug/PHP.sugar/Itemizers/PHP.xml
-build/Debug/PHP.sugar/Languages.xml
-build/Debug/PHP.sugar/PlaceholderThemes/PHP.css
-build/Debug/PHP.sugar/SyntaxInjections/EmbeddedPHP.xml
-build/Debug/PHP.sugar/Syntaxes/PHP+HTML.xml
-build/Debug/PHP.sugar/Syntaxes/PHP.xml
-build/Debug/PHP.sugar/TextActions/Categories.xml
-build/Debug/PHP.sugar/TextActions/Snippets.xml
-build/PHP.sugar.build/Debug/PHP.build/Objects-normal/i386/DRClassItem.o
-build/PHP.sugar.build/Debug/PHP.build/Objects-normal/i386/DRImportItem.o
-build/PHP.sugar.build/Debug/PHP.build/Objects-normal/i386/PHP.LinkFileList
-build/PHP.sugar.build/Debug/PHP.build/PHP-all-target-headers.hmap
-build/PHP.sugar.build/Debug/PHP.build/PHP-generated-files.hmap
-build/PHP.sugar.build/Debug/PHP.build/PHP-own-target-headers.hmap
-build/PHP.sugar.build/Debug/PHP.build/PHP-project-headers.hmap
-build/PHP.sugar.build/Debug/PHP.build/PHP.dep
-build/PHP.sugar.build/Debug/PHP.build/PHP.hmap
-build/PHP.sugar.build/Debug/PHP.build/PHP~.dep
-build/PHP.sugar.build/PHP.sugar.pbxindex/categories.pbxbtree
-build/PHP.sugar.build/PHP.sugar.pbxindex/cdecls.pbxbtree
-build/PHP.sugar.build/PHP.sugar.pbxindex/decls.pbxbtree
-build/PHP.sugar.build/PHP.sugar.pbxindex/files.pbxbtree
-build/PHP.sugar.build/PHP.sugar.pbxindex/imports.pbxbtree
-build/PHP.sugar.build/PHP.sugar.pbxindex/pbxindex.header
-build/PHP.sugar.build/PHP.sugar.pbxindex/protocols.pbxbtree
-build/PHP.sugar.build/PHP.sugar.pbxindex/refs.pbxbtree
-build/PHP.sugar.build/PHP.sugar.pbxindex/strings.pbxstrings/control
-build/PHP.sugar.build/PHP.sugar.pbxindex/strings.pbxstrings/strings
-build/PHP.sugar.build/PHP.sugar.pbxindex/subclasses.pbxbtree
-build/PHP.sugar.build/PHP.sugar.pbxindex/symbols0.pbxsymbols
+# This is initially compiled from the following sources:
+#     
+#     http://christopherroach.com/archives/35
+#     http://stackoverflow.com/questions/236151/best-practices-for-using-version-controlling-on-cocoa-projects
+#     http://boredzo.org/blog/archives/2008-03-20/hgignore-for-mac-os-x-applications
+#     http://shanesbrain.net/2008/7/9/using-xcode-with-git
+#     http://www.bluishcoder.co.nz/2007/09/git-binary-files-and-cherry-picking.html
+#     
+ 
+build
+ 
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.DS_Store
+*.LSOverride
+!default.pbxuser
+!default.mode1v3
+!default.mode2v3
+ 
+*.perspective
+*.perspectivev3
+ 
+*.swp
+*~.nib
+*~.xib
