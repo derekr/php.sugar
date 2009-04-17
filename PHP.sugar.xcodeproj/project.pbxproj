@@ -18,7 +18,7 @@
 		65633DBF0F9703C8008F9159 /* SyntaxInjections in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 65FD16DD0F97028D0008EEC9 /* SyntaxInjections */; };
 		65633DC00F9703C8008F9159 /* TextActions in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 65FD16E00F97028D0008EEC9 /* TextActions */; };
 		65633EC00F970B66008F9159 /* DRImportItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 65633EBF0F970B66008F9159 /* DRImportItem.m */; };
-		6563400C0F971A63008F9159 /* document__plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 6563400B0F971A63008F9159 /* document__plus.png */; };
+		6588B5E90F9830250009D664 /* include.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588B5E80F9830250009D664 /* include.png */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -63,7 +63,7 @@
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		65633EBE0F970B66008F9159 /* DRImportItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRImportItem.h; path = Code/Itemizer/DRImportItem.h; sourceTree = "<group>"; };
 		65633EBF0F970B66008F9159 /* DRImportItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRImportItem.m; path = Code/Itemizer/DRImportItem.m; sourceTree = "<group>"; };
-		6563400B0F971A63008F9159 /* document__plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = document__plus.png; path = icons/document__plus.png; sourceTree = "<group>"; };
+		6588B5E80F9830250009D664 /* include.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = include.png; path = icons/include.png; sourceTree = "<group>"; };
 		65FD16C90F97028D0008EEC9 /* CodeSenseLibraries */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CodeSenseLibraries; path = "XML Based/CodeSenseLibraries"; sourceTree = "<group>"; };
 		65FD16CC0F97028D0008EEC9 /* CodeSenseProviders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CodeSenseProviders; path = "XML Based/CodeSenseProviders"; sourceTree = "<group>"; };
 		65FD16CF0F97028D0008EEC9 /* ContextualSettings */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ContextualSettings; path = "XML Based/ContextualSettings"; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		089C166AFE841209C02AAC07 /* CSS */ = {
 			isa = PBXGroup;
 			children = (
-				6563400B0F971A63008F9159 /* document__plus.png */,
+				6588B5E70F9830170009D664 /* Icons */,
 				65633E8E0F97084A008F9159 /* Code */,
 				65FD16C80F97027D0008EEC9 /* XML Based */,
 				089C167CFE841241C02AAC07 /* Resources */,
@@ -164,6 +164,14 @@
 			name = Itemizers;
 			sourceTree = "<group>";
 		};
+		6588B5E70F9830170009D664 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				6588B5E80F9830250009D664 /* include.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
 		65FD16C80F97027D0008EEC9 /* XML Based */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,7 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
-				6563400C0F971A63008F9159 /* document__plus.png in Resources */,
+				6588B5E90F9830250009D664 /* include.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

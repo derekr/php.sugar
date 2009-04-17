@@ -58,10 +58,12 @@
 
 - (NSImage *)image
 {
-	NSString *path = [[NSBundle mainBundle] pathForResource:@"document__plus" ofType:@"png"];
-	NSImage *imageFile = [[NSImage alloc] initWithContentsOfFile:path];
-	[path release];
-	return imageFile;
+	NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"include" ofType:@"png"];
+	NSLog(@"path %@", path);
+	NSImage *image = [[NSImage alloc] initWithContentsOfFile:path];
+	NSLog(@"image %@", image);
+	[image autorelease];
+	return image;
 }
 
 - (BOOL)isTextualizer
