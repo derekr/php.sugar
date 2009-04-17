@@ -3,7 +3,7 @@
 //  PHP.sugar
 //
 //  Created by Derek Reynolds on 4/16/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 gridlee.com. All rights reserved.
 //
 
 #import "DRImportItem.h"
@@ -59,9 +59,7 @@
 - (NSImage *)image
 {
 	NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"include" ofType:@"png"];
-	NSLog(@"path %@", path);
 	NSImage *image = [[NSImage alloc] initWithContentsOfFile:path];
-	NSLog(@"image %@", image);
 	[image autorelease];
 	return image;
 }
@@ -73,7 +71,7 @@
 
 - (NSString *)title
 {
-	return [NSString stringWithFormat:@"Include: %@", name];
+	return name;
 }
 
 @end
