@@ -55,7 +55,7 @@
 	
 	if (![string isEqualToString:@""]) {
 		NSLog(@"-- %@", [[context selectedRanges] objectAtIndex:0]);
-		[panel setTitle:[NSString stringWithFormat:@"%@ - Basil Reference", string]];
+		[panel setTitle:[NSString stringWithFormat:@"%@ - PHP Reference", string]];
 		
 		NSLog(@"%@", string);
 		[webView setMainFrameURL:[self urlStringForWord:string]];
@@ -174,7 +174,7 @@
 {
 	NSString *string;
 	
-	[panel setTitle:[NSString stringWithFormat:@"%@ - Basil Reference", [lookupSearchField stringValue]]];
+	[panel setTitle:[NSString stringWithFormat:@"%@ - PHP Reference", [lookupSearchField stringValue]]];
 	NSLog(@"%@", [providerPopup selectedItem]);
 	if ([[[providerPopup selectedItem] title] isEqualToString:@"Google"]) {
 		string = [NSString stringWithFormat:@"http://google.com/search?q=%@", [lookupSearchField stringValue]];

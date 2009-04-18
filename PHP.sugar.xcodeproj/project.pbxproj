@@ -34,9 +34,9 @@
 		6585D4650F99846300A27E69 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6585D3F80F99811F00A27E69 /* Growl.framework */; };
 		6585D4A40F998CEC00A27E69 /* CSBasilSugarReference.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6585D4A30F998CEC00A27E69 /* CSBasilSugarReference.xib */; };
 		6585D4A80F998CFF00A27E69 /* CSBasilSugarShowReferenceAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6585D4A70F998CFF00A27E69 /* CSBasilSugarShowReferenceAction.m */; };
-		6585D4CC0F998DF200A27E69 /* CSBasilSugarCheckSyntaxAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6585D4C90F998DF200A27E69 /* CSBasilSugarCheckSyntaxAction.m */; };
 		6585D4CD0F998DF200A27E69 /* CSBasilSugarShowConsoleAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6585D4CB0F998DF200A27E69 /* CSBasilSugarShowConsoleAction.m */; };
 		6585D4F60F99A46300A27E69 /* TextActions in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 6585D4F40F99A45000A27E69 /* TextActions */; };
+		6585D54A0F99C64000A27E69 /* CSBasilSugarCheckSyntaxAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6585D5490F99C64000A27E69 /* CSBasilSugarCheckSyntaxAction.m */; };
 		6588B5E90F9830250009D664 /* include.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588B5E80F9830250009D664 /* include.png */; };
 		6588B5FA0F9838890009D664 /* class.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588B5F90F9838890009D664 /* class.png */; };
 		65E754D80F996BCD0004AADF /* DRClassItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E754D70F996BCD0004AADF /* DRClassItem.m */; };
@@ -114,11 +114,11 @@
 		6585D4A30F998CEC00A27E69 /* CSBasilSugarReference.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CSBasilSugarReference.xib; sourceTree = "<group>"; };
 		6585D4A60F998CFF00A27E69 /* CSBasilSugarShowReferenceAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSBasilSugarShowReferenceAction.h; sourceTree = "<group>"; };
 		6585D4A70F998CFF00A27E69 /* CSBasilSugarShowReferenceAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSBasilSugarShowReferenceAction.m; sourceTree = "<group>"; };
-		6585D4C80F998DF200A27E69 /* CSBasilSugarCheckSyntaxAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSBasilSugarCheckSyntaxAction.h; sourceTree = "<group>"; };
-		6585D4C90F998DF200A27E69 /* CSBasilSugarCheckSyntaxAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSBasilSugarCheckSyntaxAction.m; sourceTree = "<group>"; };
 		6585D4CA0F998DF200A27E69 /* CSBasilSugarShowConsoleAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSBasilSugarShowConsoleAction.h; sourceTree = "<group>"; };
 		6585D4CB0F998DF200A27E69 /* CSBasilSugarShowConsoleAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSBasilSugarShowConsoleAction.m; sourceTree = "<group>"; };
 		6585D4F40F99A45000A27E69 /* TextActions */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TextActions; path = "XML Based/TextActions"; sourceTree = "<group>"; };
+		6585D5480F99C64000A27E69 /* CSBasilSugarCheckSyntaxAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSBasilSugarCheckSyntaxAction.h; path = "Code/File Actions/CSBasilSugarCheckSyntaxAction.h"; sourceTree = "<group>"; };
+		6585D5490F99C64000A27E69 /* CSBasilSugarCheckSyntaxAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSBasilSugarCheckSyntaxAction.m; path = "Code/File Actions/CSBasilSugarCheckSyntaxAction.m"; sourceTree = "<group>"; };
 		6588B5E80F9830250009D664 /* include.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = include.png; path = icons/include.png; sourceTree = "<group>"; };
 		6588B5F90F9838890009D664 /* class.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = class.png; path = icons/class.png; sourceTree = "<group>"; };
 		65E754D60F996BCD0004AADF /* DRClassItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRClassItem.h; path = Code/Itemizer/DRClassItem.h; sourceTree = "<group>"; };
@@ -246,8 +246,6 @@
 		6585D4A50F998CFF00A27E69 /* Text Actions */ = {
 			isa = PBXGroup;
 			children = (
-				6585D4C80F998DF200A27E69 /* CSBasilSugarCheckSyntaxAction.h */,
-				6585D4C90F998DF200A27E69 /* CSBasilSugarCheckSyntaxAction.m */,
 				6585D4CA0F998DF200A27E69 /* CSBasilSugarShowConsoleAction.h */,
 				6585D4CB0F998DF200A27E69 /* CSBasilSugarShowConsoleAction.m */,
 				6585D4A60F998CFF00A27E69 /* CSBasilSugarShowReferenceAction.h */,
@@ -269,6 +267,8 @@
 		65E754E80F996CFD0004AADF /* FileActions */ = {
 			isa = PBXGroup;
 			children = (
+				6585D5480F99C64000A27E69 /* CSBasilSugarCheckSyntaxAction.h */,
+				6585D5490F99C64000A27E69 /* CSBasilSugarCheckSyntaxAction.m */,
 			);
 			name = FileActions;
 			sourceTree = "<group>";
@@ -364,8 +364,8 @@
 				65633EC00F970B66008F9159 /* DRImportItem.m in Sources */,
 				65E754D80F996BCD0004AADF /* DRClassItem.m in Sources */,
 				6585D4A80F998CFF00A27E69 /* CSBasilSugarShowReferenceAction.m in Sources */,
-				6585D4CC0F998DF200A27E69 /* CSBasilSugarCheckSyntaxAction.m in Sources */,
 				6585D4CD0F998DF200A27E69 /* CSBasilSugarShowConsoleAction.m in Sources */,
+				6585D54A0F99C64000A27E69 /* CSBasilSugarCheckSyntaxAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
