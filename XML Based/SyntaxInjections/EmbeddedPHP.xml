@@ -25,11 +25,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <injections>	
-	<!-- Injecting PHP syntax in to open-tag (<body <?= $class; ?>>) zones -->
-    <injection name="com.gridlee.injections.php-html" selector="source.php *" action="attach-before-target">
-        <include syntax="sourcecode.php" />
-        <cut-off>\?\></cut-off>
-	</injection>
+	
 	
 	<!-- Injecting PHP syntax in to open-tag (<body <?= $class; ?>>) zones -->
     <injection name="com.gridlee.injections.php-html.tag" selector="source.php tag.open" action="insert-before-children">

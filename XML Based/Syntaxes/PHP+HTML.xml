@@ -26,7 +26,7 @@ THE SOFTWARE.
 -->
 <syntax name="source.php.html">
 	<zones>
-		
+		<include syntax="sourcecode.php" />
 		<include syntax="text.html.basic" />
 		
 	</zones>

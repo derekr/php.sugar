@@ -26,7 +26,7 @@ THE SOFTWARE.
 -->
 <settings>
 
-	<language id="com.gridlee.Programming.PHP" hidden="true">
+	<language id="com.gridlee.Programming.PHP.Standard" hidden="true">
 		<name>PHP Standard</name>
 		<root-zone>sourcecode.php</root-zone>
 		
@@ -54,7 +54,7 @@ THE SOFTWARE.
 		
 	</language>
 
-    <language id="com.gridlee.Declarative.Programming.PHP.HTML">
+    <language id="com.gridlee.Declarative.Programming.PHP">
 		<name>PHP</name>
 		<root-zone>source.php.html</root-zone>
 		
