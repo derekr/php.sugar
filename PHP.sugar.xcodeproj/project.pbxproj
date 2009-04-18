@@ -16,11 +16,15 @@
 		65633DBD0F9703C8008F9159 /* PlaceholderThemes in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 65FD16D60F97028D0008EEC9 /* PlaceholderThemes */; };
 		65633DBE0F9703C8008F9159 /* Syntaxes in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 65FD16D90F97028D0008EEC9 /* Syntaxes */; };
 		65633DBF0F9703C8008F9159 /* SyntaxInjections in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 65FD16DD0F97028D0008EEC9 /* SyntaxInjections */; };
-		65633DC00F9703C8008F9159 /* TextActions in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 65FD16E00F97028D0008EEC9 /* TextActions */; };
 		65633EC00F970B66008F9159 /* DRImportItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 65633EBF0F970B66008F9159 /* DRImportItem.m */; };
 		6588B5E90F9830250009D664 /* include.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588B5E80F9830250009D664 /* include.png */; };
 		6588B5FA0F9838890009D664 /* class.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588B5F90F9838890009D664 /* class.png */; };
 		65E754D80F996BCD0004AADF /* DRClassItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E754D70F996BCD0004AADF /* DRClassItem.m */; };
+		65E754EB0F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E754EA0F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.m */; };
+		65E755250F996E1C0004AADF /* FileActions in Resources */ = {isa = PBXBuildFile; fileRef = 65E755210F996E1C0004AADF /* FileActions */; };
+		65E755260F996E270004AADF /* FileActions in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 65E755210F996E1C0004AADF /* FileActions */; };
+		65E755460F996F790004AADF /* TextActions in Resources */ = {isa = PBXBuildFile; fileRef = 65E755410F996F790004AADF /* TextActions */; };
+		65E755470F996F820004AADF /* TextActions in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 65E755410F996F790004AADF /* TextActions */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -43,15 +47,16 @@
 			dstPath = "";
 			dstSubfolderSpec = 1;
 			files = (
+				65E755470F996F820004AADF /* TextActions in Copy XML Files */,
 				65633DB80F9703C8008F9159 /* CodeSenseLibraries in Copy XML Files */,
 				65633DB90F9703C8008F9159 /* CodeSenseProviders in Copy XML Files */,
+				65E755260F996E270004AADF /* FileActions in Copy XML Files */,
 				65633DBA0F9703C8008F9159 /* ContextualSettings in Copy XML Files */,
 				65633DBB0F9703C8008F9159 /* Itemizers in Copy XML Files */,
 				65633DBC0F9703C8008F9159 /* Languages.xml in Copy XML Files */,
 				65633DBD0F9703C8008F9159 /* PlaceholderThemes in Copy XML Files */,
 				65633DBE0F9703C8008F9159 /* Syntaxes in Copy XML Files */,
 				65633DBF0F9703C8008F9159 /* SyntaxInjections in Copy XML Files */,
-				65633DC00F9703C8008F9159 /* TextActions in Copy XML Files */,
 			);
 			name = "Copy XML Files";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +74,10 @@
 		6588B5F90F9838890009D664 /* class.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = class.png; path = icons/class.png; sourceTree = "<group>"; };
 		65E754D60F996BCD0004AADF /* DRClassItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRClassItem.h; path = Code/Itemizer/DRClassItem.h; sourceTree = "<group>"; };
 		65E754D70F996BCD0004AADF /* DRClassItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRClassItem.m; path = Code/Itemizer/DRClassItem.m; sourceTree = "<group>"; };
+		65E754E90F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSBasilSugarCheckSyntaxAction.h; path = "Code/File Actions/CSBasilSugarCheckSyntaxAction.h"; sourceTree = "<group>"; };
+		65E754EA0F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSBasilSugarCheckSyntaxAction.m; path = "Code/File Actions/CSBasilSugarCheckSyntaxAction.m"; sourceTree = "<group>"; };
+		65E755210F996E1C0004AADF /* FileActions */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FileActions; path = "XML Based/FileActions"; sourceTree = "<group>"; };
+		65E755410F996F790004AADF /* TextActions */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TextActions; path = "XML Based/TextActions"; sourceTree = "<group>"; };
 		65FD16C90F97028D0008EEC9 /* CodeSenseLibraries */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CodeSenseLibraries; path = "XML Based/CodeSenseLibraries"; sourceTree = "<group>"; };
 		65FD16CC0F97028D0008EEC9 /* CodeSenseProviders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CodeSenseProviders; path = "XML Based/CodeSenseProviders"; sourceTree = "<group>"; };
 		65FD16CF0F97028D0008EEC9 /* ContextualSettings */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ContextualSettings; path = "XML Based/ContextualSettings"; sourceTree = "<group>"; };
@@ -77,7 +86,6 @@
 		65FD16D60F97028D0008EEC9 /* PlaceholderThemes */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PlaceholderThemes; path = "XML Based/PlaceholderThemes"; sourceTree = "<group>"; };
 		65FD16D90F97028D0008EEC9 /* Syntaxes */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Syntaxes; path = "XML Based/Syntaxes"; sourceTree = "<group>"; };
 		65FD16DD0F97028D0008EEC9 /* SyntaxInjections */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SyntaxInjections; path = "XML Based/SyntaxInjections"; sourceTree = "<group>"; };
-		65FD16E00F97028D0008EEC9 /* TextActions */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TextActions; path = "XML Based/TextActions"; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* PHP.sugar */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PHP.sugar; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -155,6 +163,7 @@
 		65633E8E0F97084A008F9159 /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				65E754E80F996CFD0004AADF /* FileActions */,
 				65633E8F0F970864008F9159 /* Itemizers */,
 			);
 			name = Code;
@@ -180,9 +189,20 @@
 			name = Icons;
 			sourceTree = "<group>";
 		};
+		65E754E80F996CFD0004AADF /* FileActions */ = {
+			isa = PBXGroup;
+			children = (
+				65E754E90F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.h */,
+				65E754EA0F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.m */,
+			);
+			name = FileActions;
+			sourceTree = "<group>";
+		};
 		65FD16C80F97027D0008EEC9 /* XML Based */ = {
 			isa = PBXGroup;
 			children = (
+				65E755410F996F790004AADF /* TextActions */,
+				65E755210F996E1C0004AADF /* FileActions */,
 				65FD16C90F97028D0008EEC9 /* CodeSenseLibraries */,
 				65FD16CC0F97028D0008EEC9 /* CodeSenseProviders */,
 				65FD16CF0F97028D0008EEC9 /* ContextualSettings */,
@@ -191,7 +211,6 @@
 				65FD16D60F97028D0008EEC9 /* PlaceholderThemes */,
 				65FD16D90F97028D0008EEC9 /* Syntaxes */,
 				65FD16DD0F97028D0008EEC9 /* SyntaxInjections */,
-				65FD16E00F97028D0008EEC9 /* TextActions */,
 			);
 			name = "XML Based";
 			sourceTree = "<group>";
@@ -244,6 +263,8 @@
 				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
 				6588B5E90F9830250009D664 /* include.png in Resources */,
 				6588B5FA0F9838890009D664 /* class.png in Resources */,
+				65E755250F996E1C0004AADF /* FileActions in Resources */,
+				65E755460F996F790004AADF /* TextActions in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +277,7 @@
 			files = (
 				65633EC00F970B66008F9159 /* DRImportItem.m in Sources */,
 				65E754D80F996BCD0004AADF /* DRClassItem.m in Sources */,
+				65E754EB0F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

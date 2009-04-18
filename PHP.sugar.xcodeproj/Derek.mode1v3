@@ -268,21 +268,18 @@
 								<string>089C166AFE841209C02AAC07</string>
 								<string>6588B5E70F9830170009D664</string>
 								<string>65633E8E0F97084A008F9159</string>
-								<string>65633E8F0F970864008F9159</string>
 								<string>65FD16C80F97027D0008EEC9</string>
-								<string>65FD16D20F97028D0008EEC9</string>
-								<string>65FD16D60F97028D0008EEC9</string>
 								<string>65FD16D90F97028D0008EEC9</string>
-								<string>089C167CFE841241C02AAC07</string>
 								<string>1C37FBAC04509CD000000102</string>
+								<string>65E755330F996E310004AADF</string>
 								<string>1C37FAAC04509CD000000102</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>30</integer>
-									<integer>29</integer>
+									<integer>24</integer>
+									<integer>23</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
@@ -305,7 +302,7 @@
 							<real>283</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>165 199 1236 734 0 0 1920 1178 </string>
+						<string>381 229 1236 734 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -321,7 +318,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>DRImportItem.m</string>
+								<string>CSBasilSugarCheckSyntaxAction.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -329,11 +326,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>DRImportItem.m</string>
+										<string>CSBasilSugarCheckSyntaxAction.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>65E754E70F996BE50004AADF</string>
+										<string>65E755560F996F8B0004AADF</string>
 										<key>history</key>
 										<array>
 											<string>65633F600F971059008F9159</string>
@@ -352,7 +349,9 @@
 											<string>65108A8C0F99552D00D256E7</string>
 											<string>65108A8E0F99552D00D256E7</string>
 											<string>65E754E50F996BE50004AADF</string>
-											<string>6588B6080F983A9E0009D664</string>
+											<string>65E755350F996E310004AADF</string>
+											<string>65E755360F996E310004AADF</string>
+											<string>65E755550F996F8B0004AADF</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -374,6 +373,9 @@
 											<string>65108A930F99552D00D256E7</string>
 											<string>65108A950F99552D00D256E7</string>
 											<string>65E754E60F996BE50004AADF</string>
+											<string>65E755380F996E310004AADF</string>
+											<string>65E755390F996E310004AADF</string>
+											<string>65E7553A0F996E310004AADF</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -387,7 +389,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {931, 515}}</string>
 								<key>RubberWindowFrame</key>
-								<string>165 199 1236 734 0 0 1920 1178 </string>
+								<string>381 229 1236 734 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -407,7 +409,7 @@
 								<key>Frame</key>
 								<string>{{0, 520}, {931, 173}}</string>
 								<key>RubberWindowFrame</key>
-								<string>165 199 1236 734 0 0 1920 1178 </string>
+								<string>381 229 1236 734 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -571,7 +573,7 @@
 		<string>/Users/Derek/Documents/Git Repos/sugars/php-sugar/PHP.sugar.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>165 199 1236 734 0 0 1920 1178 </string>
+	<string>381 229 1236 734 0 0 1920 1178 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>

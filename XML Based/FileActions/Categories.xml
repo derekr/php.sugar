@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<action-categories>
+	<category id="actions.file.PHP" show="sub">
+		<title>PHP</title>
+	</category>
+</action-categories>
