@@ -34,7 +34,7 @@ THE SOFTWARE.
     <title>Show Console...</title>
     <key-equivalent>cmd shift L</key-equivalent>
     <setup>
-      <filename>/Users/npenree/Developer/Test/www/Resources/Logs/php_errors.log</filename>
+      <filename>/Applications/MAMP/logs/php_error.log</filename>
     </setup>
   </action>
   
