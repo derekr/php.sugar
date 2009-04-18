@@ -23,6 +23,7 @@ Always looking for suggestions and ideas for improving the sugar. Feel free to d
     * SQL (within php strings)
 
 Thanks for [Nicholas](http://conceitedsoftware.com/) the PHP.sugar now offers
+
 * Syntax checking (will check for basic syntax errors like missing semi-colons)
 * Error-Log Console (need to set path to error-log file in the TextActions.xml file; defaults to MAMP's default location)
 * PHP Reference lookup (via apple, google or php.net)
