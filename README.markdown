@@ -1,6 +1,6 @@
 # PHP.sugar
 
-> Version beta5
+> Version 1.0b5
 
 ## Contributors
 
