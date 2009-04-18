@@ -114,11 +114,17 @@ THE SOFTWARE.
 		</subrecipes>
 	</recipe>
 	
+	<recipe name="literal.string.heredoc.hidden">
+		<class>ESBaseItem</class>
+		<start-selector>heredoc > begin:capture(itemizer-firstused)</start-selector>
+		<end-selector>heredoc.end</end-selector>
+	</recipe>
+	
 	<!-- Defining an include -->
-	<recipe name="include">
+	<!-- <recipe name="include">
 		<class>DRImportItem</class>
 		<selector>:(keyword.include + string:has-child(content:capture(name)))</selector>
-	</recipe>
+	</recipe> -->
 	
 	<recipe name="built-in.comment">
 	    <class>ESCommentItem</class>

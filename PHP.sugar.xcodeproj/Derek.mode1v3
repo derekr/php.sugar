@@ -228,8 +228,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -274,8 +272,6 @@
 								<string>65FD16D60F97028D0008EEC9</string>
 								<string>65FD16D90F97028D0008EEC9</string>
 								<string>089C167CFE841241C02AAC07</string>
-								<string>19C28FB8FE9D52D311CA2CBB</string>
-								<string>8D5B49B6048680CD000E48DA</string>
 								<string>1C37FBAC04509CD000000102</string>
 								<string>1C37FAAC04509CD000000102</string>
 								<string>1C37FABC05509CD000000102</string>
@@ -283,12 +279,12 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>41</integer>
-									<integer>40</integer>
+									<integer>30</integer>
+									<integer>29</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 175}, {283, 675}}</string>
+							<string>{{0, 0}, {283, 675}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -318,12 +314,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>PHP.css</string>
+								<string>PHP.xml</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -331,11 +329,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>PHP.css</string>
+										<string>PHP.xml</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>65108A770F9942B500D256E7</string>
+										<string>65E754D40F9956390004AADF</string>
 										<key>history</key>
 										<array>
 											<string>65633F600F971059008F9159</string>
@@ -350,8 +348,11 @@
 											<string>6588B60B0F983A9E0009D664</string>
 											<string>653087DE0F983FC300A99EB2</string>
 											<string>653087DF0F983FC300A99EB2</string>
-											<string>6515FB530F98DA4000A75F1E</string>
-											<string>6515FB5A0F992C0F00A75F1E</string>
+											<string>65108A890F99552D00D256E7</string>
+											<string>65108A8A0F99552D00D256E7</string>
+											<string>65108A8C0F99552D00D256E7</string>
+											<string>65108A8E0F99552D00D256E7</string>
+											<string>65108A990F99552D00D256E7</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -368,6 +369,10 @@
 											<string>6588B6180F983A9E0009D664</string>
 											<string>6588B62A0F983A9E0009D664</string>
 											<string>6588B62C0F983A9E0009D664</string>
+											<string>65108A900F99552D00D256E7</string>
+											<string>65108A910F99552D00D256E7</string>
+											<string>65108A930F99552D00D256E7</string>
+											<string>65108A950F99552D00D256E7</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -425,9 +430,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>65108A780F9942B500D256E7</string>
+				<string>65E754CB0F99554A0004AADF</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>65108A790F9942B500D256E7</string>
+				<string>65E754CC0F99554A0004AADF</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -642,7 +647,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>65FD14DC0F96FD5E0008EEC9</string>
-				<string>65108A7A0F9942B500D256E7</string>
+				<string>65E754CD0F99554A0004AADF</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
