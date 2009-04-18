@@ -26,19 +26,19 @@ THE SOFTWARE.
 -->
 <injections>	
 	<!-- Injecting PHP syntax in to open-tag (<body <?= $class; ?>>) zones -->
-    <injection name="com.gridlee.injections.php-html" selector="php.html *" action="attach-before-target">
+    <injection name="com.gridlee.injections.php-html" selector="source.php *" action="attach-before-target">
         <include syntax="sourcecode.php" />
         <cut-off>\?\></cut-off>
 	</injection>
 	
 	<!-- Injecting PHP syntax in to open-tag (<body <?= $class; ?>>) zones -->
-    <injection name="com.gridlee.injections.php-html.tag" selector="php.html tag.open" action="insert-before-children">
+    <injection name="com.gridlee.injections.php-html.tag" selector="source.php tag.open" action="insert-before-children">
         <include syntax="sourcecode.php" />
         <cut-off>\?\></cut-off>
 	</injection>
 	
 	<!-- Injecting PHP syntax in to open-tag (<body <?= $class; ?>>) zones -->
-    <injection name="com.gridlee.injections.php-html.tag" selector="php.html attribute-value.string" action="insert-before-children">
+    <injection name="com.gridlee.injections.php-html.tag" selector="source.php attribute-value.string" action="insert-before-children">
         <include syntax="sourcecode.php" />
         <cut-off>\?\></cut-off>
 	</injection>
