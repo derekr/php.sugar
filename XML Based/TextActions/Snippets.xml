@@ -26,7 +26,7 @@ THE SOFTWARE.
 -->
 <action-recipes>
 	
-	<snippet id="com.gridlee.TextActions.PHP.IfElse" category="actions.text.PHP/php.snippets">
+	<snippet id="com.gridlee.TextActions.PHP.IfElse" category="actions.text.PHP/php.tools.Snippets.control">
 		<title>If/Else</title>
 		<text><![CDATA[if (${1:...}) {
 	$2
@@ -37,41 +37,41 @@ else if (${4:...}) {
 else {
 	$6
 }]]></text>
-		<syntax-context>source.php, source.php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<syntax-context>container.block.source.php, container.block.source.php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>if</text-trigger>
 	</snippet>
 	
-	<snippet id="com.gridlee.TextActions.PHP.ForeachArray" category="actions.text.PHP/php.snippets">
+	<snippet id="com.gridlee.TextActions.PHP.ForeachArray" category="actions.text.PHP/php.tools.Snippets.control">
 		<title>Foreach</title>
 		<text><![CDATA[foreach (\$${1:array} as \$${2:value|key}${3: => \$${4:value}})
 {
 	${0://code}
 }]]></text>
-		<syntax-context>source.php, source.php > *:not(metadata.comment, string, variable, control.block, function, class)</syntax-context>
+		<syntax-context>container.block.source.php, container.block.source.php > *:not(metadata.comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>foreach</text-trigger>
 	</snippet>
 	
-	<snippet id="com.gridlee.TextActions.PHP.For" category="actions.text.PHP/php.snippets">
+	<snippet id="com.gridlee.TextActions.PHP.For" category="actions.text.PHP/php.tools.Snippets.control">
 		<title>For</title>
 		<text><![CDATA[for (\$${1:i} = ${2:n}; \$${3:${1:i}} ${4:<} ${5:n}; \$${6:${1:i}}++;)
 {
 	${0://code}
 }]]></text>
-		<syntax-context>source.php, source.php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<syntax-context>container.block.source.php, container.block.source.php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>for</text-trigger>
 	</snippet>
 	
-	<snippet id="com.gridlee.TextActions.PHP.While" category="actions.text.PHP/php.snippets">
+	<snippet id="com.gridlee.TextActions.PHP.While" category="actions.text.PHP/php.tools.Snippets.control">
 		<title>While</title>
 		<text><![CDATA[while (${1:condition})
 {
 	${0://code}
 }]]></text>
-		<syntax-context>source.php, source.php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<syntax-context>container.block.source.php, container.block.source.php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>while</text-trigger>
 	</snippet>
 	
-	<snippet id="com.gridlee.TextActions.PHP.DoWhile" category="actions.text.PHP/php.snippets">
+	<snippet id="com.gridlee.TextActions.PHP.DoWhile" category="actions.text.PHP/php.tools.Snippets.control">
 		<title>Do While</title>
 		<text><![CDATA[do
 {
@@ -81,11 +81,11 @@ while (${2:condition})
 {
 	${0://code}
 }]]></text>
-		<syntax-context>source.php, source.php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<syntax-context>container.block.source.php, container.block.source.php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>dowhile</text-trigger>
 	</snippet>
 	
-	<snippet id="com.gridlee.TextActions.PHP.Switch" category="actions.text.PHP/php.snippets">
+	<snippet id="com.gridlee.TextActions.PHP.Switch" category="actions.text.PHP/php.tools.Snippets.control">
 		<title>Switch</title>
 		<text>
 <![CDATA[switch (\$${1:condition})
@@ -99,11 +99,11 @@ while (${2:condition})
         break;}
 }]]>
         </text>
-		<syntax-context>source.php, source.php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<syntax-context>container.block.source.php, container.block.source.php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>switch</text-trigger>
 	</snippet>
 	
-	<snippet id="com.gridlee.TextActions.PHP.Class" category="actions.text.PHP/php.snippets">
+	<snippet id="com.gridlee.TextActions.PHP.Class" category="actions.text.PHP/php.tools.Snippets.container">
 		<title>Class</title>
 		<text><![CDATA[${1:/**
  * ${2:className}
@@ -116,11 +116,11 @@ ${5:${6:abstract }class ${7:${2:ClassName}}${8: ${9:extends${10: ExtendedClassNa
 {
 	${0://code}
 }]]></text>
-		<syntax-context>source.php, source.php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<syntax-context>container.block.source.php, container.block.source.php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
 		<text-trigger>class</text-trigger>
 	</snippet>
 	
-	<snippet id="com.gridlee.TextActions.PHP.Function" category="actions.text.PHP/php.snippets">
+	<snippet id="com.gridlee.TextActions.PHP.Function" category="actions.text.PHP/php.tools.Snippets.container">
 		<title>Function</title>
 		<text><![CDATA[${1:/**
  * ${2:function description}
@@ -133,11 +133,11 @@ ${8:static|public|protected|private }function ${9:functionName}(\$${10:${6}})
 {
 	${0://code}
 }]]></text>
-		<syntax-context>source.php, source.php > *:not(comment, string, variable, control.block, function)</syntax-context>
+		<syntax-context>container.block.source.php, container.block.source.php > *:not(comment, string, variable, control.block, function)</syntax-context>
 		<text-trigger>function</text-trigger>
 	</snippet>
 	
-	<snippet id="com.gridlee.TextActions.PHP.Variable" category="actions.text.PHP/php.snippets">
+	<snippet id="com.gridlee.TextActions.PHP.Variable" category="actions.text.PHP/php.tools.Snippets.misc">
 		<title>Variable</title>
 		<text><![CDATA[${1:/**
  * ${2:variable description}
@@ -145,11 +145,11 @@ ${8:static|public|protected|private }function ${9:functionName}(\$${10:${6}})
  * @var ${3:variable type}
  */}
 ${4:static|public|protected|private }\$${5:variableName}${6: = ${7:null};}]]></text>
-		<syntax-context>source.php, source.php > *:not(comment, string, variable, control.block, function)</syntax-context>
+		<syntax-context>container.block.source.php, container.block.source.php > *:not(comment, string, variable, control.block, function)</syntax-context>
 		<text-trigger>var</text-trigger>
 	</snippet>
 	
-	<snippet id="com.gridlee.TextActions.PHP.PHPDoc" category="actions.text.PHP/php.snippets">
+	<snippet id="com.gridlee.TextActions.PHP.PHPDoc" category="actions.text.PHP/php.tools.Snippets.documentation">
 		<title>PHP Doc</title>
 		<text><![CDATA[/**${1:
  * ${2:description|class/function name}
@@ -159,7 +159,7 @@ ${4:static|public|protected|private }\$${5:variableName}${6: = ${7:null};}]]></t
  * @author ${6:your name}}${7:
  * @${8:tag} ${9:value}}
  */]]></text>
-		<syntax-context>source.php, source.php > *:not(comment, string, variable, control.block, function)</syntax-context>
+		<syntax-context>container.block.source.php, container.block.source.php > *:not(comment, string, variable, control.block, function)</syntax-context>
 		<text-trigger>doc</text-trigger>
 	</snippet>
 </action-recipes>

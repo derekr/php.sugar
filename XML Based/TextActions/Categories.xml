@@ -30,6 +30,10 @@ THE SOFTWARE.
 		<title>PHP</title>
 	</category>
     
-    <category id="php.utilities" show="inline separated"></category>
-    <category id="php.snippets" show="inline separated"></category>
+    <category id="php.tools.Utilities" show="inline separated"></category>
+    <category id="php.tools.Snippets" show="inline separated"></category>
+    <category id="php.tools.Snippets.control" show="inline separated"></category>
+    <category id="php.tools.Snippets.container" show="inline separated"></category>
+    <category id="php.tools.Snippets.misc" show="inline separated"></category>
+    <category id="php.tools.Snippets.documentation" show="inline separated"></category>
 </action-categories>

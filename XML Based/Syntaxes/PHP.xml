@@ -199,6 +199,51 @@ THE SOFTWARE.
                 </subzones>
             </zone>
             
+            <!-- HTML Strings -->
+            <zone name="literal.string.html.quoted.single">
+                <starts-with>
+                    <expression>(')(?=(&lt;)(html|body|title|div|span|p|ol|ul|li|dl|dt|dd)\b)</expression>
+                    <capture number="1" name="delimiter.balanced.quote.single.begin"/>
+                    <capture number="2" name="html.tag.open"/>
+                </starts-with>
+                <ends-with>
+                    <expression>'</expression>
+                    <capture number="0" name="delimiter.balanced.quote.single.end"/>
+                </ends-with>
+                <subzones>
+                    <cut-off>'</cut-off>
+                    <include syntax="text.html.basic" />
+                    <zone name="literal.escape.brief">
+                        <!-- 'A single-quoted string with \'escape sequences\'' -->
+                        <expression>(\\)('|\\)</expression>
+                        <capture number="1" name="delimiter.seperator.escape"/>
+                        <capture number="2" name="character"/>
+                    </zone>
+                </subzones>
+            </zone>
+            
+            <zone name="literal.string.html.quoted.double">
+                <starts-with>
+                    <expression>(")(?=(&lt;)(html|body|title|div|span|p|ol|ul|li|dl|dt|dd)\b)</expression>
+                    <capture number="1" name="delimiter.balanced.quote.double.begin"/>
+                    <capture number="2" name="keyword.control.sql"/>
+                </starts-with>
+                <ends-with>
+                    <expression>"</expression>
+                    <capture number="0" name="delimiter.balanced.quote.double.end"/>
+                </ends-with>
+                <subzones>
+                    <cut-off>"</cut-off>
+                    <include syntax="text.html.basic" />
+                    <zone name="literal.escape.brief">
+                        <!-- "A double-quoted string with \"escape sequences\"" -->
+                        <expression>(\\)("|\\)</expression>
+                        <capture number="1" name="delimiter.seperator.escape"/>
+                        <capture number="2" name="character"/>
+                    </zone>
+                </subzones>
+            </zone>
+            
             <!-- Regex Strings -->
             
             
@@ -212,7 +257,7 @@ THE SOFTWARE.
                     <expression>'</expression>
                     <capture number="0" name="delimiter.balanced.quote.single.end"/>
                 </ends-with>
-                <subzones name="content">
+                <subzones>
                     <zone name="literal.escape.brief">
                         <!-- 'A single-quoted string with \'escape sequences\'' -->
                         <expression>(\\)('|\\)</expression>
@@ -245,7 +290,8 @@ THE SOFTWARE.
             <zone name="literal.string.unquoted.heredoc">
                 <starts-with>
                     <expression>(&lt;{3})(\w+)</expression>
-                    <capture number="0" name="delimiter.heredoc.begin" />
+                    <capture number="1" name="delimiter.heredoc.begin" />
+                    <capture number="2" name="token" />
                 </starts-with>
                 <ends-with>
                     <expression>\2</expression>

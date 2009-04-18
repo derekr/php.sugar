@@ -29,7 +29,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <action-recipes>
-  <action id="com.conceitedsoftware.TextActions.BasilSugar.CSBasilSugarShowConsoleAction" category="actions.text.PHP/php.utilities">
+  <action id="com.conceitedsoftware.TextActions.BasilSugar.CSBasilSugarShowConsoleAction" category="actions.text.PHP/php.tools.Utilities">
     <class>CSBasilSugarShowConsoleAction</class>
     <title>Show Console...</title>
     <key-equivalent>cmd shift L</key-equivalent>
@@ -38,7 +38,7 @@ THE SOFTWARE.
     </setup>
   </action>
   
-  <action id="com.conceitedsoftware.TextActions.BasilSugar.CSBasilSugarCheckSyntaxAction" category="actions.text.PHP/php.utilities">
+  <action id="com.conceitedsoftware.TextActions.BasilSugar.CSBasilSugarCheckSyntaxAction" category="actions.text.PHP/php.tools.Utilities">
     <class>CSBasilSugarCheckSyntaxAction</class>
     <title>Check Syntax...</title>
     <key-equivalent>cmd shift ;</key-equivalent>
@@ -47,7 +47,7 @@ THE SOFTWARE.
     </setup>
   </action>
   
-  <action id="com.conceitedsoftware.TextActions.BasilSugar.CSBasilSugarShowReferenceAction" category="actions.text.PHP/php.utilities">
+  <action id="com.conceitedsoftware.TextActions.BasilSugar.CSBasilSugarShowReferenceAction" category="actions.text.PHP/php.tools.Utilities">
     <class>CSBasilSugarShowReferenceAction</class>
     <title>Show Documenation...</title>
     <key-equivalent>cmd shift H</key-equivalent>
