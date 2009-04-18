@@ -4,8 +4,8 @@
 
 ## Contributors
 
-* Derek Reynolds <derekr@me.com>, [](http://whatupderek.com), [](http://gridlee.com)
-* Nicholas Penree <drudge@conceitedsoftware.com>, [](http://conceitedsoftware.com/)
+* Derek Reynolds <derekr@me.com>, [http://whatupderek.com](http://whatupderek.com), [http://gridlee.com](http://gridlee.com)
+* Nicholas Penree <drudge@conceitedsoftware.com>, [http://conceitedsoftware.com/](http://conceitedsoftware.com/)
 
 ## About
 
@@ -16,7 +16,7 @@ Always looking for suggestions and ideas for improving the sugar. Feel free to d
 ## Features
 
 * Syntax Highlighting (if we're missing something, let us know)
-* Codesense for built-in PHP functions, global variables, magic variables (__FILE__)
+* Codesense for built-in PHP functions, global variables, magic variables (`__FILE__`)
 * Classes, control blocks, function definitions, class properties and constants all show up in the code navigator
 * Support for embedded languages
     * HTML (within php strings and outside of php blocks `<?php ... ?>`)
