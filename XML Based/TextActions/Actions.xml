@@ -50,7 +50,7 @@ THE SOFTWARE.
   <action id="com.conceitedsoftware.TextActions.BasilSugar.CSBasilSugarShowReferenceAction" category="actions.text.PHP/php.utilities">
     <class>CSBasilSugarShowReferenceAction</class>
     <title>Show Documenation...</title>
-    <key-equivalent>cmd shift '</key-equivalent>
+    <key-equivalent>cmd shift H</key-equivalent>
     <setup>
     </setup>
   </action>

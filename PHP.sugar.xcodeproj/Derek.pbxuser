@@ -97,6 +97,10 @@
 			6585D4110F99815800A27E69 /* PBXTextBookmark */ = 6585D4110F99815800A27E69 /* PBXTextBookmark */;
 			6585D4600F99836900A27E69 /* PBXTextBookmark */ = 6585D4600F99836900A27E69 /* PBXTextBookmark */;
 			6585D4730F99846900A27E69 /* PBXTextBookmark */ = 6585D4730F99846900A27E69 /* PBXTextBookmark */;
+			6585D4B80F998DCC00A27E69 /* PBXTextBookmark */ = 6585D4B80F998DCC00A27E69 /* PBXTextBookmark */;
+			6585D4B90F998DCC00A27E69 /* PBXBookmark */ = 6585D4B90F998DCC00A27E69 /* PBXBookmark */;
+			6585D4BA0F998DCC00A27E69 /* PBXTextBookmark */ = 6585D4BA0F998DCC00A27E69 /* PBXTextBookmark */;
+			6585D4BB0F998DCC00A27E69 /* PBXTextBookmark */ = 6585D4BB0F998DCC00A27E69 /* PBXTextBookmark */;
 			6588B5F30F9834B50009D664 = 6588B5F30F9834B50009D664 /* PBXBookmark */;
 			6588B5F50F9834B50009D664 = 6588B5F50F9834B50009D664 /* PBXBookmark */;
 			6588B6030F983A9E0009D664 = 6588B6030F983A9E0009D664 /* PBXTextBookmark */;
@@ -468,6 +472,19 @@
 		vrLen = 968;
 		vrLoc = 0;
 	};
+	6585D3F40F9980F600A27E69 /* CSBasilSugarShowConsoleAction.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = CSBasilSugarShowConsoleAction.h;
+		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/Code/File Actions/CSBasilSugarShowConsoleAction.h";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {870, 616}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 884}";
+		};
+	};
 	6585D4100F99815800A27E69 /* PBXBookmark */ = {
 		isa = PBXBookmark;
 		fRef = 65E754EA0F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.m */;
@@ -500,6 +517,40 @@
 		rLoc = 230;
 		rType = 0;
 		vrLen = 898;
+		vrLoc = 0;
+	};
+	6585D4B80F998DCC00A27E69 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 65E754EA0F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.m */;
+		name = "CSBasilSugarCheckSyntaxAction.m: 10";
+		rLen = 0;
+		rLoc = 230;
+		rType = 0;
+		vrLen = 898;
+		vrLoc = 0;
+	};
+	6585D4B90F998DCC00A27E69 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 6585D3F40F9980F600A27E69 /* CSBasilSugarShowConsoleAction.h */;
+	};
+	6585D4BA0F998DCC00A27E69 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 65E754EA0F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.m */;
+		name = "CSBasilSugarCheckSyntaxAction.m: 10";
+		rLen = 0;
+		rLoc = 230;
+		rType = 0;
+		vrLen = 898;
+		vrLoc = 0;
+	};
+	6585D4BB0F998DCC00A27E69 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6585D3F40F9980F600A27E69 /* CSBasilSugarShowConsoleAction.h */;
+		name = "CSBasilSugarShowConsoleAction.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 884;
 		vrLoc = 0;
 	};
 	6588B5F30F9834B50009D664 /* PBXBookmark */ = {
@@ -728,6 +779,12 @@
 		vrLoc = 1018;
 	};
 	65E754E90F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = CSBasilSugarCheckSyntaxAction.h;
+		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/Code/File Actions/CSBasilSugarCheckSyntaxAction.h";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {870, 483}}";
 			sepNavSelRange = "{0, 0}";
@@ -735,6 +792,12 @@
 		};
 	};
 	65E754EA0F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = CSBasilSugarCheckSyntaxAction.m;
+		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/Code/File Actions/CSBasilSugarCheckSyntaxAction.m";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {870, 1596}}";
 			sepNavSelRange = "{230, 0}";

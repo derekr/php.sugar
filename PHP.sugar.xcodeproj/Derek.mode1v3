@@ -268,20 +268,15 @@
 								<string>089C166AFE841209C02AAC07</string>
 								<string>6588B5E70F9830170009D664</string>
 								<string>65633E8E0F97084A008F9159</string>
-								<string>089C1671FE841209C02AAC07</string>
-								<string>1058C7ACFEA557BF11CA2CBB</string>
+								<string>6585D4A50F998CFF00A27E69</string>
+								<string>65E754E80F996CFD0004AADF</string>
 								<string>1C37FBAC04509CD000000102</string>
 								<string>6585D3E20F997B9100A27E69</string>
 								<string>1C37FAAC04509CD000000102</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
-							<array>
-								<array>
-									<integer>17</integer>
-									<integer>16</integer>
-								</array>
-							</array>
+							<array/>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
 							<string>{{0, 0}, {283, 675}}</string>
 						</dict>
@@ -302,7 +297,7 @@
 							<real>283</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>-1305 370 1236 734 -1920 0 1920 1200 </string>
+						<string>-1223 296 1236 734 -1920 0 1920 1200 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -318,7 +313,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>CSBasilSugarCheckSyntaxAction.m</string>
+								<string>CSBasilSugarShowConsoleAction.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -326,11 +321,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>CSBasilSugarCheckSyntaxAction.m</string>
+										<string>CSBasilSugarShowConsoleAction.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>6585D4730F99846900A27E69</string>
+										<string>6585D4BB0F998DCC00A27E69</string>
 										<key>history</key>
 										<array>
 											<string>65633F600F971059008F9159</string>
@@ -349,7 +344,8 @@
 											<string>65E754E50F996BE50004AADF</string>
 											<string>65E755350F996E310004AADF</string>
 											<string>65E755360F996E310004AADF</string>
-											<string>6585D4100F99815800A27E69</string>
+											<string>6585D4B80F998DCC00A27E69</string>
+											<string>6585D4B90F998DCC00A27E69</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -370,6 +366,7 @@
 											<string>65108A950F99552D00D256E7</string>
 											<string>65E755390F996E310004AADF</string>
 											<string>65E7553A0F996E310004AADF</string>
+											<string>6585D4BA0F998DCC00A27E69</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -383,7 +380,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {931, 515}}</string>
 								<key>RubberWindowFrame</key>
-								<string>-1305 370 1236 734 -1920 0 1920 1200 </string>
+								<string>-1223 296 1236 734 -1920 0 1920 1200 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -403,7 +400,7 @@
 								<key>Frame</key>
 								<string>{{0, 520}, {931, 173}}</string>
 								<key>RubberWindowFrame</key>
-								<string>-1305 370 1236 734 -1920 0 1920 1200 </string>
+								<string>-1223 296 1236 734 -1920 0 1920 1200 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -567,7 +564,7 @@
 		<string>/Users/Derek/Documents/Git Repos/sugars/php-sugar/PHP.sugar.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>-1305 370 1236 734 -1920 0 1920 1200 </string>
+	<string>-1223 296 1236 734 -1920 0 1920 1200 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
