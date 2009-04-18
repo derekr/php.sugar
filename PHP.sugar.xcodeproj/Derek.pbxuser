@@ -110,6 +110,9 @@
 			65E754D00F9955D50004AADF /* PBXTextBookmark */ = 65E754D00F9955D50004AADF /* PBXTextBookmark */;
 			65E754D20F9955FB0004AADF /* PBXTextBookmark */ = 65E754D20F9955FB0004AADF /* PBXTextBookmark */;
 			65E754D40F9956390004AADF /* PBXTextBookmark */ = 65E754D40F9956390004AADF /* PBXTextBookmark */;
+			65E754E50F996BE50004AADF /* PBXTextBookmark */ = 65E754E50F996BE50004AADF /* PBXTextBookmark */;
+			65E754E60F996BE50004AADF /* PBXTextBookmark */ = 65E754E60F996BE50004AADF /* PBXTextBookmark */;
+			65E754E70F996BE50004AADF /* PBXTextBookmark */ = 65E754E70F996BE50004AADF /* PBXTextBookmark */;
 			65FD159C0F96FF9D0008EEC9 = 65FD159C0F96FF9D0008EEC9 /* PlistBookmark */;
 		};
 		sourceControlManager = 65FD14960F96F6270008EEC9 /* Source Control */;
@@ -466,6 +469,12 @@
 		fRef = 6588B5E80F9830250009D664 /* include.png */;
 	};
 	6588B5FD0F9838A60009D664 /* DRClassItem.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = DRClassItem.h;
+		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/DRClassItem.h";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {870, 483}}";
 			sepNavSelRange = "{110, 0}";
@@ -473,6 +482,12 @@
 		};
 	};
 	6588B5FE0F9838A60009D664 /* DRClassItem.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = DRClassItem.m;
+		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/DRClassItem.m";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1494, 1092}}";
 			sepNavSelRange = "{1499, 0}";
@@ -649,6 +664,36 @@
 		rType = 0;
 		vrLen = 1155;
 		vrLoc = 3899;
+	};
+	65E754E50F996BE50004AADF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 65108A9A0F99552D00D256E7 /* PHP.xml */;
+		name = "PHP.xml: 119";
+		rLen = 0;
+		rLoc = 4615;
+		rType = 0;
+		vrLen = 1155;
+		vrLoc = 3899;
+	};
+	65E754E60F996BE50004AADF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 65108A9A0F99552D00D256E7 /* PHP.xml */;
+		name = "PHP.xml: 119";
+		rLen = 0;
+		rLoc = 4615;
+		rType = 0;
+		vrLen = 1155;
+		vrLoc = 3899;
+	};
+	65E754E70F996BE50004AADF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 65633EBF0F970B66008F9159 /* DRImportItem.m */;
+		name = "DRImportItem.m: 74";
+		rLen = 0;
+		rLoc = 1499;
+		rType = 0;
+		vrLen = 491;
+		vrLoc = 1018;
 	};
 	65FD14960F96F6270008EEC9 /* Source Control */ = {
 		isa = PBXSourceControlManager;

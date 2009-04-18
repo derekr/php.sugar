@@ -228,6 +228,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -314,14 +316,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>PHP.xml</string>
+								<string>DRImportItem.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -329,11 +329,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>PHP.xml</string>
+										<string>DRImportItem.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>65E754D40F9956390004AADF</string>
+										<string>65E754E70F996BE50004AADF</string>
 										<key>history</key>
 										<array>
 											<string>65633F600F971059008F9159</string>
@@ -344,7 +344,6 @@
 											<string>6588B6030F983A9E0009D664</string>
 											<string>6588B6050F983A9E0009D664</string>
 											<string>6588B6060F983A9E0009D664</string>
-											<string>6588B6080F983A9E0009D664</string>
 											<string>6588B60B0F983A9E0009D664</string>
 											<string>653087DE0F983FC300A99EB2</string>
 											<string>653087DF0F983FC300A99EB2</string>
@@ -352,7 +351,8 @@
 											<string>65108A8A0F99552D00D256E7</string>
 											<string>65108A8C0F99552D00D256E7</string>
 											<string>65108A8E0F99552D00D256E7</string>
-											<string>65108A990F99552D00D256E7</string>
+											<string>65E754E50F996BE50004AADF</string>
+											<string>6588B6080F983A9E0009D664</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -373,6 +373,7 @@
 											<string>65108A910F99552D00D256E7</string>
 											<string>65108A930F99552D00D256E7</string>
 											<string>65108A950F99552D00D256E7</string>
+											<string>65E754E60F996BE50004AADF</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
