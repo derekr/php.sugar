@@ -25,14 +25,7 @@ If you just want the latest release, click on the "Downloads" tab at the top of 
 
 To install:
 
-1. If you are using the source, the compiled package will be placed in the correct `Application Support` location. Otherwise double click any PHP.sugar file and it will be placed in `~/Library/Application Support/Espresso/Sugars`
-2. Until Espresso 1.0.3 is released, you will need to remove the bundled version of PHP.sugar from .app.
-
-	To do this go to:
-	
-	`/Applications/Espresso.app` right click `Espresso.app` and then go to `Show Package Contents`. Continue to `Contents/SharedSupport/Sugars/` and delete the PHP.sugar bundle.
-
-3. Restart Espresso and you should be good to go.
+1. If you are using the source, the compiled package will be placed in the correct `Application Support` location. Otherwise double click any PHP.sugar file and it will be placed in `~/Library/Application Support/Espresso/Sugars` (place is in this location if not automatically placed) and restart Espresso when prompted.
 
 ## Features
 
