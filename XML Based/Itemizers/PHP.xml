@@ -70,7 +70,7 @@ THE SOFTWARE.
 	<!-- Defining a custom function -->
 	<recipe name="container.function">
 		<class>ESBaseItem</class>
-		<start-selector>container.function:has-child(name:capture(name)) + delimiter.balanced.curly-brace.begin:capture(itemizer-firstused)</start-selector>
+		<start-selector>container.function:has-child(name:capture(name)) + delimiter.balanced.curly-brace.begin)</start-selector>
 		<end-selector>delimiter.balanced.curly-brace.end</end-selector>
 		<subrecipes>
 			<include-root-recipes />

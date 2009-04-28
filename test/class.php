@@ -19,6 +19,7 @@
     	public function __construct($var, $var2 = null)
     	{
     	    // code
+    	    // test
     	}
     	
     	static public function customFunction($var, $var2 = null)
@@ -32,7 +33,7 @@
     	    (
     	        'test', // comment
     	    )
-    	    
+    	    // another comment
     	    implode(string glue, array pieces);
     	    
     	    myFakeFunction();
@@ -42,6 +43,7 @@
     	    isset();
 
     	}
-    	
-
+    	// test comments
     }
+  // test commment ?>
+ 

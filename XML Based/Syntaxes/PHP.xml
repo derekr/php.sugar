@@ -115,13 +115,13 @@ THE SOFTWARE.
 	    <collection name="metadata.comment">
 	        <!-- // comment -->
 	        <zone name="metadata.comment.single-line.double-slash">
-                <expression>(//)(\s?(.*)?$\n?)</expression>
-                <capture number="1" name="delimiter.separator.double-slash.comment.punctuation.definitoin.begin" />
-                <capture number="3" name="content" />
+                	<expression>(//)(.*?)($\n?|(?=\?>))</expression>
+                	<capture number="1" name="delimiter.separator.double-slash.comment.punctuation.definitoin.begin" />
+                	<capture number="2" name="content" />
 	        </zone>
 	        <!-- # comment -->
 	        <zone name="metadata.comment.line.hash">
-                <expression>(#)(\s?(.*)?$\n?)</expression>
+                <expression>(#)(.*?)($\n?|(?=\?>))</expression>
 			    <capture number="1" name="delimiter.separator.hash.comment.begin" />
 			    <capture number="3" name="content" />
 	        </zone>
