@@ -1,6 +1,7 @@
 <?php
     require_once 'some_other_file.php';
 
+	test
     /**
      * TestClass
      *
@@ -26,7 +27,7 @@
     	    {
     	        echo 'hey';
     	    }
-    	    count(count('count' /* */, [int mode]), [int mode])
+    	    count(count('count' /* ok this is still working */, [int mode]), [int mode])
     	    array
     	    (
     	        'test', // comment

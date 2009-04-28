@@ -125,13 +125,14 @@ THE SOFTWARE.
 			    <capture number="1" name="delimiter.separator.hash.comment.begin" />
 			    <capture number="3" name="content" />
 	        </zone>
+	        
 	        <zone name="metadata.comment.documentation">
 				<starts-with>
-					<expression>\/(\*)+</expression>
+					<expression>\/(\*){3,}</expression>
 					<capture number="0" name="delimiter.separator.slash.asterisk.comment.begin"/>
 				</starts-with>
 				<ends-with>
-					<expression>(\*)+\/</expression>
+					<expression>(\*){3,}\/</expression>
 					<capture number="0" name="delimiter.separator.asterisk.slash.comment.end"/>
 				</ends-with>
 				<cut-off>
@@ -141,14 +142,15 @@ THE SOFTWARE.
 			
 			<zone name="metadata.comment.block">
 				<starts-with>
-					<expression>(/\*)</expression>
+					<expression>(/\*{1})</expression>
 					<capture number="1" name="delimiter.separator.slash.single-asterisk.comment.punctuation.definitoin.begin"/>
 				</starts-with>
 				<ends-with>
-					<expression>(\*/)</expression>
+					<expression>(\*{1}/)</expression>
 					<capture number="1" name="delimiter.separator.slash.single-asterisk.comment.punctuation.definitoin.end"/>
 				</ends-with>
 			</zone>
+			
 	    </collection>
 	    
 	    
