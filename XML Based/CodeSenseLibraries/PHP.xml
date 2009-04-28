@@ -77,8 +77,6 @@ THE SOFTWARE.
     	        <matched-suffix>(\s*:)|[^:]</matched-suffix>
     	        <transform-into>${1:['${2:booyah}']}</transform-into>
     	    </append-dynamic>
-    	    
-    	    <confirm-partial characters="_" />
         </behavior>
 	    
 	    <completion string="$GLOBALS" />

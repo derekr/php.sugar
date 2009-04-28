@@ -36,6 +36,8 @@
     	    
     	    myFakeFunction();
     	    
-    	    header(string header, [bool replace], [int http_response_code])
+    	    header(string header, [bool replace], [int http_response_code]);
+    	    
+    	    isset();
     	}
     }
