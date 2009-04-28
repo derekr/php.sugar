@@ -520,8 +520,10 @@ THE SOFTWARE.
 			
 			<zone name="identifier.function">
 			    <starts-with>
-			        <expression>[A-Za-z_][A-Za-z_0-9]*(\()</expression>
-			        <capture number="1" name="delimiter.balanced.parenthesis.begin" />
+			        <expression>([A-Za-z_][A-Za-z_0-9]*)(\()</expression>
+			        <capture number="1" name="name" />
+			        <capture number="2" name="delimiter.balanced.parenthesis.begin" />
+			        
 			    </starts-with>
 				<ends-with>
 				    <expression>\)</expression>
