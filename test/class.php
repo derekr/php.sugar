@@ -32,6 +32,8 @@
     	        'test', // comment
     	    )
     	    
-    	    implode(string glue, array pieces)
+    	    implode(string glue, array pieces);
+    	    
+    	    myFakeFunction();
     	}
     }

@@ -44,7 +44,7 @@ THE SOFTWARE.
 		        com.gridlee.Sugar.PHP
 		    </identifier>
 		    <version status="preview">
-		        1.0b5
+		        1.0b6
 		    </version>
 		    <dependencies>
                 <dependency id="name.elliottcable.Sugar.Regex">Regex</dependency>
@@ -64,8 +64,14 @@ THE SOFTWARE.
 		    <extension casesensitive="false">php</extension>
 		    <combo>
 		        <extension casesensitive="false">html</extension>
+		        <extension casesensitive="false">php</extension>
 		        <match-content lines="1">^(&lt;)(\?)(php|=)?</match-content>
 		    </combo>
+		    <combo>
+		    	<extension casesensitive="false">php</extension>
+		    	<match-content lines="2"><![CDATA[(?i)<!DOCTYPE html PUBLIC]]></match-content>
+				<match-content lines="1"><![CDATA[(?i)<html]]></match-content>
+			</combo>
 		</detectors>
 		
 		<meta>
@@ -82,7 +88,7 @@ THE SOFTWARE.
 		        com.gridlee.Sugar.PHP
 		    </identifier>
 		    <version status="preview">
-		        1.0b5
+		        1.0b6
 		    </version>
 		    <dependencies>
                 <dependency id="name.elliottcable.Sugar.Regex">Regex</dependency>
