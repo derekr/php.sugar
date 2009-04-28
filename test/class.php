@@ -35,5 +35,7 @@
     	    implode(string glue, array pieces);
     	    
     	    myFakeFunction();
+    	    
+    	    header(string header, [bool replace], [int http_response_code])
     	}
     }

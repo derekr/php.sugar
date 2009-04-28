@@ -8617,6 +8617,15 @@ THE SOFTWARE.
 			</behavior>
 		</completion>
 
+		<completion string="isset">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>(${1:mixed variable})</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+
 		<completion string="iterator_apply">
 			<behavior>
 				<append-dynamic>
