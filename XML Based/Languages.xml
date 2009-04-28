@@ -64,13 +64,15 @@ THE SOFTWARE.
 		    <extension casesensitive="false">php</extension>
 		    <combo>
 		        <extension casesensitive="false">html</extension>
-		        <extension casesensitive="false">php</extension>
 		        <match-content lines="1">^(&lt;)(\?)(php|=)?</match-content>
 		    </combo>
 		    <combo>
 		    	<extension casesensitive="false">php</extension>
-		    	<match-content lines="2"><![CDATA[(?i)<!DOCTYPE html PUBLIC]]></match-content>
-				<match-content lines="1"><![CDATA[(?i)<html]]></match-content>
+		    	<match-content lines="1"><![CDATA[(?i)<!DOCTYPE html PUBLIC]]></match-content>
+			</combo>
+			<combo>
+		    	<extension casesensitive="false">php</extension>
+		    	<match-content lines="1"><![CDATA[(?i)<html]]></match-content>
 			</combo>
 		</detectors>
 		

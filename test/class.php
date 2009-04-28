@@ -27,7 +27,7 @@
     	    {
     	        echo 'hey';
     	    }
-    	    count(count('count' /* ok this is still working */, [int mode]), [int mode])
+    	    count(count('count' /**/, [int mode]), [int mode])
     	    array
     	    (
     	        'test', // comment
@@ -40,5 +40,8 @@
     	    header(string header, [bool replace], [int http_response_code]);
     	    
     	    isset();
+
     	}
+    	
+
     }
