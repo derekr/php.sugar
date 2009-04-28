@@ -6290,7 +6290,7 @@ THE SOFTWARE.
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:string header}, ${2:bool replace}, ${3:[int http_response_code]})</transform-into>
+					<transform-into>(${1:string header}, ${2:[bool replace]}, ${3:[int http_response_code]})</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
