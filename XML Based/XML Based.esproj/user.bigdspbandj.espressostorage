@@ -42,6 +42,12 @@
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/bigdspbandj/Repositories/Git/Espresso/php-sugar/XML%20Based/TextActions/Snippets.xml</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
 		</array>
 	</dict>
 </dict>

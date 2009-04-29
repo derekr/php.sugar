@@ -41,6 +41,13 @@ else {
 		<text-trigger>if</text-trigger>
 	</snippet>
 	
+	<snippet id="com.gridlee.TextActions.PHP.IfElseTerenary" category="actions.text.PHP/php.tools.Snippets.control">
+		<title>$var = (condition) ? expr : expr</title>
+		<text><![CDATA[${1:\$var} = (${2:condition}) ? ${3:true} : ${4:false}]]></text>
+		<syntax-context>container.block.source.php, container.block.source.php > *:not(comment, string, variable, control.block, function, class)</syntax-context>
+		<text-trigger>if?</text-trigger>
+	</snippet>
+	
 	<snippet id="com.gridlee.TextActions.PHP.ForeachArray" category="actions.text.PHP/php.tools.Snippets.control">
 		<title>Foreach</title>
 		<text><![CDATA[foreach (\$${1:array} as \$${2:value|key}${3: => \$${4:value}})
