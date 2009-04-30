@@ -28,8 +28,8 @@ THE SOFTWARE.
 	<!-- PHP Source; <?php ... ?>, <?= =?> -->
     <recipe name="source.block.php.processing-instruction">
 		<class>ESBaseItem</class>
-		<start-selector>php.begin:capture(name) + *</start-selector>
-		<end-selector>* + php.end:capture(name)</end-selector>
+		<start-selector>php.begin:capture(name)</start-selector>
+		<end-selector>php.end:capture(name)</end-selector>
 		<subrecipes>
 			<include-root-recipes />
 		</subrecipes>
@@ -70,6 +70,11 @@ THE SOFTWARE.
 	<recipe name="class.constant.definition">
 	    <class>ESBaseItem</class>
 	    <selector>keyword.constant.class + keyword.constant.other:capture(name)</selector>
+	</recipe>
+	
+	<recipe name="container.control.block">
+		<class>ESBaseItem</class>
+		<selector>container.block:has-child(name:capture(name))</selector>
 	</recipe>
 	
 	<!-- Defining control structures; (if, else, switch, for, foreach...)-->
