@@ -14,7 +14,7 @@
     {
     	const NAME = 'test';
     	
-    	public $varName = null;
+    	public $varName = null
     	
     	public function __construct($var, $var2 = null)
     	{
@@ -45,5 +45,4 @@
     	}
     	// test comments
     }
-  // test commment ?>
- 
+  // test commment 
