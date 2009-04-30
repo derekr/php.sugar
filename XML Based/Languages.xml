@@ -62,6 +62,8 @@ THE SOFTWARE.
 		    <extension casesensitive="false">phps</extension>
 		    <extension casesensitive="false">inc</extension>
 		    <extension casesensitive="false">php</extension>
+			<extension casesensitive="false">php4</extension>
+			<extension casesensitive="false">php5</extension>
 		    <combo>
 		        <extension casesensitive="false">html</extension>
 		        <match-content lines="1">^(&lt;)(\?)(php|=)?</match-content>
