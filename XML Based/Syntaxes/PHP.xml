@@ -623,7 +623,7 @@ THE SOFTWARE.
         <collection name="container.class">
             <zone name="container.class">
             		<starts-with>
-            			<expression>(?i)^\s*((abstract|final)?\s*(class)\s+([a-z0-9_]+))</expression>
+            			<expression>(?i)^(\b(abstract|final|interface)?\s*(class)\s*([a-z0-9_]+))</expression>
             			<capture number="1" name="class.current" />
 	                    <capture number="2" name="keyword.modifier.scope" />
 	                    <capture number="3" name="keyword.definition.class.begin" />

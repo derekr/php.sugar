@@ -66,86 +66,29 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 263327572;
-			PBXWorkspaceStateSaveDate = 263327572;
+			PBXPerProjectTemplateStateSaveDate = 263437755;
+			PBXWorkspaceStateSaveDate = 263437755;
 		};
 		perUserProjectItems = {
-			65108A890F99552D00D256E7 = 65108A890F99552D00D256E7 /* PBXTextBookmark */;
-			65108A8A0F99552D00D256E7 = 65108A8A0F99552D00D256E7 /* PBXTextBookmark */;
-			65108A8C0F99552D00D256E7 = 65108A8C0F99552D00D256E7 /* PBXTextBookmark */;
-			65108A8E0F99552D00D256E7 = 65108A8E0F99552D00D256E7 /* PBXTextBookmark */;
-			65108A900F99552D00D256E7 = 65108A900F99552D00D256E7 /* PBXTextBookmark */;
-			65108A910F99552D00D256E7 = 65108A910F99552D00D256E7 /* PBXTextBookmark */;
-			65108A930F99552D00D256E7 = 65108A930F99552D00D256E7 /* PBXTextBookmark */;
-			65108A950F99552D00D256E7 = 65108A950F99552D00D256E7 /* PBXTextBookmark */;
-			65108A970F99552D00D256E7 = 65108A970F99552D00D256E7 /* PBXTextBookmark */;
-			65108A990F99552D00D256E7 = 65108A990F99552D00D256E7 /* PBXTextBookmark */;
-			6515FB530F98DA4000A75F1E = 6515FB530F98DA4000A75F1E /* PBXTextBookmark */;
-			653087DE0F983FC300A99EB2 = 653087DE0F983FC300A99EB2 /* PBXTextBookmark */;
-			653087DF0F983FC300A99EB2 = 653087DF0F983FC300A99EB2 /* PBXTextBookmark */;
-			65633F600F971059008F9159 = 65633F600F971059008F9159 /* PBXTextBookmark */;
 			65633F610F971059008F9159 = 65633F610F971059008F9159 /* PBXTextBookmark */;
-			65633F620F971059008F9159 = 65633F620F971059008F9159 /* PlistBookmark */;
-			65633F670F971059008F9159 = 65633F670F971059008F9159 /* PBXTextBookmark */;
 			65633F680F971059008F9159 = 65633F680F971059008F9159 /* PBXTextBookmark */;
-			65633F6A0F971059008F9159 = 65633F6A0F971059008F9159 /* PBXTextBookmark */;
 			65633F6C0F971059008F9159 = 65633F6C0F971059008F9159 /* PBXTextBookmark */;
 			65633F6D0F971059008F9159 = 65633F6D0F971059008F9159 /* PBXTextBookmark */;
 			656340420F977AA6008F9159 = 656340420F977AA6008F9159 /* PBXTextBookmark */;
 			656340460F977AA6008F9159 = 656340460F977AA6008F9159 /* PBXTextBookmark */;
-			6585D4100F99815800A27E69 = 6585D4100F99815800A27E69 /* PBXBookmark */;
-			6585D4110F99815800A27E69 = 6585D4110F99815800A27E69 /* PBXTextBookmark */;
-			6585D4600F99836900A27E69 = 6585D4600F99836900A27E69 /* PBXTextBookmark */;
-			6585D4730F99846900A27E69 = 6585D4730F99846900A27E69 /* PBXTextBookmark */;
-			6585D4B80F998DCC00A27E69 = 6585D4B80F998DCC00A27E69 /* PBXTextBookmark */;
-			6585D4B90F998DCC00A27E69 = 6585D4B90F998DCC00A27E69 /* PBXBookmark */;
-			6585D4BA0F998DCC00A27E69 = 6585D4BA0F998DCC00A27E69 /* PBXTextBookmark */;
-			6585D4BB0F998DCC00A27E69 = 6585D4BB0F998DCC00A27E69 /* PBXTextBookmark */;
-			6585D5040F99A46900A27E69 = 6585D5040F99A46900A27E69 /* PBXTextBookmark */;
-			6585D5050F99A46900A27E69 = 6585D5050F99A46900A27E69 /* PBXTextBookmark */;
 			6585D52C0F99C52D00A27E69 = 6585D52C0F99C52D00A27E69 /* PlistBookmark */;
-			6585D52D0F99C52D00A27E69 = 6585D52D0F99C52D00A27E69 /* PBXTextBookmark */;
-			6585D52E0F99C52D00A27E69 = 6585D52E0F99C52D00A27E69 /* PBXTextBookmark */;
 			6585D52F0F99C52D00A27E69 = 6585D52F0F99C52D00A27E69 /* PBXTextBookmark */;
-			6585D5300F99C52D00A27E69 = 6585D5300F99C52D00A27E69 /* PlistBookmark */;
 			6585D5310F99C52D00A27E69 = 6585D5310F99C52D00A27E69 /* PBXTextBookmark */;
-			6585D5320F99C52D00A27E69 = 6585D5320F99C52D00A27E69 /* PBXTextBookmark */;
-			6585D5350F99C5AB00A27E69 = 6585D5350F99C5AB00A27E69 /* PBXTextBookmark */;
 			6585D5420F99C5EF00A27E69 = 6585D5420F99C5EF00A27E69 /* PBXTextBookmark */;
 			6585D5430F99C5EF00A27E69 = 6585D5430F99C5EF00A27E69 /* PBXTextBookmark */;
-			6585D5440F99C5EF00A27E69 = 6585D5440F99C5EF00A27E69 /* PBXBookmark */;
-			6585D5450F99C5EF00A27E69 = 6585D5450F99C5EF00A27E69 /* PBXTextBookmark */;
-			6585D5460F99C5EF00A27E69 = 6585D5460F99C5EF00A27E69 /* PBXTextBookmark */;
-			6585D5470F99C5EF00A27E69 = 6585D5470F99C5EF00A27E69 /* PBXTextBookmark */;
 			6588B5F30F9834B50009D664 = 6588B5F30F9834B50009D664 /* PBXBookmark */;
 			6588B5F50F9834B50009D664 = 6588B5F50F9834B50009D664 /* PBXBookmark */;
 			6588B6030F983A9E0009D664 = 6588B6030F983A9E0009D664 /* PBXTextBookmark */;
 			6588B6050F983A9E0009D664 = 6588B6050F983A9E0009D664 /* PBXTextBookmark */;
-			6588B6060F983A9E0009D664 = 6588B6060F983A9E0009D664 /* PBXTextBookmark */;
-			6588B6080F983A9E0009D664 = 6588B6080F983A9E0009D664 /* PBXTextBookmark */;
 			6588B60B0F983A9E0009D664 = 6588B60B0F983A9E0009D664 /* PBXTextBookmark */;
 			6588B6100F983A9E0009D664 = 6588B6100F983A9E0009D664 /* PBXTextBookmark */;
-			6588B6130F983A9E0009D664 = 6588B6130F983A9E0009D664 /* PBXTextBookmark */;
-			6588B6180F983A9E0009D664 = 6588B6180F983A9E0009D664 /* PBXTextBookmark */;
-			6588B62A0F983A9E0009D664 = 6588B62A0F983A9E0009D664 /* PBXTextBookmark */;
 			6588B62C0F983A9E0009D664 = 6588B62C0F983A9E0009D664 /* PBXTextBookmark */;
-			65E754CA0F99554A0004AADF = 65E754CA0F99554A0004AADF /* PBXTextBookmark */;
-			65E754CF0F9955840004AADF = 65E754CF0F9955840004AADF /* PBXTextBookmark */;
-			65E754D00F9955D50004AADF = 65E754D00F9955D50004AADF /* PBXTextBookmark */;
-			65E754D20F9955FB0004AADF = 65E754D20F9955FB0004AADF /* PBXTextBookmark */;
-			65E754D40F9956390004AADF = 65E754D40F9956390004AADF /* PBXTextBookmark */;
-			65E754E50F996BE50004AADF = 65E754E50F996BE50004AADF /* PBXTextBookmark */;
-			65E754E60F996BE50004AADF = 65E754E60F996BE50004AADF /* PBXTextBookmark */;
-			65E754E70F996BE50004AADF = 65E754E70F996BE50004AADF /* PBXTextBookmark */;
 			65E755350F996E310004AADF = 65E755350F996E310004AADF /* PBXTextBookmark */;
-			65E755360F996E310004AADF = 65E755360F996E310004AADF /* PBXTextBookmark */;
-			65E755370F996E310004AADF = 65E755370F996E310004AADF /* PBXTextBookmark */;
-			65E755380F996E310004AADF = 65E755380F996E310004AADF /* PBXTextBookmark */;
-			65E755390F996E310004AADF = 65E755390F996E310004AADF /* PBXTextBookmark */;
-			65E7553A0F996E310004AADF = 65E7553A0F996E310004AADF /* PBXTextBookmark */;
-			65E7553B0F996E310004AADF = 65E7553B0F996E310004AADF /* PBXTextBookmark */;
-			65E755550F996F8B0004AADF = 65E755550F996F8B0004AADF /* PBXTextBookmark */;
-			65E755560F996F8B0004AADF = 65E755560F996F8B0004AADF /* PBXTextBookmark */;
 			65FD159C0F96FF9D0008EEC9 = 65FD159C0F96FF9D0008EEC9 /* PlistBookmark */;
 		};
 		sourceControlManager = 65FD14960F96F6270008EEC9 /* Source Control */;
@@ -158,206 +101,6 @@
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{0, 45}";
 		};
-	};
-	65108A890F99552D00D256E7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6515FB5B0F992C0F00A75F1E /* PHP.css */;
-		name = "PHP.css: 58";
-		rLen = 0;
-		rLoc = 759;
-		rType = 0;
-		vrLen = 461;
-		vrLoc = 0;
-	};
-	65108A8A0F99552D00D256E7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65108A8B0F99552D00D256E7 /* PHP.xml */;
-		name = "PHP.xml: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 1699;
-		vrLoc = 135678;
-	};
-	65108A8B0F99552D00D256E7 /* PHP.xml */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = text.xml;
-		name = PHP.xml;
-		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/build/Debug/PHP.sugar/Syntaxes/PHP.xml";
-		sourceTree = "<absolute>";
-	};
-	65108A8C0F99552D00D256E7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65108A8D0F99552D00D256E7 /* Languages.xml */;
-		name = "Languages.xml: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 1436;
-		vrLoc = 0;
-	};
-	65108A8D0F99552D00D256E7 /* Languages.xml */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = text.xml;
-		name = Languages.xml;
-		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/build/Debug/PHP.sugar/Languages.xml";
-		sourceTree = "<absolute>";
-	};
-	65108A8E0F99552D00D256E7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65108A8F0F99552D00D256E7 /* PHP.xml */;
-		name = "PHP.xml: 118";
-		rLen = 0;
-		rLoc = 4566;
-		rType = 0;
-		vrLen = 1059;
-		vrLoc = 3784;
-	};
-	65108A8F0F99552D00D256E7 /* PHP.xml */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = text.xml;
-		name = PHP.xml;
-		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/build/Debug/PHP.sugar/Itemizers/PHP.xml";
-		sourceTree = "<absolute>";
-	};
-	65108A900F99552D00D256E7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6515FB5B0F992C0F00A75F1E /* PHP.css */;
-		name = "PHP.css: 58";
-		rLen = 0;
-		rLoc = 759;
-		rType = 0;
-		vrLen = 461;
-		vrLoc = 0;
-	};
-	65108A910F99552D00D256E7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65108A920F99552D00D256E7 /* PHP.xml */;
-		name = "PHP.xml: 110";
-		rLen = 0;
-		rLoc = 4287;
-		rType = 0;
-		vrLen = 1511;
-		vrLoc = 0;
-	};
-	65108A920F99552D00D256E7 /* PHP.xml */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = text.xml;
-		name = PHP.xml;
-		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/build/Debug/PHP.sugar/Itemizers/PHP.xml";
-		sourceTree = "<absolute>";
-	};
-	65108A930F99552D00D256E7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65108A940F99552D00D256E7 /* PHP.xml */;
-		name = "PHP.xml: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 1699;
-		vrLoc = 135678;
-	};
-	65108A940F99552D00D256E7 /* PHP.xml */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = text.xml;
-		name = PHP.xml;
-		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/build/Debug/PHP.sugar/Syntaxes/PHP.xml";
-		sourceTree = "<absolute>";
-	};
-	65108A950F99552D00D256E7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65108A960F99552D00D256E7 /* Languages.xml */;
-		name = "Languages.xml: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 1436;
-		vrLoc = 0;
-	};
-	65108A960F99552D00D256E7 /* Languages.xml */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = text.xml;
-		name = Languages.xml;
-		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/build/Debug/PHP.sugar/Languages.xml";
-		sourceTree = "<absolute>";
-	};
-	65108A970F99552D00D256E7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65108A980F99552D00D256E7 /* PHP.xml */;
-		name = "PHP.xml: 118";
-		rLen = 0;
-		rLoc = 4566;
-		rType = 0;
-		vrLen = 1059;
-		vrLoc = 3784;
-	};
-	65108A980F99552D00D256E7 /* PHP.xml */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = text.xml;
-		name = PHP.xml;
-		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/build/Debug/PHP.sugar/Itemizers/PHP.xml";
-		sourceTree = "<absolute>";
-	};
-	65108A990F99552D00D256E7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65108A9A0F99552D00D256E7 /* PHP.xml */;
-		name = "PHP.xml: 117";
-		rLen = 0;
-		rLoc = 4566;
-		rType = 0;
-		vrLen = 1120;
-		vrLoc = 3784;
-	};
-	65108A9A0F99552D00D256E7 /* PHP.xml */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = text.xml;
-		name = PHP.xml;
-		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/XML Based/Itemizers/PHP.xml";
-		sourceTree = "<absolute>";
-	};
-	6515FB530F98DA4000A75F1E /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 653AED540F984F6500974793 /* PHP.xml */;
-		name = "PHP.xml: 60";
-		rLen = 0;
-		rLoc = 2425;
-		rType = 0;
-		vrLen = 1453;
-		vrLoc = 2032;
-	};
-	6515FB5B0F992C0F00A75F1E /* PHP.css */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = text.css;
-		name = PHP.css;
-		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/XML Based/PlaceholderThemes/PHP.css";
-		sourceTree = "<absolute>";
-	};
-	653087DE0F983FC300A99EB2 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6588B5FE0F9838A60009D664 /* DRClassItem.m */;
-		name = "DRClassItem.m: 74";
-		rLen = 0;
-		rLoc = 1499;
-		rType = 0;
-		vrLen = 490;
-		vrLoc = 1019;
-	};
-	653087DF0F983FC300A99EB2 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6588B62B0F983A9E0009D664 /* PHP.xml */;
-		name = "PHP.xml: 215";
-		rLen = 0;
-		rLoc = 9643;
-		rType = 0;
-		vrLen = 1568;
-		vrLoc = 8762;
-	};
-	653AED540F984F6500974793 /* PHP.xml */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = text.xml;
-		name = PHP.xml;
-		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/XML Based/Itemizers/PHP.xml";
-		sourceTree = "<absolute>";
 	};
 	65633EBE0F970B66008F9159 /* DRImportItem.h */ = {
 		uiCtxt = {
@@ -373,16 +116,6 @@
 			sepNavVisRange = "{1018, 491}";
 		};
 	};
-	65633F600F971059008F9159 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65FD15260F96FED30008EEC9 /* PHP.xml */;
-		name = "PHP.xml: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 1494;
-		vrLoc = 0;
-	};
 	65633F610F971059008F9159 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 089C167EFE841241C02AAC07 /* English */;
@@ -391,27 +124,6 @@
 		rLoc = 0;
 		rType = 0;
 		vrLen = 45;
-		vrLoc = 0;
-	};
-	65633F620F971059008F9159 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D5B49B7048680CD000E48DA /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-		);
-		name = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/Info.plist";
-		rLen = 0;
-		rLoc = 2147483647;
-	};
-	65633F670F971059008F9159 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65FD15260F96FED30008EEC9 /* PHP.xml */;
-		name = "PHP.xml: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 1494;
 		vrLoc = 0;
 	};
 	65633F680F971059008F9159 /* PBXTextBookmark */ = {
@@ -423,23 +135,6 @@
 		rType = 0;
 		vrLen = 45;
 		vrLoc = 0;
-	};
-	65633F6A0F971059008F9159 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65633F6B0F971059008F9159 /* PHP.xml */;
-		name = "PHP.xml: 119";
-		rLen = 0;
-		rLoc = 4809;
-		rType = 0;
-		vrLen = 1029;
-		vrLoc = 3782;
-	};
-	65633F6B0F971059008F9159 /* PHP.xml */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = text.xml;
-		name = PHP.xml;
-		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/XML Based/Itemizers/PHP.xml";
-		sourceTree = "<absolute>";
 	};
 	65633F6C0F971059008F9159 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -488,48 +183,6 @@
 		vrLen = 968;
 		vrLoc = 0;
 	};
-	6585D3F40F9980F600A27E69 /* CSBasilSugarShowConsoleAction.h */ = {
-		isa = PBXFileReference;
-		fileEncoding = 4;
-		lastKnownFileType = sourcecode.c.h;
-		name = CSBasilSugarShowConsoleAction.h;
-		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/Code/File Actions/CSBasilSugarShowConsoleAction.h";
-		sourceTree = "<absolute>";
-	};
-	6585D4100F99815800A27E69 /* PBXBookmark */ = {
-		isa = PBXBookmark;
-		fRef = 65E754EA0F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.m */;
-	};
-	6585D4110F99815800A27E69 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65E754EA0F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.m */;
-		name = "CSBasilSugarCheckSyntaxAction.m: 10";
-		rLen = 0;
-		rLoc = 230;
-		rType = 0;
-		vrLen = 898;
-		vrLoc = 0;
-	};
-	6585D4600F99836900A27E69 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65E754EA0F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.m */;
-		name = "CSBasilSugarCheckSyntaxAction.m: 10";
-		rLen = 0;
-		rLoc = 230;
-		rType = 0;
-		vrLen = 898;
-		vrLoc = 0;
-	};
-	6585D4730F99846900A27E69 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65E754EA0F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.m */;
-		name = "CSBasilSugarCheckSyntaxAction.m: 10";
-		rLen = 0;
-		rLoc = 230;
-		rType = 0;
-		vrLen = 898;
-		vrLoc = 0;
-	};
 	6585D4A60F998CFF00A27E69 /* CSBasilSugarShowReferenceAction.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {820, 588}}";
@@ -544,68 +197,6 @@
 			sepNavVisRange = "{899, 1163}";
 		};
 	};
-	6585D4B80F998DCC00A27E69 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65E754EA0F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.m */;
-		name = "CSBasilSugarCheckSyntaxAction.m: 10";
-		rLen = 0;
-		rLoc = 230;
-		rType = 0;
-		vrLen = 898;
-		vrLoc = 0;
-	};
-	6585D4B90F998DCC00A27E69 /* PBXBookmark */ = {
-		isa = PBXBookmark;
-		fRef = 6585D3F40F9980F600A27E69 /* CSBasilSugarShowConsoleAction.h */;
-	};
-	6585D4BA0F998DCC00A27E69 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65E754EA0F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.m */;
-		name = "CSBasilSugarCheckSyntaxAction.m: 10";
-		rLen = 0;
-		rLoc = 230;
-		rType = 0;
-		vrLen = 898;
-		vrLoc = 0;
-	};
-	6585D4BB0F998DCC00A27E69 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6585D3F40F9980F600A27E69 /* CSBasilSugarShowConsoleAction.h */;
-		name = "CSBasilSugarShowConsoleAction.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 884;
-		vrLoc = 0;
-	};
-	6585D4C90F998DF200A27E69 /* CSBasilSugarCheckSyntaxAction.m */ = {
-		isa = PBXFileReference;
-		fileEncoding = 4;
-		lastKnownFileType = sourcecode.c.objc;
-		name = CSBasilSugarCheckSyntaxAction.m;
-		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/Code/Text Actions/CSBasilSugarCheckSyntaxAction.m";
-		sourceTree = "<absolute>";
-	};
-	6585D5040F99A46900A27E69 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6585D4A70F998CFF00A27E69 /* CSBasilSugarShowReferenceAction.m */;
-		name = "CSBasilSugarShowReferenceAction.m: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 757;
-		vrLoc = 0;
-	};
-	6585D5050F99A46900A27E69 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6585D4A70F998CFF00A27E69 /* CSBasilSugarShowReferenceAction.m */;
-		name = "CSBasilSugarShowReferenceAction.m: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 757;
-		vrLoc = 0;
-	};
 	6585D52C0F99C52D00A27E69 /* PlistBookmark */ = {
 		isa = PlistBookmark;
 		fRef = 8D5B49B7048680CD000E48DA /* Info.plist */;
@@ -617,26 +208,6 @@
 		rLen = 0;
 		rLoc = 2147483647;
 	};
-	6585D52D0F99C52D00A27E69 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6585D4A60F998CFF00A27E69 /* CSBasilSugarShowReferenceAction.h */;
-		name = "CSBasilSugarShowReferenceAction.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 798;
-		vrLoc = 0;
-	};
-	6585D52E0F99C52D00A27E69 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6585D4A70F998CFF00A27E69 /* CSBasilSugarShowReferenceAction.m */;
-		name = "CSBasilSugarShowReferenceAction.m: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 757;
-		vrLoc = 0;
-	};
 	6585D52F0F99C52D00A27E69 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 6585D4A70F998CFF00A27E69 /* CSBasilSugarShowReferenceAction.m */;
@@ -647,17 +218,6 @@
 		vrLen = 757;
 		vrLoc = 0;
 	};
-	6585D5300F99C52D00A27E69 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D5B49B7048680CD000E48DA /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-		);
-		name = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/Info.plist";
-		rLen = 0;
-		rLoc = 2147483647;
-	};
 	6585D5310F99C52D00A27E69 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 6585D4A60F998CFF00A27E69 /* CSBasilSugarShowReferenceAction.h */;
@@ -667,26 +227,6 @@
 		rType = 0;
 		vrLen = 798;
 		vrLoc = 0;
-	};
-	6585D5320F99C52D00A27E69 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6585D4A70F998CFF00A27E69 /* CSBasilSugarShowReferenceAction.m */;
-		name = "CSBasilSugarShowReferenceAction.m: 177";
-		rLen = 0;
-		rLoc = 5008;
-		rType = 0;
-		vrLen = 1413;
-		vrLoc = 4517;
-	};
-	6585D5350F99C5AB00A27E69 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6585D4A70F998CFF00A27E69 /* CSBasilSugarShowReferenceAction.m */;
-		name = "CSBasilSugarShowReferenceAction.m: 58";
-		rLen = 0;
-		rLoc = 1671;
-		rType = 0;
-		vrLen = 1163;
-		vrLoc = 899;
 	};
 	6585D5420F99C5EF00A27E69 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -708,40 +248,6 @@
 		vrLen = 798;
 		vrLoc = 0;
 	};
-	6585D5440F99C5EF00A27E69 /* PBXBookmark */ = {
-		isa = PBXBookmark;
-		fRef = 6585D4C90F998DF200A27E69 /* CSBasilSugarCheckSyntaxAction.m */;
-	};
-	6585D5450F99C5EF00A27E69 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6585D4A70F998CFF00A27E69 /* CSBasilSugarShowReferenceAction.m */;
-		name = "CSBasilSugarShowReferenceAction.m: 58";
-		rLen = 0;
-		rLoc = 1671;
-		rType = 0;
-		vrLen = 1163;
-		vrLoc = 899;
-	};
-	6585D5460F99C5EF00A27E69 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6585D4A60F998CFF00A27E69 /* CSBasilSugarShowReferenceAction.h */;
-		name = "CSBasilSugarShowReferenceAction.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 798;
-		vrLoc = 0;
-	};
-	6585D5470F99C5EF00A27E69 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6585D4C90F998DF200A27E69 /* CSBasilSugarCheckSyntaxAction.m */;
-		name = "CSBasilSugarCheckSyntaxAction.m: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 898;
-		vrLoc = 0;
-	};
 	6588B5F30F9834B50009D664 /* PBXBookmark */ = {
 		isa = PBXBookmark;
 		fRef = 6588B5E80F9830250009D664 /* include.png */;
@@ -749,22 +255,6 @@
 	6588B5F50F9834B50009D664 /* PBXBookmark */ = {
 		isa = PBXBookmark;
 		fRef = 6588B5E80F9830250009D664 /* include.png */;
-	};
-	6588B5FD0F9838A60009D664 /* DRClassItem.h */ = {
-		isa = PBXFileReference;
-		fileEncoding = 4;
-		lastKnownFileType = sourcecode.c.h;
-		name = DRClassItem.h;
-		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/DRClassItem.h";
-		sourceTree = "<absolute>";
-	};
-	6588B5FE0F9838A60009D664 /* DRClassItem.m */ = {
-		isa = PBXFileReference;
-		fileEncoding = 4;
-		lastKnownFileType = sourcecode.c.objc;
-		name = DRClassItem.m;
-		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/DRClassItem.m";
-		sourceTree = "<absolute>";
 	};
 	6588B6030F983A9E0009D664 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -793,26 +283,6 @@
 		vrLen = 256;
 		vrLoc = 0;
 	};
-	6588B6060F983A9E0009D664 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6588B5FD0F9838A60009D664 /* DRClassItem.h */;
-		name = "DRClassItem.h: 6";
-		rLen = 0;
-		rLoc = 110;
-		rType = 0;
-		vrLen = 254;
-		vrLoc = 0;
-	};
-	6588B6080F983A9E0009D664 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65633EBF0F970B66008F9159 /* DRImportItem.m */;
-		name = "DRImportItem.m: 74";
-		rLen = 0;
-		rLoc = 1499;
-		rType = 0;
-		vrLen = 491;
-		vrLoc = 1018;
-	};
 	6588B60B0F983A9E0009D664 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 65FD16D50F97028D0008EEC9 /* Languages.xml */;
@@ -840,43 +310,6 @@
 		path = /Applications/Espresso.app/Contents/Headers/EspressoItemizerCore.h;
 		sourceTree = "<absolute>";
 	};
-	6588B6130F983A9E0009D664 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6588B5FD0F9838A60009D664 /* DRClassItem.h */;
-		name = "DRClassItem.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 214;
-		vrLoc = 0;
-	};
-	6588B6180F983A9E0009D664 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6588B5FE0F9838A60009D664 /* DRClassItem.m */;
-		name = "DRClassItem.m: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 203;
-		vrLoc = 0;
-	};
-	6588B62A0F983A9E0009D664 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6588B62B0F983A9E0009D664 /* PHP.xml */;
-		name = "PHP.xml: 215";
-		rLen = 0;
-		rLoc = 9643;
-		rType = 0;
-		vrLen = 1596;
-		vrLoc = 8762;
-	};
-	6588B62B0F983A9E0009D664 /* PHP.xml */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = text.xml;
-		name = PHP.xml;
-		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/XML Based/Syntaxes/PHP.xml";
-		sourceTree = "<absolute>";
-	};
 	6588B62C0F983A9E0009D664 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 65FD16D50F97028D0008EEC9 /* Languages.xml */;
@@ -886,102 +319,6 @@
 		rType = 0;
 		vrLen = 1443;
 		vrLoc = 0;
-	};
-	65E754CA0F99554A0004AADF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65108A9A0F99552D00D256E7 /* PHP.xml */;
-		name = "PHP.xml: 117";
-		rLen = 0;
-		rLoc = 4566;
-		rType = 0;
-		vrLen = 1120;
-		vrLoc = 3784;
-	};
-	65E754CF0F9955840004AADF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65108A9A0F99552D00D256E7 /* PHP.xml */;
-		name = "PHP.xml: 119";
-		rLen = 0;
-		rLoc = 4658;
-		rType = 0;
-		vrLen = 1148;
-		vrLoc = 3784;
-	};
-	65E754D00F9955D50004AADF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65108A9A0F99552D00D256E7 /* PHP.xml */;
-		name = "PHP.xml: 119";
-		rLen = 0;
-		rLoc = 4615;
-		rType = 0;
-		vrLen = 1175;
-		vrLoc = 3899;
-	};
-	65E754D20F9955FB0004AADF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65108A9A0F99552D00D256E7 /* PHP.xml */;
-		name = "PHP.xml: 119";
-		rLen = 0;
-		rLoc = 4630;
-		rType = 0;
-		vrLen = 1177;
-		vrLoc = 3899;
-	};
-	65E754D40F9956390004AADF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65108A9A0F99552D00D256E7 /* PHP.xml */;
-		name = "PHP.xml: 119";
-		rLen = 0;
-		rLoc = 4615;
-		rType = 0;
-		vrLen = 1155;
-		vrLoc = 3899;
-	};
-	65E754E50F996BE50004AADF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65108A9A0F99552D00D256E7 /* PHP.xml */;
-		name = "PHP.xml: 119";
-		rLen = 0;
-		rLoc = 4615;
-		rType = 0;
-		vrLen = 1155;
-		vrLoc = 3899;
-	};
-	65E754E60F996BE50004AADF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65108A9A0F99552D00D256E7 /* PHP.xml */;
-		name = "PHP.xml: 119";
-		rLen = 0;
-		rLoc = 4615;
-		rType = 0;
-		vrLen = 1155;
-		vrLoc = 3899;
-	};
-	65E754E70F996BE50004AADF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65633EBF0F970B66008F9159 /* DRImportItem.m */;
-		name = "DRImportItem.m: 74";
-		rLen = 0;
-		rLoc = 1499;
-		rType = 0;
-		vrLen = 491;
-		vrLoc = 1018;
-	};
-	65E754E90F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.h */ = {
-		isa = PBXFileReference;
-		fileEncoding = 4;
-		lastKnownFileType = sourcecode.c.h;
-		name = CSBasilSugarCheckSyntaxAction.h;
-		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/Code/File Actions/CSBasilSugarCheckSyntaxAction.h";
-		sourceTree = "<absolute>";
-	};
-	65E754EA0F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.m */ = {
-		isa = PBXFileReference;
-		fileEncoding = 4;
-		lastKnownFileType = sourcecode.c.objc;
-		name = CSBasilSugarCheckSyntaxAction.m;
-		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/Code/File Actions/CSBasilSugarCheckSyntaxAction.m";
-		sourceTree = "<absolute>";
 	};
 	65E755350F996E310004AADF /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -993,86 +330,6 @@
 		vrLen = 491;
 		vrLoc = 1018;
 	};
-	65E755360F996E310004AADF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65E754E90F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.h */;
-		name = "CSBasilSugarCheckSyntaxAction.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 556;
-		vrLoc = 0;
-	};
-	65E755370F996E310004AADF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65E754EA0F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.m */;
-		name = "CSBasilSugarCheckSyntaxAction.m: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 898;
-		vrLoc = 0;
-	};
-	65E755380F996E310004AADF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65633EBF0F970B66008F9159 /* DRImportItem.m */;
-		name = "DRImportItem.m: 74";
-		rLen = 0;
-		rLoc = 1499;
-		rType = 0;
-		vrLen = 491;
-		vrLoc = 1018;
-	};
-	65E755390F996E310004AADF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65E754EA0F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.m */;
-		name = "CSBasilSugarCheckSyntaxAction.m: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 898;
-		vrLoc = 0;
-	};
-	65E7553A0F996E310004AADF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65E754E90F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.h */;
-		name = "CSBasilSugarCheckSyntaxAction.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 556;
-		vrLoc = 0;
-	};
-	65E7553B0F996E310004AADF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65E754EA0F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.m */;
-		name = "CSBasilSugarCheckSyntaxAction.m: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 898;
-		vrLoc = 0;
-	};
-	65E755550F996F8B0004AADF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65E754EA0F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.m */;
-		name = "CSBasilSugarCheckSyntaxAction.m: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 898;
-		vrLoc = 0;
-	};
-	65E755560F996F8B0004AADF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65E754EA0F996D0F0004AADF /* CSBasilSugarCheckSyntaxAction.m */;
-		name = "CSBasilSugarCheckSyntaxAction.m: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 898;
-		vrLoc = 0;
-	};
 	65FD14960F96F6270008EEC9 /* Source Control */ = {
 		isa = PBXSourceControlManager;
 		fallbackIsa = XCSourceControlManager;
@@ -1083,14 +340,6 @@
 	65FD14970F96F6270008EEC9 /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
-	};
-	65FD15260F96FED30008EEC9 /* PHP.xml */ = {
-		isa = PBXFileReference;
-		fileEncoding = 4;
-		lastKnownFileType = text.xml;
-		name = PHP.xml;
-		path = "/Users/Derek/Documents/Git Repos/sugars/php-sugar/XML Based/CodeSenseLibraries/PHP.xml";
-		sourceTree = "<absolute>";
 	};
 	65FD159C0F96FF9D0008EEC9 /* PlistBookmark */ = {
 		isa = PlistBookmark;

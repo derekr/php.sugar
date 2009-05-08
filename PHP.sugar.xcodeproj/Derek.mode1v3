@@ -278,7 +278,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>0</integer>
+									<integer>37</integer>
+									<integer>36</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
@@ -408,9 +409,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>6553D5E80FB20F5B007B372E</string>
+				<string>65EFBF600FB3BDC4004FAC5C</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>6553D5E90FB20F5B007B372E</string>
+				<string>65EFBF610FB3BDC4004FAC5C</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -544,6 +545,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>65FD14DC0F96FD5E0008EEC9</string>
 		<string>/Users/derek/Repositories/Git/Espresso/php-sugar/PHP.sugar.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -624,7 +626,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>65FD14DC0F96FD5E0008EEC9</string>
-				<string>6585D3F30F997B9D00A27E69</string>
+				<string>65EFBF620FB3BDC4004FAC5C</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
