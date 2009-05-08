@@ -87,6 +87,15 @@ THE SOFTWARE.
 		</subrecipes>
 	</recipe>
 	
+	<recipe name="container.block.alternate.hidden">
+		<class>ESBaseItem</class>
+		<start-selector>container.block:has-child(delimiter.colon)</start-selector>
+		<end-selector>alternate.keyword</end-selector>
+		<subrecipes>
+			<include-root-recipes />
+		</subrecipes>
+	</recipe>
+	
 	<recipe name="literal.collection.hidden">
 	    <class>ESBaseItem</class>
 		<start-selector>literal.collection > delimiter.balanced.parenthesis.begin</start-selector>

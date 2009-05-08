@@ -665,8 +665,9 @@ THE SOFTWARE.
                     <capture number="2" name="delimiter.balanced.parenthesis.condition.begin" />
                 </starts-with>
                 <ends-with>
-                    <expression>\)</expression>
-                    <capture number="0" name="delimiter.balanced.parenthesis.condition.end" />
+                    <expression>(\))(\:?)</expression>
+                    <capture number="1" name="delimiter.balanced.parenthesis.condition.end" />
+                    <capture number="2" name="delimiter.colon.alternate.block.begin" />
                 </ends-with>
                 <subzones>
                     <include collection="container.block.subzones" />
@@ -679,8 +680,9 @@ THE SOFTWARE.
                     <capture number="2" name="delimiter.balanced.parenthesis.condition.begin" />
                 </starts-with>
                 <ends-with>
-                    <expression>\)</expression>
-                    <capture number="0" name="delimiter.balanced.parenthesis.condition.end" />
+                    <expression>(\))(\:?)</expression>
+                    <capture number="1" name="delimiter.balanced.parenthesis.condition.end" />
+                    <capture number="2" name="delimiter.colon.alternate.block.begin" />
                 </ends-with>
                 <subzones>
                     <include collection="container.block.subzones" />
@@ -698,8 +700,9 @@ THE SOFTWARE.
                     <capture number="2" name="delimiter.balanced.parenthesis.condition.begin" />
                 </starts-with>
                 <ends-with>
-                    <expression>\)</expression>
-                    <capture number="0" name="delimiter.balanced.parenthesis.condition.end" />
+                    <expression>(\))(\:?)</expression>
+                    <capture number="1" name="delimiter.balanced.parenthesis.condition.end" />
+                    <capture number="2" name="delimiter.colon.alternate.block.begin" />
                 </ends-with>
                 <subzones>
                     <zone name="operator.as">
@@ -715,8 +718,9 @@ THE SOFTWARE.
                     <capture number="2" name="delimiter.balanced.parenthesis.condition.begin" />
                 </starts-with>
                 <ends-with>
-                    <expression>\)</expression>
-                    <capture number="0" name="delimiter.balanced.parenthesis.condition.end" />
+                    <expression>(\))(\:?)</expression>
+                    <capture number="1" name="delimiter.balanced.parenthesis.condition.end" />
+                    <capture number="2" name="delimiter.colon.alternate.block.begin" />
                 </ends-with>
                 <subzones>
                     <include collection="container.block.subzones" />
@@ -729,8 +733,9 @@ THE SOFTWARE.
                     <capture number="2" name="delimiter.balanced.parenthesis.condition.begin" />
                 </starts-with>
                 <ends-with>
-                    <expression>\)</expression>
-                    <capture number="0" name="delimiter.balanced.parenthesis.condition.end" />
+                    <expression>(\))(\:?)</expression>
+                    <capture number="1" name="delimiter.balanced.parenthesis.condition.end" />
+                    <capture number="2" name="delimiter.colon.alternate.block.begin" />
                 </ends-with>
                 <subzones>
                     <include collection="container.block.subzones" />
@@ -743,8 +748,9 @@ THE SOFTWARE.
                     <capture number="2" name="delimiter.balanced.parenthesis.condition.begin" />
                 </starts-with>
                 <ends-with>
-                    <expression>\)</expression>
-                    <capture number="0" name="delimiter.balanced.parenthesis.condition.end" />
+                    <expression>(\))(\:?)</expression>
+                    <capture number="1" name="delimiter.balanced.parenthesis.condition.end" />
+                    <capture number="2" name="delimiter.colon.alternate.block.begin" />
                 </ends-with>
                 <subzones>
                     <include collection="container.block.subzones" />
@@ -757,8 +763,9 @@ THE SOFTWARE.
                     <capture number="2" name="delimiter.balanced.parenthesis.condition.begin" />
                 </starts-with>
                 <ends-with>
-                    <expression>\)</expression>
-                    <capture number="0" name="delimiter.balanced.parenthesis.condition.end" />
+                    <expression>(\))(\:?)</expression>
+                    <capture number="1" name="delimiter.balanced.parenthesis.condition.end" />
+                    <capture number="2" name="delimiter.colon.alternate.block.begin" />
                 </ends-with>
                 <subzones>
                     <include collection="container.block.subzones" />
@@ -775,12 +782,16 @@ THE SOFTWARE.
                     <capture number="2" name="delimiter.balanced.parenthesis.condition.begin" />
                 </starts-with>
                 <ends-with>
-                    <expression>\)</expression>
-                    <capture number="0" name="delimiter.balanced.parenthesis.condition.end" />
+                    <expression>(\))(\:?)</expression>
+                    <capture number="1" name="delimiter.balanced.parenthesis.condition.end" />
+                    <capture number="2" name="delimiter.colon.alternate.block.begin" />
                 </ends-with>
                 <subzones>
                     <include collection="container.block.subzones" />
                 </subzones>
+            </zone>
+            <zone name="delimiter.container.control.block.alternate.keyword">
+            	<expression>\bend(if|foreach|while|for|switch)</expression>
             </zone>
         </collection>
         
