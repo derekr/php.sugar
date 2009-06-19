@@ -576,34 +576,33 @@ THE SOFTWARE.
         
         <collection name="container.class">
             <zone name="container.class">
-            			<expression>(\b((abstract)|(final))?\s+(class)\s+([a-zA-Z0-9_]+))</expression>
-	                    <capture number="3" name="keyword.modifier.scope.abstract" />
-	                    <capture number="4" name="keyword.modifier.scope.final" />
-	                    <capture number="5" name="keyword.definition.class" />
-	                    <capture number="6" name="name" />
+    			<expression>(((abstract)|(final)\s+)?(class)\s+([a-zA-Z0-9_]+))</expression>
+                <capture number="3" name="keyword.modifier.scope.abstract" />
+                <capture number="4" name="keyword.modifier.scope.final" />
+                <capture number="5" name="keyword.definition.class" />
+                <capture number="6" name="class.name" />
             </zone>
             <zone name="container.class">
         		<expression>((?i:(extends))\s+([a-zA-Z0-9_]+))</expression>
         		<capture number="0" name="identifier.support.class.extended" />
         		<capture number="2" name="literal.keyword.modifier.scope.extends" />
-        		<capture number="3" name="name" />
+        		<capture number="3" name="class.name" />
         	</zone>
             <zone name="container.class">
-        		<starts-with>
+            	<starts-with>
         			<expression>(?i:(implements))</expression>
         			<capture number="0" name="identifier.support.class.implemented" />
         			<capture number="1" name="literal.keyword.modifier.scope.extends" />
-        		</starts-with>
-        		<ends-with>
-        			<expression>$</expression>
-        		</ends-with>
-        		<subzones>
-        			<zone name="class.name">
-        				<expression>(([a-zA-Z0-9_]+)(?=(,?)))+</expression>
-        			</zone>
-        		</subzones>
+				</starts-with>
+				<ends-with>
+					<expression>$</expression>
+				</ends-with>
+				<subzones>
+					<zone name="implemented.class.name">
+						<expression>(([a-zA-Z0-9_]+)(?=(,?)))+</expression>
+					</zone>
+				</subzones>
         	</zone>
-            
         </collection>
         
         <collection name="container.block">

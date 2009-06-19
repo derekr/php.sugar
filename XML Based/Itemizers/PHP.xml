@@ -38,7 +38,7 @@ THE SOFTWARE.
 	<!-- Defining a custom class -->
 	<recipe name="container.class">
 		<class>DRClassItem</class>
-		<start-selector>container.class:has-child(current:has-child((name:capture(name))) + delimiter.balanced.curly-brace.begin:capture(itemizer-firstused)</start-selector>
+		<start-selector>container.class:has-child(definition + class.name:capture(className)) ~ delimiter.balanced.curly-brace.begin</start-selector>
 		<end-selector>delimiter.balanced.curly-brace.end</end-selector>
 		<subrecipes>
 			<include-root-recipes />
