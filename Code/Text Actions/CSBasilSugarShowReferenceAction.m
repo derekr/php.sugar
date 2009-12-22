@@ -30,13 +30,22 @@
 
 - (void)awakeFromNib
 {
-
+	[webView setPolicyDelegate:self];
+	[webView setDownloadDelegate:self];
+	[webView setFrameLoadDelegate:self];
+	[webView setApplicationNameForUserAgent:@"Espresso PHP.sugar"];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(noteFromWebView:) name:WebViewProgressFinishedNotification object:webView];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(noteFromWebView:) name:WebViewProgressStartedNotification object:webView];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(noteFromWebView:) name:WebViewProgressEstimateChangedNotification object:webView];	
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------------
 
 - (void)dealloc
 {	
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
 	[super dealloc];
 }
 
@@ -54,18 +63,31 @@
 	NSString *string = [[context string] substringWithRange:[[[context selectedRanges] objectAtIndex:0] rangeValue]];
 	
 	if (![string isEqualToString:@""]) {
-		NSLog(@"-- %@", [[context selectedRanges] objectAtIndex:0]);
+		//NSLog(@"-- %@", [[context selectedRanges] objectAtIndex:0]);
 		[panel setTitle:[NSString stringWithFormat:@"%@ - PHP Reference", string]];
 		
-		NSLog(@"%@", string);
+		//NSLog(@"%@", string);
 		[webView setMainFrameURL:[self urlStringForWord:string]];
 		[panel makeKeyAndOrderFront:nil];
 	} else {
-		NSLog(@"nothing selected");
+		//NSLog(@"nothing selected");
 		[lookupPanel makeKeyAndOrderFront:nil];
 	}
 	
 	return YES;
+}
+
+//------------------------------------------------------------------------------------------------------------------------------------------
+
+- (IBAction)navigationPressed:(id)sender
+{	
+	int selectedSegment = [sender selectedSegment];
+	
+	if (selectedSegment == 0) {
+		[self goBack:sender];
+	} else if (selectedSegment == 1) {
+		[self goForward:sender];
+	}
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------------
@@ -161,6 +183,21 @@
     return result;
 }
 
+- (void)webView:(WebView *)sender mouseDidMoveOverElement:(NSDictionary *)elementInformation modifierFlags:(NSUInteger)modifierFlags
+{
+	NSString *status = @"";
+	NSURL *link = [elementInformation objectForKey: WebElementLinkURLKey];
+	if (link) {
+		// If the Command key is held down, the link will open in the web browser:
+		NSString *browserName;
+		browserName = @"browser";
+		
+		status = [NSString stringWithFormat:@"Open \"%@\" in %@", [link absoluteString], browserName];
+	}
+	[statusText setString:status];
+	[statusText setNeedsDisplay:YES];
+}
+
 //------------------------------------------------------------------------------------------------------------------------------------------
 
 - (IBAction)cancelLookup:(id)sender
@@ -190,5 +227,23 @@
 	[lookupPanel orderOut:sender];
 	[panel makeKeyAndOrderFront:nil];
 }
+
+-(void)noteFromWebView:(NSNotification*)notification
+{
+	NSString *name = [notification name];
+	
+	if([name isEqualToString:WebViewProgressFinishedNotification]){
+		DOMDocument *doc = [[webView mainFrame] DOMDocument];    
+		NSString *style = [[NSBundle bundleForClass:[CSBasilSugarShowReferenceAction class]] pathForResource:@"phpref" ofType:@"css"];
+		
+		if ([[NSFileManager defaultManager] fileExistsAtPath:style]) {
+			DOMElement *newStyle = [doc createElement:@"style"];
+			[newStyle setAttribute:@"type" value:@"text/css"];
+			[newStyle setTextContent:[NSString stringWithContentsOfFile:style encoding:NSUTF8StringEncoding error:nil]];
+			[[[doc getElementsByTagName:@"head"] item:0] appendChild:newStyle];
+		}
+	}
+}
+
 
 @end

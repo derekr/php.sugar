@@ -1,0 +1,21 @@
+
+#layout_2, #layout_3 {
+	background-image: none;
+}
+
+#layout_2 #content, #layout_3 #content {
+	margin-left:0px;
+}
+
+div#headnav, div#headsearch, div#leftbar, div.manualnavbar form, div.manualnavbar .lastupdated, div.manualnavbar hr {
+	display: none;
+}
+
+div.manualnavbar {
+	-webkit-border-radius: 7px;
+}
+
+div.refsect1 {
+	-webkit-border-radius: 5px;
+	border: solid 1px #ccc;
+}

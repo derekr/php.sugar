@@ -55,6 +55,7 @@
     [task setLaunchPath:phpPath];
     [task setArguments:[NSArray arrayWithObjects: @"-l", tmpFile, nil]];
     [task setStandardOutput:pipe];
+	[task setStandardError:pipe];
     [task launch];
 		
     string = [[NSString alloc] initWithData:[[pipe fileHandleForReading] readDataToEndOfFile] encoding:NSUTF8StringEncoding];
@@ -88,6 +89,9 @@
 		
 		if (r.location != NSNotFound) {
 			title = @"We've detected syntax errors during parsing.";
+			
+			NSLog(@"results = %@", result);
+			
 			message = [[result substringToIndex:r.location] stringByRemovingLeadingWhitespace];
 		} else {
 			title = @"PHP Syntax Check";

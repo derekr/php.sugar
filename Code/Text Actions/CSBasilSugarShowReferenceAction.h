@@ -17,6 +17,7 @@
 	IBOutlet id lookupPanel;
 	IBOutlet id lookupSearchField;
 	IBOutlet id providerPopup;
+	IBOutlet id statusText;
 }
 
 - (id)initWithDictionary:(NSDictionary *)dictionary bundlePath:(NSString *)bundlePath;
@@ -26,6 +27,9 @@
 - (BOOL)performActionWithContext:(id)context error:(NSError **)outError;
 
 - (NSString *)urlStringForWord:(NSString *)word;
+
+
+- (IBAction)navigationPressed:(id)sender;
 
 - (BOOL)canGoBack;
 - (BOOL)canGoForward;

@@ -15,10 +15,10 @@
 
 + (void)initialize
 {
-	NSData *defaultColor = [NSArchiver archivedDataWithRootObject:[NSColor whiteColor]];
+	NSData *defaultColor = [NSArchiver archivedDataWithRootObject:[NSColor blackColor]];
 	NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:defaultColor, @"fontColor", 
 																		   @"Monaco", @"fontName", 
-																		   [NSNumber numberWithDouble:9.0], @"fontSize", 
+																		   [NSNumber numberWithDouble:10.0], @"fontSize", 
 																		   nil];
 	
     [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
@@ -88,7 +88,7 @@
 
 - (BOOL)performActionWithContext:(id)context error:(NSError **)outError
 {
-	[panel setTitle:[NSString stringWithFormat:@"%@ - Basil Console", [_fileName lastPathComponent]]];
+	[panel setTitle:[NSString stringWithFormat:@"%@ - Console", [_fileName lastPathComponent]]];
 	
 	[self clearLogView:self];
 	
