@@ -271,7 +271,7 @@
 			<object class="NSWindowTemplate" id="843832472">
 				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{157, -14}, {673, 475}}</string>
+				<string key="NSWindowRect">{{382, 211}, {673, 475}}</string>
 				<int key="NSWTFlags">1685585920</int>
 				<string key="NSWindowTitle">Reference</string>
 				<string key="NSWindowClass">CSBasilReferenceWindow</string>
@@ -1175,9 +1175,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{288, 136}, {673, 475}}</string>
+					<string>{{382, 211}, {673, 475}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{288, 136}, {673, 475}}</string>
+					<string>{{382, 211}, {673, 475}}</string>
 					<boolean value="NO"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{316, 611}, {617, 0}}</string>
