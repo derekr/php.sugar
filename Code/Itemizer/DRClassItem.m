@@ -15,9 +15,7 @@
 {
 	[super initializeWithCapturedZones:captures recipeInfo:recipeInfo];
 	
-	name = [[[captures objectForKey:@"className"] text] retain];
-	NSLog(@"captures: %@", captures);
-	NSLog(@"capture zone: %@", name);
+	name = [[[captures objectForKey:@"name"] text] retain];
 }
 
 - (void)dealloc
